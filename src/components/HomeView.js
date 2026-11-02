@@ -49,15 +49,22 @@ export function renderHomeView() {
                 </a>
               </div>
 
-              <!-- Ficha de Aval Técnico -->
+              <!-- Ficha de Aval Técnico & Autor -->
               <div class="pt-4 flex items-center gap-4 text-xs text-slate-400 border-t border-slate-800">
-                <div class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-[#74ACDF]">
-                  PA
-                </div>
-                <div>
-                  <div class="text-white font-semibold">Dirección Técnica: Lic. Víctor Javier Paredes</div>
-                  <div class="font-mono text-slate-400 text-[11px]">Matrícula Profesional PA 446 · Especialista en Operaciones No Convencionales</div>
-                </div>
+                <a href="https://victorparedes.ar" target="_blank" rel="noopener" class="group flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-[#74ACDF]/70 shadow-lg group-hover:scale-105 transition-transform bg-[#1B1F23] shrink-0">
+                    <img src="https://victorparedes.ar/foto.jpg" alt="Lic. Víctor Javier Paredes" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://victorparedes.ar/bg1.jpg'">
+                  </div>
+                  <div>
+                    <div class="text-white font-bold group-hover:text-[#74ACDF] transition-colors flex items-center gap-1.5">
+                      Dirección Técnica: Lic. Víctor Javier Paredes
+                      <svg class="w-3.5 h-3.5 text-[#74ACDF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </div>
+                    <div class="font-mono text-slate-400 text-[11px]">
+                      Matrícula Profesional PA 446 · Autor de <em class="text-slate-300">Water Transfer en Vaca Muerta</em> · <span class="text-[#74ACDF]">victorparedes.ar</span>
+                    </div>
+                  </div>
+                </a>
               </div>
 
             </div>
@@ -239,6 +246,17 @@ export function renderHomeView() {
                   <span id="calc-notice-text">
                     ★ <strong>¡100% Bonificado!</strong> Con 5 colegas recuperas la totalidad de lo abonado por tu capacitación una vez finalizado el cursado.
                   </span>
+                </div>
+
+                <!-- Callout de Beneficio Permanente para Egresados (15%) -->
+                <div class="p-3.5 bg-[#24282C] border border-amber-500/30 rounded-xl flex items-start gap-3 text-xs">
+                  <span class="text-base">🎓</span>
+                  <div class="space-y-0.5">
+                    <strong class="text-[#FFB000] block font-mono">Luego de Egresado: 15% de Comisión Permanente</strong>
+                    <p class="text-slate-300 text-[11px] leading-relaxed">
+                      Al graduarte, pasas a ser Embajador: cobras el <strong>15% de comisión en efectivo</strong> por cada nuevo colega inscripto con tu código que abone su arancel oficial.
+                    </p>
+                  </div>
                 </div>
 
                 <a href="#/campus" class="w-full py-3 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-sm rounded-xl transition-all block text-center shadow-lg shadow-sky-950/40">

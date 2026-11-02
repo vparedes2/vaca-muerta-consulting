@@ -113,5 +113,25 @@ export const coordinatorService = {
     coords[index] = coord;
     storageService.set('coordinators', coords);
     return coord;
+  },
+
+  /**
+   * Elimina un coordinador / colaborador provincial y remueve su usuario de acceso
+   */
+  delete(coordinatorId) {
+    const coords = storageService.get('coordinators') || [];
+    const coordToDelete = coords.find(c => c.id === coordinatorId);
+    if (!coordToDelete) return false;
+
+    // 1. Quitar de lista de coordinadores
+    const updatedCoords = coords.filter(c => c.id !== coordinatorId);
+    storageService.set('coordinators', updatedCoords);
+
+    // 2. Eliminar usuario asociado de la tabla de accesos
+    const users = storageService.get('users') || [];
+    const updatedUsers = users.filter(u => u.coordinatorId !== coordinatorId && u.username !== coordToDelete.username);
+    storageService.set('users', updatedUsers);
+
+    return true;
   }
 };

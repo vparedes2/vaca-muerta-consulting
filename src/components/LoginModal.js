@@ -30,18 +30,22 @@ export function renderLoginModal() {
           <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-2 text-center">
             Perfiles de Prueba Rápidos (1 Clic)
           </span>
-          <div class="grid grid-cols-3 gap-2">
-            <button type="button" data-fill="admin" class="btn-quick-fill px-2 py-2 bg-slate-800 hover:bg-[#FFB000]/20 hover:border-[#FFB000]/50 border border-slate-700 rounded-lg text-center transition-all group">
+          <div class="grid grid-cols-4 gap-2">
+            <button type="button" data-fill="admin" class="btn-quick-fill px-1.5 py-2 bg-slate-800 hover:bg-[#FFB000]/20 hover:border-[#FFB000]/50 border border-slate-700 rounded-lg text-center transition-all group">
               <span class="block text-[11px] font-bold text-[#FFB000]">Admin</span>
               <span class="block text-[9px] text-slate-400 font-mono">vparedes</span>
             </button>
-            <button type="button" data-fill="coord" class="btn-quick-fill px-2 py-2 bg-slate-800 hover:bg-[#74ACDF]/20 hover:border-[#74ACDF]/50 border border-slate-700 rounded-lg text-center transition-all group">
-              <span class="block text-[11px] font-bold text-[#74ACDF]">Coordinador</span>
+            <button type="button" data-fill="coord" class="btn-quick-fill px-1.5 py-2 bg-slate-800 hover:bg-[#74ACDF]/20 hover:border-[#74ACDF]/50 border border-slate-700 rounded-lg text-center transition-all group">
+              <span class="block text-[11px] font-bold text-[#74ACDF]">Coord.</span>
               <span class="block text-[9px] text-slate-400 font-mono">coord.cuyo</span>
             </button>
-            <button type="button" data-fill="alumno" class="btn-quick-fill px-2 py-2 bg-slate-800 hover:bg-emerald-500/20 hover:border-emerald-500/50 border border-slate-700 rounded-lg text-center transition-all group">
+            <button type="button" data-fill="alumno" class="btn-quick-fill px-1.5 py-2 bg-slate-800 hover:bg-emerald-500/20 hover:border-emerald-500/50 border border-slate-700 rounded-lg text-center transition-all group">
               <span class="block text-[11px] font-bold text-emerald-400">Alumno</span>
               <span class="block text-[9px] text-slate-400 font-mono">alumno01</span>
+            </button>
+            <button type="button" data-fill="egresado" class="btn-quick-fill px-1.5 py-2 bg-slate-800 hover:bg-amber-500/20 hover:border-amber-500/50 border border-slate-700 rounded-lg text-center transition-all group">
+              <span class="block text-[11px] font-bold text-amber-300">Egresado</span>
+              <span class="block text-[9px] text-slate-400 font-mono">egresado01</span>
             </button>
           </div>
         </div>
@@ -104,6 +108,9 @@ export function initLoginModalEvents(onLoginSuccess) {
         passwordInput.value = 'cuyo2026';
       } else if (fillType === 'alumno') {
         usernameInput.value = 'alumno01';
+        passwordInput.value = 'seguridad123';
+      } else if (fillType === 'egresado') {
+        usernameInput.value = 'egresado01';
         passwordInput.value = 'seguridad123';
       }
       errorBox.classList.add('hidden');

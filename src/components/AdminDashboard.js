@@ -276,22 +276,24 @@ export function renderAdminDashboard() {
           </div>
         </div>
 
-        <!-- CONTENIDO PESTAÑA 3: AUDITORÍA RED DE REFERIDOS -->
+        <!-- CONTENIDO PESTAÑA 3: AUDITORÍA RED DE REFERIDOS & EGRESADOS -->
         <div id="tab-referidos" class="admin-tab-content pt-6 space-y-6 hidden">
           <div>
-            <h3 class="text-base font-bold text-white">Auditoría Integral de Reintegros &amp; Red de Referidos Post-Capacitación</h3>
+            <h3 class="text-base font-bold text-white">Auditoría Integral de Reintegros &amp; Comisiones a Egresados</h3>
             <p class="text-xs text-slate-400">
-              Política: El alumno abona el 100% al inicio. Al finalizar la capacitación se devuelve el 20% por colega. Con 5 colegas se reintegra el 100% de su curso, y con más de 5 se abona el 100% del curso más un 20% de ganancia neta por cada colega por sobre los 5.
+              Reglas Oficiales: 
+              <strong>1. En Cursado:</strong> 20% reintegro post-capacitación por colega (100% con 5, +20% extra &gt;5).
+              <strong>2. Egresados:</strong> Comisión permanente del 15% por cada nuevo colega inscripto con su código que <em>abone efectivamente su arancel</em>.
             </p>
           </div>
 
-          <!-- Alerta de Reintegros 100% y Ganancias Extras -->
+          <!-- Alerta de Reintegros y Comisiones -->
           <div class="p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-start gap-3">
             <svg class="w-5 h-5 text-[#FFB000] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
             <div class="text-xs text-slate-300 space-y-1">
-              <span class="font-bold text-white block">Compromisos de Liquidación Bancaria Post-Cursado:</span>
+              <span class="font-bold text-white block">Estado de Liquidaciones Pendientes por Transferencia:</span>
               <p class="text-slate-400">
-                Se registran <strong>${referralAudit.studentsWithFullRefund} alumnos con 100% de devolución</strong> de matrícula y <strong>${referralAudit.studentsWithExtraBonus} alumnos con ganancias netas adicionales</strong> (&gt;5 referidos). Verifique la finalización del cursado antes de emitir las transferencias.
+                Se auditan <strong>${referralAudit.studentsWithFullRefund} alumnos con 100% de devolución</strong> de matrícula, <strong>${referralAudit.studentsWithExtraBonus} alumnos con ganancias netas extras</strong> (&gt;5 referidos), y <strong>${formatARS(referralAudit.totalGraduateCommissions || 0)} en comisiones a egresados</strong> (15% por referido abonado).
               </p>
             </div>
           </div>
@@ -300,40 +302,63 @@ export function renderAdminDashboard() {
             <table class="w-full text-left text-xs text-slate-300 border-collapse">
               <thead>
                 <tr class="bg-[#24282C] border-b border-slate-700 font-mono text-[11px] text-slate-400 uppercase">
-                  <th class="p-3">Estudiante Titular</th>
-                  <th class="p-3">DNI / Contacto</th>
-                  <th class="p-3">Colegas Inscriptos</th>
-                  <th class="p-3">Devolución Curso</th>
-                  <th class="p-3">Ganancia Extra (&gt;5)</th>
-                  <th class="p-3">Total a Liquidar</th>
-                  <th class="p-3">Detalle de Colegas</th>
+                  <th class="p-3">Estudiante / Egresado</th>
+                  <th class="p-3">Estado Académico</th>
+                  <th class="p-3">Referidos (Pagados / Total)</th>
+                  <th class="p-3">Concepto Liquidación</th>
+                  <th class="p-3">Total a Pagar</th>
+                  <th class="p-3">Colegas Referidos</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-slate-800">
                 ${referralAudit.auditList.map(item => `
                   <tr class="hover:bg-slate-800/40 transition-colors">
-                    <td class="p-3 font-bold text-white">${item.name}</td>
-                    <td class="p-3 font-mono text-[11px]">
-                      <div>${item.dni}</div>
-                      <div class="text-slate-400">${item.email}</div>
+                    <td class="p-3">
+                      <div class="font-bold text-white">${item.name}</div>
+                      <div class="text-[11px] font-mono text-slate-400">DNI: ${item.dni}</div>
                     </td>
-                    <td class="p-3 font-mono font-bold text-center text-sm text-[#74ACDF]">
-                      ${item.referralsCount}
+                    <td class="p-3">
+                      ${item.isGraduate ? `
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/20 text-[#FFB000] border border-amber-500/30">
+                          🎓 Egresado Oficial
+                        </span>
+                      ` : `
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                          Alumno en Cursado
+                        </span>
+                      `}
                     </td>
-                    <td class="p-3 font-mono font-bold text-[#FFB000]">
-                      ${formatARS(item.courseRefundAmount)}
-                      ${item.isFullyBonified ? '<span class="text-[10px] block text-emerald-400">★ 100% Recuperado</span>' : ''}
+                    <td class="p-3 font-mono font-bold text-sm">
+                      <span class="text-emerald-400">${item.paidReferralsCount} abonados</span>
+                      ${item.pendingReferralsCount > 0 ? `<span class="text-slate-500 text-xs block">(${item.pendingReferralsCount} pendientes)</span>` : ''}
                     </td>
-                    <td class="p-3 font-mono font-bold ${item.hasExtraBonus ? 'text-emerald-400' : 'text-slate-500'}">
-                      ${item.hasExtraBonus ? `+${formatARS(item.extraBonusTotal)}` : '$0'}
+                    <td class="p-3 font-mono text-xs">
+                      ${item.isGraduate ? `
+                        <span class="text-[#74ACDF] font-bold">15% Comisión Egresado</span>
+                        <span class="text-slate-500 block text-[10px]">Por colegas abonados</span>
+                      ` : `
+                        <span class="text-[#FFB000] font-bold">${formatARS(item.courseRefundAmount)} reintegro</span>
+                        ${item.hasExtraBonus ? `<span class="text-emerald-400 block text-[10px]">+${formatARS(item.extraBonusTotal)} bono extra</span>` : ''}
+                      `}
                     </td>
                     <td class="p-3 font-mono font-black text-sm text-white">
                       ${formatARS(item.totalPayout)}
                     </td>
                     <td class="p-3 text-[11px] text-slate-400">
                       ${item.referralsList.length > 0 ? `
-                        <ul class="list-disc list-inside space-y-0.5">
-                          ${item.referralsList.map(r => `<li>${r.name} (${r.status})</li>`).join('')}
+                        <ul class="space-y-1">
+                          ${item.referralsList.map(r => {
+                            const isPaid = r.paymentStatus === 'paid' || r.isPaid !== false;
+                            return `
+                              <li class="flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full ${isPaid ? 'bg-emerald-400' : 'bg-amber-400'}"></span>
+                                <span>${r.name}</span>
+                                <span class="text-[10px] font-mono ${isPaid ? 'text-emerald-400' : 'text-amber-400'}">
+                                  (${isPaid ? 'Abonado' : 'Pendiente'})
+                                </span>
+                              </li>
+                            `;
+                          }).join('')}
                         </ul>
                       ` : '<em>Sin referidos aún</em>'}
                     </td>
@@ -398,9 +423,13 @@ export function renderAdminDashboard() {
                     </div>
                   </div>
 
-                  <div class="pt-3 border-t border-slate-800">
-                    <button type="button" data-coord-id="${coord.id}" class="btn-liquidate-coord w-full py-2 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-lg transition-colors">
-                      Liquidar Comisión
+                  <div class="pt-3 border-t border-slate-800 flex items-center gap-2">
+                    <button type="button" data-coord-id="${coord.id}" class="btn-liquidate-coord flex-1 py-2 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-lg transition-colors">
+                      Liquidar
+                    </button>
+                    <button type="button" data-coord-id="${coord.id}" data-coord-name="${coord.name}" class="btn-delete-coord px-3 py-2 bg-rose-950/40 hover:bg-rose-900/60 text-rose-300 border border-rose-900/50 hover:border-rose-700 font-bold text-xs rounded-lg transition-colors flex items-center justify-center gap-1.5" title="Eliminar colaborador">
+                      <svg class="w-3.5 h-3.5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                      Eliminar
                     </button>
                   </div>
                 </div>
@@ -524,6 +553,19 @@ export function initAdminEvents() {
       if (toPay && Number(toPay) > 0) {
         coordinatorService.liquidateCommission(coordId, Number(toPay));
         showToast(`Se liquidaron ${formatARS(Number(toPay))} a ${stats.coordinator.name}`, 'success');
+        setTimeout(() => window.location.reload(), 500);
+      }
+    });
+  });
+
+  // Delete coordinator / colaborador
+  document.querySelectorAll('.btn-delete-coord').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const coordId = e.currentTarget.getAttribute('data-coord-id');
+      const coordName = e.currentTarget.getAttribute('data-coord-name');
+      if (confirm(`¿Confirma que desea eliminar al colaborador/coordinador "${coordName}"? Esta acción revocará sus accesos y su código comercial.`)) {
+        coordinatorService.delete(coordId);
+        showToast(`Colaborador ${coordName} eliminado correctamente.`, 'info');
         setTimeout(() => window.location.reload(), 500);
       }
     });

@@ -13,6 +13,7 @@ export const INITIAL_DATA = {
     mpAccessToken: "APP_USR-TEST-TOKEN-VM-2026",
     referralDiscountPerPerson: 0.20, // 20%
     referralFullDiscountCount: 5,    // 5 referidos = 100% bonificado con reintegro
+    graduateCommissionRate: 0.15,   // 15% de comisión permanente para egresados por cada referido abonado
     coordinatorCommissionRate: 0.30 // 30% de comisión comercial
   },
 
@@ -29,7 +30,7 @@ export const INITIAL_DATA = {
       badge: "Mandatorio para Yacimiento",
       rating: 4.9,
       studentsCount: 94,
-      image: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=800&q=80",
+      image: "https://victorparedes.ar/bg1.jpg",
       description: "Formación regulatoria y de seguridad crítica para supervisores y operarios en yacimientos no convencionales de la Cuenca Neuquina. Incluye marco legal neuquino, permisos de trabajo en frío/caliente, aislamiento de energías peligrosas y protocolos de evacuación médica remota.",
       targetAudience: "Supervisores de servicios petroleros, jefes de campo, técnicos HSE, operadores y contratistas en Vaca Muerta.",
       prerequisites: "Secundario completo y nociones básicas de operaciones de campo.",
@@ -154,7 +155,7 @@ La distancia geográfica de los bloques petroleros (ej. Loma Campana, Bajada del
       badge: "Formación de Supervisores",
       rating: 4.85,
       studentsCount: 78,
-      image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+      image: "https://victorparedes.ar/bg4.jpg",
       description: "Profundización en gestión de higiene industrial, monitoreo de sulfhídrico (H2S), control de atmósferas explosivas (ATEX), gestión integral de residuos especiales (Res. 2263/15) y mitigación de factores de riesgo psicosocial en régimen 14x14.",
       targetAudience: "Supervisores de producción, coordinadores de maniobra, inspectores técnicos y profesionales de seguridad e higiene.",
       prerequisites: "Inducción básica HSE o experiencia previa en yacimiento comprobable.",
@@ -218,7 +219,7 @@ Bajo la Resolución 2263/15, todo residuo contaminado con hidrocarburos o fluido
       badge: "Alta Demanda Laboral",
       rating: 4.95,
       studentsCount: 112,
-      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
+      image: "https://victorparedes.ar/th_tendido.jpg",
       description: "Programa maestro para supervisores y operadores de abastecimiento de agua en fractura hidráulica. Cubre captación en río/lago, cálculo de pérdidas de carga, tendido de mangueras layflat de 12\", estaciones de rebombeo booster, montaje de tanques australianos de 2.500 m³ y telemetría SCADA.",
       targetAudience: "Operadores de bomba, maquinistas de manipulador telescópico, supervisores de traza y personal de logística de agua.",
       prerequisites: "Conocimientos mecánicos básicos e interés en operaciones de alta exigencia.",
@@ -309,7 +310,7 @@ Para amortiguar las demandas pico de los camiones fracturadores, se instalan bat
       badge: "Innovación & Industria 4.0",
       rating: 4.9,
       studentsCount: 42,
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+      image: "https://victorparedes.ar/th_traza.jpg",
       description: "Curso de modernización tecnológica enfocado en supervisores, analistas de datos y desarrolladores que necesitan construir y desplegar herramientas digitales para operaciones de yacimiento: tableros SCADA en web, SPAs con arquitectura limpia, control de versiones en GitHub y CI/CD en Vercel.",
       targetAudience: "Técnicos, supervisores con interés digital, analistas de datos y programadores que desarrollan soluciones para Oil & Gas.",
       prerequisites: "Manejo básico de computación e interés en desarrollo web moderno.",
@@ -540,6 +541,7 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
       username: "alumno01",
       password: "seguridad123",
       role: "student",
+      academicStatus: "cursando",
       name: "Esteban Morales",
       dni: "34.892.115",
       email: "esteban.morales@petrolera.com.ar",
@@ -561,7 +563,7 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
         }
       },
       // Programa de Referidos del Estudiante:
-      // Base: 2 referidos inscriptos y pagados (40% de descuento acumulado)
+      // Base: 2 referidos inscriptos y pagados (40% de reintegro post-cursado acumulado)
       referralCode: "alumno01",
       referrals: [
         {
@@ -572,6 +574,8 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
           courseId: "water-transfer-1-2",
           courseTitle: "Operador de Water Transfer Nivel 1 y 2",
           status: "Inscripto y Pagado",
+          paymentStatus: "paid",
+          isPaid: true,
           paidAmount: 400000,
           registeredAt: "2026-01-20",
           discountGenerated: 0.20
@@ -584,6 +588,8 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
           courseId: "hse-vaca-muerta",
           courseTitle: "Inducción HSE Vaca Muerta",
           status: "Inscripto y Pagado",
+          paymentStatus: "paid",
+          isPaid: true,
           paidAmount: 320000,
           registeredAt: "2026-01-28",
           discountGenerated: 0.20
@@ -597,6 +603,7 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
       username: "mrodriguez",
       password: "seguridad123",
       role: "student",
+      academicStatus: "cursando",
       name: "Martín Rodríguez",
       dni: "33.401.992",
       email: "m.rodriguez@servicios-vm.com",
@@ -608,19 +615,20 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
       progress: { "water-transfer-1-2": { completedLessons: ["wt-l1", "wt-l2"], percent: 66, lastAccess: "2026-02-02T10:00:00" } },
       referralCode: "mrodriguez",
       referrals: [
-        { id: "ref-201", name: "Gonzalo Paz", dni: "37.512.001", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Pagado", registeredAt: "2026-01-25", discountGenerated: 0.20 },
-        { id: "ref-202", name: "Federico Luján", dni: "38.109.432", courseTitle: "HSE Vaca Muerta", status: "Inscripto y Pagado", registeredAt: "2026-01-26", discountGenerated: 0.20 },
-        { id: "ref-203", name: "Claudio Vera", dni: "32.908.771", courseTitle: "Higiene y Seguridad", status: "Inscripto y Pagado", registeredAt: "2026-01-27", discountGenerated: 0.20 },
-        { id: "ref-204", name: "Sergio Mansilla", dni: "35.402.112", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Confirmado", registeredAt: "2026-01-29", discountGenerated: 0.20 },
-        { id: "ref-205", name: "Darío Figueroa", dni: "34.110.887", courseTitle: "HSE Vaca Muerta", status: "Inscripto y Confirmado", registeredAt: "2026-01-31", discountGenerated: 0.20 },
-        { id: "ref-206", name: "Esteban Quiroga", dni: "36.220.910", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Confirmado", registeredAt: "2026-02-01", discountGenerated: 0.20 }
-      ] // ¡6 referidos = 100% bonificado ($400k) + $80k ganancia neta en dinero por el 6to!
+        { id: "ref-201", name: "Gonzalo Paz", dni: "37.512.001", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 400000, registeredAt: "2026-01-25", discountGenerated: 0.20 },
+        { id: "ref-202", name: "Federico Luján", dni: "38.109.432", courseTitle: "HSE Vaca Muerta", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 320000, registeredAt: "2026-01-26", discountGenerated: 0.20 },
+        { id: "ref-203", name: "Claudio Vera", dni: "32.908.771", courseTitle: "Higiene y Seguridad", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 320000, registeredAt: "2026-01-27", discountGenerated: 0.20 },
+        { id: "ref-204", name: "Sergio Mansilla", dni: "35.402.112", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 400000, registeredAt: "2026-01-29", discountGenerated: 0.20 },
+        { id: "ref-205", name: "Darío Figueroa", dni: "34.110.887", courseTitle: "HSE Vaca Muerta", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 320000, registeredAt: "2026-01-31", discountGenerated: 0.20 },
+        { id: "ref-206", name: "Esteban Quiroga", dni: "36.220.910", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 400000, registeredAt: "2026-02-01", discountGenerated: 0.20 }
+      ] // ¡6 referidos pagados = 100% bonificado ($400k) + $80k ganancia neta en dinero por el 6to!
     },
     {
       id: "user-alumno03",
       username: "cvalenzuela",
       password: "seguridad123",
       role: "student",
+      academicStatus: "cursando",
       name: "Cristian Valenzuela",
       dni: "37.890.114",
       email: "cvalenzuela@transporte-gas.com",
@@ -632,6 +640,66 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
       progress: { "hse-vaca-muerta": { completedLessons: [], percent: 0, lastAccess: "2026-02-01T09:00:00" } },
       referralCode: "cvalenzuela",
       referrals: []
+    },
+
+    // Perfil de Egresado (Fase 2: Comisión Permanente del 15% por cada referido abonado)
+    {
+      id: "user-egresado01",
+      username: "egresado01",
+      password: "seguridad123",
+      role: "student",
+      academicStatus: "egresado",
+      graduatedAt: "2026-01-15",
+      certificateNumber: "VMC-CERT-2026-089",
+      name: "Ing. Lucas Benítez (Egresado)",
+      dni: "31.902.115",
+      email: "lbenitez@ingenieria-petrolera.com",
+      phone: "+54 9 299 412-3344",
+      province: "Neuquén",
+      city: "Añelo",
+      cohorteId: "cohorte-feb-a",
+      enrolledCourses: ["water-transfer-1-2"],
+      progress: { "water-transfer-1-2": { completedLessons: ["wt-l1", "wt-l2", "wt-l3"], percent: 100, lastAccess: "2026-02-01T18:00:00" } },
+      referralCode: "egresado01",
+      // Referidos del egresado: 2 pagados (comisión 15% c/u = $120.000) y 1 pendiente (sin pago, $0 comisión)
+      referrals: [
+        {
+          id: "ref-e1",
+          name: "Marcos Del Río",
+          dni: "36.441.902",
+          email: "mdelrio@frac-services.com",
+          courseTitle: "Operador de Water Transfer Nivel 1 y 2",
+          paidAmount: 400000,
+          paymentStatus: "paid",
+          isPaid: true,
+          registeredAt: "2026-01-22",
+          status: "Arancel Abonado (Válido)"
+        },
+        {
+          id: "ref-e2",
+          name: "Sebastián Morán",
+          dni: "34.881.002",
+          email: "smoran@cuenca-ops.com",
+          courseTitle: "Operador de Water Transfer Nivel 1 y 2",
+          paidAmount: 400000,
+          paymentStatus: "paid",
+          isPaid: true,
+          registeredAt: "2026-01-29",
+          status: "Arancel Abonado (Válido)"
+        },
+        {
+          id: "ref-e3",
+          name: "Alejandro Sosa",
+          dni: "37.102.883",
+          email: "asosa@perforacion.com",
+          courseTitle: "Inducción HSE Vaca Muerta",
+          paidAmount: 320000,
+          paymentStatus: "pending",
+          isPaid: false,
+          registeredAt: "2026-02-02",
+          status: "Inscripto (Pago Pendiente)"
+        }
+      ]
     }
   ]
 };

@@ -4,6 +4,7 @@
  */
 
 import { authService } from '../services/authService.js';
+import { renderBrandLogo } from './BrandLogo.js';
 
 export function renderNavbar() {
   const user = authService.getCurrentUser();
@@ -41,14 +42,8 @@ export function renderNavbar() {
           
           <!-- Logo & Credencial Oficial -->
           <div class="flex items-center gap-3">
-            <a href="#/home" class="flex items-center gap-2 group">
-              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#74ACDF] to-sky-700 flex items-center justify-center font-bold text-slate-950 text-lg shadow-lg shadow-sky-950/50 group-hover:scale-105 transition-transform">
-                VM
-              </div>
-              <div class="flex flex-col">
-                <span class="font-extrabold tracking-tight text-white text-base leading-tight">Vaca Muerta Consulting</span>
-                <span class="text-[10px] text-slate-400 uppercase tracking-wider font-mono">Lic. Víctor Paredes · Mat. PA 446</span>
-              </div>
+            <a href="#/home" class="flex items-center">
+              ${renderBrandLogo({ layout: 'horizontal', size: 'md', withDirector: true })}
             </a>
             ${roleBadge}
           </div>

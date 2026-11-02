@@ -92,9 +92,10 @@ La plataforma cuenta con 3 perfiles diferenciados con credenciales precargadas p
 
 | Perfil | Usuario | Contraseña | Alcance y Funcionalidades |
 | :--- | :--- | :--- | :--- |
-| **A. Dirección Técnica / Admin** | `vparedes` | `admin2026` | • **ABM Global de Alumnos:** Alta, baja, modificación, DNI, teléfono, validación de credenciales.<br>• **Gestión de Cohortes (190+ alumnos):** Creación y control de cupos escalonados (Febrero A/B, Marzo) para evitar saturación de tutorías.<br>• **Auditoría de Red de Referidos:** Control del promedio de 2 referidos por alumno y alertas de reintegro (100% bonificado al llegar a 5).<br>• **Control de Promotores Provinciales:** Supervisión de ventas y liquidación del **30% de comisión** comercial.<br>• **Gestión de Tarifas:** Modificación de aranceles y pasarela Mercado Pago. |
+| **A. Dirección Técnica / Admin** | `vparedes` | `admin2026` | • **ABM Global de Alumnos & Egresados:** Alta, baja, modificación, DNI, teléfono, estado académico (`cursando` vs `egresado`).<br>• **Gestión de Cohortes (190+ alumnos):** Creación y control de cupos escalonados (Febrero A/B, Marzo) para evitar saturación de tutorías.<br>• **Auditoría de Referidos & Reintegros:** Control de reintegros de hasta el 100% (+ ganancia extra >5) y liquidación de comisiones a egresados.<br>• **Control de Colaboradores / Coordinadores:** Alta, liquidación y **eliminación de colaboradores** con revocación de códigos.<br>• **Gestión de Tarifas:** Modificación de aranceles y pasarela Mercado Pago. |
 | **B. Promotor Provincial** | `coord.cuyo`<br>`coord.cba`<br>`coord.bba` | `cuyo2026`<br>`cordoba2026`<br>`bba2026` | • Panel adaptado por provincia (Cuyo, Córdoba, Buenos Aires).<br>• Seguimiento de inscriptos directos en su zona geográfica.<br>• Cálculo automatizado de su **comisión del 30%** sobre la facturación real.<br>• Control de metas comerciales de aquí a febrero (ej. 50 alumnos).<br>• Generador de enlace promocional único (`?promo=CUYO30`). |
-| **C. Alumno / Estudiante** | `alumno01` | `seguridad123` | • **Reproductor LMS:** Navegación modular por lecciones, video de cabina, checklists operativos de campo y tests evaluativos interactivos.<br>• **Programa de Referidos Inteligente:** Enlace personal único (`?ref=alumno01`), contador de colegas (inicia con base de 2 referidos = 40% OFF) y barra hacia la meta de 5 (100% bonificado con reintegro total).<br>• **Checkout Dinámico:** Botón de Mercado Pago que recalcula en tiempo real el valor restando los descuentos acumulados. |
+| **C. Alumno en Cursado** | `alumno01` | `seguridad123` | • **Campus & Reproductor LMS:** Lecciones modulares, videos, checklists operativos de campo.<br>• **Billetera de Reintegros:** Cobro inicial 100%. Reintegro del 20% por colega post-cursado; 5 colegas = 100% bonificado; >5 colegas = 100% reintegro + 20% de ganancia neta extra en efectivo.<br>• **Panel de Control de Referidos:** Visualización de colegas inscriptos en tiempo real con simulador interactivo. |
+| **D. Egresado Oficial** | `egresado01` | `seguridad123` | • **Comisión Permanente de Egresado (15%):** Gana 15% de comisión en efectivo por cada colega referido inscripto con su código que **abone efectivamente su arancel**.<br>• **Auditoría de Pagos:** Distinción en tiempo real entre *Arancel Abonado (Válido)* y *Pago Pendiente (No computable)*.<br>• Liquidación periódica por transferencia bancaria directa. |
 
 ---
 
@@ -102,25 +103,32 @@ La plataforma cuenta con 3 perfiles diferenciados con credenciales precargadas p
 
 Los valores arancelarios oficiales establecidos por la Dirección Técnica son:
 
-1. **Inducción HSE Vaca Muerta** — `$320.000 ARS` (Código: `VM-HSE-101`)
-2. **Higiene y Seguridad en Hidrocarburos** — `$320.000 ARS` (Código: `VM-HYS-201`)
-3. **Operador de Water Transfer Nivel 1 y 2** — `$400.000 ARS` (Código: `VM-WT-301`)
-4. **Dev & Deploy: Apps en la Nube** — `$150.000 ARS` (Código: `VM-DEV-401`)
+1. **Inducción HSE Vaca Muerta** — `$320.000 ARS` (Código: `VM-HSE-101`) · *Foto de campo Cuenca Neuquina*
+2. **Higiene y Seguridad en Hidrocarburos** — `$320.000 ARS` (Código: `VM-HYS-201`) · *Locación al ocaso en yacimiento*
+3. **Operador de Water Transfer Nivel 1 y 2** — `$400.000 ARS` (Código: `VM-WT-301`) · *Manipulador layflat 12" en campo*
+4. **Dev & Deploy: Apps en la Nube** — `$150.000 ARS` (Código: `VM-DEV-401`) · *Software hidráulico y telemetría web*
 
 ### Fórmulas Financieras del Ecosistema:
 
+#### 1. Durante el Cursado (Alumno Regular):
 * **Pago al Ingresar:**
-  $$\text{Matrícula a Abonar en Pasarela} = \text{Arancel Oficial (100\%)}$$
+  $$\text{Matrícula a Abonar en Pasarela} = \text{Arancel Oficial (100\%) Sin Descuentos Previos}$$
 
 * **Reintegro del Valor del Curso al Finalizar:**
-  $$\text{Reintegro del Curso} = \text{Arancel Oficial} \times \min(1.0, \text{Colegas Referidos} \times 0.20)$$
+  $$\text{Reintegro del Curso} = \text{Arancel Oficial} \times \min(1.0, \text{Colegas Abonados} \times 0.20)$$
 
 * **Ganancia Neta Extra en Efectivo (a partir del 6to Colega):**
-  $$\text{Ganancia Neta Extra} = \max(0, \text{Colegas Referidos} - 5) \times (\text{Arancel Oficial} \times 0.20)$$
+  $$\text{Ganancia Neta Extra} = \max(0, \text{Colegas Abonados} - 5) \times (\text{Arancel Oficial} \times 0.20)$$
 
-* **Total Cobrado por el Alumno Post-Capacitación:**
-  $$\text{Total Liquidado por Transferencia} = \text{Reintegro del Curso} + \text{Ganancia Neta Extra}$$
+* **Total Liquidado por Transferencia al Alumno:**
+  $$\text{Total Liquidado} = \text{Reintegro del Curso} + \text{Ganancia Neta Extra}$$
 
+#### 2. Luego de Egresado (Comisión Permanente):
+* **Comisión por Cada Referido Inscripto y Pagado:**
+  $$\text{Comisión Egresado} = \sum_{\text{referidos abonados}} (\text{Arancel del Curso Abonado} \times 0.15)$$
+  *(Condición excluyente: el referido debe tener su pago acreditado para ser válido).*
+
+#### 3. Red Comercial de Coordinadores Provinciales:
 * **Comisión Promotores Provinciales:**
   $$\text{Comisión Promotor (30\%)} = \text{Facturación Cobrada en Zona} \times 0.30$$
 
