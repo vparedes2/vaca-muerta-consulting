@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nivel 1 — El Supervisor Operativo y su Función · Vaca Muerta Formación</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/curso.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="progreso-lectura" class="barra-progreso"></div>
+
+<!-- CABECERA -->
+<header class="cabecera">
+  <div class="cabecera__contenedor">
+    <a href="../index.html" class="cabecera__marca">
+      <div class="cabecera__logo">VM</div>
+      <div>
+        <div class="cabecera__titulo">Vaca Muerta Formación</div>
+        <div class="cabecera__subtitulo">Nivel 1 · El Supervisor Operativo en Yacimiento</div>
+      </div>
+    </a>
+    <nav class="cabecera__nav">
+      <a href="../index.html#curso">← Programa General</a>
+      <a href="nivel2.html">Nivel 2: Equipos &amp; Plan →</a>
+    </nav>
+  </div>
+</header>
+
+<main class="curso">
+
+<!-- BARRA LATERAL STICKY -->
+<aside class="curso__indice">
+  <div class="curso__indice-titulo">Módulos del Nivel 1</div>
+  <ul>
+    <li><a href="#leccion1" class="activo">1.1 Administración, Ética y Ley</a></li>
+    <li><a href="#permisos">1.2 Permisos de Trabajo (PTS / PTW)</a></li>
+    <li><a href="#leccion2">1.3 Comunicación y Productividad</a></li>
+    <li><a href="#leccion3">1.4 Autoridad y Stop Work (SWA)</a></li>
+    <li><a href="#test-n1" style="color:var(--color-primario);font-weight:700;">★ Test Evaluativo Nivel 1</a></li>
+  </ul>
+
+  <div class="curso__indice-titulo" style="margin-top:2rem;">Tablas del Módulo</div>
+  <ul>
+    <li><a href="#tabla-normas">Marco Legal Cuenca Neuquina</a></li>
+    <li><a href="#tabla-confidencialidad">Clasificación de Información</a></li>
+    <li><a href="#tabla-pts">Tipos de Permisos de Trabajo</a></li>
+    <li><a href="#tabla-epp">EPP por Servicio Petrolero</a></li>
+    <li><a href="#tabla-senales">Código de Señalización IRAM</a></li>
+  </ul>
+
+  <div class="curso__indice-titulo" style="margin-top:2rem;">Material Descargable</div>
+  <ul>
+    <li><a href="../documentos/compilado_nivel1_supervisor_operaciones.doc" download>Word · Nivel 1 Completo</a></li>
+    <li><a href="../documentos/formulario_pts_permiso_trabajo_seguro.doc" download>Plantilla Formulario PTS (Word)</a></li>
+    <li><a href="../documentos/checklist_a2_prueba_hidraulica.pdf" target="_blank">PDF · Checklist Prueba Hidráulica</a></li>
+  </ul>
+</aside>
+
+<!-- CONTENIDO PRINCIPAL -->
+<article class="curso__contenido">
+
+<section class="curso__intro">
+  <span class="curso__etiqueta">Nivel 1 · Fundamentos de la Supervisión</span>
+  <h1>El Supervisor Operativo y su Función en Yacimiento</h1>
+  <p class="curso__descripcion">El supervisor de operaciones en Vaca Muerta es el eslabón fundamental entre la gerencia de operaciones de la compañía de servicios, la operadora petrolera (*company man*) y las cuadrillas que ejecutan tareas críticas en el pozo y la locación: <strong>Water Transfer, Well Testing, UAF, Flowback, Fractura, Cementación, Coiled Tubing, Torqueo, Snubbing, Wireline y Logística</strong>.</p>
+
+  <div class="curso__objetivo">
+    <strong>Objetivo del Nivel:</strong> Que el participante domine el marco legal nacional y provincial neuquino, gestione la confidencialidad técnica de pozos y locaciones, lidere el sistema integral de Permisos de Trabajo Seguro (PTS), aplique la jerarquía de controles de seguridad y ejerza la autoridad de mando con rigor y empatía.
+  </div>
+</section>
+
+<!-- LECCIÓN 1 -->
+<section id="leccion1" class="curso__leccion">
+  <h2>Lección 1 — Administración Operativa, Secreto Industrial y Ética</h2>
+  <p class="curso__temas">Marco regulatorio neuquino · Secreto industrial y confidencialidad en shale · Ética profesional del supervisor · Presencia e imagen en el pad · Pirámide de Bird · Sistema de Permisos de Trabajo Seguro (PTS) · Matriz de EPP multi-servicio.</p>
+
+  <h3>1.1.1 Marco Legal y Autoridades de Aplicación en Neuquén</h3>
+  <p>El supervisor operativo en la Cuenca Neuquina debe conocer con precisión las regulaciones que rigen su actividad. Un error u omisión documental no solo genera NPT (*Non-Productive Time*), sino que puede acarrear multas severas, clausura del yacimiento y responsabilidad civil o penal directa para el supervisor.</p>
+
+  <!-- TABLA 1: MATRIZ DE MARCO NORMATIVO -->
+  <div id="tabla-normas" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Marco Regulatorio y Autoridades de Aplicación · Cuenca Neuquina</h4>
+      <span class="badge badge--norma">CUMPLIMIENTO OBLIGATORIO</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Ámbito</th>
+            <th>Norma / Resolución</th>
+            <th>Autoridad de Aplicación</th>
+            <th>Obligación para el Supervisor Operativo</th>
+            <th>Impacto del Incumplimiento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Nacional</strong></td>
+            <td>Ley 17.319 &amp; Ley 26.197 (Hidrocarburos)</td>
+            <td>Secretaría de Energía de la Nación</td>
+            <td>Asegurar la explotación racional de los recursos y evitar el derroche de gas o crudo.</td>
+            <td><span class="badge badge--critico">Paralización de la concesión</span></td>
+          </tr>
+          <tr>
+            <td><strong>Provincial</strong></td>
+            <td>Ley 1875 &amp; Res. 2263/15 (Ambiente)</td>
+            <td>Subsecretaría de Ambiente de Neuquén</td>
+            <td>Trazabilidad total de residuos especiales mediante manifiestos MERE y control de derrames.</td>
+            <td><span class="badge badge--critico">Multas millonarias y clausura</span></td>
+          </tr>
+          <tr>
+            <td><strong>Laboral / ART</strong></td>
+            <td>Ley 24.557 &amp; Res. SRT 905/15</td>
+            <td>Superintendencia de Riesgos del Trabajo</td>
+            <td>Medición de ruido acústico (&lt;85 dBA), exámenes periódicos y entrega firmada de EPP.</td>
+            <td><span class="badge badge--alerta">Desconocimiento de cobertura ART</span></td>
+          </tr>
+          <tr>
+            <td><strong>Estándar Técnico</strong></td>
+            <td>Normas API (RP 15WT, Spec 6A, RP 54, RP 53)</td>
+            <td>American Petroleum Institute</td>
+            <td>Inspección de bridas de cabezal de pozo, preventores BOP, llaves de torque y mangueras.</td>
+            <td><span class="badge badge--critico">Falla catastrófica de barreras</span></td>
+          </tr>
+          <tr>
+            <td><strong>Municipal</strong></td>
+            <td>Ordenanzas de Añelo y Rincón de Sauces</td>
+            <td>Municipios de la Cuenca</td>
+            <td>Velocidad máxima en picadas (&lt;40 km/h), control de polvo y estacionamiento en bases.</td>
+            <td><span class="badge badge--alerta">Retención de vehículos y multas</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <figure class="figura-ampliable">
+    <div class="figura-ampliable__img-wrap">
+      <img src="../img/control-de-acceso-a-yacimientos.jpg" alt="Control de acceso y seguridad en yacimiento">
+      <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+    </div>
+    <figcaption>
+      <h4>Control de Acceso y Gestión de Ingresos a Locación</h4>
+      <p>Puesto de control de guardia en el acceso al bloque no convencional. Es deber del supervisor asegurar que ningún integrante de la cuadrilla ni transportista ingrese sin inducción vigente y control de alcoholemia cero.</p>
+    </figcaption>
+  </figure>
+
+  <h3>1.1.2 Secreto Industrial y Confidencialidad en la Operación No Convencional</h3>
+  <p>En el desarrollo masivo de Vaca Muerta, la información operativa es altamente estratégica. Los datos de presiones de fractura por etapa, volúmenes de arena por pozo, concentración de reductores de fricción y resultados de ensayos de pozo (*Well Testing*) están protegidos por estrictos acuerdos de confidencialidad (*NDA*).</p>
+
+  <!-- TABLA 2: MATRIZ DE CONFIDENCIALIDAD -->
+  <div id="tabla-confidencialidad" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Matriz de Niveles de Información y Protocolo de Difusión</h4>
+      <span class="badge badge--vm">SEGURIDAD DE INFORMACIÓN</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Nivel de Clasificación</th>
+            <th>Definición y Alcance</th>
+            <th>Ejemplos Críticos en Vaca Muerta</th>
+            <th>Canal Autorizado y Restricciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Pública</strong></td>
+            <td>Información abierta sin impacto comercial.</td>
+            <td>Leyes provinciales, manuales de fabricantes de bombas/grúas, partes del Servicio Meteorológico.</td>
+            <td>Libre difusión en carteleras y reuniones.</td>
+          </tr>
+          <tr>
+            <td><strong>Interna</strong></td>
+            <td>Datos operativos de la compañía de servicios.</td>
+            <td>Diagramas de turnos 14x14, inventario de herramientas de torqueo, listas de verificación de camiones.</td>
+            <td>Correos corporativos y red interna de la empresa.</td>
+          </tr>
+          <tr>
+            <td><strong>Confidencial</strong></td>
+            <td>Datos de producción y diseño del cliente.</td>
+            <td>Coordenadas GPS de nuevos pads, fechas de inicio de estimulación, caudal de crudo en Well Testing.</td>
+            <td><span class="badge badge--alerta">Solo jefatura de base y supervisor de turno</span></td>
+          </tr>
+          <tr>
+            <td><strong>Secreto Industrial</strong></td>
+            <td>Know-how de ingeniería de alta gama.</td>
+            <td>Fórmulas químicas de geles de fractura, curvas de declino de reservorio, registros sónicos de Wireline.</td>
+            <td><span class="badge badge--critico">Estrictamente restringido bajo acuerdo NDA</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="curso__idea">
+    <strong>Principio de Confidencialidad:</strong> Queda terminantemente prohibido tomar fotografías o videos de operaciones en pozo o publicar novedades en redes sociales (WhatsApp, Instagram, TikTok) sin autorización expresa del cliente. La divulgación de un incidente de presión o un derrame en redes es causal directa de despido justificado y expulsión del yacimiento.
+  </div>
+</section>
+
+<!-- SECCIÓN 1.2: PERMISOS DE TRABAJO SEGURO (PTS) -->
+<section id="permisos" class="curso__leccion">
+  <h2>1.2 Sistema de Permisos de Trabajo Seguro (PTS / PTW)</h2>
+  <p class="curso__temas">El Permiso de Trabajo Seguro como instrumento legal y operativo · Roles: Solicitante, Emisor y Ejecutor · Los 6 tipos de permisos en yacimiento · Análisis de Trabajo Seguro (ATS/ART) · Charlas de seguridad de 5 minutos.</p>
+
+  <p>El **Permiso de Trabajo Seguro (PTS)** no es un trámite burocrático: es una licencia formal para operar donde se analizan los riesgos de la tarea y se declaran por escrito las barreras que protegen la vida de los trabajadores antes de encender un motor o aflojar una brida.</p>
+
+  <!-- TABLA 3: MATRIZ DE PTS -->
+  <div id="tabla-pts" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Tipos de Permisos de Trabajo Seguro (PTS) en Locaciones Petroleras</h4>
+      <span class="badge badge--ok">SISTEMA INTEGRAL DE CONTROL</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Tipo de Permiso (PTS)</th>
+            <th>Color / Identificación</th>
+            <th>Actividades que lo Requieren</th>
+            <th>Requisitos Previos Obligatorios</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>PTS en Frío</strong></td>
+            <td>Verde / Estándar</td>
+            <td>Mantenimiento mecánico sin calor, tendido de layflat, ajuste de conexiones roscadas, cambio de filtros.</td>
+            <td>ART firmado en locación, verificación de EPP básico, bloqueo mecánico si aplica.</td>
+          </tr>
+          <tr>
+            <td><strong>PTS en Caliente</strong></td>
+            <td>Rojo / Crítico</td>
+            <td>Soldadura eléctrica, oxicorte, amolado o uso de motores de combustión en áreas clasificadas (Zona 1 y 2).</td>
+            <td>Explosimetría continua (&lt;10% LEL), línea de agua presurizada, extintor a menos de 5 m, vigía de fuego.</td>
+          </tr>
+          <tr>
+            <td><strong>PTS Espacio Confinado</strong></td>
+            <td>Amarillo / Alto Riesgo</td>
+            <td>Ingreso al interior de tanques australianos, piletas de flowback, separadores trifásicos o tolvas.</td>
+            <td>Aislamiento LOTO positivo, medición de O₂ (19.5-23.5%), vigía en boca de hombre, arnés y trípode de rescate.</td>
+          </tr>
+          <tr>
+            <td><strong>PTS Trabajo en Altura</strong></td>
+            <td>Azul / Altura</td>
+            <td>Tareas a más de 1,80 metros: inyector de Coiled Tubing, canasta de snubbing, mástiles de perforación/pulling.</td>
+            <td>Línea de vida certificada, arnés de cuerpo completo con doble cola de amarre, barandas perimetrales.</td>
+          </tr>
+          <tr>
+            <td><strong>PTS Alta Presión</strong></td>
+            <td>Naranja / Hidráulico</td>
+            <td>Pruebas hidráulicas a &gt;1.000 psi en líneas de fractura, cementación, árboles de navidad o manifold de choke.</td>
+            <td>Delimitación con cinta de peligro ("Zona Roja"), silbato de alerta, cero personas en radio de eyección.</td>
+          </tr>
+          <tr>
+            <td><strong>PTS Izaje Crítico</strong></td>
+            <td>Violeta / Maniobra</td>
+            <td>Izaje con grúa de más del 75% de capacidad, uso de dos grúas en tándem o izaje sobre líneas vivas.</td>
+            <td>Plan de izaje firmado por rigger certificado, tabla de carga, cálculo de radio y velocidad de viento &lt;45 km/h.</td>
+          </tr>
+          <tr>
+            <td><strong>PTS Excavación y Zanjeo</strong></td>
+            <td>Marrón / Obras Civiles</td>
+            <td>Movimiento de suelos en PADs, zanjeo de ductos/flowlines, plateas y excavaciones mecánicas &gt;30 cm.</td>
+            <td>Plano de interferencias validado, cateo manual exploratorio con pala aislada, entibado de zanjas &gt;1.20 m, detector trazador.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="figuras-grid--2">
+    <figure class="figura-ampliable">
+      <div class="figura-ampliable__img-wrap">
+        <img src="../img/motobomba.jpg" alt="Motobomba con protecciones mecánicas verificadas">
+        <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+      </div>
+      <figcaption>
+        <h4>Inspección Preoperacional de Bombas</h4>
+        <p>Verificación de guardas de protección en partes móviles y ausencia de fugas de combustible antes de emitir el PTS de bombeo.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="figura-ampliable">
+      <div class="figura-ampliable__img-wrap">
+        <img src="../img/faja-certificada.jpg" alt="Faja sintética de izaje certificada con costuras intactas">
+        <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+      </div>
+      <figcaption>
+        <h4>Elementos de Izaje Certificados</h4>
+        <p>Toda faja o eslinga empleada en izajes de equipos debe tener etiqueta con límite de carga (WLL) legible y fecha de inspección periódica al día.</p>
+      </figcaption>
+    </figure>
+  </div>
+
+  <!-- TABLA 4: MATRIZ DE EPP MULTI-SERVICIO -->
+  <div id="tabla-epp" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Matriz de EPP Específico por Servicio Petrolero en Vaca Muerta</h4>
+      <span class="badge badge--critico">PROTECCIÓN PERSONAL</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Servicio de Campo</th>
+            <th>EPP Básico Permanente</th>
+            <th>EPP Específico Obligatorio</th>
+            <th>Riesgo Mayor que Mitiga</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fractura Hidráulica (Frac)</strong></td>
+            <td>Mameluco ignífugo (FR), casco con barbiquejo, calzado de seguridad dieléctrico.</td>
+            <td>Doble protección auditiva (tapón + copa) para &gt;95 dBA, guantes anti-impacto nivel 5.</td>
+            <td>Ruido de 18 bombas de frac a 10.000 psi y proyección de fragmentos metálicos.</td>
+          </tr>
+          <tr>
+            <td><strong>Well Testing &amp; Flowback</strong></td>
+            <td>Mameluco FR antiestático, calzado caña alta resistente a hidrocarburos.</td>
+            <td>Detector monogas H₂S calibrado, máscara semiextensible con filtros mixtos para gases ácidos.</td>
+            <td>Intoxicación letal por gas sulfhídrico y vapores de hidrocarburos volátiles.</td>
+          </tr>
+          <tr>
+            <td><strong>Coiled Tubing &amp; Snubbing</strong></td>
+            <td>Mameluco ignífugo, antiparras cerradas, calzado con suela antideslizante.</td>
+            <td>Arnés integral de rescate con línea retráctil, guantes térmicos ante cañería caliente.</td>
+            <td>Caídas de altura desde canasta (15 m) y chorro de fluido a alta temperatura.</td>
+          </tr>
+          <tr>
+            <td><strong>Cementación</strong></td>
+            <td>Ropa de trabajo reflectiva, casco, gafas de seguridad de policarbonato.</td>
+            <td>Protección respiratoria con filtros para partículas P100, guantes de PVC caña larga.</td>
+            <td>Quemadura química por contacto con lechada cáustica y silicosis por cemento seco.</td>
+          </tr>
+          <tr>
+            <td><strong>Torqueo de Bridas</strong></td>
+            <td>Calzado con puntera de acero reforzada, casco con barboquejo.</td>
+            <td>Guantes rígidos anti-atrapamiento con protección de falanges, pantalla facial completa.</td>
+            <td>Pellizco y aplastamiento de dedos por mordazas hidráulicas de 10.000 ft-lb.</td>
+          </tr>
+          <tr>
+            <td><strong>Wireline</strong></td>
+            <td>Mameluco ignífugo con tratamiento antiestático normado.</td>
+            <td>Calzado con dispersión electrostática (ESD), guantes de precisión para conexionado.</td>
+            <td>Descargas electrostáticas accidentales durante el cebado de cañones explosivos.</td>
+          </tr>
+          <tr>
+            <td><strong>Supervisión de Obra Civil</strong></td>
+            <td>Chaleco refractario clase 3, calzado con protección metatarsal, casco con cubrenuca.</td>
+            <td>Protector auditivo contra maquinaria pesada (&gt;85 dBA), máscara contra polvo P100.</td>
+            <td>Atropellamiento en áreas de movimiento de suelos, ráfagas de Zonda con polvo y voladuras.</td>
+          </tr>
+          <tr>
+            <td><strong>Supervisión General &amp; SIMOPS</strong></td>
+            <td>Mameluco ignífugo NFPA 2112, chaleco identificatorio de Supervisor de Locación.</td>
+            <td>Detector multigas 4 gases (H₂S, LEL, CO, O₂) calibrado, radio VHF intrínsecamente segura.</td>
+            <td>Exposición a múltiples riesgos concurrentes sin delimitación en locaciones multi-pozo.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLA 5: SEÑALIZACIÓN IRAM -->
+  <div id="tabla-senales" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Código de Señalización de Seguridad en Locación (Norma IRAM 10.005 / OSHA)</h4>
+      <span class="badge badge--alerta">ADVERTENCIA VISUAL</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Color de Seguridad</th>
+            <th>Forma Geométrica</th>
+            <th>Significado</th>
+            <th>Ejemplo Concreto en Locación de Vaca Muerta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:#b91c1c;">Rojo</strong></td>
+            <td>Círculo con diagonal / Cuadrado</td>
+            <td>Parada de emergencia, prohibición, material de extinción</td>
+            <td>Botoneras ESD de corte general en missile, prohibido fumar en antorcha flare.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#d97706;">Amarillo</strong></td>
+            <td>Triángulo equilátero</td>
+            <td>Precaución, riesgo de tropiezo o peligro físico</td>
+            <td>Líneas de 10.000 psi presurizadas en superficie, radio de giro de grúa telescópica.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#2563eb;">Azul</strong></td>
+            <td>Círculo</td>
+            <td>Obligación, acción imperativa de mando</td>
+            <td>Uso obligatorio de detector de gas H₂S en testing, protección auditiva obligatoria en frac.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#16a34a;">Verde</strong></td>
+            <td>Cuadrado o rectángulo</td>
+            <td>Seguridad, primeros auxilios, vías de escape</td>
+            <td>Puntos de encuentro (Muster Point) en pad, duchas lavaojos de emergencia, botiquín DEA.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN 1.3: COMUNICACIÓN Y PRODUCTIVIDAD -->
+<section id="leccion2" class="curso__leccion">
+  <h2>Lección 2 — Comunicación Operativa y Productividad Laboral</h2>
+  <p class="curso__temas">Protocolo de radio VHF y colación obligatoria · Manejo de interferencias en locación · Eliminación de desperdicios (Lean Upstream) · Indicadores de productividad por etapa.</p>
+
+  <h3>1.3.1 Protocolo de Colación por Radio (Read-Back)</h3>
+  <p>En un pad con 15 compañías de servicio operando en paralelo (SIMOPS), la comunicación debe ser inequívoca. El protocolo de colación (*Read-Back*) exige que toda instrucción que implique una maniobra hidráulica, eléctrica o mecánica sea repetida en su totalidad por quien la recibe antes de su ejecución.</p>
+
+  <div class="curso__idea">
+    <strong>Ejemplo Operativo:</strong><br>
+    <em>Supervisor Well Testing:</em> "Operador Choke, cierre estrangulador de 32 a 24 sesentaicuatroavos lentamente."<br>
+    <em>Operador Choke:</em> "Comprendido Supervisor, cerrando estrangulador de 32 a 24 sesentaicuatroavos lentamente."
+  </div>
+
+  <figure class="figura-ampliable">
+    <div class="figura-ampliable__img-wrap">
+      <img src="../img/derivador-y-caudalimetro.jpg" alt="Caudalímetro e instrumental en manifold de control">
+      <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+    </div>
+    <figcaption>
+      <h4>Instrumentación y Registro Continuo de Caudal</h4>
+      <p>Caudalímetro electromagnético en línea de alimentación. El control cruzado de las lecturas de telemetría y los registros manuales de campo permite detectar variaciones antes de que se afecte el proceso.</p>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- SECCIÓN 1.4: AUTORIDAD Y STOP WORK AUTHORITY -->
+<section id="leccion3" class="curso__leccion">
+  <h2>Lección 3 — Autoridad, Liderazgo y Stop Work Authority (SWA)</h2>
+  <p class="curso__temas">El liderazgo visible en campo · Matriz de prioridades (Urgente vs. Importante) · Stop Work Authority como deber innegociable · Gestión del clima de trabajo en turnos de 12 horas.</p>
+
+  <div class="curso__idea">
+    <strong>Stop Work Authority (SWA) en Vaca Muerta:</strong> Todo supervisor, operario o chofer tiene la autoridad formal y el respaldo legal absoluto para paralizar cualquier tarea de forma inmediata si detecta una condición de riesgo inminente (ej. fuga en línea de alta presión, ráfagas de viento sobre el límite durante izajes o presencia de gas sin detector), sin temor a ninguna sanción económica ni represalia.
+  </div>
+</section>
+
+<!-- TEST EVALUATIVO INTERACTIVO NIVEL 1 -->
+<section id="test-n1" class="curso__leccion">
+  <h2>Test Evaluativo Interactivo · Nivel 1</h2>
+  <p>Demostrá tus conocimientos sobre administración operativa, marco regulatorio neuquino, permisos PTS y seguridad. Hacé clic en la opción correcta para verificar de inmediato tu respuesta.</p>
+
+  <div class="test-interactivo">
+    <div class="test-interactivo__encabezado">
+      <h3 class="test-interactivo__titulo">Evaluación de Competencias · Nivel 1 (5 Preguntas)</h3>
+      <span class="badge badge--vm">MÍNIMO APROBATORIO: 80% (4 de 5)</span>
+    </div>
+
+    <!-- Pregunta 1 -->
+    <div class="pregunta-test" data-correcta="2">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 1 de 5 · Marco Legal</span>
+        <span class="badge badge--norma">LEGISLACIÓN</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        ¿Qué ley nacional transfirió formalmente la titularidad y administración de los yacimientos hidrocarburíferos a las provincias en Argentina?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Ley 24.051 de residuos industriales.</button>
+        <button class="opcion-test" data-opcion="2">B) Ley 26.197 (conocida como Ley Corta de Hidrocarburos).</button>
+        <button class="opcion-test" data-opcion="3">C) Ley 20.744 de Contrato de Trabajo.</button>
+        <button class="opcion-test" data-opcion="4">D) Ley 1875 provincial de preservación del ambiente.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="La Ley 26.197 modificó la histórica Ley 17.319 transfiriendo el dominio y la potestad de regulación a las provincias donde se ubican los yacimientos (como Neuquén)."></div>
+    </div>
+
+    <!-- Pregunta 2 -->
+    <div class="pregunta-test" data-correcta="3">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 2 de 5 · Permisos de Trabajo</span>
+        <span class="badge badge--critico">PTS CALIENTE</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        Se debe realizar un trabajo de corte con amoladora a 15 metros de una unidad separadora de Well Testing. ¿Qué requisito es obligatorio previo al inicio?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Solicitar un PTS en Frío si el corte dura menos de 10 minutos.</button>
+        <button class="opcion-test" data-opcion="2">B) Cubrir la amoladora con un trapo húmedo para que no salten chispas.</button>
+        <button class="opcion-test" data-opcion="3">C) Tramitar PTS en Caliente, realizar medición de explosimetría continua (LEL 0%), asignar vigía de fuego y extintor al pie.</button>
+        <button class="opcion-test" data-opcion="4">D) No se requiere permiso si el soldador tiene credencial habilitante.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="Todo trabajo con llama abierta o generación de chispas en cercanías de hidrocarburos exige PTS en Caliente, explosimetría comprobada a 0% LEL y vigía con matafuegos activo."></div>
+    </div>
+
+    <!-- Pregunta 3 -->
+    <div class="pregunta-test" data-correcta="1">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 3 de 5 · Confidencialidad</span>
+        <span class="badge badge--alerta">ÉTICA</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        Un operador de la cuadrilla toma una fotografía del set de fractura con las presiones de bombeo en la pantalla y la comparte en un grupo de WhatsApp. ¿Cuál es la implicancia?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Constituye una violación grave del secreto industrial y de las cláusulas de confidencialidad del contrato, pasible de sanción y expulsión.</button>
+        <button class="opcion-test" data-opcion="2">B) No genera ningún inconveniente si la foto no tiene coordenadas de geolocalización.</button>
+        <button class="opcion-test" data-opcion="3">C) Es una práctica común y aceptada para difundir el avance de obra entre compañeros.</button>
+        <button class="opcion-test" data-opcion="4">D) Solo es sancionable si la operadora lo ve publicado en un medio periodístico internacional.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="Los contratos de servicios petroleros establecen multas severas por fuga de información no autorizada. El supervisor debe garantizar que no se difundan imágenes ni datos del yacimiento."></div>
+    </div>
+
+    <!-- Pregunta 4 -->
+    <div class="pregunta-test" data-correcta="4">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 4 de 5 · Comunicación</span>
+        <span class="badge badge--norma">RADIO VHF</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        ¿Por qué es indispensable el protocolo de colación (*Read-Back*) en las comunicaciones por radio en operaciones de alta presión?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Para que el registro quede grabado más prolijo en la central de radio.</button>
+        <button class="opcion-test" data-opcion="2">B) Para cumplir con una formalidad militar sin valor operativo real.</button>
+        <button class="opcion-test" data-opcion="3">C) Para alargar el tiempo entre maniobras y reducir la velocidad de los operarios.</button>
+        <button class="opcion-test" data-opcion="4">D) Para asegurar que la orden fue comprendida exactamente y sin distorsión antes de accionar válvulas o motores críticos.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="La colación elimina la posibilidad de que una mala recepción por estática o ruido de motores provoque el cierre de la válvula equivocada o un golpe de sobrepresión."></div>
+    </div>
+
+    <!-- Pregunta 5 -->
+    <div class="pregunta-test" data-correcta="2">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 5 de 5 · Stop Work Authority</span>
+        <span class="badge badge--critico">SEGURIDAD</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        Durante una maniobra de izaje con grúa, un ingresante con solo tres semanas en la empresa observa que una faja roza un borde metálico filoso sin protección. ¿Qué debe hacer?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Guardar silencio porque es el miembro más nuevo de la cuadrilla y no debe cuestionar al gruista.</button>
+        <button class="opcion-test" data-opcion="2">B) Ejercer de inmediato el Stop Work Authority (SWA), hacer señas de detención a la maniobra y llamar al supervisor.</button>
+        <button class="opcion-test" data-opcion="3">C) Esperar a que la carga sea izada a su posición final y luego comentarlo en la reunión del día siguiente.</button>
+        <button class="opcion-test" data-opcion="4">D) Intentar acomodar la faja con sus manos mientras la carga está suspendida en el aire.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="El SWA es un derecho y una obligación universal de cualquier trabajador, sin importar jerarquía ni antigüedad. Salva vidas frente a maniobras con riesgo inminente."></div>
+    </div>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <button class="btn-calcular-test" disabled>Calcular Resultado Nivel 1</button>
+      <p style="font-size:0.85rem;color:var(--color-texto-suave);margin-top:0.5rem;">* Respondé las 5 preguntas para habilitar tu puntaje.</p>
+    </div>
+    <div class="resultado-test"></div>
+  </div>
+</section>
+
+<!-- NAVEGACIÓN -->
+<nav class="curso__nav">
+  <a href="../index.html#curso" class="boton boton--secundario">← Volver a la Portada</a>
+  <a href="nivel2.html" class="boton boton--principal">Avanzar al Nivel 2: Conformación de Equipos y Supervisión →</a>
+</nav>
+
+</article>
+</main>
+
+<footer class="pie">
+  <div class="pie__contenedor">
+    <div><strong>Vaca Muerta Formación</strong> · Nivel 1: El Supervisor Operativo y su Función</div>
+    <div class="pie__detalle">Capacitación técnica transversal adaptada a los estándares de la Cuenca Neuquina.</div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

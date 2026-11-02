@@ -1,0 +1,29 @@
+{
+  "name": "vaca-muerta-consulting-lms",
+  "version": "2.0.0",
+  "description": "Plataforma SPA modular inspirada en Frappe LMS para Vaca Muerta Consulting (Dirección Técnica: Lic. Víctor Javier Paredes, Mat. PA 446).",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve -l 3000 .",
+    "dev": "npx serve -l 3000 .",
+    "serve:python": "python -m http.server 3000"
+  },
+  "keywords": [
+    "lms",
+    "frappe-lms",
+    "vaca-muerta",
+    "oil-and-gas",
+    "cuenca-neuquina",
+    "water-transfer",
+    "hse",
+    "spa",
+    "clean-architecture"
+  ],
+  "author": "Lic. Víctor Javier Paredes (PA 446)",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

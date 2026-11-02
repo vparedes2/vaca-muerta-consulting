@@ -1,0 +1,115 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset='utf-8'>
+<title>DOCUMENTO VACA MUERTA</title>
+<style>
+  body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; line-height: 1.35; color: #1e293b; margin: 2cm; }
+  h1 { color: #0f172a; font-size: 16pt; border-bottom: 2pt solid #b91c1c; padding-bottom: 4pt; margin-bottom: 8pt; }
+  h2 { color: #b91c1c; font-size: 13pt; margin-top: 14pt; margin-bottom: 6pt; border-bottom: 1pt solid #cbd5e1; padding-bottom: 2pt; }
+  h3 { color: #0f172a; font-size: 11pt; margin-top: 10pt; margin-bottom: 4pt; }
+  p { margin: 4pt 0; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; }
+  th, td { border: 1pt solid #94a3b8; padding: 5pt 7pt; text-align: left; font-size: 9.5pt; }
+  th { background-color: #0f172a; color: #ffffff; font-weight: bold; }
+  .header-table { width: 100%; border: 1.5pt solid #0f172a; margin-bottom: 12pt; }
+  .header-table td { border: 1pt solid #cbd5e1; padding: 4pt 6pt; font-size: 9pt; }
+  .badge { background-color: #b91c1c; color: white; padding: 2pt 5pt; font-weight: bold; font-size: 8.5pt; }
+  .alerta { background-color: #fef2f2; border-left: 3pt solid #b91c1c; padding: 6pt 10pt; margin: 8pt 0; font-size: 9.5pt; }
+  .firma-caja { height: 45pt; border-bottom: 1pt solid #000; margin-top: 20pt; text-align: center; font-size: 8.5pt; }
+</style>
+</head>
+<body><table class='header-table'>
+  <tr>
+    <td rowspan='2' style='width:20%; text-align:center; font-weight:bold; font-size:14pt; background:#f8fafc;'>VACA MUERTA<br><span style='font-size:9pt; color:#b91c1c;'>GUARDIA</span></td>
+    <td style='width:50%; text-align:center; font-weight:bold; font-size:13pt;'>PROCEDIMIENTO DE RELEVO OPERATIVO<br>ACTA DE PASE DE GUARDIA (SHIFT HANDOVER)</td>
+    <td style='width:30%; font-size:8.5pt;'><strong>Guardia:</strong> [ ] Dia (08 a 20)  [ ] Noche (20 a 08)<br><strong>Fecha:</strong> ___/___/2026<br><strong>Locacion:</strong> _____________________</td>
+  </tr>
+  <tr>
+    <td colspan='2'><strong>Servicio:</strong> _____________________________________ <strong>Supervisor Saliente:</strong> __________________ <strong>Entrante:</strong> __________________</td>
+  </tr>
+</table>
+
+<h2>1. ESTADO OPERACIONAL Y PARAMETROS DEL TURNO</h2>
+<table>
+  <tr>
+    <th>Parametro Operativo</th>
+    <th>Valor de Entrega</th>
+    <th>Objetivo de Turno</th>
+    <th>Desvio / Observaciones</th>
+  </tr>
+  <tr>
+    <td>Caudal Instantaneo / Regimen</td>
+    <td>_______ mÂ³/h / bpm</td>
+    <td>_______ mÂ³/h / bpm</td>
+    <td>__________________________________________________</td>
+  </tr>
+  <tr>
+    <td>Presion en Manifold / Linea</td>
+    <td>_______ PSI / bar</td>
+    <td>_______ PSI / bar</td>
+    <td>__________________________________________________</td>
+  </tr>
+  <tr>
+    <td>Volumen Total Acumulado</td>
+    <td>_______ mÂ³ / bbl</td>
+    <td>_______ mÂ³ / bbl</td>
+    <td>__________________________________________________</td>
+  </tr>
+  <tr>
+    <td>Nivel de Pulmon / Piletas</td>
+    <td>_______ % (____ mÂ³)</td>
+    <td>> 60 %</td>
+    <td>__________________________________________________</td>
+  </tr>
+  <tr>
+    <td>Stock Diesel en Cisternas</td>
+    <td>_______ Litros</td>
+    <td>Minimo 8.000 L</td>
+    <td>Cisterna A: _______ L &nbsp;&nbsp; Cisterna B: _______ L</td>
+  </tr>
+</table>
+
+<h2>2. PERMISOS DE TRABAJO (PTS) ACTIVOS Y BLOQUEOS LOTO VIGENTES</h2>
+<table>
+  <tr>
+    <th>NÂ° de PTS</th>
+    <th>Area / Equipo</th>
+    <th>Empresa Ejecutante</th>
+    <th>Estado (Abierto / Suspendido)</th>
+    <th>Candados LOTO NÂ°</th>
+  </tr>
+  <tr>
+    <td>PTS-____</td>
+    <td>________________________</td>
+    <td>________________________</td>
+    <td>[ ] Activo  [ ] Pausado</td>
+    <td>____________________</td>
+  </tr>
+  <tr>
+    <td>PTS-____</td>
+    <td>________________________</td>
+    <td>________________________</td>
+    <td>[ ] Activo  [ ] Pausado</td>
+    <td>____________________</td>
+  </tr>
+</table>
+
+<h2>3. NOVEDADES MECANICAS, INTERFERENCIAS SIMOPS Y ALERTAS CLIMATICAS</h2>
+<div class='alerta'>
+  <strong>CONDICION CLIMATICA ACTUAL:</strong> Viento: ____ km/h (Direccion: ____) &nbsp;|&nbsp; Alerta Zonda: [ ] Verde [ ] Amarilla [ ] Roja &nbsp;|&nbsp; Visibilidad: [ ] Normal [ ] Polvo/Baja
+</div>
+<p><strong>Desvios y Equipos Fuera de Servicio (OOS):</strong></p>
+<p style='height:35pt; border:1pt dashed #94a3b8; padding:5pt; background:#fafafa;'>____________________________________________________________________________________________________________________</p>
+
+<h2>4. CONFORMIDAD Y TRASPASO DE RESPONSABILIDAD</h2>
+<table>
+  <tr>
+    <th style='width:50%; text-align:center;'>SUPERVISOR SALIENTE</th>
+    <th style='width:50%; text-align:center;'>SUPERVISOR ENTRANTE</th>
+  </tr>
+  <tr>
+    <td class='firma-caja'>Entrego la guardia con las novedades expuestas:<br><br>Firma: ________________________ Hora: ___:___</td>
+    <td class='firma-caja'>Recibo y verifico las condiciones en locacion:<br><br>Firma: ________________________ Hora: ___:___</td>
+  </tr>
+</table>
+</body></html>

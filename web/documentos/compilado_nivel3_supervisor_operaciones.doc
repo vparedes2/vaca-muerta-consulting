@@ -1,0 +1,106 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>COMPILADO INTEGRAL &middot; NIVEL 3</title>
+<style>
+  body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; line-height: 1.4; color: #1e293b; margin: 2cm; }
+  h1 { color: #0f172a; font-size: 15pt; border-bottom: 2pt solid #b91c1c; padding-bottom: 4pt; margin-bottom: 8pt; text-transform: uppercase; }
+  h2 { color: #b91c1c; font-size: 12.5pt; margin-top: 14pt; margin-bottom: 5pt; border-bottom: 1pt solid #cbd5e1; padding-bottom: 2pt; text-transform: uppercase; }
+  h3 { color: #0f172a; font-size: 11pt; margin-top: 10pt; margin-bottom: 3pt; }
+  p { margin: 4pt 0; text-align: justify; }
+  ul, ol { margin: 4pt 0 8pt 20pt; }
+  li { margin-bottom: 2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; }
+  th, td { border: 1pt solid #94a3b8; padding: 5pt 7pt; text-align: left; font-size: 9pt; }
+  th { background-color: #0f172a; color: #ffffff; font-weight: bold; }
+  .header-table { width: 100%; border: 1.5pt solid #0f172a; margin-bottom: 12pt; }
+  .header-table td { border: 1pt solid #cbd5e1; padding: 4pt 6pt; font-size: 8.5pt; }
+  .badge { background-color: #b91c1c; color: white; padding: 2pt 5pt; font-weight: bold; font-size: 8pt; }
+  .alerta { background-color: #fef2f2; border-left: 3.5pt solid #b91c1c; padding: 6pt 10pt; margin: 8pt 0; font-size: 9pt; }
+  .nota { background-color: #f0fdf4; border-left: 3.5pt solid #16a34a; padding: 6pt 10pt; margin: 8pt 0; font-size: 9pt; }
+  .firma-caja { height: 40pt; border-bottom: 1pt solid #000; margin-top: 20pt; text-align: center; font-size: 8.5pt; }
+</style>
+</head>
+<body>
+<table class='header-table'>
+  <tr>
+    <td rowspan='2' style='width:22%; text-align:center; font-weight:bold; font-size:13pt; background:#f8fafc; color:#0f172a;'>VACA MUERTA<br><span style='font-size:8.5pt; color:#b91c1c;'>FORMACI&Oacute;N</span></td>
+    <td style='width:52%; text-align:center; font-weight:bold; font-size:11.5pt; color:#0f172a;'>COMPILADO INTEGRAL &middot; NIVEL 3<br><span style='font-size:9pt; font-weight:normal; color:#475569;'>Gesti&oacute;n de Viento Zonda, SIMOPS en PADs y Emergencias de Campo</span></td>
+    <td style='width:26%; font-size:8pt;'><strong>C&oacute;digo:</strong> VM-GUIA-N3-2026<br><strong>Revisi&oacute;n:</strong> 4.0 Multi-Servicio<br><strong>Cuenca:</strong> Neuquina (Argentina)</td>
+  </tr>
+  <tr>
+    <td colspan='2' style='font-size:8pt;'><strong>Servicios:</strong> Fractura, Coiled Tubing, Wireline, Snubbing, Well Testing, Cementaci&oacute;n, Flowback, Torqueo, Water Transfer, Log&iacute;stica, Obra Civil y Supervisi&oacute;n General.</td>
+  </tr>
+</table><h1>Nivel 3: Gesti&oacute;n de Riesgos Clim&aacute;ticos, SIMOPS y Emergencias</h1>
+<div class='nota'>
+  <strong>Prop&oacute;sito Formativo:</strong> Capacitar al supervisor para comandar operaciones en el riguroso entorno de la Patagonia, coordinar m&uacute;ltiples contratistas simult&aacute;neos en super-PADs y actuar con precisi&oacute;n quir&uacute;rgica ante paradas de emergencia o siniestros m&eacute;dicos.
+</div>
+
+<h2>M&oacute;dulo 11: Protocolos ante Viento Zonda, Tormentas y Fr&iacute;o Extremo</h2>
+<p>La geograf&iacute;a de A&ntilde;elo y Rinc&oacute;n de los Sauces expone la locaci&oacute;n a fen&oacute;menos meteorol&oacute;gicos s&uacute;bitos:</p>
+<table>
+  <tr>
+    <th>Velocidad de Viento</th>
+    <th>Estado de Alerta</th>
+    <th>Acci&oacute;n Mandatoria de Seguridad</th>
+  </tr>
+  <tr>
+    <td><strong>&lt; 40 km/h</strong></td>
+    <td>Operaci&oacute;n Normal</td>
+    <td>Monitoreo continuo con anem&oacute;metro digital calibrado en locaci&oacute;n.</td>
+  </tr>
+  <tr>
+    <td><strong>40 a 50 km/h</strong></td>
+    <td>Alerta Amarilla</td>
+    <td>Suspensi&oacute;n de izajes cr&iacute;ticos de lubricadores de wireline y cargas con gran superficie v&eacute;lica.</td>
+  </tr>
+  <tr>
+    <td><strong>50 a 65 km/h</strong></td>
+    <td>Alerta Naranja</td>
+    <td>Parada total de gr&uacute;as e hidrogr&uacute;as; plumas bajadas a posici&oacute;n de cuna. Suspensi&oacute;n de trabajos en altura.</td>
+  </tr>
+  <tr>
+    <td><strong>&gt; 65 km/h</strong></td>
+    <td>Alerta Roja (SWA General)</td>
+    <td>Parada general de tareas exteriores no esenciales. Resguardo del personal en m&oacute;dulos habitacionales.</td>
+  </tr>
+</table>
+
+<h2>M&oacute;dulo 12: Coordinaci&oacute;n de SIMOPS y Delimitaci&oacute;n de Zonas Rojas</h2>
+<p>En un super-PAD de 8 a 12 pozos coexisten simult&aacute;neamente Fractura, Wireline, Coiled Tubing y Obra Civil:</p>
+<ul>
+  <li><strong>Principio de Mando &Uacute;nico:</strong> El Supervisor General / Company Man es la m&aacute;xima autoridad en locaci&oacute;n. Ning&uacute;n servicio inicia bombeo, detonaci&oacute;n o movimiento de cargas sin su autorizaci&oacute;n expl&iacute;cita.</li>
+  <li><strong>Zona Roja de Alta Presi&oacute;n:</strong> Per&iacute;metro de exclusi&oacute;n absoluta alrededor del colector missile, l&iacute;neas de descarga de 10.000+ PSI y cabezas de pozo activas. Prohibido el ingreso de personal durante el bombeo de etapas.</li>
+  <li><strong>Zonas de Exclusi&oacute;n en Wireline:</strong> Radio m&iacute;nimo de 30 metros alrededor de la mesa de armado de ca&ntilde;ones con restricci&oacute;n de tr&aacute;nsito vehicular y fuentes de radiofrecuencia.</li>
+</ul>
+
+<h2>M&oacute;dulo 13: Paradas de Emergencia (ESD) y Plan MEDEVAC A&ntilde;elo</h2>
+<p>La respuesta r&aacute;pida salva vidas ante roturas de l&iacute;nea o fugas de gas:</p>
+<ul>
+  <li><strong>Accionamiento del Sistema ESD (Emergency Shutdown):</strong> Botonera de golpe de pu&ntilde;o distribuida en locaci&oacute;n. Corta autom&aacute;ticamente la inyecci&oacute;n de combustible a motobombas, a&iacute;sla pozos mediante v&aacute;lvulas maestras de subsuelo (SSSV) y desenergiza fuentes no antiexplosivas.</li>
+  <li><strong>Cadena de Evacuaci&oacute;n M&eacute;dica (MEDEVAC):</strong> Flujograma de enlace radial y satelital inmediato con la base operativa, despacho de ambulancia 4x4 de yacimiento y coordinaci&oacute;n con el Complejo Sanitario A&ntilde;elo o helic&oacute;ptero sanitario hacia Neuqu&eacute;n Capital.</li>
+  <li><strong>Equipamiento de Trauma:</strong> Toda locaci&oacute;n dispone de torniquete t&aacute;ctico CAT para hemorragias masivas, DEA (desfibrilador autom&aacute;tico), f&eacute;rulas r&iacute;gidas y ant&iacute;dotos de campo.</li>
+</ul><table style='width:100%; margin-top:25pt; border:none;'>
+  <tr style='border:none;'>
+    <td style='width:33%; border:none; text-align:center;'>
+      <div class='firma-caja'></div>
+      <strong>Firma del Supervisor</strong><br>
+      <span style='font-size:8pt; color:#64748b;'>Aclaraci&oacute;n y DNI</span>
+    </td>
+    <td style='width:33%; border:none; text-align:center;'>
+      <div class='firma-caja'></div>
+      <strong>Instructor / Auditor HSE</strong><br>
+      <span style='font-size:8pt; color:#64748b;'>Matr&iacute;cula Provincial</span>
+    </td>
+    <td style='width:33%; border:none; text-align:center;'>
+      <div class='firma-caja'></div>
+      <strong>Company Man / Operadora</strong><br>
+      <span style='font-size:8pt; color:#64748b;'>Conformidad de Guardia</span>
+    </td>
+  </tr>
+</table>
+<div style='margin-top:15pt; font-size:7.5pt; color:#94a3b8; text-align:center; border-top:1pt solid #e2e8f0; padding-top:4pt;'>
+  Vaca Muerta Formaci&oacute;n &middot; Programa de Certificaci&oacute;n T&eacute;cnica Upstream &middot; Ley Nacional 26.197 &middot; Ley Provincial Neuqu&eacute;n 1875 &middot; Documento Oficial de Consulta en Campo
+</div>
+</body>
+</html>

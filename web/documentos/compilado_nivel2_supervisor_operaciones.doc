@@ -1,0 +1,130 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>COMPILADO INTEGRAL &middot; NIVEL 2</title>
+<style>
+  body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; line-height: 1.4; color: #1e293b; margin: 2cm; }
+  h1 { color: #0f172a; font-size: 15pt; border-bottom: 2pt solid #b91c1c; padding-bottom: 4pt; margin-bottom: 8pt; text-transform: uppercase; }
+  h2 { color: #b91c1c; font-size: 12.5pt; margin-top: 14pt; margin-bottom: 5pt; border-bottom: 1pt solid #cbd5e1; padding-bottom: 2pt; text-transform: uppercase; }
+  h3 { color: #0f172a; font-size: 11pt; margin-top: 10pt; margin-bottom: 3pt; }
+  p { margin: 4pt 0; text-align: justify; }
+  ul, ol { margin: 4pt 0 8pt 20pt; }
+  li { margin-bottom: 2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; }
+  th, td { border: 1pt solid #94a3b8; padding: 5pt 7pt; text-align: left; font-size: 9pt; }
+  th { background-color: #0f172a; color: #ffffff; font-weight: bold; }
+  .header-table { width: 100%; border: 1.5pt solid #0f172a; margin-bottom: 12pt; }
+  .header-table td { border: 1pt solid #cbd5e1; padding: 4pt 6pt; font-size: 8.5pt; }
+  .badge { background-color: #b91c1c; color: white; padding: 2pt 5pt; font-weight: bold; font-size: 8pt; }
+  .alerta { background-color: #fef2f2; border-left: 3.5pt solid #b91c1c; padding: 6pt 10pt; margin: 8pt 0; font-size: 9pt; }
+  .nota { background-color: #f0fdf4; border-left: 3.5pt solid #16a34a; padding: 6pt 10pt; margin: 8pt 0; font-size: 9pt; }
+  .firma-caja { height: 40pt; border-bottom: 1pt solid #000; margin-top: 20pt; text-align: center; font-size: 8.5pt; }
+</style>
+</head>
+<body>
+<table class='header-table'>
+  <tr>
+    <td rowspan='2' style='width:22%; text-align:center; font-weight:bold; font-size:13pt; background:#f8fafc; color:#0f172a;'>VACA MUERTA<br><span style='font-size:8.5pt; color:#b91c1c;'>FORMACI&Oacute;N</span></td>
+    <td style='width:52%; text-align:center; font-weight:bold; font-size:11.5pt; color:#0f172a;'>COMPILADO INTEGRAL &middot; NIVEL 2<br><span style='font-size:9pt; font-weight:normal; color:#475569;'>Liderazgo Operativo, Relevo de Guardia 14x14 y Protocolo LOTO</span></td>
+    <td style='width:26%; font-size:8pt;'><strong>C&oacute;digo:</strong> VM-GUIA-N2-2026<br><strong>Revisi&oacute;n:</strong> 4.0 Multi-Servicio<br><strong>Cuenca:</strong> Neuquina (Argentina)</td>
+  </tr>
+  <tr>
+    <td colspan='2' style='font-size:8pt;'><strong>Servicios:</strong> Fractura, Coiled Tubing, Wireline, Snubbing, Well Testing, Cementaci&oacute;n, Flowback, Torqueo, Water Transfer, Log&iacute;stica, Obra Civil y Supervisi&oacute;n General.</td>
+  </tr>
+</table><h1>Nivel 2: Liderazgo Operativo, Gesti&oacute;n de Cuadrillas y Energ&iacute;a Cero</h1>
+<div class='nota'>
+  <strong>Prop&oacute;sito Formativo:</strong> Proveer al supervisor de herramientas s&oacute;lidas de conducci&oacute;n humana en diagramas de campo 14x14, t&eacute;cnicas estandarizadas de pase de guardia sin p&eacute;rdida de informaci&oacute;n cr&iacute;tica y aplicaci&oacute;n innegociable de bloqueo y etiquetado LOTO.
+</div>
+
+<h2>M&oacute;dulo 6: Factores Humanos, Fatiga y Conducci&oacute;n en Diagrama 14x14</h2>
+<p>El r&eacute;gimen de 14 d&iacute;as continuos de campo por 14 d&iacute;as de descanso en turnos rotativos de 12 horas exige vigilancia constante del desgaste f&iacute;sico y cognitivo:</p>
+<ul>
+  <li><strong>Vulnerabilidad del D&iacute;a 10 al 14:</strong> M&aacute;s del 60% de los incidentes en no convencionales ocurren en el &uacute;ltimo tercio del turno debido a fatiga cr&oacute;nica y p&eacute;rdida de atenci&oacute;n situacional.</li>
+  <li><strong>Detecci&oacute;n de Microsue&ntilde;os:</strong> El supervisor debe relevar preventivamente a operarios en puestos cr&iacute;ticos (consola de fractura, choferes de bateas de arena, operadores de hidrogr&uacute;as) que exhiban bostezos recurrentes, parpadeo lento o desorientaci&oacute;n.</li>
+  <li><strong>Cultura Justa (Just Culture):</strong> Se premia el reporte honesto de fatiga y se proh&iacute;ben las represalias laborales. El operario fatigado es asignado a tareas de bajo riesgo mientras recupera su descanso.</li>
+</ul>
+
+<h2>M&oacute;dulo 7: Procedimiento de Relevo de Turno (Shift Handover)</h2>
+<p>El pase de guardia es el momento de mayor vulnerabilidad operativa. Se proh&iacute;ben relevos telef&oacute;nicos o al paso:</p>
+<ul>
+  <li><strong>Recorrida Presencial de Locaci&oacute;n (Walk-Around):</strong> Supervisor entrante y saliente deben recorrer juntos el PAD, inspeccionando manifolds, bombas, niveles de piletas y l&iacute;neas de descarga.</li>
+  <li><strong>Revisi&oacute;n de Par&aacute;metros Clave:</strong> Verificaci&oacute;n de presiones de cabeza, vol&uacute;menes acumulados, fallas mec&aacute;nicas latentes y stock de propante/qu&iacute;micos.</li>
+  <li><strong>Auditor&iacute;a de Permisos de Trabajo:</strong> Revisar todos los PTW activos, verificar bloqueos LOTO vigentes y revalidar las firmas antes de asumir la guardia.</li>
+</ul>
+
+<h2>M&oacute;dulo 8: Las 6 Etapas del Protocolo LOTO (Bloqueo y Etiquetado)</h2>
+<p>Aislar y asegurar todas las fuentes de energ&iacute;a previa a cualquier intervenci&oacute;n mec&aacute;nica:</p>
+<table>
+  <tr>
+    <th>Etapa</th>
+    <th>Acci&oacute;n Operativa</th>
+    <th>Verificaci&oacute;n Mandatoria</th>
+  </tr>
+  <tr>
+    <td><strong>1. Preparaci&oacute;n</strong></td>
+    <td>Identificar todas las fuentes de energ&iacute;a (el&eacute;ctrica, hidr&aacute;ulica, presi&oacute;n, qu&iacute;mica, mec&aacute;nica).</td>
+    <td>Notificar formalmente a los operadores afectados en locaci&oacute;n.</td>
+  </tr>
+  <tr>
+    <td><strong>2. Apagado</strong></td>
+    <td>Detener motobombas, generadores o compresores siguiendo secuencia de manual.</td>
+    <td>Verificar que los mandos queden en posici&oacute;n neutra o apagado.</td>
+  </tr>
+  <tr>
+    <td><strong>3. Aislamiento</strong></td>
+    <td>Cerrar v&aacute;lvulas de bloqueo, bajar seccionadores el&eacute;ctricos, desacoplar mandos.</td>
+    <td>Cortar f&iacute;sicamente el paso de fluidos y electricidad.</td>
+  </tr>
+  <tr>
+    <td><strong>4. Bloqueo (Lockout)</strong></td>
+    <td>Instalar aldaba m&uacute;ltiple, candado de seguridad personal y tarjeta de advertencia.</td>
+    <td>Cada t&eacute;cnico interviniente coloca su propio candado personal intransferible.</td>
+  </tr>
+  <tr>
+    <td><strong>5. Disipaci&oacute;n</strong></td>
+    <td>Purgar presi&oacute;n residual a la atm&oacute;sfera a trav&eacute;s de v&aacute;lvula de venteo, drenar fluidos.</td>
+    <td>Constatar lectura 0 PSI en man&oacute;metros calibrados a la vista.</td>
+  </tr>
+  <tr>
+    <td><strong>6. Verificaci&oacute;n (&ldquo;Try Step&rdquo;)</strong></td>
+    <td>Intentar arrancar el equipo con el comando local para confirmar que no responde.</td>
+    <td>Asegurar energ&iacute;a cero absoluta antes de colocar las manos en el equipo.</td>
+  </tr>
+</table>
+
+<h2>M&oacute;dulo 9: Telemetr&iacute;a SCADA, Monitoreo de Trazas y KPIs SMART</h2>
+<p>El control moderno se basa en datos f&iacute;sicos en tiempo real transmitidos a la sala de control:</p>
+<ul>
+  <li><strong>Detecci&oacute;n Temprana de Fugas:</strong> Un desbalance de caudal &gt;3% entre la estaci&oacute;n de captaci&oacute;n y el punto de entrega indica una posible rotura o pinchadura de l&iacute;nea.</li>
+  <li><strong>Control de KPIs Operativos:</strong> Monitorear NPT (Non-Productive Time) con meta &lt;2%, cumplimiento de etapas por d&iacute;a y mantenimiento de rampa de presi&oacute;n dentro de la envolvente de dise&ntilde;o.</li>
+</ul>
+
+<h2>M&oacute;dulo 10: Metodolog&iacute;a de los 5 Porqu&eacute;s y &Aacute;rbol de Causas</h2>
+<p>Ante una falla de equipo o un casi-accidente (Near Miss), el supervisor lidera la deducci&oacute;n de causa ra&iacute;z:</p>
+<ul>
+  <li><strong>Secuencia Causal:</strong> No detenerse en la causa inmediata, sino profundizar hasta la causa de gesti&oacute;n o mantenimiento.</li>
+  <li><strong>Plan CAPA:</strong> Todo incidente genera un plan de Acciones Correctivas y Preventivas con responsable, fecha l&iacute;mite y reentrenamiento de la cuadrilla.</li>
+</ul><table style='width:100%; margin-top:25pt; border:none;'>
+  <tr style='border:none;'>
+    <td style='width:33%; border:none; text-align:center;'>
+      <div class='firma-caja'></div>
+      <strong>Firma del Supervisor</strong><br>
+      <span style='font-size:8pt; color:#64748b;'>Aclaraci&oacute;n y DNI</span>
+    </td>
+    <td style='width:33%; border:none; text-align:center;'>
+      <div class='firma-caja'></div>
+      <strong>Instructor / Auditor HSE</strong><br>
+      <span style='font-size:8pt; color:#64748b;'>Matr&iacute;cula Provincial</span>
+    </td>
+    <td style='width:33%; border:none; text-align:center;'>
+      <div class='firma-caja'></div>
+      <strong>Company Man / Operadora</strong><br>
+      <span style='font-size:8pt; color:#64748b;'>Conformidad de Guardia</span>
+    </td>
+  </tr>
+</table>
+<div style='margin-top:15pt; font-size:7.5pt; color:#94a3b8; text-align:center; border-top:1pt solid #e2e8f0; padding-top:4pt;'>
+  Vaca Muerta Formaci&oacute;n &middot; Programa de Certificaci&oacute;n T&eacute;cnica Upstream &middot; Ley Nacional 26.197 &middot; Ley Provincial Neuqu&eacute;n 1875 &middot; Documento Oficial de Consulta en Campo
+</div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset='utf-8'>
+<title>DOCUMENTO VACA MUERTA</title>
+<style>
+  body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; line-height: 1.35; color: #1e293b; margin: 2cm; }
+  h1 { color: #0f172a; font-size: 16pt; border-bottom: 2pt solid #b91c1c; padding-bottom: 4pt; margin-bottom: 8pt; }
+  h2 { color: #b91c1c; font-size: 13pt; margin-top: 14pt; margin-bottom: 6pt; border-bottom: 1pt solid #cbd5e1; padding-bottom: 2pt; }
+  h3 { color: #0f172a; font-size: 11pt; margin-top: 10pt; margin-bottom: 4pt; }
+  p { margin: 4pt 0; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; }
+  th, td { border: 1pt solid #94a3b8; padding: 5pt 7pt; text-align: left; font-size: 9.5pt; }
+  th { background-color: #0f172a; color: #ffffff; font-weight: bold; }
+  .header-table { width: 100%; border: 1.5pt solid #0f172a; margin-bottom: 12pt; }
+  .header-table td { border: 1pt solid #cbd5e1; padding: 4pt 6pt; font-size: 9pt; }
+  .badge { background-color: #b91c1c; color: white; padding: 2pt 5pt; font-weight: bold; font-size: 8.5pt; }
+  .alerta { background-color: #fef2f2; border-left: 3pt solid #b91c1c; padding: 6pt 10pt; margin: 8pt 0; font-size: 9.5pt; }
+  .firma-caja { height: 45pt; border-bottom: 1pt solid #000; margin-top: 20pt; text-align: center; font-size: 8.5pt; }
+</style>
+</head>
+<body><table class='header-table'>
+  <tr>
+    <td rowspan='2' style='width:20%; text-align:center; font-weight:bold; font-size:14pt; background:#f8fafc;'>VACA MUERTA<br><span style='font-size:9pt; color:#b91c1c;'>ENERGIA CERO</span></td>
+    <td style='width:50%; text-align:center; font-weight:bold; font-size:13pt;'>PROCEDIMIENTO DE AISLAMIENTO SEGURO<br>PLANILLA DE BLOQUEO Y ETIQUETADO (LOTO)</td>
+    <td style='width:30%; font-size:8.5pt;'><strong>Registro NÂ°:</strong> LOTO-VM-2026-_____<br><strong>Fecha:</strong> ___/___/2026<br><strong>PTS Asociado:</strong> _______________</td>
+  </tr>
+  <tr>
+    <td colspan='2'><strong>Equipo / Sistema Intervenido:</strong> _______________________________________ <strong>TAG / NÂ° de Activo:</strong> ___________________</td>
+  </tr>
+</table>
+
+<h2>1. SECUENCIA OPERATIVA DE LAS 6 ETAPAS LOTO</h2>
+<table>
+  <tr>
+    <th style='width:10%; text-align:center;'>Etapa</th>
+    <th style='width:30%;'>Accion Obligatoria</th>
+    <th style='width:45%;'>Detalle de Ejecucion en Campo</th>
+    <th style='width:15%; text-align:center;'>Verificado</th>
+  </tr>
+  <tr>
+    <td style='text-align:center; font-weight:bold;'>1</td>
+    <td><strong>Preparacion</strong></td>
+    <td>Identificar todas las fuentes de energia: electrica, hidraulica, neumatica, quimica y potencial gravitatoria.</td>
+    <td style='text-align:center;'>[ ] Conforme</td>
+  </tr>
+  <tr>
+    <td style='text-align:center; font-weight:bold;'>2</td>
+    <td><strong>Notificacion</strong></td>
+    <td>Comunicar a todo el personal del PAD, cuadrillas adyacentes y sala de control sobre el bloqueo inminente.</td>
+    <td style='text-align:center;'>[ ] Conforme</td>
+  </tr>
+  <tr>
+    <td style='text-align:center; font-weight:bold;'>3</td>
+    <td><strong>Apagado</strong></td>
+    <td>Detener el equipo mediante los controles normales de operacion (parada suave y luego pulsador de parada).</td>
+    <td style='text-align:center;'>[ ] Conforme</td>
+  </tr>
+  <tr>
+    <td style='text-align:center; font-weight:bold;'>4</td>
+    <td><strong>Aislamiento Fisico</strong></td>
+    <td>Cerrar valvulas manuales, bajar disyuntores/seccionadores, colocar bridas ciegas o trabas mecanicas.</td>
+    <td style='text-align:center;'>[ ] Conforme</td>
+  </tr>
+  <tr>
+    <td style='text-align:center; font-weight:bold;'>5</td>
+    <td><strong>Disipacion Residual</strong></td>
+    <td>Purgar lineas de presion a cero bar, descargar bancos de capacitores, bloquear partes suspendidas y drenar fluidos.</td>
+    <td style='text-align:center;'>[ ] Conforme</td>
+  </tr>
+  <tr>
+    <td style='text-align:center; font-weight:bold;'>6</td>
+    <td><strong>Verificacion CERO</strong></td>
+    <td>Intentar arranque de prueba en local (comprobando que no encienda), medir voltaje cero con multimetro y presion 0 PSI.</td>
+    <td style='text-align:center;'>[ ] <strong>ENERGIA CERO</strong></td>
+  </tr>
+</table>
+
+<h2>2. REGISTRO INDIVIDUAL DE CANDADOS Y TARJETAS APLICADAS</h2>
+<table>
+  <tr>
+    <th>NÂ° Punto Aislamiento</th>
+    <th>Ubicacion / Valvula / Breaker</th>
+    <th>NÂ° de Candado</th>
+    <th>Nombre del Supervisor / Operador</th>
+    <th>Fecha/Hora Colocacion</th>
+    <th>Fecha/Hora Retiro</th>
+  </tr>
+  <tr>
+    <td>01</td>
+    <td>Valvula Esferica Succion 10"</td>
+    <td>C-VM-______</td>
+    <td>_______________________________</td>
+    <td>___:___ hs</td>
+    <td>___:___ hs</td>
+  </tr>
+  <tr>
+    <td>02</td>
+    <td>Valvula Esclusa Impulsion 12"</td>
+    <td>C-VM-______</td>
+    <td>_______________________________</td>
+    <td>___:___ hs</td>
+    <td>___:___ hs</td>
+  </tr>
+  <tr>
+    <td>03</td>
+    <td>Disyuntor Principal CCM Motor</td>
+    <td>C-VM-______</td>
+    <td>_______________________________</td>
+    <td>___:___ hs</td>
+    <td>___:___ hs</td>
+  </tr>
+  <tr>
+    <td>04</td>
+    <td>Valvula de Purga / Drenaje Abierta</td>
+    <td>C-VM-______</td>
+    <td>_______________________________</td>
+    <td>___:___ hs</td>
+    <td>___:___ hs</td>
+  </tr>
+</table>
+
+<table style='margin-top:20pt;'>
+  <tr>
+    <th style='width:50%; text-align:center;'>RESPONSABLE DE BLOQUEO LOTO</th>
+    <th style='width:50%; text-align:center;'>SUPERVISOR DE OPERACIONES A CARGO</th>
+  </tr>
+  <tr>
+    <td class='firma-caja'>Firma y Aclaracion:<br><br>DNI:</td>
+    <td class='firma-caja'>Firma y Aclaracion:<br><br>Legajo:</td>
+  </tr>
+</table>
+</body></html>

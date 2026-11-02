@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nivel 3 — Seguridad Operativa y Atención de Emergencias · Vaca Muerta Formación</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/curso.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="progreso-lectura" class="barra-progreso"></div>
+
+<!-- CABECERA -->
+<header class="cabecera">
+  <div class="cabecera__contenedor">
+    <a href="../index.html" class="cabecera__marca">
+      <div class="cabecera__logo">VM</div>
+      <div>
+        <div class="cabecera__titulo">Vaca Muerta Formación</div>
+        <div class="cabecera__subtitulo">Nivel 3 · Seguridad Operativa y Emergencias</div>
+      </div>
+    </a>
+    <nav class="cabecera__nav">
+      <a href="nivel2.html">← Nivel 2</a>
+      <a href="../index.html#curso">Programa General</a>
+      <a href="nivel4.html">Nivel 4: Ambiente →</a>
+    </nav>
+  </div>
+</header>
+
+<main class="curso">
+
+<!-- SIDEBAR STICKY -->
+<aside class="curso__indice">
+  <div class="curso__indice-titulo">Módulos del Nivel 3</div>
+  <ul>
+    <li><a href="#clima" class="activo">3.1 Clima Extremo Neuquino</a></li>
+    <li><a href="#simops">3.2 SIMOPS y Operaciones en Pozo</a></li>
+    <li><a href="#esd">3.3 Paradas ESD y Despresurización</a></li>
+    <li><a href="#rescate">3.4 Rescate Remoto y Botiquín DEA</a></li>
+    <li><a href="#test-n3" style="color:var(--color-primario);font-weight:700;">★ Test Evaluativo Nivel 3</a></li>
+  </ul>
+
+  <div class="curso__indice-titulo" style="margin-top:2rem;">Tablas del Módulo</div>
+  <ul>
+    <li><a href="#tabla-clima">Alertas Climáticas y Umbrales</a></li>
+    <li><a href="#tabla-jerarquia">Jerarquía de Controles Upstream</a></li>
+    <li><a href="#tabla-botiquin">Botiquín de Trauma Remoto</a></li>
+    <li><a href="#tabla-hospitales">Red de Derivación Hospitalaria</a></li>
+  </ul>
+
+  <div class="curso__indice-titulo" style="margin-top:2rem;">Material Descargable</div>
+  <ul>
+    <li><a href="../documentos/compilado_nivel3_supervisor_operaciones.doc" download>Word · Nivel 3 Completo</a></li>
+    <li><a href="../documentos/plan_emergencia_medevac_anelo.doc" download>Plan Médico MEDEVAC (Word)</a></li>
+    <li><a href="../documentos/checklist_a4_maniobra_izaje_completo.pdf" target="_blank">PDF · Checklist Izaje con Hidrogrúa</a></li>
+    <li><a href="../documentos/checklist_montaje_tanque.pdf" target="_blank">PDF · Checklist Montaje Tanque Pad</a></li>
+  </ul>
+</aside>
+
+<!-- CONTENIDO PRINCIPAL -->
+<article class="curso__contenido">
+
+<section class="curso__intro">
+  <span class="curso__etiqueta">Nivel 3 · Gestión del Riesgo Crítico &amp; Contingencias</span>
+  <h1>Seguridad Operativa y Respuesta a Emergencias en Yacimiento</h1>
+  <p class="curso__descripcion">En Vaca Muerta, los factores de riesgo convergen de forma simultánea: <strong>presiones hidrostáticas superiores a 10.000 psi</strong>, coexistencia de múltiples servicios en el mismo pad (*SIMOPS*), hidrocarburos inflamables, sulfhídrico (H₂S), ráfagas de viento Zonda de hasta 100 km/h y distancias de más de una hora de ambulancia hacia los hospitales de cabecera.</p>
+
+  <div class="curso__objetivo">
+    <strong>Objetivo del Nivel:</strong> Capacitar al supervisor para gestionar la matriz de coexistencia SIMOPS, aplicar protocolos de parada de emergencia (ESD), liderar la brigada de primera respuesta médica con desfibrilador (DEA) y torniquetes tácticos, y activar el plan de evacuación médica aérea o terrestre (MEDEVAC).
+  </div>
+</section>
+
+<!-- SECCIÓN 3.1: CLIMA EXTREMO -->
+<section id="clima" class="curso__leccion">
+  <h2>3.1 Riesgos Climáticos de la Cuenca Neuquina y Umbrales de Detención</h2>
+  <p class="curso__temas">Viento Zonda y ráfagas del oeste · Tormentas eléctricas y riesgo de rayo · Heladas patagónicas e hidratación de gas · Calor extremo en verano · Monitoreo continuo con anemómetro y alertas provinciales.</p>
+
+  <p>El clima en la estepa neuquina es implacable y cambia en minutos. El supervisor debe verificar el parte meteorológico oficial antes de autorizar cualquier maniobra con hidrogrúa, izaje de canasta de snubbing o trabajo en altura sobre inyectores de Coiled Tubing.</p>
+
+  <!-- TABLA 1: MATRIZ DE RIESGOS CLIMÁTICOS -->
+  <div id="tabla-clima" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Matriz de Alertas Climáticas y Umbrales Operativos de Yacimiento</h4>
+      <span class="badge badge--critico">PARADA DE EMERGENCIA</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Fenómeno Climático</th>
+            <th>Temporada Crítica</th>
+            <th>Umbral de Alerta / Suspensión</th>
+            <th>Medida Preventiva Innegociable</th>
+            <th>Impacto en Operaciones Petroleras</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Viento Zonda / Ráfagas</strong></td>
+            <td>Mayo a Octubre</td>
+            <td>&gt; 50 km/h: Alerta y restricción.<br>&gt; 65 km/h: Suspensión total de izajes y altura.</td>
+            <td>Medición con anemómetro en punta de pluma; asegurar cargas en suelo; amarrar lonas de tanques.</td>
+            <td><span class="badge badge--critico">Vuelco de grúas</span>, caída de operarios en altura y desgarro de geomembranas.</td>
+          </tr>
+          <tr>
+            <td><strong>Tormenta Eléctrica</strong></td>
+            <td>Noviembre a Marzo</td>
+            <td>Rayos a &lt; 16 km: Alerta Amarilla.<br>Rayos a &lt; 8 km: Alerta Roja (Cese total).</td>
+            <td>Parar bombeo en piletas abiertas; evacuar personal a cabinas de vehículos cerrados; prohibido tocar fierros.</td>
+            <td><span class="badge badge--critico">Descarga atmosférica letal</span> en mástiles, cañerías metálicas y piletas.</td>
+          </tr>
+          <tr>
+            <td><strong>Heladas y Nieve</strong></td>
+            <td>Junio a Agosto</td>
+            <td>Temperaturas &lt; 0°C sostenidas (mínimas de -8°C a -12°C).</td>
+            <td>Inyección de metanol en líneas de gas; drenaje de agua en bombas inactivas; calefacción en cabinas.</td>
+            <td><span class="badge badge--alerta">Congelamiento de manifolds</span>, fractura frágil de acero y rotura de manómetros.</td>
+          </tr>
+          <tr>
+            <td><strong>Calor Extremo</strong></td>
+            <td>Diciembre a Febrero</td>
+            <td>Temperaturas &gt; 36°C con radiación directa.</td>
+            <td>Pausas de hidratación (mínimo 4 L agua por persona/turno); rotación de cuadrillas; sombras habilitadas.</td>
+            <td><span class="badge badge--alerta">Golpe de calor y desmayos</span>; recalentamiento de motores diésel de fractura.</td>
+          </tr>
+          <tr>
+            <td><strong>Polvo y Ceguera Vial</strong></td>
+            <td>Permanente en ripio</td>
+            <td>Visibilidad &lt; 100 m por polvo en picadas.</td>
+            <td>Luces bajas encendidas 24 hs; velocidad máx 30-40 km/h; distancia de seguimiento de 100 m.</td>
+            <td><span class="badge badge--critico">Choques frontales y vuelcos</span> de tolvas de arena y camionetas 4x4.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="figuras-grid--2">
+    <figure class="figura-ampliable">
+      <div class="figura-ampliable__img-wrap">
+        <img src="../img/lona-aire-embolsado-por-viento.png" alt="Lona de tanque australiano embolsada por viento Zonda">
+        <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+      </div>
+      <figcaption>
+        <h4>Riesgo de Embolsado de Lona por Ráfagas de Zonda</h4>
+        <p>Efecto de ráfagas de más de 65 km/h en montaje de tanques en Añelo. El viento actúa como vela y puede colapsar las placas perimetrales de acero abulonadas.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="figura-ampliable">
+      <div class="figura-ampliable__img-wrap">
+        <img src="../img/riesgo-conduccion-en-yacimiento-polvo.jpg" alt="Visibilidad casi nula en picada por polvo de camión tolva">
+        <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+      </div>
+      <figcaption>
+        <h4>Riesgo Vial: Cortinas de Polvo en Picadas Petroleras</h4>
+        <p>Circulación en caminos internos durante el tránsito de bateas de arena y cisternas. Queda terminantemente prohibido el sobrepaso a ciegas.</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- SECCIÓN 3.2: SIMOPS Y OPERACIONES EN POZO -->
+<section id="simops" class="curso__leccion">
+  <h2>3.2 Operaciones Simultáneas (SIMOPS) y Zonas Rojas de Alta Presión</h2>
+  <p class="curso__temas">Coexistencia de servicios en pad multiequipo · Matriz de interferencia operativa · Delimitación física de Zonas Rojas · Coordinación entre supervisores y Company Man.</p>
+
+  <p>En un pad de shale moderno de 4 a 8 pozos conviven la unidad de Fractura bombeando a 10.000 psi en el Pozo 1, el equipo de Wireline bajando cañones en el Pozo 2 y la cuadrilla de Coiled Tubing moliendo tapones en el Pozo 3. Esta configuración (**SIMOPS**) requiere que ningún supervisor actúe sin coordinar previamente con el responsable general del pad.</p>
+
+  <!-- TABLA 2: JERARQUÍA DE CONTROLES UPSTREAM -->
+  <div id="tabla-jerarquia" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Jerarquía de Controles Aplicada a Operaciones Simultáneas en Yacimiento</h4>
+      <span class="badge badge--ok">CONTROL OPERACIONAL</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Nivel de Control</th>
+            <th>Eficacia</th>
+            <th>Peligro en Locación de Pozo</th>
+            <th>Medida Técnica Implementada por el Supervisor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Eliminación</strong></td>
+            <td><span class="badge badge--ok">100% Máxima</span></td>
+            <td>Descarga atmosférica durante tormenta eléctrica severa.</td>
+            <td>Detención total del bombeo y evacuación a módulos habitacionales cerrados.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Sustitución</strong></td>
+            <td><span class="badge badge--ok">Alta</span></td>
+            <td>Prueba de estanqueidad de bridas con gas o aire comprimido.</td>
+            <td>Sustitución por prueba hidrostática con agua y aditivo inhibidor (incompresible, no explosiva).</td>
+          </tr>
+          <tr>
+            <td><strong>3. Control de Ingeniería</strong></td>
+            <td><span class="badge badge--alerta">Moderada/Alta</span></td>
+            <td>Desacople violento de manguera de alta presión o brida.</td>
+            <td>Instalación de cables de retención (*whipchecks*), mallas antilatigazo y válvulas de retención (*check valves*).</td>
+          </tr>
+          <tr>
+            <td><strong>4. Control Administrativo</strong></td>
+            <td><span class="badge badge--alerta">Media</span></td>
+            <td>Ingreso inadvertido de personal a la línea de fractura de 10.000 psi.</td>
+            <td>Delimitación con cadenas rojas, carteles de advertencia, silbato de inicio de presurización y PTS específico.</td>
+          </tr>
+          <tr>
+            <td><strong>5. EPP</strong></td>
+            <td><span class="badge badge--kpi">Última Barrera</span></td>
+            <td>Nivel de ruido de 105 dBA en cercanía del set de bombas.</td>
+            <td>Uso obligatorio de doble protección auditiva (tapón endoaural + protector de copa tipo vincha).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="figuras-grid--2">
+    <figure class="figura-ampliable">
+      <div class="figura-ampliable__img-wrap">
+        <img src="../img/parches-completos-modulares-10-pul-con-bulones.png" alt="Abrazadera modular para contención de pinchadura en alta presión">
+        <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+      </div>
+      <figcaption>
+        <h4>Dispositivos de Contención y Reparación Rápida</h4>
+        <p>Grapas modulares de aluminio con junta NBR para control de fugas en líneas de alimentación sin desarmar el tendido.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="figura-ampliable">
+      <div class="figura-ampliable__img-wrap">
+        <img src="../img/pinchazos-en-campo-consecuencias.png" alt="Erosión del terreno provocada por chorro de agua a presión">
+        <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+      </div>
+      <figcaption>
+        <h4>Consecuencias de Pérdida de Contención en Alta Presión</h4>
+        <p>Socavamiento del terraplén y daño estructural al camino por un chorro presurizado no detectado a tiempo.</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- SECCIÓN 3.3: PARADAS ESD -->
+<section id="esd" class="curso__leccion">
+  <h2>3.3 Sistemas de Parada de Emergencia (ESD) y Despresurización</h2>
+  <p class="curso__temas">Botoneras ESD de campo · Desconexión rápida de unidades motrices · Alivio de presión hacia antorcha o tanque de quema · Conteo en puntos de reunión (*Muster Point*).</p>
+
+  <div class="curso__idea">
+    <strong>Protocolo de Activación ESD (Emergency Shutdown):</strong> Ante fuego en cabezal de pozo, fuga masiva de H₂S o rotura de cañería de fractura, cualquier supervisor u operador puede presionar el botón de hongo rojo ESD de su unidad. Esto activa instantáneamente el cierre de las válvulas maestras de pozo (SSSV / wing valves), corta el suministro de combustible a motores y desvía la producción hacia la antorcha de venteo.
+  </div>
+</section>
+
+<!-- SECCIÓN 3.4: RESCATE REMOTO Y BOTIQUÍN -->
+<section id="rescate" class="curso__leccion">
+  <h2>3.4 Atención Médica en Zonas Remotas y Botiquín de Trauma</h2>
+  <p class="curso__temas">Los primeros 10 minutos (la hora de oro) · Manejo del Desfibrilador Externo Automático (DEA) · Control de hemorragias exanguinantes con torniquete CAT · Red de derivación de Añelo y Neuquén Capital.</p>
+
+  <!-- TABLA 3: BOTIQUÍN DE TRAUMA -->
+  <div id="tabla-botiquin" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Dotación Obligatoria del Botiquín de Trauma y Rescate para Zonas Remotas</h4>
+      <span class="badge badge--critico">INVENTARIO OBLIGATORIO</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Insumo / Dispositivo</th>
+            <th>Función Operativa en Emergencia</th>
+            <th>Ubicación en el Pad</th>
+            <th>Criterio de Verificación Mensual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Desfibrilador Externo (DEA)</strong></td>
+            <td>Reversión de fibrilación ventricular por electrocución o paro cardíaco repentino.</td>
+            <td>Tráiler del supervisor y campamento central.</td>
+            <td>Luz verde de autotest encendida; parches adultos sin vencer.</td>
+          </tr>
+          <tr>
+            <td><strong>Torniquete Táctico Militar (CAT)</strong></td>
+            <td>Detención inmediata de hemorragias arteriales severas por atrapamiento mecánico.</td>
+            <td>En todo botiquín de camioneta 4x4 y sala de bombas.</td>
+            <td>Molinete intacto en su empaque hermético sellado.</td>
+          </tr>
+          <tr>
+            <td><strong>Tabla Espinal Larga + Collarín</strong></td>
+            <td>Inmovilización y extracción de víctimas de caídas de altura o choques viales.</td>
+            <td>Frente al punto de primeros auxilios del pad.</td>
+            <td>Cintas tipo araña completas y collarín cervical regulable.</td>
+          </tr>
+          <tr>
+            <td><strong>Mantas Térmicas Aluminizadas</strong></td>
+            <td>Aislamiento contra la hipotermia nocturna patagónica tras shock traumático.</td>
+            <td>Mínimo 4 unidades por camioneta de guardia.</td>
+            <td>Pliegue cerrado impermeable.</td>
+          </tr>
+          <tr>
+            <td><strong>Frasco Lavaojos Estéril</strong></td>
+            <td>Lavado ocular de emergencia ante salpicaduras de salmuera, químicos o arena.</td>
+            <td>Junto a la batea de químicos y bombas de cementación.</td>
+            <td>Precinto de fábrica sin abrir con solución al 0,9%.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLA 4: RED HOSPITALARIA -->
+  <div id="tabla-hospitales" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Red de Derivación Hospitalaria y Tiempos de Traslado en Vaca Muerta</h4>
+      <span class="badge badge--alerta">PLAN MEDEVAC</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Centro Asistencial</th>
+            <th>Nivel de Complejidad</th>
+            <th>Distancia Promedio desde Bloques</th>
+            <th>Tiempo Estimado Terrestre</th>
+            <th>Vía de Comunicación Primaria</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hospital Dr. Horacio Heller (Añelo)</strong></td>
+            <td>Nivel III (Shock room, estabilización, ambulancia 4x4)</td>
+            <td>20 a 50 km</td>
+            <td>25 a 45 minutos</td>
+            <td>VHF Canal Médico / Guardia 107</td>
+          </tr>
+          <tr>
+            <td><strong>Hospital Rincón de los Sauces</strong></td>
+            <td>Nivel IV (Quirófano básico, traumatología)</td>
+            <td>40 a 80 km</td>
+            <td>45 a 80 minutos</td>
+            <td>Teléfono de guardia: (0299) 496-1234</td>
+          </tr>
+          <tr>
+            <td><strong>Clínica Petroleros (Plaza Huincul)</strong></td>
+            <td>Nivel VI (Terapia intensiva polivalente, cirugía)</td>
+            <td>90 km</td>
+            <td>1 hora 15 minutos</td>
+            <td>Central de Emergencias ART Petroleros</td>
+          </tr>
+          <tr>
+            <td><strong>Hospital Provincial Castro Rendón (Neuquén)</strong></td>
+            <td>Nivel VIII (Máximo trauma provincial, helipuerto sanitario)</td>
+            <td>110 a 140 km</td>
+            <td>1h 45m (terrestre) / 25m (helicóptero)</td>
+            <td>Defensa Civil Provincial: 103</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TEST EVALUATIVO INTERACTIVO NIVEL 3 -->
+<section id="test-n3" class="curso__leccion">
+  <h2>Test Evaluativo Interactivo · Nivel 3</h2>
+  <p>Evaluá tu capacidad de respuesta ante viento Zonda, tormentas eléctricas, paradas ESD, H₂S y emergencias médicas en yacimiento. Hacé clic en la opción que consideres correcta.</p>
+
+  <div class="test-interactivo">
+    <div class="test-interactivo__encabezado">
+      <h3 class="test-interactivo__titulo">Evaluación de Competencias · Nivel 3 (5 Preguntas)</h3>
+      <span class="badge badge--vm">MÍNIMO APROBATORIO: 80% (4 de 5)</span>
+    </div>
+
+    <!-- Pregunta 1 -->
+    <div class="pregunta-test" data-correcta="2">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 1 de 5 · Clima Extremo</span>
+        <span class="badge badge--critico">VIENTO ZONDA</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        El anemómetro registra ráfagas de viento Zonda de 64 km/h en un pad donde se está posicionando una unidad de Coiled Tubing con hidrogrúa. ¿Cuál es la directiva correcta del supervisor?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Continuar la maniobra a marcha lenta si el operador de grúa se siente con confianza.</button>
+        <button class="opcion-test" data-opcion="2">B) Suspender de inmediato los izajes con grúa, descender la carga al suelo y asegurar los equipos (umbral de 60-65 km/h superado).</button>
+        <button class="opcion-test" data-opcion="3">C) Amarrar la carga suspendida a la paragolpes de una camioneta para que no oscile.</button>
+        <button class="opcion-test" data-opcion="4">D) Esperar a que una ráfaga supere los 100 km/h para tomar una decisión.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="En la Cuenca Neuquina el umbral estándar de suspensión para maniobras de izaje con grúa se ubica entre 50 y 65 km/h según la superficie de vela de la carga y la recomendación del fabricante."></div>
+    </div>
+
+    <!-- Pregunta 2 -->
+    <div class="pregunta-test" data-correcta="4">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 2 de 5 · Tormenta Eléctrica</span>
+        <span class="badge badge--alerta">DESCARGAS</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        El sistema detector de rayos de la operadora emite una Alerta Roja indicando caída de rayos a 6 kilómetros del pad. ¿Dónde debe refugiarse la cuadrilla?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Debajo del puente grúa o al resguardo de las chapas del tanque australiano.</button>
+        <button class="opcion-test" data-opcion="2">B) Sentados en el suelo al lado de las líneas de manguera de alta presión.</button>
+        <button class="opcion-test" data-opcion="3">C) Parados en fila debajo del árbol de navidad del pozo.</button>
+        <button class="opcion-test" data-opcion="4">D) Dentro de camionetas con cabina cerrada o módulos habitacionales cerrados con descarga a tierra (efecto Jaula de Faraday).</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="Los vehículos con carrocería metálica cerrada y neumáticos actúan como Jaulas de Faraday protectoras frente a descargas atmosféricas directas o corrientes inducidas."></div>
+    </div>
+
+    <!-- Pregunta 3 -->
+    <div class="pregunta-test" data-correcta="1">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 3 de 5 · SIMOPS</span>
+        <span class="badge badge--norma">ZONA ROJA</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        ¿Qué define la "Zona Roja" en un pad de fractura hidráulica o prueba de alta presión?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) El área circundante a las líneas presurizadas a alta presión donde queda prohibido el ingreso de cualquier persona mientras el sistema esté bajo carga.</button>
+        <button class="opcion-test" data-opcion="2">B) El sector de la cocina del campamento donde se manipulan alimentos calientes.</button>
+        <button class="opcion-test" data-opcion="3">C) La zona de estacionamiento reservada para camionetas de la gerencia.</button>
+        <button class="opcion-test" data-opcion="4">D) La zona donde se colocan los tachos de residuos domiciliarios orgánicos.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="La Zona Roja delimita el radio de alcance letal en caso de rotura violenta de cañerías o bridas de 10.000 psi. Solo se accede con el sistema totalmente despresurizado y bloqueado."></div>
+    </div>
+
+    <!-- Pregunta 4 -->
+    <div class="pregunta-test" data-correcta="3">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 4 de 5 · Parada ESD</span>
+        <span class="badge badge--critico">EMERGENCIA</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        Al presionar el pulsador de parada de emergencia (ESD) en una unidad separadora de Well Testing, ¿cuál es la respuesta automática del sistema?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Se enciende una luz verde y el equipo continúa trabajando normalmente.</button>
+        <button class="opcion-test" data-opcion="2">B) Se acelera el motor de bombeo para vaciar el hidrocarburo hacia los tanques de fractura.</button>
+        <button class="opcion-test" data-opcion="3">C) Se cierran automáticamente las válvulas de corte de entrada de pozo y se desvía la presión hacia la línea segura de alivio o flare.</button>
+        <button class="opcion-test" data-opcion="4">D) Se apaga el teléfono celular del supervisor para evitar interferencias.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="El lazo de seguridad ESD aísla inmediatamente la fuente de flujo del pozo para cortar el combustible o presión que alimenta el siniestro y mitigar la catástrofe."></div>
+    </div>
+
+    <!-- Pregunta 5 -->
+    <div class="pregunta-test" data-correcta="2">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 5 de 5 · Primeros Auxilios</span>
+        <span class="badge badge--alerta">TRAUMA</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        Un operario sufre una amputación traumática de antebrazo con hemorragia arterial pulsátil profusa a 40 km del hospital de Añelo. ¿Cuál es la acción de rescate prioritaria?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Lavar la herida con agua de la manguera y darle de tomar café caliente.</button>
+        <button class="opcion-test" data-opcion="2">B) Colocar de inmediato un torniquete táctico (CAT) 5 a 7 cm por encima de la herida, ajustar hasta detener el sangrado, anotar la hora y despachar MEDEVAC.</button>
+        <button class="opcion-test" data-opcion="3">C) Colocar solo una gasa pequeña y esperar a que la ambulancia llegue en 45 minutos.</button>
+        <button class="opcion-test" data-opcion="4">D) Hacerle masajes cardíacos en el pecho mientras la sangre sigue saliendo.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="Una hemorragia arterial masiva causa un shock hipovolémico fatal en menos de 3 minutos. El torniquete táctico ajustado rápidamente es la única intervención que salva la vida."></div>
+    </div>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <button class="btn-calcular-test" disabled>Calcular Resultado Nivel 3</button>
+      <p style="font-size:0.85rem;color:var(--color-texto-suave);margin-top:0.5rem;">* Respondé las 5 preguntas para habilitar tu puntaje.</p>
+    </div>
+    <div class="resultado-test"></div>
+  </div>
+</section>
+
+<!-- NAVEGACIÓN -->
+<nav class="curso__nav">
+  <a href="nivel2.html" class="boton boton--secundario">← Volver al Nivel 2</a>
+  <a href="nivel4.html" class="boton boton--principal">Avanzar al Nivel 4: Sustentabilidad y RSE →</a>
+</nav>
+
+</article>
+</main>
+
+<footer class="pie">
+  <div class="pie__contenedor">
+    <div><strong>Vaca Muerta Formación</strong> · Nivel 3: Seguridad Operativa y Atención de Emergencias</div>
+    <div class="pie__detalle">Procedimientos de protección integral para operaciones críticas en la Cuenca Neuquina.</div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

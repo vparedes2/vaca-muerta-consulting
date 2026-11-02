@@ -1,0 +1,108 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset='utf-8'>
+<title>DOCUMENTO VACA MUERTA</title>
+<style>
+  body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; line-height: 1.35; color: #1e293b; margin: 2cm; }
+  h1 { color: #0f172a; font-size: 16pt; border-bottom: 2pt solid #b91c1c; padding-bottom: 4pt; margin-bottom: 8pt; }
+  h2 { color: #b91c1c; font-size: 13pt; margin-top: 14pt; margin-bottom: 6pt; border-bottom: 1pt solid #cbd5e1; padding-bottom: 2pt; }
+  h3 { color: #0f172a; font-size: 11pt; margin-top: 10pt; margin-bottom: 4pt; }
+  p { margin: 4pt 0; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; }
+  th, td { border: 1pt solid #94a3b8; padding: 5pt 7pt; text-align: left; font-size: 9.5pt; }
+  th { background-color: #0f172a; color: #ffffff; font-weight: bold; }
+  .header-table { width: 100%; border: 1.5pt solid #0f172a; margin-bottom: 12pt; }
+  .header-table td { border: 1pt solid #cbd5e1; padding: 4pt 6pt; font-size: 9pt; }
+  .badge { background-color: #b91c1c; color: white; padding: 2pt 5pt; font-weight: bold; font-size: 8.5pt; }
+  .alerta { background-color: #fef2f2; border-left: 3pt solid #b91c1c; padding: 6pt 10pt; margin: 8pt 0; font-size: 9.5pt; }
+  .firma-caja { height: 45pt; border-bottom: 1pt solid #000; margin-top: 20pt; text-align: center; font-size: 8.5pt; }
+</style>
+</head>
+<body><table class='header-table'>
+  <tr>
+    <td rowspan='2' style='width:20%; text-align:center; font-weight:bold; font-size:14pt; background:#f8fafc;'>PROVINCIA DEL NEUQUEN<br><span style='font-size:8.5pt; color:#b91c1c;'>SECRETARIA DE AMBIENTE</span></td>
+    <td style='width:50%; text-align:center; font-weight:bold; font-size:13pt;'>SISTEMA MERE (RES. 2263/15)<br>MANIFIESTO DE RESIDUOS ESPECIALES</td>
+    <td style='width:30%; font-size:8.5pt;'><strong>Manifiesto NÂ°:</strong> MERE-NQ-2026-_____<br><strong>Fecha de Emision:</strong> ___/___/2026<br><strong>NÂ° Registro Generador:</strong> REG-_____</td>
+  </tr>
+  <tr>
+    <td colspan='2'><strong>Ley Provincial NÂ° 1875 (T.O. Ley 2267)</strong> y Decreto Reglamentario 2656/99 de la Provincia del Neuquen.</td>
+  </tr>
+</table>
+
+<h2>1. DATOS DEL GENERADOR (OPERADORA / SERVICIO)</h2>
+<table>
+  <tr>
+    <th style='width:30%;'>Razon Social:</th>
+    <td>________________________________________________________ <strong>CUIT:</strong> ___-_________-__</td>
+  </tr>
+  <tr>
+    <th>Yacimiento / Bloque:</th>
+    <td>________________________________________________________ <strong>PAD / Pozo:</strong> ____________________</td>
+  </tr>
+  <tr>
+    <th>Responsable Tecnico:</th>
+    <td>________________________________________________________ <strong>Telefono Urgencias:</strong> ________________</td>
+  </tr>
+</table>
+
+<h2>2. IDENTIFICACION Y VOLUMEN DE RESIDUOS ESPECIALES</h2>
+<table>
+  <tr>
+    <th>Codigo Anexo I</th>
+    <th>Descripcion Tecnica del Residuo</th>
+    <th>Estado Fisico</th>
+    <th>Cantidad Estimada</th>
+    <th>Tipo de Contenedor</th>
+  </tr>
+  <tr>
+    <td style='font-weight:bold;'>Y48</td>
+    <td>Suelo contaminado con hidrocarburos / barros de perforacion y completacion</td>
+    <td>Solido / Pastoso</td>
+    <td>_________ mÂ³ / kg</td>
+    <td>[ ] Batea estanca con lona<br>[ ] Big-Bags certificados</td>
+  </tr>
+  <tr>
+    <td style='font-weight:bold;'>Y08</td>
+    <td>Aceites lubricantes usados de motobombas y grupos electrogenos</td>
+    <td>Liquido</td>
+    <td>_________ Litros</td>
+    <td>[ ] Tambores de 200 L con zuncho</td>
+  </tr>
+  <tr>
+    <td style='font-weight:bold;'>Y18</td>
+    <td>Panos absorbentes, EPP contaminado y filtros impregnados de hidrocarburos</td>
+    <td>Solido</td>
+    <td>_________ kg</td>
+    <td>[ ] Tambores rotulados con precinto</td>
+  </tr>
+</table>
+
+<h2>3. TRANSPORTE AUTORIZADO Y DESTINO FINAL HABILITADO</h2>
+<table>
+  <tr>
+    <th>Empresa Transportista:</th>
+    <td>________________________________________ <strong>Habilitacion Provincial NÂ°:</strong> TR-________</td>
+  </tr>
+  <tr>
+    <th>Chofer Designado:</th>
+    <td>________________________________________ <strong>DNI:</strong> ________________ <strong>Patente Camion:</strong> ________</td>
+  </tr>
+  <tr>
+    <th>Operador Planta Disposicion:</th>
+    <td>[ ] COMARSA (Anelo) &nbsp;&nbsp; [ ] INDARSA (Parque Industrial) &nbsp;&nbsp; [ ] TREATER (Anelo)</td>
+  </tr>
+</table>
+
+<table style='margin-top:20pt;'>
+  <tr>
+    <th style='width:33%; text-align:center;'>POR EL GENERADOR</th>
+    <th style='width:34%; text-align:center;'>POR EL TRANSPORTISTA</th>
+    <th style='width:33%; text-align:center;'>POR LA PLANTA DISPOSITORA</th>
+  </tr>
+  <tr>
+    <td class='firma-caja'>Firma y Sello:<br><br>Fecha: ___/___/2026</td>
+    <td class='firma-caja'>Firma y Sello:<br><br>Fecha: ___/___/2026</td>
+    <td class='firma-caja'>Recepcion Conforme:<br><br>Fecha: ___/___/2026</td>
+  </tr>
+</table>
+</body></html>

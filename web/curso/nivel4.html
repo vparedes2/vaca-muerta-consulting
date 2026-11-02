@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nivel 4 — Responsabilidad Social, Ambiente y Calidad de Vida · Vaca Muerta Formación</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/curso.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="progreso-lectura" class="barra-progreso"></div>
+
+<!-- CABECERA -->
+<header class="cabecera">
+  <div class="cabecera__contenedor">
+    <a href="../index.html" class="cabecera__marca">
+      <div class="cabecera__logo">VM</div>
+      <div>
+        <div class="cabecera__titulo">Vaca Muerta Formación</div>
+        <div class="cabecera__subtitulo">Nivel 4 · RSE, Ambiente y Factor Humano</div>
+      </div>
+    </a>
+    <nav class="cabecera__nav">
+      <a href="nivel3.html">← Nivel 3</a>
+      <a href="../index.html#curso">Programa General</a>
+      <a href="instructor.html">Recursos Instructor →</a>
+    </nav>
+  </div>
+</header>
+
+<main class="curso">
+
+<!-- SIDEBAR STICKY -->
+<aside class="curso__indice">
+  <div class="curso__indice-titulo">Módulos del Nivel 4</div>
+  <ul>
+    <li><a href="#ambiente" class="activo">4.1 Gestión Ambiental y MERE</a></li>
+    <li><a href="#comunidades">4.2 Comunidades y Superficiarios</a></li>
+    <li><a href="#bienestar">4.3 Calidad de Vida en 14x14</a></li>
+    <li><a href="#resiliencia">4.4 Manejo de Estrés y Fatiga</a></li>
+    <li><a href="#test-n4" style="color:var(--color-primario);font-weight:700;">★ Test Evaluativo Nivel 4</a></li>
+  </ul>
+
+  <div class="curso__indice-titulo" style="margin-top:2rem;">Tablas del Módulo</div>
+  <ul>
+    <li><a href="#tabla-mere">Residuos MERE por Servicio</a></li>
+    <li><a href="#tabla-flowback">Agua Dulce vs. Flowback</a></li>
+    <li><a href="#tabla-comunidades">Protocolo de Superficiarios</a></li>
+    <li><a href="#tabla-fatiga">Curva de Fatiga en 14x14</a></li>
+  </ul>
+
+  <div class="curso__indice-titulo" style="margin-top:2rem;">Material Descargable</div>
+  <ul>
+    <li><a href="../documentos/compilado_nivel4_supervisor_operaciones.doc" download>Word · Nivel 4 Completo</a></li>
+    <li><a href="../documentos/manifiesto_mere_residuos_especiales_y48.doc" download>Manifiesto MERE Y48 (Word)</a></li>
+    <li><a href="../documentos/inspeccion_post_uso_restitucion.pdf" target="_blank">PDF · Inspección y Restitución</a></li>
+  </ul>
+</aside>
+
+<!-- CONTENIDO PRINCIPAL -->
+<article class="curso__contenido">
+
+<section class="curso__intro">
+  <span class="curso__etiqueta">Nivel 4 · Sustentabilidad &amp; Liderazgo Humano</span>
+  <h1>Responsabilidad Social, Gestión Ambiental y Bienestar en Campaña</h1>
+  <p class="curso__descripcion">La actividad hidrocarburífera en Vaca Muerta opera bajo la atenta mirada de la sociedad, los organismos reguladores provinciales y las <strong>comunidades originarias mapuche</strong> de la región. El supervisor de operaciones debe garantizar la licencia social para operar, gestionando los residuos especiales (sistema MERE), remediando derrames de inmediato y velando por la salud mental y el descanso de su gente en regímenes de 14x14.</p>
+
+  <div class="curso__objetivo">
+    <strong>Objetivo del Nivel:</strong> Dominar la aplicación de la Resolución ambiental 2263/15 (MERE), diferenciar las exigencias técnicas del agua cruda frente al flowback, resolver pacíficamente diferendos con superficiarios y puesteros, y aplicar estrategias de prevención de fatiga extrema y liderazgo empático en el campamento.
+  </div>
+</section>
+
+<!-- SECCIÓN 4.1: GESTIÓN AMBIENTAL Y MERE -->
+<section id="ambiente" class="curso__leccion">
+  <h2>4.1 Gestión de Residuos Especiales y Sistema MERE Neuquén</h2>
+  <p class="curso__temas">Resolución Provincial 2263/15 y Disposición 326/2021 · Manifiesto Electrónico de Residuos Especiales (MERE) · Acopio transitorio por corrientes · Manejo y reutilización de flowback en fractura.</p>
+
+  <p>En la provincia del Neuquén, ningún residuo peligroso o especial generado en una operación de Fractura, Coiled Tubing, Well Testing o Cementación puede ser movilizado sin su correspondiente **Manifiesto MERE digital**. La falta de trazabilidad implica sanciones directas para la contratista y la operadora.</p>
+
+  <!-- TABLA 1: MATRIZ MERE -->
+  <div id="tabla-mere" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Matriz de Residuos Especiales por Servicio Petrolero (Sistema MERE Neuquén)</h4>
+      <span class="badge badge--critico">RES. 2263/15 OBLIGATORIA</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Residuo Especial Típico</th>
+            <th>Código MERE</th>
+            <th>Almacenamiento Primario en Pad</th>
+            <th>Operador de Tratamiento Autorizado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fractura &amp; UAF</strong></td>
+            <td>Envases vacíos de biocidas, surfactantes y reductores de fricción.</td>
+            <td>Y04 / Y18</td>
+            <td>Corralón cerrado con piso impermeable y lavado a presión con retención.</td>
+            <td>Operador habilitado para termodestrucción o reciclado industrial en Añelo.</td>
+          </tr>
+          <tr>
+            <td><strong>Well Testing &amp; Flowback</strong></td>
+            <td>Suelo empetrolado por goteo en uniones de choke manifold y purgas.</td>
+            <td>Y48</td>
+            <td>Batea estanca con geomembrana de 1.000 micrones tapada con lona impermeable.</td>
+            <td>Plantas de tratamiento biológico / biorremediación (Comarsa, Indarsa, Treater).</td>
+          </tr>
+          <tr>
+            <td><strong>Coiled Tubing &amp; Bombas</strong></td>
+            <td>Aceites usados de cárter de motor y fluidos hidráulicos degradados.</td>
+            <td>Y08 / Y09</td>
+            <td>Tambores metálicos de 200 L identificados sobre batea de contención secundaria.</td>
+            <td>Refinerías para regeneración de bases lubricantes o coprocesamiento.</td>
+          </tr>
+          <tr>
+            <td><strong>Cementación</strong></td>
+            <td>Agua de lavado de tolvas con restos de aditivos cáusticos y retardadores.</td>
+            <td>Y35</td>
+            <td>Piletas cerradas de recirculación; prohibido vuelco a zanja natural de estepa.</td>
+            <td>Neutralización química antes de disposición en pozo sumidero habilitado.</td>
+          </tr>
+          <tr>
+            <td><strong>Campamentos</strong></td>
+            <td>Efluentes cloacales de trailers habitacionales y cocina.</td>
+            <td>Líquidos cloacales</td>
+            <td>Cámara séptica estanca con retiro programado por camión atmosférico.</td>
+            <td>Planta de tratamiento de efluentes cloacales municipal habilitada.</td>
+          </tr>
+          <tr>
+            <td><strong>Obra Civil &amp; Montaje</strong></td>
+            <td>Restos de geomembranas de PEAD, geotextiles impregnados, tambores de curador de hormigón.</td>
+            <td>Y18 / Y48</td>
+            <td>Contenedores tipo roll-off cerrados y techados, segregados de escombros limpios.</td>
+            <td>Plantas de reciclado de polímeros habilitadas o tratamiento térmico en Añelo.</td>
+          </tr>
+          <tr>
+            <td><strong>Supervisión General &amp; Logística</strong></td>
+            <td>Filtros de aceite/gasoil de camiones tolva, baterías en desuso y trapos empetrolados.</td>
+            <td>Y18 / Y31</td>
+            <td>Corralón central de residuos peligrosos con batea secundaria y extintores.</td>
+            <td>Operador provincial habilitado para reciclado de plomo y termodestrucción.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLA 2: AGUA DULCE VS FLOWBACK -->
+  <div id="tabla-flowback" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Comparativa de Fluidos: Conducción de Agua Dulce vs. Flowback Reutilizado</h4>
+      <span class="badge badge--vm">SUSTENTABILIDAD HÍDRICA</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Parámetro</th>
+            <th>Agua Dulce de Captación (Río/Lago)</th>
+            <th>Agua de Flowback / Retorno Tratada</th>
+            <th>Exigencia para el Supervisor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Salinidad (TDS)</strong></td>
+            <td>150 a 400 ppm</td>
+            <td>40.000 a 140.000 ppm (salmuera pesada)</td>
+            <td>Verificar sellos de bombas y protección galvánica en acoples metálicos.</td>
+          </tr>
+          <tr>
+            <td><strong>Contenido de Hidrocarburo</strong></td>
+            <td>0 ppm (indetectable)</td>
+            <td>50 a 400 ppm de crudo y gas disuelto</td>
+            <td><span class="badge badge--critico">Monitoreo continuo de LEL</span> en bocas de tanques y venteos.</td>
+          </tr>
+          <tr>
+            <td><strong>Abrasión por Sólidos</strong></td>
+            <td>Limo fino (&lt;50 ppm)</td>
+            <td>Arena de cuarzo y cerámica de fractura</td>
+            <td>Uso obligatorio de desarenadores ciclónicos previos a la reinyección.</td>
+          </tr>
+          <tr>
+            <td><strong>Impacto de Derrame</strong></td>
+            <td>Erosión física del terreno</td>
+            <td>Salinización severa e infertilidad del suelo</td>
+            <td>Remediación inmediata con excavadora y reposición de suelo según MERE.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="figuras-grid--2">
+    <figure class="figura-ampliable">
+      <div class="figura-ampliable__img-wrap">
+        <img src="../img/cisterna-go-con-kit-antiderrame.png" alt="Cisterna de combustible con batea y kit antiderrame">
+        <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+      </div>
+      <figcaption>
+        <h4>Batea Secundaria y Kit Antiderrame</h4>
+        <p>Disposición reglamentaria de tanque cisterna de diésel con batea de contención estanca al 110% y paños oleofílicos para contención de goteos en boca de carga.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="figura-ampliable">
+      <div class="figura-ampliable__img-wrap">
+        <img src="../img/fauna-en-campo.jpg" alt="Fauna autóctona en proximidades de la locación">
+        <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+      </div>
+      <figcaption>
+        <h4>Preservación de la Biodiversidad Esteparia</h4>
+        <p>Guanacos y choiques en las picadas de Loma Campana. La velocidad máxima en caminos internos se limita a 40 km/h para evitar accidentes y atropellos.</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- SECCIÓN 4.2: RELACIONAMIENTO COMUNITARIO -->
+<section id="comunidades" class="curso__leccion">
+  <h2>4.2 Relacionamiento con Superficiarios y Comunidades Originarias</h2>
+  <p class="curso__temas">Comunidades mapuche de la Cuenca · Acuerdos de servidumbre de paso · Protocolo de diálogo ante tranqueras cerradas · El supervisor como representante institucional en campo.</p>
+
+  <p>La traza de picadas y líneas de servicios atraviesa predios fiscales, campos de puesteros crianceros y territorios de comunidades originarias reconocidas. El supervisor es el primer punto de contacto y debe actuar con respeto irrestricto a los derechos de las partes.</p>
+
+  <!-- TABLA 3: SUPERFICIARIOS -->
+  <div id="tabla-comunidades" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Matriz de Protocolo de Actuación ante Diferendos con Superficiarios</h4>
+      <span class="badge badge--norma">RESOLUCIÓN PACÍFICA</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Situación en Terreno</th>
+            <th>Causa Raíz Típica</th>
+            <th>Protocolo de Actuación del Supervisor</th>
+            <th>Acción Terminantemente Prohibida</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Tranquera cerrada con candado ajeno</strong></td>
+            <td>Reclamo de superficiario por polvo, falta de riego o servidumbre impaga.</td>
+            <td>Detener vehículo; identificarse educadamente; tomar contacto con Relaciones Comunitarias del cliente; documentar hora y reclamo.</td>
+            <td><span class="badge badge--critico">Cortar el candado con cizalla o embestir la tranquera</span> con la camioneta (delito penal de daño).</td>
+          </tr>
+          <tr>
+            <td><strong>Ganado caprino o equino sobre la picada</strong></td>
+            <td>Pastoreo de puesteros locales en inmediaciones de la locación.</td>
+            <td>Reducir la marcha a paso de hombre; detener el vehículo si es necesario; no tocar bocina para no asustar a los animales.</td>
+            <td>Acelerar o amedrentar a los animales; circular campo traviesa dañando la vegetación.</td>
+          </tr>
+          <tr>
+            <td><strong>Manifestación pacífica en acceso a pad</strong></td>
+            <td>Reclamo laboral o comunitario frente al yacimiento.</td>
+            <td>Apagar motores; mantener al personal a bordo; informar por radio al centro de control; aguardar mediación de autoridades.</td>
+            <td>Confrontar verbalmente, provocar a los manifestantes o forzar el paso con camiones pesados.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <figure class="figura-ampliable">
+    <div class="figura-ampliable__img-wrap">
+      <img src="../img/conflicto-superficierio-cerro-con-candano-acceso-y-egreso.jpg" alt="Tranquera cerrada con candado por superficiario en picada">
+      <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+    </div>
+    <figcaption>
+      <h4>Gestión de Servidumbres de Paso</h4>
+      <p>Cierre de acceso en picada secundaria. El supervisor debe aplicar el protocolo institucional de mediación, resguardando la seguridad de su personal.</p>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- SECCIÓN 4.3: BIENESTAR Y GESTIÓN DE FATIGA EN 14X14 -->
+<section id="bienestar" class="curso__leccion">
+  <h2>4.3 Gestión de la Fatiga y Calidad de Vida en Campaña</h2>
+  <p class="curso__temas">Evolución psicofísica en turnos 14x14 y 7x7 · La curva de fatiga del día 10 al 13 · El "síndrome del día de salida" · Higiene del sueño en trailers · Prevención del burnout en supervisores.</p>
+
+  <!-- TABLA 4: CURVA DE FATIGA -->
+  <div id="tabla-fatiga" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Evolución de la Fatiga en Diagramas de Campaña (Régimen 14x14)</h4>
+      <span class="badge badge--alerta">PREVENCIÓN DE ACCIDENTES</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Fase del Turno</th>
+            <th>Estado Psicofísico de la Cuadrilla</th>
+            <th>Comportamiento de Riesgo Típico</th>
+            <th>Estrategia Preventiva del Supervisor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Días 1 a 3 (Inicio)</strong></td>
+            <td>Adaptación al régimen, energía alta.</td>
+            <td>Exceso de confianza; subestimación de las charlas de seguridad pre-turno.</td>
+            <td>Hacer foco en la inducción de obra, verificar EPP y chequear documentación PTS rigurosamente.</td>
+          </tr>
+          <tr>
+            <td><strong>Días 4 a 9 (Régimen)</strong></td>
+            <td>Rendimiento óptimo, cuadrilla ensamblada.</td>
+            <td>Rutina automática; naturalización de pequeñas fugas o ruidos mecánicos.</td>
+            <td>Rotar puestos entre operadores; implementar pausas activas y auditorías de campo sorpresa.</td>
+          </tr>
+          <tr>
+            <td><strong>Días 10 a 13 (Fatiga Crítica)</strong></td>
+            <td><span class="badge badge--critico">Agotamiento acumulado, irritabilidad.</span></td>
+            <td>Microsueños al volante, olvido de pasos en listas de verificación LOTO, discusiones.</td>
+            <td>Prohibir horas extras; auditar 8 hs reales de sueño en trailers; mayor presencia del supervisor en el pozo.</td>
+          </tr>
+          <tr>
+            <td><strong>Día 14 (Salida)</strong></td>
+            <td>Ansiedad por regresar a casa ("Síndrome de la partida").</td>
+            <td>Conducción temeraria a alta velocidad en ruta para ganar minutos; relevos apurados.</td>
+            <td>Control estricto de velocidad por telemetría; pase de guardia ordenado y descanso previo al viaje.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <figure class="figura-ampliable">
+    <div class="figura-ampliable__img-wrap">
+      <img src="../img/equipo-de-trabajo.png" alt="Reunión diaria de cuadrilla en campamento">
+      <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+    </div>
+    <figcaption>
+      <h4>Liderazgo Cercano y Resiliencia en Equipo</h4>
+      <p>Reunión pre-turno de 5 minutos en el campamento. La escucha activa de los problemas personales de los colaboradores es la herramienta más eficaz para prevenir errores humanos en operaciones de alto riesgo.</p>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- TEST EVALUATIVO INTERACTIVO NIVEL 4 -->
+<section id="test-n4" class="curso__leccion">
+  <h2>Test Evaluativo Interactivo · Nivel 4</h2>
+  <p>Demostrá tus criterios en gestión ambiental MERE, manejo de efluentes, relacionamiento comunitario y control de fatiga en diagramas 14x14. Hacé clic en la opción correcta.</p>
+
+  <div class="test-interactivo">
+    <div class="test-interactivo__encabezado">
+      <h3 class="test-interactivo__titulo">Evaluación de Competencias · Nivel 4 (5 Preguntas)</h3>
+      <span class="badge badge--vm">MÍNIMO APROBATORIO: 80% (4 de 5)</span>
+    </div>
+
+    <!-- Pregunta 1 -->
+    <div class="pregunta-test" data-correcta="2">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 1 de 5 · Normativa MERE</span>
+        <span class="badge badge--critico">AMBIENTE</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        ¿Qué exige la Resolución provincial 2263/15 de la Subsecretaría de Ambiente de Neuquén respecto al retiro de residuos especiales de un yacimiento?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Que pueden retirarse en camioneta particular si están dentro de bolsas de consorcio negras comunes.</button>
+        <button class="opcion-test" data-opcion="2">B) Que cada movimiento debe contar con un Manifiesto Electrónico de Residuos Especiales (MERE) generado en la plataforma provincial, transportista habilitado y entrega a operador autorizado.</button>
+        <button class="opcion-test" data-opcion="3">C) Que solo aplica a derrames mayores a 10.000 litros de petróleo crudo.</button>
+        <button class="opcion-test" data-opcion="4">D) Que se permite quemar los trapos con hidrocarburo en una fosa del pad si no hay viento.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="La Resolución 2263/15 establece la trazabilidad digital completa del residuo especial desde su generación hasta su tratamiento final mediante el sistema provincial MERE."></div>
+    </div>
+
+    <!-- Pregunta 2 -->
+    <div class="pregunta-test" data-correcta="4">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 2 de 5 · Flowback y Materiales</span>
+        <span class="badge badge--alerta">QUÍMICA</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        ¿Por qué el agua de retorno (*Flowback*) requiere mangueras layflat y bombas con aleaciones especiales respecto al agua dulce de río?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Porque el flowback pesa la mitad que el agua común y flota en las cañerías.</button>
+        <button class="opcion-test" data-opcion="2">B) Porque el agua dulce es más corrosiva para los elastómeros que los hidrocarburos.</button>
+        <button class="opcion-test" data-opcion="3">C) No requiere ningún material especial; cualquier manguera de lona soporta el fluido.</button>
+        <button class="opcion-test" data-opcion="4">D) Por su altísima salinidad (hasta 140.000 ppm TDS), contenido de arena abrasiva y trazas de petróleo/gas que atacan y degradan los cauchos estándar y aceleran la corrosión galvánica.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="El flowback es una salmuera pesada con hidrocarburos aromáticos y sólidos de fractura que degrada el NBR estándar y corroe las piezas de aluminio, exigiendo poliuretano especial y aceros resistentes."></div>
+    </div>
+
+    <!-- Pregunta 3 -->
+    <div class="pregunta-test" data-correcta="1">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 3 de 5 · Superficiarios</span>
+        <span class="badge badge--norma">COMUNIDADES</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        Un puestero rural corta el paso de una picada con su camioneta argumentando que el tránsito de camiones de la empresa le levantó una cortina de polvo sobre su corral de chivas. ¿Cómo debe proceder el supervisor?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Detener los camiones, entablar diálogo respetuoso, no confrontar, comprometer el paso inmediato del camión regador de agua y dar intervención al área de Relaciones Comunitarias del cliente.</button>
+        <button class="opcion-test" data-opcion="2">B) Bajar a los choferes para empujar la camioneta del puestero fuera del camino a la fuerza.</button>
+        <button class="opcion-test" data-opcion="3">C) Ignorar al superficiario y acelerar levantando más polvo para que se aparte.</button>
+        <button class="opcion-test" data-opcion="4">D) Amenazarlo con una denuncia penal inmediata sin escuchar su reclamo.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="El diálogo respetuoso y la resolución de la causa del reclamo (en este caso el riego de caminos para abatir el polvo) protegen la licencia social de la operación y evitan bloqueos mayores."></div>
+    </div>
+
+    <!-- Pregunta 4 -->
+    <div class="pregunta-test" data-correcta="3">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 4 de 5 · Fatiga en 14x14</span>
+        <span class="badge badge--critico">FACTOR HUMANO</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        En el día 12 de un diagrama 14x14 en turno noche, el supervisor nota que el operador de bomba bosteza repetidamente y olvida cerrar una válvula de purga. ¿Cuál es la medida preventiva adecuada?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Aplicarle una suspensión disciplinaria en el acto por falta de atención.</button>
+        <button class="opcion-test" data-opcion="2">B) Obligarlo a tomar tres tazas de café y asignarle una tarea en altura para que se despierte.</button>
+        <button class="opcion-test" data-opcion="3">C) Reconocer la señal de fatiga extrema acumulada, relevarlo temporalmente de la tarea crítica con otro compañero de cuadrilla y verificar sus condiciones de descanso.</button>
+        <button class="opcion-test" data-opcion="4">D) No intervenir si el turno termina en pocas horas.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="La fatiga acumulada en los días finales del turno 14x14 produce lapsos de microsueño y fallas cognitivas severas. Relevar de tareas críticas al personal exhausto evita accidentes mayores."></div>
+    </div>
+
+    <!-- Pregunta 5 -->
+    <div class="pregunta-test" data-correcta="2">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 5 de 5 · Calidad de Vida</span>
+        <span class="badge badge--ok">LIDERAZGO</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        ¿Qué hábito en el campamento promueve la higiene del sueño y la recuperación psicofísica de las cuadrillas nocturnas?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Dejar encendidas las luces fluorescentes del dormitorio durante el día.</button>
+        <button class="opcion-test" data-opcion="2">B) Mantener cortinas opacas blackout en trailers, silenciar teléfonos, aislar ruidos de generadores y respetar estrictamente las 8 horas de reposo sin llamados laborales innecesarios.</button>
+        <button class="opcion-test" data-opcion="3">C) Organizar asados multitudinarios al lado de los trailers donde duerme el turno noche.</button>
+        <button class="opcion-test" data-opcion="4">D) Exigir que los operarios respondan mensajes de radio mientras están descansando.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="El sueño diurno en turnos rotativos es biológicamente más frágil. Garantizar oscuridad, silencio y respeto por las horas de desconexión es una barrera directa contra la accidentabilidad."></div>
+    </div>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <button class="btn-calcular-test" disabled>Calcular Resultado Nivel 4</button>
+      <p style="font-size:0.85rem;color:var(--color-texto-suave);margin-top:0.5rem;">* Respondé las 5 preguntas para habilitar tu puntaje.</p>
+    </div>
+    <div class="resultado-test"></div>
+  </div>
+</section>
+
+<!-- NAVEGACIÓN -->
+<nav class="curso__nav">
+  <a href="nivel3.html" class="boton boton--secundario">← Volver al Nivel 3</a>
+  <a href="instructor.html" class="boton boton--principal">Ver Recursos Pedagógicos del Instructor →</a>
+</nav>
+
+</article>
+</main>
+
+<footer class="pie">
+  <div class="pie__contenedor">
+    <div><strong>Vaca Muerta Formación</strong> · Nivel 4: Responsabilidad Social, Ambiente y Calidad de Vida</div>
+    <div class="pie__detalle">Comprometidos con el desarrollo sustentable y el bienestar del capital humano en Vaca Muerta.</div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

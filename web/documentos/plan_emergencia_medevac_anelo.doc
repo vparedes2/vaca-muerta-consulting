@@ -1,0 +1,75 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset='utf-8'>
+<title>DOCUMENTO VACA MUERTA</title>
+<style>
+  body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; line-height: 1.35; color: #1e293b; margin: 2cm; }
+  h1 { color: #0f172a; font-size: 16pt; border-bottom: 2pt solid #b91c1c; padding-bottom: 4pt; margin-bottom: 8pt; }
+  h2 { color: #b91c1c; font-size: 13pt; margin-top: 14pt; margin-bottom: 6pt; border-bottom: 1pt solid #cbd5e1; padding-bottom: 2pt; }
+  h3 { color: #0f172a; font-size: 11pt; margin-top: 10pt; margin-bottom: 4pt; }
+  p { margin: 4pt 0; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; }
+  th, td { border: 1pt solid #94a3b8; padding: 5pt 7pt; text-align: left; font-size: 9.5pt; }
+  th { background-color: #0f172a; color: #ffffff; font-weight: bold; }
+  .header-table { width: 100%; border: 1.5pt solid #0f172a; margin-bottom: 12pt; }
+  .header-table td { border: 1pt solid #cbd5e1; padding: 4pt 6pt; font-size: 9pt; }
+  .badge { background-color: #b91c1c; color: white; padding: 2pt 5pt; font-weight: bold; font-size: 8.5pt; }
+  .alerta { background-color: #fef2f2; border-left: 3pt solid #b91c1c; padding: 6pt 10pt; margin: 8pt 0; font-size: 9.5pt; }
+  .firma-caja { height: 45pt; border-bottom: 1pt solid #000; margin-top: 20pt; text-align: center; font-size: 8.5pt; }
+</style>
+</head>
+<body><table class='header-table'>
+  <tr>
+    <td rowspan='2' style='width:20%; text-align:center; font-weight:bold; font-size:14pt; background:#f8fafc;'>VACA MUERTA<br><span style='font-size:9pt; color:#b91c1c;'>MEDEVAC</span></td>
+    <td style='width:50%; text-align:center; font-weight:bold; font-size:13pt;'>PLAN DE RESPUESTA MEDICA ANTE EMERGENCIAS<br>PROCEDIMIENTO MEDEVAC Y PRIMEROS AUXILIOS</td>
+    <td style='width:30%; font-size:8.5pt;'><strong>Codigo:</strong> MED-VM-2026<br><strong>Vigencia:</strong> Anual 2026<br><strong>Area:</strong> Cuenca Neuquina</td>
+  </tr>
+  <tr>
+    <td colspan='2'><strong>Protocolo de Derivacion Rapida y Soporte Vital Avanzado en Areas Remotas.</strong></td>
+  </tr>
+</table>
+
+<h2>1. DIRECTORIO DE CONTACTOS DE EMERGENCIA (24 HORAS)</h2>
+<table>
+  <tr>
+    <th>Institucion / Servicio</th>
+    <th>Ubicacion</th>
+    <th>Canal de Radio / Frecuencia</th>
+    <th>Telefono Satelital / Movil</th>
+  </tr>
+  <tr>
+    <td><strong>Hospital Zonal Anelo</strong></td>
+    <td>Anelo Centro (Ruta Provincial 7)</td>
+    <td>VHF Canal 16 Nautico / Banda Marina</td>
+    <td>(0299) 490-4022 / Guardia: 107</td>
+  </tr>
+  <tr>
+    <td><strong>Hospital Provincial Castro Rendon</strong></td>
+    <td>Neuquen Capital (Complejidad VI)</td>
+    <td>Coordinacion SIEN Neuquen</td>
+    <td>(0299) 449-0800 / SIEN: 107</td>
+  </tr>
+  <tr>
+    <td><strong>Base Central de Operaciones / Control Room</strong></td>
+    <td>Anelo Base Operativa</td>
+    <td>Canal VHF 3 Operativo</td>
+    <td>+54 9 299 4______</td>
+  </tr>
+  <tr>
+    <td><strong>Servicio de Helicoptero Sanitario</strong></td>
+    <td>Aeropuerto Neuquen / Helipunto Anelo</td>
+    <td>Frecuencia Aeronautica 121.5 MHz</td>
+    <td>+54 9 299 5______</td>
+  </tr>
+</table>
+
+<h2>2. CADENA DE COMUNICACION EN CASO DE ACCIDENTE GRAVE</h2>
+<p><strong>1. PROTEGER:</strong> Evaluar la escena. Detener equipos en marcha (pulsador ESD). No ingresar a zona con sospecha de H2S sin ERA.<br>
+<strong>2. AVISAR:</strong> El supervisor emite llamado por VHF con la frase: <em>'EMERGENCIA MEDICA, EMERGENCIA MEDICA'</em>. Detener todo trafico radial.<br>
+<strong>3. SOCORRER:</strong> Aplicar soporte vital basico:</p>
+<ul>
+  <li><strong>Hemorragia Masiva en Extremidad:</strong> Colocar torniquete tactico CAT a 5-7 cm por encima de la herida. Ajustar hasta cese total del sangrado. Anotar la hora exacta de colocacion en la frente o cinta del torniquete (Ej: 'T: 14:35').</li>
+  <li><strong>Paro Cardiorrespiratorio:</strong> Iniciar RCP continuo (100-120 compresiones por minuto) y conectar inmediatamente el Desfibrilador Externo Automatico (DEA) del campamento.</li>
+  <li><strong>Intoxicacion por H2S:</strong> Retirar a la victima a favor del viento, suministrar oxigeno al 100% con mascara reservorio y avisar de urgencia para soporte de terapia intensiva.</li>
+</ul>
+</body></html>

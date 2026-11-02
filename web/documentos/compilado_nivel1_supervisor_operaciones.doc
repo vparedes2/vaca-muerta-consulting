@@ -1,0 +1,129 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>COMPILADO INTEGRAL &middot; NIVEL 1</title>
+<style>
+  body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; line-height: 1.4; color: #1e293b; margin: 2cm; }
+  h1 { color: #0f172a; font-size: 15pt; border-bottom: 2pt solid #b91c1c; padding-bottom: 4pt; margin-bottom: 8pt; text-transform: uppercase; }
+  h2 { color: #b91c1c; font-size: 12.5pt; margin-top: 14pt; margin-bottom: 5pt; border-bottom: 1pt solid #cbd5e1; padding-bottom: 2pt; text-transform: uppercase; }
+  h3 { color: #0f172a; font-size: 11pt; margin-top: 10pt; margin-bottom: 3pt; }
+  p { margin: 4pt 0; text-align: justify; }
+  ul, ol { margin: 4pt 0 8pt 20pt; }
+  li { margin-bottom: 2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; }
+  th, td { border: 1pt solid #94a3b8; padding: 5pt 7pt; text-align: left; font-size: 9pt; }
+  th { background-color: #0f172a; color: #ffffff; font-weight: bold; }
+  .header-table { width: 100%; border: 1.5pt solid #0f172a; margin-bottom: 12pt; }
+  .header-table td { border: 1pt solid #cbd5e1; padding: 4pt 6pt; font-size: 8.5pt; }
+  .badge { background-color: #b91c1c; color: white; padding: 2pt 5pt; font-weight: bold; font-size: 8pt; }
+  .alerta { background-color: #fef2f2; border-left: 3.5pt solid #b91c1c; padding: 6pt 10pt; margin: 8pt 0; font-size: 9pt; }
+  .nota { background-color: #f0fdf4; border-left: 3.5pt solid #16a34a; padding: 6pt 10pt; margin: 8pt 0; font-size: 9pt; }
+  .firma-caja { height: 40pt; border-bottom: 1pt solid #000; margin-top: 20pt; text-align: center; font-size: 8.5pt; }
+</style>
+</head>
+<body>
+<table class='header-table'>
+  <tr>
+    <td rowspan='2' style='width:22%; text-align:center; font-weight:bold; font-size:13pt; background:#f8fafc; color:#0f172a;'>VACA MUERTA<br><span style='font-size:8.5pt; color:#b91c1c;'>FORMACI&Oacute;N</span></td>
+    <td style='width:52%; text-align:center; font-weight:bold; font-size:11.5pt; color:#0f172a;'>COMPILADO INTEGRAL &middot; NIVEL 1<br><span style='font-size:9pt; font-weight:normal; color:#475569;'>Marco Legal, &Eacute;tica Operativa, PTS y Stop Work Authority (SWA)</span></td>
+    <td style='width:26%; font-size:8pt;'><strong>C&oacute;digo:</strong> VM-GUIA-N1-2026<br><strong>Revisi&oacute;n:</strong> 4.0 Multi-Servicio<br><strong>Cuenca:</strong> Neuquina (Argentina)</td>
+  </tr>
+  <tr>
+    <td colspan='2' style='font-size:8pt;'><strong>Servicios:</strong> Fractura, Coiled Tubing, Wireline, Snubbing, Well Testing, Cementaci&oacute;n, Flowback, Torqueo, Water Transfer, Log&iacute;stica, Obra Civil y Supervisi&oacute;n General.</td>
+  </tr>
+</table><h1>Nivel 1: Marco Normativo, &Eacute;tica y Procedimientos de Trabajo Seguro</h1>
+<div class='nota'>
+  <strong>Prop&oacute;sito Formativo:</strong> Establecer las bases jur&iacute;dicas, &eacute;ticas y operacionales que rigen la intervenci&oacute;n de pozos y obras de superficie en la Cuenca Neuquina, asegurando que todo supervisor conozca sus responsabilidades civiles, penales y ambientales antes de pisar un PAD.
+</div>
+
+<h2>M&oacute;dulo 1: Marco Legal Petrolero en la Cuenca Neuquina</h2>
+<p>La operaci&oacute;n en formaciones no convencionales (Vaca Muerta) exige estricto alineamiento con la legislaci&oacute;n vigente:</p>
+<ul>
+  <li><strong>Ley Nacional 17.319 (Ley de Hidrocarburos):</strong> Regula las concesiones de exploraci&oacute;n y explotaci&oacute;n, fijando las obligaciones de continuidad y est&aacute;ndares t&eacute;cnicos.</li>
+  <li><strong>Ley Nacional 26.197 (&ldquo;Ley Corta&rdquo;):</strong> Transfiere a las provincias el dominio p&uacute;blico originario de los yacimientos de hidrocarburos. En Neuqu&eacute;n, la autoridad de aplicaci&oacute;n es la Secretar&iacute;a de Energ&iacute;a y Recursos Naturales.</li>
+  <li><strong>Ley Provincial 1875 (Ambiente):</strong> Establece el principio precautorio, la evaluaci&oacute;n de impacto ambiental (EIA) previa a todo proyecto y la tipificaci&oacute;n de infracciones y pasivos ambientales.</li>
+  <li><strong>Responsabilidad Legal del Supervisor:</strong> El supervisor en locaci&oacute;n ejerce la representaci&oacute;n t&eacute;cnica de la empresa de servicios. Ante un siniestro por negligencia o violaci&oacute;n de procedimientos, responde de forma solidaria y penal por lesiones, estrago o contaminaci&oacute;n ambiental.</li>
+</ul>
+
+<h2>M&oacute;dulo 2: &Eacute;tica Profesional, Confidencialidad y Secretos Industriales</h2>
+<p>El yacimiento es un &aacute;rea de extrema sensibilidad competitiva. Las operadoras invierten millones de d&oacute;lares en dise&ntilde;os de estimulaci&oacute;n e ingenier&iacute;a:</p>
+<ul>
+  <li><strong>Acuerdos de Confidencialidad (NDAs):</strong> Queda prohibida la divulgaci&oacute;n de presiones de fractura, caudales, vol&uacute;menes de propante, concentraciones de qu&iacute;micos y registros el&eacute;ctricos de pozo.</li>
+  <li><strong>Pol&iacute;tica de Registro Fotogr&aacute;fico y Redes Sociales:</strong> Tolerancia cero al uso de celulares para filmar maniobras o instalaciones sin autorizaci&oacute;n expresa del Company Man. Todo registro en redes sociales constituye causal objetiva de desvinculaci&oacute;n y sanci&oacute;n civil.</li>
+  <li><strong>Cultura de Integridad:</strong> Prohibici&oacute;n absoluta de encubrimiento de fallas, falsificaci&oacute;n de partes diarios o recepci&oacute;n de d&aacute;divas entre contratistas.</li>
+</ul>
+
+<h2>M&oacute;dulo 3: Permisos de Trabajo Seguro (PTS / PTW) y Matriz RAM</h2>
+<p>Ninguna tarea de mantenimiento, montaje o intervenci&oacute;n puede comenzar sin un Permiso de Trabajo Seguro formalmente validado:</p>
+<table>
+  <tr>
+    <th>Tipo de Permiso</th>
+    <th>Alcance Operativo</th>
+    <th>Medidas Mandatorias de Control</th>
+  </tr>
+  <tr>
+    <td><strong>Permiso en Caliente</strong></td>
+    <td>Soldadura, corte, amolado, oxicorte en locaci&oacute;n.</td>
+    <td>Prueba continua de explosividad (LEL 0%), extintor a 3 m, mampara ign&iacute;fuga, vig&iacute;a permanente.</td>
+  </tr>
+  <tr>
+    <td><strong>Permiso en Fr&iacute;o</strong></td>
+    <td>Desarme mec&aacute;nico, cambio de bridas, purga de l&iacute;neas.</td>
+    <td>Despresurizaci&oacute;n total verificada, LOTO con candado personal, batea de contenci&oacute;n.</td>
+  </tr>
+  <tr>
+    <td><strong>Espacio Confinado</strong></td>
+    <td>Ingreso a tanques australianos, piletas, separadores.</td>
+    <td>Medici&oacute;n O2 (19.5%-23.5%), H2S (&lt;10 ppm), LEL 0%, arn&eacute;s con l&iacute;nea de vida y rescatista exterior.</td>
+  </tr>
+  <tr>
+    <td><strong>Trabajo en Altura</strong></td>
+    <td>Tareas sobre 1.80 m (torres, silos SandBox, gr&uacute;as).</td>
+    <td>Arn&eacute;s de cuerpo completo con doble cabo de vida y amortiguador, punto de anclaje certificado 22 kN.</td>
+  </tr>
+  <tr>
+    <td><strong>Excavaci&oacute;n y Zanjeo</strong></td>
+    <td>Apertura de zanjas para acueductos, flowlines y PADs.</td>
+    <td>Cateo manual previo, plano As-Built verificado, talud seg&uacute;n tipo de suelo, entibado sobre 1.50 m.</td>
+  </tr>
+</table>
+
+<h2>M&oacute;dulo 4: Matriz de EPP por Servicio y C&oacute;digo IRAM</h2>
+<p>El supervisor fiscaliza el porte riguroso del EPP certificado seg&uacute;n la especialidad:</p>
+<ul>
+  <li><strong>Fractura Hidr&aacute;ulica:</strong> Casco con barbijo, protecci&oacute;n auditiva doble en zona de bombas, antiparras y careta facial qu&iacute;mica en blender, guantes de impacto certificados y botas con puntera de acero.</li>
+  <li><strong>Coiled Tubing y Wireline:</strong> Ropa ign&iacute;fuga 100% algod&oacute;n o aramida (antiest&aacute;tica), calzado diel&eacute;ctrico, detector de H2S personal en solapa.</li>
+  <li><strong>Supervisi&oacute;n de Obra Civil:</strong> Chaleco reflectivo clase 3 de alta visibilidad, calzado con suela anticlave y puntera de composite, antiparras herm&eacute;ticas contra polvo en suspensi&oacute;n por viento.</li>
+  <li><strong>C&oacute;digo de Se&ntilde;alizaci&oacute;n IRAM 10005:</strong> Rojo (Parada / Prohibici&oacute;n / Contra Incendio); Amarillo (Precauci&oacute;n / Riesgo de Alta Presi&oacute;n); Azul (Obligaci&oacute;n de EPP espec&iacute;fico); Verde (Seguridad / Salidas de Emergencia y Primeros Auxilios).</li>
+</ul>
+
+<h2>M&oacute;dulo 5: Comunicaci&oacute;n Operativa VHF y Stop Work Authority (SWA)</h2>
+<p>La claridad comunicacional previene malentendidos catastr&oacute;ficos:</p>
+<ul>
+  <li><strong>Colaci&oacute;n Obligatoria de &Oacute;rdenes:</strong> Quien recibe una instrucci&oacute;n cr&iacute;tica por radio VHF debe repetirla textualmente antes de ejecutarla.</li>
+  <li><strong>Silencio de Radio VHF:</strong> Mandatorio durante el armado y conexionado de ca&ntilde;ones de punzado de wireline para evitar corrientes inducidas en detonadores electro-explosivos.</li>
+  <li><strong>Stop Work Authority (SWA):</strong> Derecho y deber absoluto de cualquier trabajador o supervisor de detener inmediatamente cualquier maniobra si detecta un desv&iacute;o cr&iacute;tico, sin temor a sanciones.</li>
+</ul><table style='width:100%; margin-top:25pt; border:none;'>
+  <tr style='border:none;'>
+    <td style='width:33%; border:none; text-align:center;'>
+      <div class='firma-caja'></div>
+      <strong>Firma del Supervisor</strong><br>
+      <span style='font-size:8pt; color:#64748b;'>Aclaraci&oacute;n y DNI</span>
+    </td>
+    <td style='width:33%; border:none; text-align:center;'>
+      <div class='firma-caja'></div>
+      <strong>Instructor / Auditor HSE</strong><br>
+      <span style='font-size:8pt; color:#64748b;'>Matr&iacute;cula Provincial</span>
+    </td>
+    <td style='width:33%; border:none; text-align:center;'>
+      <div class='firma-caja'></div>
+      <strong>Company Man / Operadora</strong><br>
+      <span style='font-size:8pt; color:#64748b;'>Conformidad de Guardia</span>
+    </td>
+  </tr>
+</table>
+<div style='margin-top:15pt; font-size:7.5pt; color:#94a3b8; text-align:center; border-top:1pt solid #e2e8f0; padding-top:4pt;'>
+  Vaca Muerta Formaci&oacute;n &middot; Programa de Certificaci&oacute;n T&eacute;cnica Upstream &middot; Ley Nacional 26.197 &middot; Ley Provincial Neuqu&eacute;n 1875 &middot; Documento Oficial de Consulta en Campo
+</div>
+</body>
+</html>

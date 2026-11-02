@@ -1,0 +1,151 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>MANUAL T&Eacute;CNICO DEL SUPERVISOR DE OPERACIONES</title>
+<style>
+  body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; line-height: 1.4; color: #1e293b; margin: 2cm; }
+  h1 { color: #0f172a; font-size: 15pt; border-bottom: 2pt solid #b91c1c; padding-bottom: 4pt; margin-bottom: 8pt; text-transform: uppercase; }
+  h2 { color: #b91c1c; font-size: 12.5pt; margin-top: 14pt; margin-bottom: 5pt; border-bottom: 1pt solid #cbd5e1; padding-bottom: 2pt; text-transform: uppercase; }
+  h3 { color: #0f172a; font-size: 11pt; margin-top: 10pt; margin-bottom: 3pt; }
+  p { margin: 4pt 0; text-align: justify; }
+  ul, ol { margin: 4pt 0 8pt 20pt; }
+  li { margin-bottom: 2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; }
+  th, td { border: 1pt solid #94a3b8; padding: 5pt 7pt; text-align: left; font-size: 9pt; }
+  th { background-color: #0f172a; color: #ffffff; font-weight: bold; }
+  .header-table { width: 100%; border: 1.5pt solid #0f172a; margin-bottom: 12pt; }
+  .header-table td { border: 1pt solid #cbd5e1; padding: 4pt 6pt; font-size: 8.5pt; }
+  .badge { background-color: #b91c1c; color: white; padding: 2pt 5pt; font-weight: bold; font-size: 8pt; }
+  .alerta { background-color: #fef2f2; border-left: 3.5pt solid #b91c1c; padding: 6pt 10pt; margin: 8pt 0; font-size: 9pt; }
+  .nota { background-color: #f0fdf4; border-left: 3.5pt solid #16a34a; padding: 6pt 10pt; margin: 8pt 0; font-size: 9pt; }
+  .firma-caja { height: 40pt; border-bottom: 1pt solid #000; margin-top: 20pt; text-align: center; font-size: 8.5pt; }
+</style>
+</head>
+<body>
+<table class='header-table'>
+  <tr>
+    <td rowspan='2' style='width:22%; text-align:center; font-weight:bold; font-size:13pt; background:#f8fafc; color:#0f172a;'>VACA MUERTA<br><span style='font-size:8.5pt; color:#b91c1c;'>FORMACI&Oacute;N</span></td>
+    <td style='width:52%; text-align:center; font-weight:bold; font-size:11.5pt; color:#0f172a;'>MANUAL T&Eacute;CNICO DEL SUPERVISOR DE OPERACIONES<br><span style='font-size:9pt; font-weight:normal; color:#475569;'>Compendio T&eacute;cnico y Procedimental de Yacimiento (Vaca Muerta)</span></td>
+    <td style='width:26%; font-size:8pt;'><strong>C&oacute;digo:</strong> VM-MAN-OFICIAL-2026<br><strong>Revisi&oacute;n:</strong> 4.0 Multi-Servicio<br><strong>Cuenca:</strong> Neuquina (Argentina)</td>
+  </tr>
+  <tr>
+    <td colspan='2' style='font-size:8pt;'><strong>Servicios:</strong> Fractura, Coiled Tubing, Wireline, Snubbing, Well Testing, Cementaci&oacute;n, Flowback, Torqueo, Water Transfer, Log&iacute;stica, Obra Civil y Supervisi&oacute;n General.</td>
+  </tr>
+</table><h1>Manual T&eacute;cnico del Supervisor de Operaciones &middot; Vaca Muerta</h1>
+<div class='nota'>
+  <strong>Gu&iacute;a Maestra de Consulta:</strong> Re&uacute;ne las especificaciones t&eacute;cnicas, normas API y procedimientos de fiscalizaci&oacute;n de campo para las 12 ramas de servicios operativos en la Cuenca Neuquina.
+</div>
+
+<h2>Secci&oacute;n 1: Gu&iacute;a de Fiscalizaci&oacute;n por Especialidad Operativa</h2>
+<table>
+  <tr>
+    <th>Servicio Petrolero</th>
+    <th>Presi&oacute;n y Rango</th>
+    <th>Puntos Cr&iacute;ticos de Supervisi&oacute;n</th>
+    <th>Normativa Clave</th>
+  </tr>
+  <tr>
+    <td><strong>Obra Civil &amp; PADs</strong></td>
+    <td>Geotecnia</td>
+    <td>Densidad Proctor &gt;95%, cateo de interferencias a pala, tapada de cruces soterrados &gt;1.20 m, SWA ante Zonda.</td>
+    <td>API RP 1166 / Ley 1875</td>
+  </tr>
+  <tr>
+    <td><strong>Supervisi&oacute;n General &amp; SIMOPS</strong></td>
+    <td>Coord. Integral</td>
+    <td>Mando &uacute;nico en locaci&oacute;n, paradas de emergencia ESD, matriz RAM de permisos cruzados, medici&oacute;n LEL &lt;10%.</td>
+    <td>API RP 54 / SWA</td>
+  </tr>
+  <tr>
+    <td><strong>Fractura Hidr&aacute;ulica (Frac)</strong></td>
+    <td>10.000 a 15.000 PSI</td>
+    <td>Whipchecks en l&iacute;neas chicksan 1502, LOTO en manifold missile, detecci&oacute;n temprana de screen-out, EPP qu&iacute;mico blender.</td>
+    <td>API RP 54 / API 6A</td>
+  </tr>
+  <tr>
+    <td><strong>Coiled Tubing</strong></td>
+    <td>5.000 a 10.000 PSI</td>
+    <td>Prueba hidr&aacute;ulica de BOP 4 rams, l&iacute;mite de tensi&oacute;n al 80% yield strength remanente, control de fatiga en carrete.</td>
+    <td>API RP 16ST</td>
+  </tr>
+  <tr>
+    <td><strong>Wireline &amp; Explosivos</strong></td>
+    <td>Pozo Presurizado</td>
+    <td>Radio-silencio VHF y puesta a tierra en armado de ca&ntilde;ones, inyecci&oacute;n de grasa a presi&oacute;n, trazabilidad ANMaC.</td>
+    <td>API RP 67 / ANMaC</td>
+  </tr>
+  <tr>
+    <td><strong>Snubbing (Pozo Vivo)</strong></td>
+    <td>5.000 a 10.000 PSI</td>
+    <td>Transici&oacute;n Pipe Light vs. Pipe Heavy, prueba de sellos stripper, ecualizaci&oacute;n entre compuertas.</td>
+    <td>API RP 53</td>
+  </tr>
+  <tr>
+    <td><strong>Well Testing</strong></td>
+    <td>Separaci&oacute;n Trif&aacute;sica</td>
+    <td>Detecci&oacute;n fija y personal de H2S (&gt;10 ppm), prueba hidr&aacute;ulica de recipientes a 1.5x MAWP, l&iacute;nea de antorcha segura.</td>
+    <td>API 510 / ASME VIII</td>
+  </tr>
+  <tr>
+    <td><strong>Cementaci&oacute;n de Pozos</strong></td>
+    <td>3.000 a 8.000 PSI</td>
+    <td>Prueba de l&iacute;neas a 1.2x presi&oacute;n de bombeo, balanza presurizada para densidad de lechada, centralizaci&oacute;n de casing.</td>
+    <td>API Spec 10A / 10B-2</td>
+  </tr>
+  <tr>
+    <td><strong>Flowback &amp; Retorno</strong></td>
+    <td>Pozo Vivo con Arena</td>
+    <td>Maniobra de choque en manifold ante erosi&oacute;n por arena, puesta a tierra de piletas contra chispas electrost&aacute;ticas.</td>
+    <td>API RP 54 / IRAM 2281</td>
+  </tr>
+  <tr>
+    <td><strong>Torqueo &amp; Bridas</strong></td>
+    <td>API 6A / 16A</td>
+    <td>Apriete en cruz (Star pattern), holgura de 2 hilos en esp&aacute;rragos B7 y tuercas 2H, coeficiente de fricci&oacute;n controlado.</td>
+    <td>ASME PCC-1 / API 6A</td>
+  </tr>
+  <tr>
+    <td><strong>Water Transfer</strong></td>
+    <td>8 a 16 bar (Layflat)</td>
+    <td>Purga de aire por ventosas, velocidad de v&aacute;lvulas contra golpe de ariete (Joukowsky), contenci&oacute;n de rotura de racords.</td>
+    <td>API RP 15WT</td>
+  </tr>
+  <tr>
+    <td><strong>Log&iacute;stica &amp; Arenas</strong></td>
+    <td>Cargas Pesadas</td>
+    <td>Inspecci&oacute;n de tolvas y bitrenes, l&iacute;nea de fuego en izaje de cajas SandBox con hidrogr&uacute;as, bit&aacute;cora de descanso.</td>
+    <td>Ley 24.449 / CNRT</td>
+  </tr>
+</table>
+
+<h2>Secci&oacute;n 2: Procedimiento Estandarizado de Respuesta ante Emergencias (ERP)</h2>
+<ol>
+  <li><strong>Detecci&oacute;n y Alarma:</strong> Activaci&oacute;n de sirena sonora de yacimiento (3 toques largos = evacuaci&oacute;n general).</li>
+  <li><strong>Parada de Emergencia (ESD):</strong> Oprimir botonera de parada de emergencia para cortar bombas y aislar cabeza de pozo.</li>
+  <li><strong>Punto de Encuentro:</strong> Cuadrilla se congrega en el Punto de Encuentro Primario, siempre ubicado aguas arriba del viento respecto a las fuentes de gas o qu&iacute;micos.</li>
+  <li><strong>Conteo de Personal (Headcount):</strong> El supervisor pasa lista de todo el personal registrado en la garita de acceso (Access Gate).</li>
+  <li><strong>Llamada de Socorro:</strong> Comunicaci&oacute;n radial inmediata con base operativa y despacho del Plan MEDEVAC.</li>
+</ol><table style='width:100%; margin-top:25pt; border:none;'>
+  <tr style='border:none;'>
+    <td style='width:33%; border:none; text-align:center;'>
+      <div class='firma-caja'></div>
+      <strong>Firma del Supervisor</strong><br>
+      <span style='font-size:8pt; color:#64748b;'>Aclaraci&oacute;n y DNI</span>
+    </td>
+    <td style='width:33%; border:none; text-align:center;'>
+      <div class='firma-caja'></div>
+      <strong>Instructor / Auditor HSE</strong><br>
+      <span style='font-size:8pt; color:#64748b;'>Matr&iacute;cula Provincial</span>
+    </td>
+    <td style='width:33%; border:none; text-align:center;'>
+      <div class='firma-caja'></div>
+      <strong>Company Man / Operadora</strong><br>
+      <span style='font-size:8pt; color:#64748b;'>Conformidad de Guardia</span>
+    </td>
+  </tr>
+</table>
+<div style='margin-top:15pt; font-size:7.5pt; color:#94a3b8; text-align:center; border-top:1pt solid #e2e8f0; padding-top:4pt;'>
+  Vaca Muerta Formaci&oacute;n &middot; Programa de Certificaci&oacute;n T&eacute;cnica Upstream &middot; Ley Nacional 26.197 &middot; Ley Provincial Neuqu&eacute;n 1875 &middot; Documento Oficial de Consulta en Campo
+</div>
+</body>
+</html>

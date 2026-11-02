@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recursos para el Instructor y Evaluación Multi-Servicio · Vaca Muerta Formación</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/curso.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="progreso-lectura" class="barra-progreso"></div>
+
+<!-- CABECERA -->
+<header class="cabecera">
+  <div class="cabecera__contenedor">
+    <a href="../index.html" class="cabecera__marca">
+      <div class="cabecera__logo">VM</div>
+      <div>
+        <div class="cabecera__titulo">Vaca Muerta Formación</div>
+        <div class="cabecera__subtitulo">Recursos Pedagógicos y Evaluación Multi-Servicio</div>
+      </div>
+    </a>
+    <nav class="cabecera__nav">
+      <a href="nivel4.html">← Nivel 4</a>
+      <a href="../index.html#curso">Índice del Curso</a>
+      <a href="../index.html#evaluador-global">Simulador Global</a>
+      <a href="../index.html#manual">Manual Técnico</a>
+    </nav>
+  </div>
+</header>
+
+<main class="curso">
+
+<!-- SIDEBAR STICKY -->
+<aside class="curso__indice">
+  <div class="curso__indice-titulo">Guía del Instructor</div>
+  <ul>
+    <li><a href="#modalidades" class="activo">A. Modalidades (40h vs 60h)</a></li>
+    <li><a href="#cronograma">B. Cronograma Modular</a></li>
+    <li><a href="#rubrica">C. Rúbrica por Competencias</a></li>
+    <li><a href="#aprobacion">D. Criterios de Certificación</a></li>
+    <li><a href="#casos">E. 5 Casos Prácticos Reales</a></li>
+  </ul>
+
+  <div class="curso__indice-titulo" style="margin-top:2rem;">Tablas Pedagógicas</div>
+  <ul>
+    <li><a href="#tabla-modalidades">Comparativa 40h vs 60h</a></li>
+    <li><a href="#tabla-cronograma">Cronograma 15 Módulos</a></li>
+    <li><a href="#tabla-rubrica">Rúbrica de Certificación</a></li>
+    <li><a href="#tabla-casos">Matriz de los 5 Casos Reales</a></li>
+  </ul>
+
+  <div class="curso__indice-titulo" style="margin-top:2rem;">Evaluaciones del Sitio</div>
+  <ul>
+    <li><a href="nivel1.html#evaluacion">Test Nivel 1: Marco &amp; PTS</a></li>
+    <li><a href="nivel2.html#evaluacion">Test Nivel 2: Turnos &amp; LOTO</a></li>
+    <li><a href="nivel3.html#evaluacion">Test Nivel 3: Zonda &amp; SIMOPS</a></li>
+    <li><a href="nivel4.html#evaluacion">Test Nivel 4: MERE &amp; 14x14</a></li>
+    <li><a href="../index.html#evaluador-global">Simulador Global 10 Preguntas</a></li>
+  </ul>
+
+  <div class="curso__indice-titulo" style="margin-top:2rem;">Descargas Docentes (Local)</div>
+  <ul>
+    <li><a href="../documentos/manual_supervisor_operaciones_vaca_muerta.doc" download>Manual Técnico (Word)</a></li>
+    <li><a href="../documentos/formulario_pts_permiso_trabajo_seguro.doc" download>Plantilla PTS Oficial (Word)</a></li>
+    <li><a href="../documentos/planilla_loto_bloqueo_etiquetado.doc" download>Planilla LOTO (Word)</a></li>
+    <li><a href="../documentos/protocolo_shift_handover_relevo_guardia.doc" download>Pase de Guardia (Word)</a></li>
+    <li><a href="../documentos/checklist_a4_maniobra_izaje_completo.pdf" target="_blank">Checklist Izajes Críticos (PDF)</a></li>
+  </ul>
+</aside>
+
+<!-- CONTENIDO PRINCIPAL -->
+<article class="curso__contenido">
+
+<section class="curso__intro">
+  <span class="curso__etiqueta">Pedagogía Operativa Multi-Servicio · 40h / 60h Reloj</span>
+  <h1>Recursos Pedagógicos para el Dictado y Certificación de Supervisores</h1>
+  <p class="curso__descripcion">Kit docente integral para directores de operaciones, coordinadores de campo, instructores técnicos y supervisores senior de la Cuenca Neuquina. Diseñado para articular la rigurosidad pedagógica del programa de formación con la exigencia operativa real de las locaciones no convencionales de Vaca Muerta en 11 especialidades clave: <strong>Fractura, Coiled Tubing, Wireline, Snubbing, Well Testing, Cementación, Flowback, UAF, Torqueo, Water Transfer y Logística de Arenas/Insumos</strong>.</p>
+
+  <div class="curso__objetivo">
+    <strong>Propósito de Certificación:</strong> Asegurar que todo egresado cuente no solo con comprensión teórica de procedimientos y leyes provinciales, sino con temple operativo para aplicar el Stop Work Authority (SWA), liderar cuadrillas en esquemas de fatiga 14x14, coordinar operaciones simultáneas (SIMOPS) y preservar la vida en contingencias climáticas y mecánicas extremas.
+  </div>
+</section>
+
+<!-- SECCIÓN A: MODALIDADES Y DURACIÓN -->
+<section id="modalidades" class="curso__leccion">
+  <h2>A. Modalidades de Dictado y Carga Horaria (40h vs 60h)</h2>
+  <p>El programa se encuentra estandarizado en dos formatos para adecuarse a los calendarios de rotación (14x14, 7x7) de las compañías operadoras y de servicios en Añelo, Rincón de los Sauces, Plaza Huincul y Neuquén Capital.</p>
+
+  <div id="tabla-modalidades" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Matriz Comparativa de Modalidades de Capacitación</h4>
+      <span class="badge badge--norma">ESTRUCTURA PEDAGÓGICA</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Parámetro</th>
+            <th>Modalidad A: Intensiva Ejecutiva (40 Horas)</th>
+            <th>Modalidad B: Integral Avanzada de Campo (60 Horas)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Público Destinatario</strong></td>
+            <td>Supervisores en ejercicio, jefes de turno y personal técnico senior que requiere homologación de estándares en Vaca Muerta.</td>
+            <td>Operadores postulantes a supervisor, técnicos de reciente ingreso a la cuenca o cuadrillas en plan de profesionalización integral.</td>
+          </tr>
+          <tr>
+            <td><strong>Carga Horaria Total</strong></td>
+            <td><strong>40 horas reloj</strong> (32h sincrónicas + 8h evaluación interactiva y defensa de caso).</td>
+            <td><strong>60 horas reloj</strong> (44h sincrónicas + 12h talleres prácticos de campo/simulación + 4h examen final).</td>
+          </tr>
+          <tr>
+            <td><strong>Estructura Temporal</strong></td>
+            <td>5 semanas (2 clases semanales de 4 horas cada una). Compatible con rotaciones 14x14 en descanso o base.</td>
+            <td>7.5 semanas (2 clases semanales de 4 horas) + 1 jornada técnica de campo/simulador de 8 horas.</td>
+          </tr>
+          <tr>
+            <td><strong>Alcance de Servicios</strong></td>
+            <td>Enfoque central en las 5 operaciones críticas (Fractura, Coiled Tubing, Wireline, Well Testing y Water Transfer) + SIMOPS troncal.</td>
+            <td>Cobertura exhaustiva de los 11 servicios de soporte y completación, incluyendo UAF, Cementación, Torqueo y Logística pesada.</td>
+          </tr>
+          <tr>
+            <td><strong>Talleres Prácticos</strong></td>
+            <td>Simulación de roles (relevo de guardia, confección de PTS y parada por Zonda con anemómetro).</td>
+            <td>Talleres en simulador de presiones, inspección física de líneas, montaje LOTO en manifolds y negociación con superficiarios.</td>
+          </tr>
+          <tr>
+            <td><strong>Requisito de Certificación</strong></td>
+            <td>Aprobación de los 4 Tests de Nivel (mín. 70%) + Aprobación del Simulador Global (mín. 80%) + Resolución de 1 Caso Crítico.</td>
+            <td>Aprobación de los 4 Tests de Nivel + Simulador Global (mín. 80%) + Defensa oral de Caso Complejo ante jurado técnico.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN B: CRONOGRAMA CLASE A CLASE -->
+<section id="cronograma" class="curso__leccion">
+  <h2>B. Cronograma Modular de Dictado (15 Módulos Estandarizados)</h2>
+  <p>La modalidad intensiva cubre los módulos 1 al 10 en forma concentrada; la modalidad integral abarca los 15 módulos con sus respectivos entregables y simulaciones.</p>
+
+  <div id="tabla-cronograma" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Desarrollo Módulo a Módulo · Programa Modular de Supervisión</h4>
+      <span class="badge badge--vm">15 MÓDULOS TEMÁTICOS</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Mód.</th>
+            <th>Nivel</th>
+            <th>Temática Operativa Multi-Servicio</th>
+            <th>Taller Práctico / Simulación Aplicada</th>
+            <th>Entregable Requerido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Nivel 1</td>
+            <td>Marco legal neuquino (Leyes 26.197, 17.319, 1875) y rol del supervisor en pad no convencional.</td>
+            <td>Análisis de responsabilidades civiles y penales ante accidentes operativos.</td>
+            <td>Ficha de cumplimiento normativo por servicio.</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Nivel 1</td>
+            <td>Confidencialidad, secreto industrial, NDAs y políticas de registro fotográfico en locación.</td>
+            <td>Dilemas éticos: divulgación de datos de producción y presiones en redes sociales.</td>
+            <td>Acta de compromiso de confidencialidad y ética.</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Nivel 1</td>
+            <td>Matriz de EPP por especialidad (Fractura, Coiled Tubing, Wireline, Water Transfer) y señalética IRAM.</td>
+            <td>Auditoría cruzada de locación: detección de desvíos en EPP crítico (caretas, guantes anti-impacto, H2S).</td>
+            <td>Checklist de ingreso a locación (Access Gate).</td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td>Nivel 1</td>
+            <td>Procedimientos de Trabajo Seguro (PTS), Matriz RAM y Permisos de Trabajo (Frío / Caliente / Confinado).</td>
+            <td>Confección guiada de PTS para purga de línea a 150 PSI y montaje de colector de alta presión.</td>
+            <td>Permiso de Trabajo Seguro (PTW) firmado y auditado.</td>
+          </tr>
+          <tr>
+            <td><strong>5</strong></td>
+            <td>Nivel 1</td>
+            <td>Comunicación operativa VHF, código fonético, colación de órdenes y Stop Work Authority (SWA).</td>
+            <td>Role-playing de comunicación en maniobra de punzado de pozo con radio-silencio estricto.</td>
+            <td>Guion estandarizado de colación de radio VHF.</td>
+          </tr>
+          <tr>
+            <td><strong>6</strong></td>
+            <td>Nivel 2</td>
+            <td>Selección de personal de cuadrilla, evaluación de perfiles y factores psicosociales en régimen 14x14.</td>
+            <td>Dinámica de conformación de equipo ante 8 candidatos para turno nocturno de flowback.</td>
+            <td>Organigrama funcional de guardia y matriz de competencias.</td>
+          </tr>
+          <tr>
+            <td><strong>7</strong></td>
+            <td>Nivel 2</td>
+            <td>Procedimiento estandarizado de Relevo de Turno (Shift Handover) y libro de novedades digital.</td>
+            <td>Simulación de pase de guardia con 3 fallas mecánicas ocultas en bombas y manifolds.</td>
+            <td>Acta formal de Relevo de Guardia 100% completada.</td>
+          </tr>
+          <tr>
+            <td><strong>8</strong></td>
+            <td>Nivel 2</td>
+            <td>Protocolo LOTO (Bloqueo y Etiquetado): las 6 etapas de desenergización en bombas, motores y pozos.</td>
+            <td>Práctica de colocación de candados, aldabas y tarjetas en manifold de fractura y booster.</td>
+            <td>Planilla de aislamiento de energía cero verificada.</td>
+          </tr>
+          <tr>
+            <td><strong>9</strong></td>
+            <td>Nivel 2</td>
+            <td>Supervisión distribuida en locación y trazas: hojas de ruta, telemetría SCADA y KPIs SMART.</td>
+            <td>Monitoreo en tablero SCADA: interpretación de caídas súbitas de presión y desbalance de caudal.</td>
+            <td>Tablero de control de KPIs del turno (NPT &lt; 2%).</td>
+          </tr>
+          <tr>
+            <td><strong>10</strong></td>
+            <td>Nivel 2</td>
+            <td>Investigación de fallas operativas e incidentes: Metodología de los 5 Porqués y Árbol de Causas.</td>
+            <td>Caso real de rotura de racord de 12" a 8 bar: deducción de causa raíz y acciones correctivas.</td>
+            <td>Informe de Investigación de Incidente con 5 Porqués.</td>
+          </tr>
+          <tr>
+            <td><strong>11</strong></td>
+            <td>Nivel 3</td>
+            <td>Riesgos climáticos de la Patagonia: Viento Zonda, tormentas eléctricas, barro y congelamiento térmico.</td>
+            <td>Aplicación de protocolo de detención con anemómetro digital y tabla de umbrales.</td>
+            <td>Parte meteorológico y orden de suspensión de izajes.</td>
+          </tr>
+          <tr>
+            <td><strong>12</strong></td>
+            <td>Nivel 3</td>
+            <td>Coordinación de Operaciones Simultáneas (SIMOPS), zonas rojas de exclusión y líneas de alta presión.</td>
+            <td>Diseño de layout de locación: delimitación de zonas rojas entre fractura, wireline y flowback.</td>
+            <td>Plano de zonas de exclusión y matriz de SIMOPS.</td>
+          </tr>
+          <tr>
+            <td><strong>13</strong></td>
+            <td>Nivel 3</td>
+            <td>Paradas de Emergencia (ESD), brigadas de campo, primeros auxilios, botiquín de trauma y torniquete CAT.</td>
+            <td>Simulación de fractura expuesta y hemorragia en locación remota a 45 km del hospital de Añelo.</td>
+            <td>Flujograma de comunicación y despacho MEDEVAC.</td>
+          </tr>
+          <tr>
+            <td><strong>14</strong></td>
+            <td>Nivel 4</td>
+            <td>Sustentabilidad ambiental: Manifiestos MERE (Res. 2263/15), contención de flowback y aditivos químicos.</td>
+            <td>Simulación de derrame de 100 litros de diésel / aditivo: despliegue de paños y reporte MERE Y48.</td>
+            <td>Manifiesto de Residuos Especiales Neuquén completado.</td>
+          </tr>
+          <tr>
+            <td><strong>15</strong></td>
+            <td>Nivel 4</td>
+            <td>Relaciones comunitarias (Comunidades Originarias y superficiarios), manejo de tranqueras y examen integrador.</td>
+            <td>Defensa oral individual de uno de los 7 Casos Críticos (incluyendo Obras Civiles y SIMOPS) ante panel evaluador.</td>
+            <td><span class="badge badge--ok">Certificado de Aprobación Final</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN C: RÚBRICA POR COMPETENCIAS -->
+<section id="rubrica" class="curso__leccion">
+  <h2>C. Rúbrica por Competencias para la Certificación Final</h2>
+  <p>La evaluación del supervisor prioriza la toma de decisiones fundamentada en campo por sobre la mera memorización teórica. La siguiente matriz pondera las 5 competencias indispensables del líder operativo en yacimiento.</p>
+
+  <div id="tabla-rubrica" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Rúbrica de Certificación por Competencias Operativas</h4>
+      <span class="badge badge--vm">EVALUACIÓN 100% OBJETIVA</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Dimensión Evaluada</th>
+            <th>Excelente (9 - 10)</th>
+            <th>Bueno (7 - 8)</th>
+            <th>Aceptable (6)</th>
+            <th>Insuficiente (&lt; 6)</th>
+            <th>Peso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Criterio Normativo, Legal y Ético</strong></td>
+            <td>Aplica con precisión las leyes 26.197, 1875 y normas API (54, 53, 15WT). Defiende la confidencialidad, rechaza filmaciones no autorizadas y reporta desvíos sin encubrimiento alguno.</td>
+            <td>Conoce el marco legal y aplica las normas de confidencialidad en forma correcta ante situaciones habituales.</td>
+            <td>Identifica las leyes generales pero vacila en resoluciones provinciales específicas (MERE, SWA formal).</td>
+            <td>Desconoce la normativa vigente, minimiza incidentes ambientales o avala la filtración de información técnica de pozo.</td>
+            <td><strong>15%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>2. Liderazgo Operativo y Gestión en 14x14</strong></td>
+            <td>Conforma cuadrillas complementarias, aplica feedback constructivo, detecta signos tempranos de fatiga en el día 10-14 y ejecuta relevos de turno impecables.</td>
+            <td>Comunica órdenes con claridad, coordina las tareas del turno y respeta los descansos reglamentarios del personal.</td>
+            <td>Supervisa las tareas mecánicas pero descuida el monitoreo de fatiga o realiza relevos de guardia verbales incompletos.</td>
+            <td>Ejecuta un liderazgo autoritario o desentendido, tolera desvíos de descanso y genera desmotivación en la cuadrilla.</td>
+            <td><strong>20%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>3. Gestión de Riesgos, PTS, LOTO y SIMOPS</strong></td>
+            <td>Elabora PTS exhaustivos con matriz RAM, ejecuta bloqueo LOTO de energía cero con candado personal y demarca zonas rojas en SIMOPS sin concesiones.</td>
+            <td>Verifica permisos de trabajo (PTW), aplica tarjetas de bloqueo y respeta las distancias de seguridad en áreas de alta presión.</td>
+            <td>Aplica LOTO parcialmente (falta verificación de despresurización) o confunde interferencias operativas entre servicios simultáneos.</td>
+            <td>Permite trabajos en líneas presurizadas sin bloqueo, omite el PTW o invade zonas rojas activas de fractura/wireline.</td>
+            <td><strong>25%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>4. Respuesta ante Emergencias y Clima Extremo</strong></td>
+            <td>Aplica Stop Work Authority inmediato ante ráfagas de Zonda &gt;50 km/h, lidera maniobras de parada de emergencia (ESD) y domina el trauma kit / torniquete CAT.</td>
+            <td>Detiene tareas riesgosas ante alertas meteorológicas y conoce la cadena de llamadas médicas de emergencia.</td>
+            <td>Conoce los umbrales de viento pero duda en la detención de izajes, o desconoce la ubicación de antídotos y DEA en el campamento.</td>
+            <td>Obliga a operar bajo tormenta eléctrica o ráfagas extremas; desconoce el protocolo de evacuación médica de urgencia.</td>
+            <td><strong>25%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>5. Sustentabilidad MERE y Vínculo Comunitario</strong></td>
+            <td>Gestiona manifiestos MERE según Res. 2263/15, previene mezclas de flowback con agua limpia y resuelve conflictos de tranquera con diálogo y actas formales.</td>
+            <td>Clasifica residuos peligrosos correctamente, despliega kits antiderrames y mantiene trato cordial con superficiarios.</td>
+            <td>Conoce el tratamiento de residuos pero duda en la tipificación Y48; le cuesta mediar pacíficamente ante un reclamo rural.</td>
+            <td>Tolera el vertido de hidrocarburos/químicos al suelo o incita al enfrentamiento verbal con propietarios superficiarios.</td>
+            <td><strong>15%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN D: CRITERIOS DE CERTIFICACIÓN -->
+<section id="aprobacion" class="curso__leccion">
+  <h2>D. Criterios de Aprobación y Certificación</h2>
+  <div class="caja-alerta">
+    <div class="caja-alerta__icono">📋</div>
+    <div>
+      <h3 style="margin-top:0; color:#b91c1c;">Requisitos Mínimos para la Emisión del Certificado Profesional</h3>
+      <p>Para certificar la capacitación como <strong>Supervisor de Operaciones en Yacimientos No Convencionales (Vaca Muerta)</strong>, el cursante debe cumplir las siguientes condiciones sin excepción:</p>
+      <ul>
+        <li><strong>Asistencia y Participación:</strong> Mínimo 80% de horas de clase sincrónicas asistidas.</li>
+        <li><strong>Tests de Nivel Intermedios:</strong> Aprobación con puntaje no inferior al <strong>70%</strong> en cada uno de los 4 cuestionarios interactivos (Nivel 1, Nivel 2, Nivel 3 y Nivel 4).</li>
+        <li><strong>Simulador Global Multi-Servicio:</strong> Rendición del examen final de 10 preguntas con puntaje mínimo de <strong>80% (8/10)</strong> en la plataforma.</li>
+        <li><strong>Defensa de Caso Operativo:</strong> Calificación mínima de <strong>7.0 / 10</strong> en la Rúbrica por Competencias, evaluada por el instructor técnico en base a la resolución de uno de los 7 casos críticos (incluyendo Obra Civil y Supervisión General).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN E: LOS 7 CASOS PRÁCTICOS REALES -->
+<section id="casos" class="curso__leccion">
+  <h2>E. Los Siete Casos Operativos Críticos de Vaca Muerta (Multi-Servicio y Obras)</h2>
+  <p>Dilemas de campo basados en situaciones reales ocurridas en bloques clave de la Cuenca Neuquina (Añelo, Loma Campana, Fortín de Piedra, La Amarga Chica). Diseñados para trabajo en cuadrilla y evaluación individual de toma de decisiones.</p>
+
+  <div id="tabla-casos" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Matriz Pedagógica de Casos Reales Multi-Servicio y Obras</h4>
+      <span class="badge badge--critico">RESOLUCIÓN DE CONFLICTOS</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Caso y Especialidad</th>
+            <th>Escenario Operativo Crítico</th>
+            <th>Variables en Tensión</th>
+            <th>Resolución Esperada del Supervisor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Caso 1: SIMOPS y Fatiga en 14x14</strong><br><span class="badge badge--vm">Fractura + Wireline + Water Transfer</span></td>
+            <td>En el día 12 de turno 14x14, se coordina fractura a 10.000 PSI simultánea con bajada de cañones de punzado por wireline y bombeo de agua a 90 bpm. Dos operadores clave muestran signos evidentes de microsueño al volante y en consola.</td>
+            <td>Presión de la operadora por batir récord de etapas diarias vs. riesgo catastrófico de detonación involuntaria o error en bombeo.</td>
+            <td>El supervisor aplica de inmediato el protocolo de gestión de fatiga: releva de tareas críticas a los operarios fatigados reasignando personal de descanso o rotación, verifica el radio-silencio en el armado de cañones y no cede a la presión de acelerar las etapas.</td>
+          </tr>
+          <tr>
+            <td><strong>Caso 2: Paro a las 02:00 AM y Alarma H2S</strong><br><span class="badge badge--critico">Coiled Tubing + Well Testing</span></td>
+            <td>A las 02:15 AM durante una intervención de fresado con Coiled Tubing a 3.200 m de profundidad, la bomba de inyección sufre un bloqueo mecánico de golpe. Al mismo tiempo, en el separador trifásico de Well Testing se activa el sensor fijo de H2S marcando 12 ppm.</td>
+            <td>Riesgo de aprisionamiento de sarta en pozo vs. riesgo de intoxicación letal por gas sulfhídrico para la cuadrilla.</td>
+            <td>Prioridad absoluta a la vida: ordenar evacuación inmediata a favor del viento hacia el punto de encuentro primario; equiparse con ERA (equipo de respiración autónoma) solo personal de rescate entrenado; asegurar pozo mediante BOP de Coiled Tubing antes de cualquier ingreso.</td>
+          </tr>
+          <tr>
+            <td><strong>Caso 3: Falla Violenta en Línea y Bloqueo Vial</strong><br><span class="badge badge--norma">Water Transfer + Logística de Arenas</span></td>
+            <td>Se produce la rotura del cuello de sujeción en un racord de 12" de manguera layflat a 9 bar de presión sobre la banquina de la picada principal. El barro y agua anegan 40 metros de calzada por donde transitan 15 camiones batea de arena silícea por hora.</td>
+            <td>Parada de la línea de abastecimiento del pad de fractura (NPT financiero) vs. riesgo inminente de vuelco de camiones pesados en el fango.</td>
+            <td>Desacelerar inmediatamente el caudal de la estación booster aguas arriba; colocar balizamiento y banderillero a 150 m para frenar el tránsito de bateas; despresurizar el tramo afectado, instalar abrazadera/parche modular con pernos y reanudar con rampa gradual.</td>
+          </tr>
+          <tr>
+            <td><strong>Caso 4: Viento Zonda en Izaje de Lubricador</strong><br><span class="badge badge--critico">Wireline + Snubbing + Grúas</span></td>
+            <td>Se realiza el izaje con hidrogrúa de un lubricador de 18 metros de altura con el cañón cargado en su interior. El anemómetro de campo acusa ráfagas de 58 km/h y en aumento. El Company Man exige culminar el montaje para no perder la ventana de pozo.</td>
+            <td>Cumplimiento del cronograma de fractura vs. riesgo de embolsamiento por viento, vuelco de grúa y corte de cable con explosivos suspendidos.</td>
+            <td>Hacer valer de forma terminante el <strong>Stop Work Authority (SWA)</strong>: la norma API RP 54 y los manuales de izaje fijan el límite operativo en 40-50 km/h para cargas con gran superficie vélica. Bajar la carga a posición de reposo en cuna, trabar pluma y labrar acta en el libro de novedades.</td>
+          </tr>
+          <tr>
+            <td><strong>Caso 5: Derrame Químico y Tensión en Tranquera</strong><br><span class="badge badge--ok">Fractura + Flowback + Comunidades</span></td>
+            <td>Durante la descarga de aditivo reductor de fricción (poliacrilamida) y recepción de agua de flowback, cede una conexión flexible derramando 120 litros en suelo no impermeabilizado. El puestero local se presenta furioso en la tranquera impidiendo el paso de vehículos.</td>
+            <td>Hostilidad vecinal y corte de yacimiento vs. necesidad de remediación ambiental urgente bajo Ley 1875 y Res. 2263 MERE.</td>
+            <td>Activar brigada ambiental con kit absorbente y paleado de suelo contaminado en tambor etiquetado Y48; el supervisor se presenta con respeto en la tranquera, escucha al superficiario sin confrontar, exhibe el protocolo de contención en curso y labra un acta de diálogo convocando a Relaciones Comunitarias.</td>
+          </tr>
+          <tr>
+            <td><strong>Caso 6: Interferencia de Cañería en Zanjeo y Viento Zonda</strong><br><span class="badge badge--norma">Supervisión de Obra Civil &amp; Movimiento de Suelos</span></td>
+            <td>Durante el zanjeo con retroexcavadora para tender un flowline de 8" hacia la batería, el maquinista toca una cañería de acero no señalizada en los planos As-Built del cliente. Simultáneamente, ingresa una alerta naranja de ráfagas de viento Zonda &gt;65 km/h que levanta densas nubes de polvo sobre la platea del PAD en compactación.</td>
+            <td>Presión por entregar la platea para montaje de torre en 48 hs vs. riesgo de rotura de gasoducto presurizado e incumplimiento de densidad Proctor &gt;95% por desecación rápida.</td>
+            <td>Aplicar <strong>Stop Work Authority (SWA)</strong> inmediato en el zanjeo; demarcar perímetro de exclusión de 50 m y prohibir retroexcavadora; exigir cateo manual con pala no metálica y detector de gases antes de continuar; suspender riego y compactación de la platea durante el pico de ráfagas para evitar pérdida de humedad óptima y labrar reporte de no conformidad (NCR) a Ingeniería.</td>
+          </tr>
+          <tr>
+            <td><strong>Caso 7: Fuga de Gas en Cabezal Vecino en Super-PAD</strong><br><span class="badge badge--critico">Supervisión General, Company Man &amp; SIMOPS</span></td>
+            <td>En un PAD de 8 pozos conviven simultáneamente: Frac bombeando a 10.200 PSI en Pozo 3, Wireline armando cañones en Pozo 4, Coiled Tubing fresando en Pozo 2, y Obra Civil hormigonando cunetas a 30 m. A las 16:30 hs se escucha un silbido violento con olor a condensado y nube de gas en una brida de 5.000 PSI del Pozo 1 (pozo vecino cerrado).</td>
+            <td>Pérdidas millonarias por parada simultánea de 4 contratistas vs. riesgo inminente de explosión por vapores inflamables alcanzando motores diésel o detonadores de wireline.</td>
+            <td>El Supervisor General asume el comando único: activa inmediatamente la <strong>Parada de Emergencia General (ESD / Blackout)</strong> de todo el PAD; corta bombeo y apaga todos los motores diésel de fractura y obra; ordena desconexión preventiva de cañones de wireline; evacúa al personal a favor del viento al Punto de Encuentro; comisiona brigada con ERA y explosímetro (límite LEL &lt;10%) para cerrar válvulas maestras de pozo; no se reanuda ningún servicio sin revalidar todos los PTW en reunión extraordinaria.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="figuras-grid--2" style="margin-top:2rem;">
+    <figure class="figura-ampliable">
+      <div class="figura-ampliable__img-wrap">
+        <img src="../img/pinchazo-en-union-racord-puntera.jpg" alt="Pinchadura en unión racord puntera de layflat">
+        <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+      </div>
+      <figcaption>
+        <h4>Sustento Visual para Caso 3: Pinchadura en Acople a Alta Presión</h4>
+        <p>Falla violenta en el cuello de sujeción del racord de 12". Obsérvese el socavamiento del terreno y la necesidad de intervenir con EPP impermeable y balizamiento vial.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="figura-ampliable">
+      <div class="figura-ampliable__img-wrap">
+        <img src="../img/dirgrama-de-capacidad-de-carga-hidrogrua.jpg" alt="Diagrama técnico de capacidad de carga de hidrogrúa">
+        <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+      </div>
+      <figcaption>
+        <h4>Sustento Técnico para Caso 4: Tabla de Carga de Hidrogrúa</h4>
+        <p>Tabla de capacidad de maniobra de la grúa. Permite a los alumnos verificar el radio de trabajo y la reducción drástica de estabilidad ante ráfagas de viento laterales superiores a 50 km/h.</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- NAVEGACIÓN -->
+<nav class="curso__nav">
+  <a href="nivel4.html" class="boton boton--secundario">← Volver al Nivel 4</a>
+  <a href="../index.html#curso" class="boton boton--principal">Volver al Índice General del Sitio →</a>
+  <a href="../index.html#evaluacion" class="boton boton--accion">Rendir Simulador Especializado por Servicio →</a>
+</nav>
+
+</article>
+</main>
+
+<footer class="pie">
+  <div class="pie__contenedor">
+    <div><strong>Vaca Muerta Formación</strong> · Recursos Pedagógicos y Evaluación Multi-Servicio</div>
+    <div class="pie__detalle">Diseñado para elevar el estándar técnico, ético y de liderazgo en las operaciones no convencionales de la Patagonia.</div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

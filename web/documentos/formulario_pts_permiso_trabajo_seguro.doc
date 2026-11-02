@@ -1,0 +1,115 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset='utf-8'>
+<title>DOCUMENTO VACA MUERTA</title>
+<style>
+  body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; line-height: 1.35; color: #1e293b; margin: 2cm; }
+  h1 { color: #0f172a; font-size: 16pt; border-bottom: 2pt solid #b91c1c; padding-bottom: 4pt; margin-bottom: 8pt; }
+  h2 { color: #b91c1c; font-size: 13pt; margin-top: 14pt; margin-bottom: 6pt; border-bottom: 1pt solid #cbd5e1; padding-bottom: 2pt; }
+  h3 { color: #0f172a; font-size: 11pt; margin-top: 10pt; margin-bottom: 4pt; }
+  p { margin: 4pt 0; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; }
+  th, td { border: 1pt solid #94a3b8; padding: 5pt 7pt; text-align: left; font-size: 9.5pt; }
+  th { background-color: #0f172a; color: #ffffff; font-weight: bold; }
+  .header-table { width: 100%; border: 1.5pt solid #0f172a; margin-bottom: 12pt; }
+  .header-table td { border: 1pt solid #cbd5e1; padding: 4pt 6pt; font-size: 9pt; }
+  .badge { background-color: #b91c1c; color: white; padding: 2pt 5pt; font-weight: bold; font-size: 8.5pt; }
+  .alerta { background-color: #fef2f2; border-left: 3pt solid #b91c1c; padding: 6pt 10pt; margin: 8pt 0; font-size: 9.5pt; }
+  .firma-caja { height: 45pt; border-bottom: 1pt solid #000; margin-top: 20pt; text-align: center; font-size: 8.5pt; }
+</style>
+</head>
+<body><table class='header-table'>
+  <tr>
+    <td rowspan='2' style='width:20%; text-align:center; font-weight:bold; font-size:14pt; background:#f8fafc;'>VACA MUERTA<br><span style='font-size:9pt; color:#b91c1c;'>OPERACIONES</span></td>
+    <td style='width:50%; text-align:center; font-weight:bold; font-size:13pt;'>SISTEMA DE GESTION INTEGRAL HSEQ<br>PERMISO DE TRABAJO SEGURO (PTS / PTW)</td>
+    <td style='width:30%; font-size:8.5pt;'><strong>PTS NÂ°:</strong> PTS-VM-2026-_____<br><strong>Fecha:</strong> ___/___/2026<br><strong>Turno:</strong> [ ] Dia  [ ] Noche</td>
+  </tr>
+  <tr>
+    <td colspan='2'><strong>Yacimiento / Bloque:</strong> _________________________ <strong>Locacion / PAD:</strong> _________________________ <strong>Pozo:</strong> _______________</td>
+  </tr>
+</table>
+
+<h2>1. IDENTIFICACION DEL TRABAJO Y SERVICIOS INVOLUCRADOS</h2>
+<table>
+  <tr>
+    <th>Servicio Operativo:</th>
+    <td>[ ] Fractura Hidraulica  [ ] Coiled Tubing  [ ] Wireline  [ ] Snubbing  [ ] Well Testing<br>
+        [ ] Flowback  [ ] Cementacion  [ ] UAF  [ ] Torqueo  [ ] Water Transfer  [ ] Logistica/Grua</td>
+  </tr>
+  <tr>
+    <th>Tipo de Permiso:</th>
+    <td>[ ] <strong>Frio</strong> (Mecanico/Inspeccion) &nbsp;&nbsp; [ ] <strong>Caliente</strong> (Soldadura/Amolado) &nbsp;&nbsp; [ ] <strong>Espacio Confinado</strong> &nbsp;&nbsp; [ ] <strong>Izaje Critico</strong> &nbsp;&nbsp; [ ] <strong>Presion (>100 PSI)</strong></td>
+  </tr>
+  <tr>
+    <th>Descripcion de la Tarea:</th>
+    <td style='height:35pt;'>&nbsp;</td>
+  </tr>
+  <tr>
+    <th>Empresa Contratista:</th>
+    <td>_________________________________________________ <strong>Supervisor a Cargo:</strong> _____________________________________</td>
+  </tr>
+</table>
+
+<h2>2. EVALUACION DE RIESGOS ESPECIFICOS Y MEDIDAS PREVENTIVAS</h2>
+<table>
+  <tr>
+    <th style='width:30%;'>Peligro Identificado</th>
+    <th style='width:15%;'>Riesgo (RAM)</th>
+    <th style='width:40%;'>Control Operativo Obligatorio</th>
+    <th style='width:15%;'>Verificado (S/N)</th>
+  </tr>
+  <tr>
+    <td>Linea Presurizada / Golpe de Ariete</td>
+    <td>Critico (4D)</td>
+    <td>Despresurizar, verificar manometro en cero, instalar whipchecks y cadenas de seguridad.</td>
+    <td style='text-align:center;'>[ ] SI  [ ] N/A</td>
+  </tr>
+  <tr>
+    <td>Presencia de Gas Sulfhidrico (H2S)</td>
+    <td>Catastrofico (5E)</td>
+    <td>Monitoreo continuo multigas calibrado (limite 10 ppm), viento a favor, ERA disponible.</td>
+    <td style='text-align:center;'>[ ] SI  [ ] N/A</td>
+  </tr>
+  <tr>
+    <td>Energia Electrica / Mecanica Residual</td>
+    <td>Grave (3C)</td>
+    <td>Bloqueo y Etiquetado LOTO con candado personal y aldaba. Verificacion de energia cero.</td>
+    <td style='text-align:center;'>[ ] SI  [ ] N/A</td>
+  </tr>
+  <tr>
+    <td>Viento Zonda > 50 km/h</td>
+    <td>Grave (3D)</td>
+    <td>Medicion con anemometro en punta de pluma. Suspension total de izajes si rafagas > 50 km/h.</td>
+    <td style='text-align:center;'>[ ] SI  [ ] N/A</td>
+  </tr>
+  <tr>
+    <td>Interferencia SIMOPS con otros servicios</td>
+    <td>Grave (4C)</td>
+    <td>Delimitacion con vallado y conos de Zona Roja (radio de fractura/punzado). Radio-silencio.</td>
+    <td style='text-align:center;'>[ ] SI  [ ] N/A</td>
+  </tr>
+</table>
+
+<h2>3. EQUIPOS DE PROTECCION PERSONAL ESPECIFICOS REQUERIDOS</h2>
+<p>[X] Casco IRAM con barbijo &nbsp;&nbsp; [X] Calzado de seguridad con puntera dielectrica &nbsp;&nbsp; [X] Lentes de seguridad UV/Zonda<br>
+[ ] Mameluco ignifugo (NFPA 2112) &nbsp;&nbsp; [ ] Detector multigas personal (H2S, LEL, CO, O2) &nbsp;&nbsp; [ ] Arnes de cuerpo entero con cabo de vida<br>
+[ ] Proteccion auditiva de copa (NRR > 25 dB) &nbsp;&nbsp; [ ] Guantes de impacto certificados &nbsp;&nbsp; [ ] Mascara panoramica con filtro multigas</p>
+
+<h2>4. AUTORIZACION Y REVALIDACION DE CAMPO</h2>
+<div class='alerta'>
+  <strong>STOP WORK AUTHORITY (SWA):</strong> Cualquier integrante de la cuadrilla tiene la OBLIGACION y AUTORIDAD de detener la tarea si cambian las condiciones de seguridad, climaticas o de presion no contempladas en este PTS.
+</div>
+
+<table style='margin-top:15pt;'>
+  <tr>
+    <th style='width:33%; text-align:center;'>SUPERVISOR EJECUTANTE</th>
+    <th style='width:34%; text-align:center;'>SUPERVISOR HSE / SEGURIDAD</th>
+    <th style='width:33%; text-align:center;'>COMPANY MAN / AUTORIZANTE</th>
+  </tr>
+  <tr>
+    <td class='firma-caja'>Aclaracion y Firma:<br><br>DNI / Legajo:</td>
+    <td class='firma-caja'>Aclaracion y Firma:<br><br>Matricula HSE:</td>
+    <td class='firma-caja'>Aclaracion y Firma:<br><br>Empresa Operadora:</td>
+  </tr>
+</table>
+</body></html>

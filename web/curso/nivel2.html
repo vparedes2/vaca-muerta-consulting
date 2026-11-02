@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nivel 2 — Conformación de Equipos y Supervisión · Vaca Muerta Formación</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/curso.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="progreso-lectura" class="barra-progreso"></div>
+
+<!-- CABECERA -->
+<header class="cabecera">
+  <div class="cabecera__contenedor">
+    <a href="../index.html" class="cabecera__marca">
+      <div class="cabecera__logo">VM</div>
+      <div>
+        <div class="cabecera__titulo">Vaca Muerta Formación</div>
+        <div class="cabecera__subtitulo">Nivel 2 · Conformación de Equipos y Supervisión</div>
+      </div>
+    </a>
+    <nav class="cabecera__nav">
+      <a href="nivel1.html">← Nivel 1</a>
+      <a href="../index.html#curso">Programa General</a>
+      <a href="nivel3.html">Nivel 3: Seguridad →</a>
+    </nav>
+  </div>
+</header>
+
+<main class="curso">
+
+<!-- SIDEBAR STICKY -->
+<aside class="curso__indice">
+  <div class="curso__indice-titulo">Módulos del Nivel 2</div>
+  <ul>
+    <li><a href="#leccion1" class="activo">2.1 Selección y Cuadrillas 14x14</a></li>
+    <li><a href="#handover">2.2 Pase de Guardia y LOTO</a></li>
+    <li><a href="#leccion2">2.3 Plan de Supervisión y SMART</a></li>
+    <li><a href="#leccion3">2.4 Diagnóstico de Fallas (5 Porqués)</a></li>
+    <li><a href="#test-n2" style="color:var(--color-primario);font-weight:700;">★ Test Evaluativo Nivel 2</a></li>
+  </ul>
+
+  <div class="curso__indice-titulo" style="margin-top:2rem;">Tablas del Módulo</div>
+  <ul>
+    <li><a href="#tabla-perfiles">Perfiles por Servicio Petrolero</a></li>
+    <li><a href="#tabla-handover">Checklist de Pase de Guardia</a></li>
+    <li><a href="#tabla-smart">Objetivos SMART Multi-Servicio</a></li>
+    <li><a href="#tabla-loto">Protocolo de Energía Cero LOTO</a></li>
+    <li><a href="#tabla-fallas">Diagnóstico de Fallas de Campo</a></li>
+  </ul>
+
+  <div class="curso__indice-titulo" style="margin-top:2rem;">Material Descargable</div>
+  <ul>
+    <li><a href="../documentos/compilado_nivel2_supervisor_operaciones.doc" download>Word · Nivel 2 Completo</a></li>
+    <li><a href="../documentos/planilla_loto_bloqueo_etiquetado.doc" download>Planilla LOTO (Energía Cero)</a></li>
+    <li><a href="../documentos/protocolo_shift_handover_relevo_guardia.doc" download>Protocolo Shift Handover (Word)</a></li>
+    <li><a href="../documentos/checklist_a3_arranque_estacion.pdf" target="_blank">PDF · Checklist Arranque Estación</a></li>
+  </ul>
+</aside>
+
+<!-- CONTENIDO PRINCIPAL -->
+<article class="curso__contenido">
+
+<section class="curso__intro">
+  <span class="curso__etiqueta">Nivel 2 · Gestión de Personas &amp; Excelencia Operacional</span>
+  <h1>Conformación de Equipos, Liderazgo y Control de Procesos</h1>
+  <p class="curso__descripcion">En los yacimientos de la Cuenca Neuquina, la rotación de personal es intensa y los frentes de trabajo se desarrollan bajo diagramas de <strong>14x14 o 7x7</strong> con turnos de 12 horas. El éxito operacional de una cuadrilla de Fractura, Coiled Tubing, Well Testing, Wireline o Water Transfer depende de la capacidad del supervisor para seleccionar talentos, estructurar el pase de guardia y controlar el cumplimiento de objetivos sin desvíos.</p>
+
+  <div class="curso__objetivo">
+    <strong>Objetivo del Nivel:</strong> Capacitar al supervisor para evaluar competencias en pruebas prácticas de campo, estandarizar el pase de guardia (*Shift Handover*), implementar el sistema de Bloqueo y Etiquetado (LOTO) para energía cero, fijar metas SMART por etapa de pozo y liderar el análisis de causa raíz ante fallas operativas.
+  </div>
+</section>
+
+<!-- SECCIÓN 2.1: SELECCIÓN Y CUADRILLAS -->
+<section id="leccion1" class="curso__leccion">
+  <h2>Lección 1 — Selección Práctica y Conformación de Cuadrillas de Campaña</h2>
+  <p class="curso__temas">Entrevistas técnicas de yacimiento vs. pruebas de habilidad en obra · Diversidad de perfiles en el equipo · Inducción en tres etapas · Legislación laboral neuquina (Ley 20.744 y convenios petroleros).</p>
+
+  <h3>2.1.1 Evaluación Práctica en Terreno</h3>
+  <p>En el ambiente de alta exigencia de Vaca Muerta, el supervisor debe evaluar en el terreno si el candidato cuenta con la destreza motriz y la templanza psicológica para operar bajo frío nocturno, viento intenso y presión de tiempos.</p>
+
+  <!-- TABLA 1: MATRIZ DE PERFILES -->
+  <div id="tabla-perfiles" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Matriz de Perfiles y Competencias por Servicio de Campo</h4>
+      <span class="badge badge--norma">RECLUTAMIENTO OPERATIVO</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Puestos Críticos de Cuadrilla</th>
+            <th>Prueba Práctica Ineludible</th>
+            <th>Habilidad Blanda Fundamental</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fractura Hidráulica</strong></td>
+            <td>Operador de Blender, Operador de Bomba 2.500 HP, Mecánico de Missile.</td>
+            <td>Purga de líneas de alta presión y alineación de dosificación de arena.</td>
+            <td>Comunicación clara y trabajo coordinado bajo ruido extremo.</td>
+          </tr>
+          <tr>
+            <td><strong>Well Testing</strong></td>
+            <td>Técnico de Choke Manifold, Operador de Separador, Químico de Muestras.</td>
+            <td>Calibración de estrangulador y drenaje de fondo de separador con H₂S simulado.</td>
+            <td>Atención al detalle y alerta permanente ante cambios de presión.</td>
+          </tr>
+          <tr>
+            <td><strong>Coiled Tubing</strong></td>
+            <td>Operador de Cabina, Operador de Inyector, Mecánico de Bombas.</td>
+            <td>Enhebrado de tubería continua en inyector y prueba hidrostática de BOP.</td>
+            <td>Concentración prolongada y control de variables múltiples simultáneas.</td>
+          </tr>
+          <tr>
+            <td><strong>Wireline</strong></td>
+            <td>Ingeniero de Registro, Rigger de Lubricador, Operador de Guinche.</td>
+            <td>Armado mecánico de herramienta de fondo y montaje de lubricador en altura.</td>
+            <td>Disciplina estricta en el cumplimiento de listas de verificación.</td>
+          </tr>
+          <tr>
+            <td><strong>Torqueo de Bridas</strong></td>
+            <td>Técnico de Llave Hidráulica, Operador de Unidad de Potencia.</td>
+            <td>Calibración de manómetro a torque de tabla y apriete en cruz de brida 10.000 psi.</td>
+            <td>Paciencia y rigurosidad en el control de paralelismo de caras.</td>
+          </tr>
+          <tr>
+            <td><strong>Water Transfer</strong></td>
+            <td>Maquinista de Manipulador, Operador de Bomba Booster, Cuadrillero.</td>
+            <td>Despliegue de manguera layflat de 12" y acople de racord con grapas segmentadas.</td>
+            <td>Resistencia física al clima adverso y capacidad de trabajo en soledad.</td>
+          </tr>
+          <tr>
+            <td><strong>Supervisión de Obra Civil</strong></td>
+            <td>Maquinista de Excavadora/Motoniveladora, Topógrafo de Campo, Capataz de Suelos.</td>
+            <td>Nivelación de rasante con estación total y sondeo/cateo manual seguro de ductos.</td>
+            <td>Visión espacial, prudencia operativa y anticipación de interferencias enterradas.</td>
+          </tr>
+          <tr>
+            <td><strong>Supervisión General &amp; SIMOPS</strong></td>
+            <td>Company Man de Soporte, Coordinador de Pad, Auditor HSEQ de Locación.</td>
+            <td>Simulación de parada de emergencia (ESD) y resolución de conflictos de permisos cruzados.</td>
+            <td>Temple bajo presión comercial, asertividad y liderazgo en contingencias.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <figure class="figura-ampliable">
+    <div class="figura-ampliable__img-wrap">
+      <img src="../img/tendido-linea-dos-manipuladores.png" alt="Despliegue coordinado de líneas en yacimiento">
+      <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+    </div>
+    <figcaption>
+      <h4>Coordinación de Cuadrillas en Maniobras Pesadas</h4>
+      <p>Operación de tendido sincronizado con dos manipuladores telescópicos. La asignación clara de roles y la comunicación visual evitan accidentes por atrapamiento en el radio de giro de la maquinaria.</p>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- SECCIÓN 2.2: PASE DE GUARDIA Y LOTO -->
+<section id="handover" class="curso__leccion">
+  <h2>2.2 Pase de Guardia Efectivo (*Shift Handover*) y Bloqueo LOTO</h2>
+  <p class="curso__temas">El cambio de turno como punto ciego de seguridad · Los 5 pasos del pase de guardia · Protocolo de Aislamiento de Energía Cero (LOTO) · Caja de bloqueo grupal y custodia de llaves.</p>
+
+  <p>Estudios de accidentología en la industria del petróleo demuestran que **más del 40% de los incidentes graves con pérdida de contención o atrapamiento ocurren durante o dentro de las dos horas posteriores al cambio de turno**. La prisa por retirarse del yacimiento y la transmisión oral incompleta de novedades son los mayores enemigos de la seguridad.</p>
+
+  <!-- TABLA 2: CHECKLIST DE PASE DE GUARDIA -->
+  <div id="tabla-handover" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Protocolo Estructurado de Pase de Guardia (*Shift Handover*)</h4>
+      <span class="badge badge--critico">OBLIGATORIO EN CADA RELEVO</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Etapa del Pase</th>
+            <th>Acción Concreta de los Supervisores</th>
+            <th>Puntos Críticos a Auditar</th>
+            <th>Documento Respaldatorio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Recorrida Física Conjunta</strong></td>
+            <td>Ambos supervisores (saliente y entrante) caminan juntos por el pozo, el manifold y la batería de equipos.</td>
+            <td>Válvulas abiertas/cerradas, pérdidas de fluido, estado de mangueras y orden y limpieza (5S).</td>
+            <td>Inspección visual compartida en campo.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Revisión de Permisos PTS</strong></td>
+            <td>Cotejo de todos los permisos de trabajo activos, suspendidos y cancelados durante la jornada.</td>
+            <td>Trabajos en caliente finalizados (inspección de 30 min post-corte), espacios confinados cerrados.</td>
+            <td>Tablero de permisos PTS de locación.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Auditoría de Bloqueo LOTO</strong></td>
+            <td>Verificación de candados y tarjetas colocados en tableros eléctricos, interruptores y válvulas manuales.</td>
+            <td>Comprobación de energía cero (purgas abiertas, manómetros en cero, botoneras bloqueadas).</td>
+            <td>Planilla de registro LOTO y caja de candados.</td>
+          </tr>
+          <tr>
+            <td><strong>4. Revisión de Parámetros</strong></td>
+            <td>Traspaso de datos operativos: presiones de pozo, caudales, volúmenes de arena/agua bombeados, stocks.</td>
+            <td>Anomalías observadas en telemetría SCADA, alarmas recurrentes y rendimiento de motores.</td>
+            <td>Parte diario de operaciones del turno.</td>
+          </tr>
+          <tr>
+            <td><strong>5. Firma y Transferencia</strong></td>
+            <td>Firma formal del Libro de Guardia traspasando la responsabilidad operativa y legal de la locación.</td>
+            <td>Horario exacto del traspaso, firma y aclaración de ambos supervisores habilitados.</td>
+            <td>Libro foliado de guardia de yacimiento.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLA 3: PROTOCOLO LOTO -->
+  <div id="tabla-loto" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Secuencia de las 6 Etapas de Aislamiento de Energía Cero (LOTO)</h4>
+      <span class="badge badge--ok">CONTROL DE ENERGÍAS PELIGROSAS</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Etapa</th>
+            <th>Denominación</th>
+            <th>Acción Técnica Requerida</th>
+            <th>Verificación Ineludible</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Paso 1</strong></td>
+            <td>Preparación para el corte</td>
+            <td>Identificar todas las fuentes de energía involucradas (eléctrica, hidráulica, neumática, residual).</td>
+            <td>Revisión del diagrama de flujo unifilar (P&amp;ID).</td>
+          </tr>
+          <tr>
+            <td><strong>Paso 2</strong></td>
+            <td>Notificación</td>
+            <td>Avisar a todos los operadores del pad y personal afectado que el equipo saldrá de servicio.</td>
+            <td>Confirmación verbal por radio y en persona.</td>
+          </tr>
+          <tr>
+            <td><strong>Paso 3</strong></td>
+            <td>Apagado del equipo</td>
+            <td>Detener motores o bombas mediante parada normal controlada (no pulsador de emergencia).</td>
+            <td>Indicador de parada en panel de control.</td>
+          </tr>
+          <tr>
+            <td><strong>Paso 4</strong></td>
+            <td>Aislamiento físico</td>
+            <td>Bajar disyuntores, cerrar válvulas maestras, desacoplar cardanes o colocar bridas ciegas (*pancake*).</td>
+            <td>Corte físico y mecánico comprobable.</td>
+          </tr>
+          <tr>
+            <td><strong>Paso 5</strong></td>
+            <td>Bloqueo y Etiquetado</td>
+            <td>Colocar candado rojo de seguridad y tarjeta personal con nombre, fecha y empresa del ejecutor.</td>
+            <td>Una llave exclusiva en poder del operario.</td>
+          </tr>
+          <tr>
+            <td><strong>Paso 6</strong></td>
+            <td>Verificación de Energía Cero</td>
+            <td>Intentar encender el equipo en vacío (arranque de prueba), abrir purgas para aliviar presión remanente.</td>
+            <td>El manómetro marca 0 psi y el motor no gira.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="figuras-grid--2">
+    <figure class="figura-ampliable">
+      <div class="figura-ampliable__img-wrap">
+        <img src="../img/pantalla-sistema-bombeo-telemetria.png" alt="Pantalla SCADA de monitoreo en tiempo real">
+        <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+      </div>
+      <figcaption>
+        <h4>Control Telemétrico y Datos del Turno</h4>
+        <p>El pase de guardia debe cotejar los registros históricos de telemetría para advertir tendencias de calentamiento de cojinetes o caídas de caudal.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="figura-ampliable">
+      <div class="figura-ampliable__img-wrap">
+        <img src="../img/rebombeos.jpg" alt="Estación intermedia de bombeo en locación">
+        <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+      </div>
+      <figcaption>
+        <h4>Inspección de Válvulas y Líneas en Relevo</h4>
+        <p>Verificación de la posición de válvulas mariposa y bloqueos de seguridad en tren de motobombas antes de asumir el nuevo turno de 12 horas.</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- SECCIÓN 2.3: PLAN DE SUPERVISIÓN Y OBJETIVOS SMART -->
+<section id="leccion2" class="curso__leccion">
+  <h2>Lección 2 — Plan de Supervisión y Objetivos SMART Multi-Servicio</h2>
+  <p class="curso__temas">Supervisión personal, de proceso y de producto · Definición de metas SMART en yacimiento · Reducción de tiempos muertos (NPT) · Indicadores de gestión de equipos (OEE, MTBF).</p>
+
+  <h3>2.3.1 Objetivos SMART en Operaciones de Servicios de Yacimiento</h3>
+  <p>Fijar objetivos vagos como *"hacer el pozo rápido y seguro"* no sirve en Oil &amp; Gas. El supervisor debe traducir las directivas del cliente en parámetros cuantitativos, con tolerancias exactas y responsables asignados.</p>
+
+  <!-- TABLA 4: MATRIZ SMART -->
+  <div id="tabla-smart" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Matriz de Objetivos SMART por Servicio en Vaca Muerta</h4>
+      <span class="badge badge--ok">METAS OPERACIONALES</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Objetivo Específico (S)</th>
+            <th>Métrica Medible (M)</th>
+            <th>Meta Alcanzable (A)</th>
+            <th>Plazo Límite (T)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fractura</strong></td>
+            <td>Completar la estimulación de etapas sin paradas no programadas por mezcla de arena.</td>
+            <td>Caudal de bombeo en bpm y concentración de propante en ppa.</td>
+            <td>85 bpm constantes y 0 minutos de NPT por blender.</td>
+            <td>Durante las 6 etapas del turno.</td>
+          </tr>
+          <tr>
+            <td><strong>Well Testing</strong></td>
+            <td>Estabilizar la producción del pozo y tomar muestras de fondo sin contaminación.</td>
+            <td>Caudal de gas en MMm³/d y BS&amp;W de crudo.</td>
+            <td>BS&amp;W &lt; 0.5% en boca de tanque de prueba.</td>
+            <td>Primeras 8 horas de ensayo.</td>
+          </tr>
+          <tr>
+            <td><strong>Coiled Tubing</strong></td>
+            <td>Moler 15 tapones frac plug a 3.200 metros de profundidad.</td>
+            <td>Tiempo de molienda por tapón y retorno de viruta plástica.</td>
+            <td>&lt; 25 minutos de molienda por tapón.</td>
+            <td>Turno de 12 horas diurno.</td>
+          </tr>
+          <tr>
+            <td><strong>Cementación</strong></td>
+            <td>Bombear lechada principal y bache lavador a densidad de diseño.</td>
+            <td>Densímetro nuclear en ppg y presión final de tope.</td>
+            <td>Densidad de 15,8 ppg ± 0,2 ppg sostenida.</td>
+            <td>Ventana de bombeo de 90 minutos.</td>
+          </tr>
+          <tr>
+            <td><strong>Water Transfer</strong></td>
+            <td>Suministrar agua continua al pad manteniendo nivel en pulmón.</td>
+            <td>Caudalímetro de entrega en m³/h y nivel de tanque en %.</td>
+            <td>1.050 m³/h y tanque entre 50% y 80%.</td>
+            <td>Continuo 24/7 en campaña.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN 2.4: DIAGNÓSTICO DE FALLAS (5 PORQUÉS) -->
+<section id="leccion3" class="curso__leccion">
+  <h2>Lección 3 — Diagnóstico Operativo y Análisis de Causa Raíz</h2>
+  <p class="curso__temas">Metodología de los 5 Porqués · Diagrama de Ishikawa en pozo · Resolución ágil de contingencias · Matriz de diagnóstico de anomalías de campo.</p>
+
+  <!-- TABLA 5: DIAGNÓSTICO DE FALLAS -->
+  <div id="tabla-fallas" class="tabla-contenedor">
+    <div class="tabla-cabecera-info">
+      <h4>Guía Rápida de Diagnóstico de Fallas Operativas en Servicios de Yacimiento</h4>
+      <span class="badge badge--critico">RESOLUCIÓN DE ANOMALÍAS</span>
+    </div>
+    <div class="tabla-responsive">
+      <table class="tabla-tecnica">
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Anomalía Observada</th>
+            <th>Causa Raíz Típica</th>
+            <th>Acción Inmediata del Supervisor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fractura</strong></td>
+            <td>Presión de tratamiento trepa súbitamente 1.500 psi sin aumentar caudal.</td>
+            <td>Inicio de arenamiento (*screen-out*) en las fracturas de la formación.</td>
+            <td>Cortar adición de arena en el blender de inmediato y desplazar línea con agua limpia a régimen máximo.</td>
+          </tr>
+          <tr>
+            <td><strong>Well Testing</strong></td>
+            <td>Presión en cuerpo del separador trifásico se acerca al 90% de la válvula de seguridad (PSV).</td>
+            <td>Línea de gas al quemador (*flare*) congelada por hidratación (efecto Joule-Thomson).</td>
+            <td>Abrir bypass de estrangulador, inyectar metanol antihidratos y calibrar piloto de antorcha.</td>
+          </tr>
+          <tr>
+            <td><strong>Coiled Tubing</strong></td>
+            <td>La tensión en el indicador de peso sube al límite de sobretracción al intentar extraer tubería.</td>
+            <td>Aprisionamiento de sarta por sedimentación de arena de fractura en el anular.</td>
+            <td>No sobretraccionar (evita rotura de tubería); restablecer circulación a máximo caudal con geles lavadores.</td>
+          </tr>
+          <tr>
+            <td><strong>Water Transfer</strong></td>
+            <td>Ruido de pedregullo metálico en cuerpo de bomba centrífuga y manómetro oscilando.</td>
+            <td>Cavitación severa por filtro canasto obstruido o nivel bajo en la toma.</td>
+            <td>Reducir RPM del motor diésel de inmediato para evitar destrucción del impulsor; limpiar canasto.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <figure class="figura-ampliable">
+    <div class="figura-ampliable__img-wrap">
+      <img src="../img/layout-de-un-campamento-ejemplo.png" alt="Layout esquemático de campamento y base operativa">
+      <div class="figura-ampliable__lupa">🔍 Ampliar</div>
+    </div>
+    <figcaption>
+      <h4>Organización Espacial y Base de Campaña</h4>
+      <p>Esquema de distribución de módulos de descanso, comedor, sala de reuniones técnicas y pañol de repuestos. La adecuada segregación física garantiza el reposo de las cuadrillas nocturnas.</p>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- TEST EVALUATIVO INTERACTIVO NIVEL 2 -->
+<section id="test-n2" class="curso__leccion">
+  <h2>Test Evaluativo Interactivo · Nivel 2</h2>
+  <p>Poné a prueba tu criterio en selección de personal, procedimientos LOTO, pases de guardia y resolución de fallas en pozo. Hacé clic en la opción correcta.</p>
+
+  <div class="test-interactivo">
+    <div class="test-interactivo__encabezado">
+      <h3 class="test-interactivo__titulo">Evaluación de Competencias · Nivel 2 (5 Preguntas)</h3>
+      <span class="badge badge--vm">MÍNIMO APROBATORIO: 80% (4 de 5)</span>
+    </div>
+
+    <!-- Pregunta 1 -->
+    <div class="pregunta-test" data-correcta="3">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 1 de 5 · Pase de Guardia</span>
+        <span class="badge badge--critico">PROCEDIMIENTO</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        Son las 06:00 AM y el supervisor del turno noche quiere retirarse rápido porque su combi de traslado a Añelo sale en 10 minutos. ¿Qué debe hacer el supervisor entrante?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Firmar el libro de guardia a ciegas y asumir la locación para no perjudicar al compañero.</button>
+        <button class="opcion-test" data-opcion="2">B) Permitir que se vaya y recorrer el pad solo durante las próximas dos horas.</button>
+        <button class="opcion-test" data-opcion="3">C) Exigir el cumplimiento estricto del protocolo: recorrida física conjunta en el terreno, revisión de permisos PTS y auditoría de bloqueos LOTO antes de firmar el relevo.</button>
+        <button class="opcion-test" data-opcion="4">D) Pedirle que le mande un mensaje de audio por WhatsApp con las novedades mientras viaja.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="El pase de guardia incompleto es una de las principales fuentes de incidentes catastróficos. La recorrida conjunta y la verificación de válvulas y bloqueos son irremplazables."></div>
+    </div>
+
+    <!-- Pregunta 2 -->
+    <div class="pregunta-test" data-correcta="2">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 2 de 5 · Bloqueo LOTO</span>
+        <span class="badge badge--norma">ENERGÍA CERO</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        ¿Cuál es el paso final que valida que un procedimiento de bloqueo y etiquetado (LOTO) fue ejecutado correctamente antes de que el técnico meta sus manos en el equipo?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Mirar que el candado rojo esté cerrado en la aldaba de bloqueo.</button>
+        <button class="opcion-test" data-opcion="2">B) Realizar la prueba de arranque en vacío y verificar purgas abiertas para confirmar la ausencia total de energía residual (Cero Energía comprobada).</button>
+        <button class="opcion-test" data-opcion="3">C) Preguntarle al electricista de turno si se acuerda de haber bajado la térmica.</button>
+        <button class="opcion-test" data-opcion="4">D) Firmar la tarjeta de cartón y pegarla con cinta al motor.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="Poner candado no basta si queda presión hidráulica atrapada en una línea o tensión en condensadores. La verificación física de energía cero mediante accionamiento de prueba y apertura de purgas es mandatoria."></div>
+    </div>
+
+    <!-- Pregunta 3 -->
+    <div class="pregunta-test" data-correcta="4">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 3 de 5 · Fractura Hidráulica</span>
+        <span class="badge badge--critico">EMERGENCIA EN POZO</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        Durante la etapa 24 de fractura, el operador del missile detecta que la presión trepa súbitamente de 8.200 a 10.800 psi en cuestión de 10 segundos con el blender bombeando arena gruesa. ¿Qué contingencia se está gestando?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Rotura de manguera de succión de agua limpia.</button>
+        <button class="opcion-test" data-opcion="2">B) Ingreso normal a una zona de mejor permeabilidad del reservorio.</button>
+        <button class="opcion-test" data-opcion="3">C) Congelamiento del motor diésel de la bomba número 4.</button>
+        <button class="opcion-test" data-opcion="4">D) Un arenamiento de pozo (*screen-out*), que exige cortar inmediatamente la arena en el blender y desplazar a caudal máximo con agua limpia.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="El arenamiento obstruye las microfracturas y la cañería. Si no se corta la arena al instante y se desplaza el volumen del pozo, la sarta queda tapada de propante con costos millonarios de limpieza con Coiled Tubing."></div>
+    </div>
+
+    <!-- Pregunta 4 -->
+    <div class="pregunta-test" data-correcta="1">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 4 de 5 · Well Testing</span>
+        <span class="badge badge--alerta">PROCESOS</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        En un ensayo de pozo con gas a alta presión, la línea entre el choke manifold y el separador comienza a cubrirse de hielo blanco y la presión aguas arriba sube bruscamente. ¿Cuál es la causa física?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Formación de hidratos de gas por caída brusca de temperatura debido a la despresurización del gas (efecto Joule-Thomson).</button>
+        <button class="opcion-test" data-opcion="2">B) Que la temperatura ambiente en Añelo cayó a -10°C de golpe.</button>
+        <button class="opcion-test" data-opcion="3">C) Falla mecánica de los rodamientos de la bomba centrífuga.</button>
+        <button class="opcion-test" data-opcion="4">D) Ingreso masivo de agua dulce congelada desde el reservorio.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="La expansión violenta del gas a través de un estrangulador produce un enfriamiento severo que compacta el agua y el metano en hielo químico (hidratos), requiriendo inyección inmediata de glicol o metanol."></div>
+    </div>
+
+    <!-- Pregunta 5 -->
+    <div class="pregunta-test" data-correcta="2">
+      <div class="pregunta-test__header">
+        <span class="pregunta-test__numero">Pregunta 5 de 5 · Coiled Tubing</span>
+        <span class="badge badge--norma">MECÁNICA</span>
+      </div>
+      <div class="pregunta-test__enunciado">
+        ¿Por qué el supervisor de Coiled Tubing debe auditar permanentemente el registro de ciclos de fatiga de la tubería continua que lleva el software de la unidad?
+      </div>
+      <div class="pregunta-test__opciones">
+        <button class="opcion-test" data-opcion="1">A) Para saber cuánta pintura se desgastó en el carrete durante el viaje.</button>
+        <button class="opcion-test" data-opcion="2">B) Porque el doblado y desdoblado repetido sobre el cuello de cisne (gooseneck) bajo presión interna produce fatiga plástica acumulada que puede causar la rotura súbita de la sarta dentro del pozo.</button>
+        <button class="opcion-test" data-opcion="3">C) Para calcular el cobro de viáticos de los maquinistas del turno.</button>
+        <button class="opcion-test" data-opcion="4">D) Es una función exclusiva del chofer del carretón de transporte.</button>
+      </div>
+      <div class="pregunta-test__feedback" data-explicacion="La tubería de Coiled Tubing sufre deformación plástica en cada ciclo de entrada y salida sobre el carrete y el gooseneck. Superar el 80% de vida útil calculada genera riesgo de corte y pesca en pozo vivo."></div>
+    </div>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <button class="btn-calcular-test" disabled>Calcular Resultado Nivel 2</button>
+      <p style="font-size:0.85rem;color:var(--color-texto-suave);margin-top:0.5rem;">* Respondé las 5 preguntas para habilitar tu puntaje.</p>
+    </div>
+    <div class="resultado-test"></div>
+  </div>
+</section>
+
+<!-- NAVEGACIÓN -->
+<nav class="curso__nav">
+  <a href="nivel1.html" class="boton boton--secundario">← Volver al Nivel 1</a>
+  <a href="nivel3.html" class="boton boton--principal">Avanzar al Nivel 3: Seguridad y Emergencias →</a>
+</nav>
+
+</article>
+</main>
+
+<footer class="pie">
+  <div class="pie__contenedor">
+    <div><strong>Vaca Muerta Formación</strong> · Nivel 2: Conformación de Equipos y Supervisión</div>
+    <div class="pie__detalle">Metodologías operativas estandarizadas para el liderazgo de cuadrillas en la Cuenca Neuquina.</div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

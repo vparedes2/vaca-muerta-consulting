@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es-AR" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaca Muerta Consulting · Plataforma LMS &amp; Formación Upstream</title>
+  <meta name="description" content="Plataforma de capacitación técnica y supervisión operativa en Vaca Muerta (Cuenca Neuquina). Dirección Técnica: Lic. Víctor Javier Paredes, Mat. Profesional PA 446. Inducción HSE, Water Transfer, Higiene y Seguridad y Cloud Apps.">
+  <meta name="theme-color" content="#1B1F23">
+
+  <!-- Fuentes Corporativas Google Fonts: Outfit (Títulos), Inter (Cuerpo), JetBrains Mono (Datos Técnicos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN con configuración custom de la paleta "Grafito Técnico" -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              base: '#24282C',        // Grafito Técnico (Lienzo principal)
+              card: '#1B1F23',        // Contenedores y paneles oscuros
+              accent: '#74ACDF',      // Celeste Cuenca Neuquina (Acento técnico)
+              alert: '#FFB000',       // Amarillo de seguridad industrial / advertencia
+              border: '#33383F',      // Bordes de alta fidelidad
+              surface: '#2C3136'      // Superficies elevadas
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos base y tokens visuales de Grafito Técnico */
+    body {
+      background-color: #24282C;
+      color: #E2E8F0;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Enlaces de barra de navegación */
+    .nav-link {
+      padding: 0.5rem 0.85rem;
+      border-radius: 0.65rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #94A3B8;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover {
+      color: #FFFFFF;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .nav-link.active {
+      color: #74ACDF;
+      background-color: rgba(116, 172, 223, 0.12);
+    }
+
+    /* Scrollbar técnico sutil */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1B1F23;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #383E45;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #74ACDF;
+    }
+
+    /* Animaciones sutiles */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="selection:bg-[#74ACDF] selection:text-slate-950">
+
+  <!-- Contenedor Raíz de la SPA -->
+  <div id="app-root">
+    <!-- El router inyectará el navbar, vista y footer dinámicamente -->
+    <div class="min-h-screen flex items-center justify-center">
+      <div class="flex items-center gap-3 text-slate-400 font-mono text-sm">
+        <svg class="animate-spin h-5 w-5 text-[#74ACDF]" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+        </svg>
+        <span>Iniciando ecosistema Vaca Muerta Consulting...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Orquestador SPA ES6+ Modules -->
+  <script type="module" src="./src/app.js"></script>
+
+</body>
+</html>

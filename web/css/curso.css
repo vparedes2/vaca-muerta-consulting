@@ -1,0 +1,300 @@
+/* ==========================================================================
+   Vaca Muerta Formación · Estilos Específicos del Curso (v2.0)
+   ========================================================================== */
+
+.curso {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  max-width: 1350px;
+  margin: 0 auto;
+  gap: 2.5rem;
+  padding: 2.5rem 2rem;
+  align-items: start;
+}
+
+/* SIDEBAR / ÍNDICE STICKY */
+.curso__indice {
+  position: sticky;
+  top: 90px;
+  background: var(--color-fondo-alt);
+  padding: 1.5rem;
+  border-radius: var(--radio-lg);
+  border: 1px solid var(--color-borde);
+  box-shadow: var(--sombra-sm);
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+.curso__indice-titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 0.88rem;
+  color: var(--color-primario);
+  margin-bottom: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.curso__indice ul {
+  list-style: none;
+  margin-bottom: 1.25rem;
+}
+
+.curso__indice ul li {
+  margin-bottom: 0.35rem;
+}
+
+.curso__indice a {
+  color: var(--color-texto-suave);
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radio-sm);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: var(--transicion);
+  border-left: 2px solid transparent;
+}
+
+.curso__indice a:hover,
+.curso__indice a.activo {
+  color: var(--color-secundario);
+  background: var(--color-fondo-suave);
+  border-left-color: var(--color-primario);
+  font-weight: 600;
+}
+
+/* CONTENIDO PRINCIPAL */
+.curso__contenido {
+  background: var(--color-fondo-alt);
+  padding: 3.5rem 4rem;
+  border-radius: var(--radio-lg);
+  border: 1px solid var(--color-borde);
+  box-shadow: var(--sombra-sm);
+}
+
+.curso__intro {
+  margin-bottom: 3.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 2px solid var(--color-borde-suave);
+}
+
+.curso__etiqueta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-primario-claro);
+  color: var(--color-primario);
+  border: 1px solid rgba(185, 28, 28, 0.2);
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.curso__intro h1 {
+  font-family: var(--fuente-titulo);
+  font-size: 2.6rem;
+  color: var(--color-secundario);
+  margin-bottom: 1.2rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.curso__descripcion {
+  font-size: 1.15rem;
+  color: var(--color-texto-suave);
+  line-height: 1.7;
+}
+
+.curso__objetivo {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.02) 100%);
+  border-left: 4px solid var(--color-acento);
+  padding: 1.25rem 1.75rem;
+  margin-top: 2rem;
+  border-radius: var(--radio-md);
+  font-size: 1rem;
+  color: #78350f;
+  line-height: 1.6;
+}
+
+/* LECCIONES */
+.curso__leccion {
+  margin-bottom: 4.5rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid var(--color-borde-suave);
+}
+
+.curso__leccion:last-of-type {
+  border-bottom: none;
+}
+
+.curso__leccion h2 {
+  font-family: var(--fuente-titulo);
+  font-size: 2rem;
+  color: var(--color-secundario);
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid var(--color-acento);
+  letter-spacing: -0.01em;
+}
+
+.curso__temas {
+  background: var(--color-fondo-suave);
+  border: 1px solid var(--color-borde-suave);
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radio-md);
+  font-style: italic;
+  color: var(--color-texto-suave);
+  font-size: 0.92rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.curso__leccion h3 {
+  font-family: var(--fuente-titulo);
+  font-size: 1.45rem;
+  color: var(--color-secundario);
+  margin: 2.4rem 0 1rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.curso__leccion h3::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 22px;
+  background: var(--color-primario);
+  border-radius: 4px;
+}
+
+.curso__leccion h4 {
+  font-family: var(--fuente-titulo);
+  font-size: 1.2rem;
+  color: var(--color-secundario-claro);
+  margin: 1.75rem 0 0.85rem;
+}
+
+.curso__leccion p {
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-texto);
+}
+
+.curso__leccion ul, .curso__leccion ol {
+  margin: 0 0 1.5rem 1.75rem;
+}
+
+.curso__leccion ul li, .curso__leccion ol li {
+  padding: 0.35rem 0;
+  line-height: 1.65;
+  color: var(--color-texto);
+}
+
+/* CAJAS DESTACADAS (IDEAS FUERZA, ACTIVIDADES, EVALUACIONES) */
+.curso__idea {
+  background: #f8fafc;
+  border-left: 4px solid var(--color-primario);
+  padding: 1.2rem 1.6rem;
+  margin: 1.75rem 0;
+  border-radius: var(--radio-md);
+  font-size: 0.98rem;
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+.curso__actividad {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-left: 5px solid var(--color-exito);
+  padding: 1.75rem;
+  border-radius: var(--radio-lg);
+  margin: 2.5rem 0;
+}
+
+.curso__actividad h4 {
+  color: #166534;
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.curso__actividad p {
+  color: #14532d;
+}
+
+.curso__evaluacion {
+  background: #f8fafc;
+  border: 1px solid var(--color-borde);
+  border-left: 5px solid var(--color-secundario);
+  padding: 2rem;
+  border-radius: var(--radio-lg);
+  margin: 3rem 0;
+}
+
+.curso__evaluacion h4 {
+  color: var(--color-secundario);
+  margin-top: 0;
+  font-size: 1.25rem;
+  margin-bottom: 1.2rem;
+}
+
+.curso__evaluacion ol li {
+  padding: 0.4rem 0;
+  color: var(--color-texto);
+}
+
+/* REJILLAS DE FIGURAS TÉCNICAS */
+.figuras-grid--2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* NAVEGACIÓN INFERIOR DE LECCIÓN */
+.curso__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2.5rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--color-borde);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* RESPONSIVO CURSO */
+@media (max-width: 1100px) {
+  .curso {
+    grid-template-columns: 1fr;
+  }
+  .curso__indice {
+    position: static;
+    max-height: none;
+  }
+  .curso__contenido {
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .figuras-grid--2 {
+    grid-template-columns: 1fr;
+  }
+  .curso__contenido {
+    padding: 1.75rem 1.25rem;
+  }
+  .curso__intro h1 {
+    font-size: 2rem;
+  }
+}
