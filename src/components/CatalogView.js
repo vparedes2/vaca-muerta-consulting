@@ -10,7 +10,7 @@ import { paymentService } from '../services/paymentService.js';
 import { formatARS, formatDate, showToast } from '../utils/formatters.js';
 
 export function renderCatalogView() {
-  const courses = courseService.getAll();
+  const courses = courseService.getPublicCourses();
   const cohorts = cohortService.getAll();
   const user = authService.getCurrentUser();
 
@@ -58,9 +58,16 @@ export function renderCatalogView() {
                   </div>
 
                   <div class="relative z-10 space-y-3">
-                    <span class="px-2.5 py-1 rounded bg-[#FFB000]/20 text-[#FFB000] border border-[#FFB000]/40 text-xs font-mono font-bold inline-block">
-                      ${course.badge}
-                    </span>
+                    <div class="flex flex-wrap items-center gap-2">
+                      <span class="px-2.5 py-1 rounded bg-[#FFB000]/20 text-[#FFB000] border border-[#FFB000]/40 text-xs font-mono font-bold inline-block">
+                        ${course.badge}
+                      </span>
+                      ${course.status === 'paused' ? `
+                        <span class="px-2.5 py-1 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-mono font-bold inline-block">
+                          ⏸ Inscripciones Pausadas
+                        </span>
+                      ` : ''}
+                    </div>
                     <h2 class="text-xl sm:text-2xl font-black text-white leading-tight">
                       ${course.title}
                     </h2>
@@ -139,10 +146,17 @@ export function renderCatalogView() {
                       <span>✓ Facturación Oficial A y B</span> · <span>Mercado Pago en hasta 6 cuotas</span>
                     </div>
 
-                    <button type="button" data-course-id="${course.id}" class="btn-enroll-course px-6 py-3 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-xl shadow-lg shadow-sky-950/40 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
-                      Inscribirme / Abonar con Mercado Pago
-                    </button>
+                    ${course.status === 'paused' ? `
+                      <button type="button" disabled class="px-6 py-3 bg-slate-800 text-slate-400 border border-slate-700 font-bold text-xs rounded-xl cursor-not-allowed flex items-center gap-2">
+                        <svg class="w-4 h-4 text-[#FFB000]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        Inscripciones Pausadas
+                      </button>
+                    ` : `
+                      <button type="button" data-course-id="${course.id}" class="btn-enroll-course px-6 py-3 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-xl shadow-lg shadow-sky-950/40 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                        Inscribirme / Abonar con Mercado Pago
+                      </button>
+                    `}
                   </div>
 
                 </div>

@@ -137,8 +137,8 @@ export function renderAdminDashboard() {
           <button type="button" data-tab="tab-coordinadores" class="admin-tab-btn px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition-all">
             4. Promotores Provinciales (30%)
           </button>
-          <button type="button" data-tab="tab-tarifas" class="admin-tab-btn px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition-all">
-            5. Tarifas &amp; Mercado Pago
+          <button type="button" data-tab="tab-cursos" class="admin-tab-btn px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition-all">
+            5. ABM Cursos &amp; Catálogo (${courses.length})
           </button>
         </div>
 
@@ -200,8 +200,11 @@ export function renderAdminDashboard() {
                         </span>
                       </td>
                       <td class="p-3 text-right">
-                        <button type="button" data-student-id="${st.id}" class="btn-change-cohort text-xs text-[#74ACDF] hover:underline font-semibold">
+                        <button type="button" data-student-id="${st.id}" data-student-name="${st.name}" class="btn-change-cohort text-xs text-[#74ACDF] hover:underline font-semibold">
                           Reasignar Cohorte
+                        </button>
+                        <button type="button" data-student-id="${st.id}" data-student-name="${st.name}" class="btn-delete-student text-xs text-rose-400 hover:text-rose-300 hover:underline font-semibold ml-3" title="Eliminar alumno">
+                          Eliminar
                         </button>
                       </td>
                     </tr>
@@ -271,6 +274,14 @@ export function renderAdminDashboard() {
                     ℹ️ ${cohort.notes}
                   </p>
                 ` : ''}
+
+                <div class="pt-2 border-t border-slate-800 flex justify-between items-center text-xs">
+                  <span class="text-slate-500 font-mono text-[10px]">ID: ${cohort.id}</span>
+                  <button type="button" data-cohort-id="${cohort.id}" data-cohort-name="${cohort.name}" class="btn-delete-cohort text-rose-400 hover:text-rose-300 hover:underline font-semibold text-xs flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                    Eliminar Cohorte
+                  </button>
+                </div>
               </div>
             `).join('')}
           </div>
@@ -438,40 +449,380 @@ export function renderAdminDashboard() {
           </div>
         </div>
 
-        <!-- CONTENIDO PESTAÑA 5: TARIFAS & MERCADO PAGO -->
-        <div id="tab-tarifas" class="admin-tab-content pt-6 space-y-6 hidden">
-          <div>
-            <h3 class="text-base font-bold text-white">Gestión de Aranceles Oficiales &amp; Pasarela Mercado Pago</h3>
-            <p class="text-xs text-slate-400">Actualización en tiempo real de los valores de los cursos y configuración de pagos.</p>
+        <!-- CONTENIDO PESTAÑA 5: ABM CURSOS & CATÁLOGO -->
+        <div id="tab-cursos" class="admin-tab-content pt-6 space-y-6 hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h3 class="text-base font-bold text-white">Gestión Integral del Catálogo Oficial de Cursos (ABM)</h3>
+              <p class="text-xs text-slate-400">Crear nuevos programas, pausar inscripciones, ocultar de la vista pública, editar aranceles y eliminar cursos.</p>
+            </div>
+            <button id="btn-modal-add-course" class="px-4 py-2.5 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-sky-950/40">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              + Nuevo Curso
+            </button>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            ${courses.map(course => `
-              <div class="bg-[#24282C] border border-slate-800 rounded-2xl p-5 space-y-4">
-                <div class="flex justify-between items-start">
-                  <div>
-                    <span class="text-[10px] font-mono font-bold text-[#74ACDF]">${course.code}</span>
-                    <h4 class="text-base font-bold text-white">${course.title}</h4>
+            ${courses.map(course => {
+              const isPaused = course.status === 'paused';
+              const isHidden = course.status === 'hidden';
+              return `
+              <div class="bg-[#24282C] border ${isHidden ? 'border-dashed border-slate-700 opacity-80' : isPaused ? 'border-amber-500/40' : 'border-slate-800'} rounded-2xl p-5 space-y-4 shadow-md flex flex-col justify-between">
+                <div>
+                  <!-- Encabezado del Curso -->
+                  <div class="flex items-start justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                      <img src="${course.image || 'https://victorparedes.ar/bg1.jpg'}" alt="${course.title}" onerror="this.src='https://victorparedes.ar/bg1.jpg'" class="w-14 h-14 rounded-xl object-cover border border-slate-700 shrink-0">
+                      <div>
+                        <div class="flex items-center gap-2 mb-1">
+                          <span class="text-[10px] font-mono font-bold text-[#74ACDF] bg-slate-900 px-2 py-0.5 rounded border border-slate-800">${course.code}</span>
+                          <span class="text-[10px] text-slate-400 font-mono">${course.category}</span>
+                        </div>
+                        <h4 class="text-sm font-bold text-white leading-snug">${course.title}</h4>
+                      </div>
+                    </div>
                   </div>
-                  <span class="text-lg font-black text-white font-mono" id="price-display-${course.id}">
-                    ${formatARS(course.basePrice)}
-                  </span>
+
+                  <!-- Insignias de Estado -->
+                  <div class="flex flex-wrap gap-2 mt-3 pt-3 border-t border-slate-800">
+                    ${isHidden ? `
+                      <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-800 text-slate-300 border border-slate-600 flex items-center gap-1">
+                        👁️ Oculto (Privado / Borrador)
+                      </span>
+                    ` : isPaused ? `
+                      <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/20 text-[#FFB000] border border-amber-500/40 flex items-center gap-1">
+                        ⏸️ Inscripciones Pausadas
+                      </span>
+                    ` : `
+                      <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center gap-1">
+                        🟢 Activo en Catálogo
+                      </span>
+                    `}
+                    <span class="px-2 py-0.5 rounded text-[10px] font-mono text-slate-400 bg-slate-900 border border-slate-800">
+                      ${course.duration}
+                    </span>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-mono text-slate-400 bg-slate-900 border border-slate-800">
+                      ${course.modality}
+                    </span>
+                  </div>
+
+                  <p class="text-[11px] text-slate-400 mt-2 line-clamp-2">
+                    ${course.description}
+                  </p>
                 </div>
 
-                <form class="form-update-price flex gap-2 pt-2 border-t border-slate-800" data-course-id="${course.id}">
-                  <input type="number" step="5000" min="50000" value="${course.basePrice}" class="input-new-price w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-xs font-mono text-white outline-none focus:border-[#74ACDF]">
-                  <button type="submit" class="px-4 py-2 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-lg transition-colors shrink-0">
-                    Guardar
-                  </button>
-                </form>
+                <!-- Barra de Acciones y Arancel -->
+                <div class="pt-3 border-t border-slate-800 space-y-3">
+                  <!-- Control rápido de arancel -->
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="text-xs font-mono text-slate-400">Arancel Oficial:</span>
+                    <span class="text-base font-black text-white font-mono" id="price-display-${course.id}">
+                      ${formatARS(course.basePrice)}
+                    </span>
+                  </div>
+                  
+                  <form class="form-update-price flex gap-2" data-course-id="${course.id}">
+                    <input type="number" step="5000" min="50000" value="${course.basePrice}" class="input-new-price w-full px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-xs font-mono text-white outline-none focus:border-[#74ACDF]">
+                    <button type="submit" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs rounded-lg transition-colors shrink-0">
+                      Actualizar
+                    </button>
+                  </form>
+
+                  <!-- Botones de Control ABM -->
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-1">
+                    <button type="button" data-course-id="${course.id}" class="btn-edit-course px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-[11px] rounded-lg transition-colors flex items-center justify-center gap-1" title="Editar datos del curso">
+                      <svg class="w-3.5 h-3.5 text-[#74ACDF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                      Editar
+                    </button>
+
+                    <button type="button" data-course-id="${course.id}" class="btn-toggle-pause px-2.5 py-1.5 ${isPaused ? 'bg-emerald-950/50 hover:bg-emerald-900/60 text-emerald-300 border border-emerald-800' : 'bg-amber-950/50 hover:bg-amber-900/60 text-amber-300 border border-amber-800'} font-bold text-[11px] rounded-lg transition-colors flex items-center justify-center gap-1" title="${isPaused ? 'Reanudar inscripciones' : 'Pausar inscripciones'}">
+                      ${isPaused ? '▶ Activar' : '⏸ Pausar'}
+                    </button>
+
+                    <button type="button" data-course-id="${course.id}" class="btn-toggle-visibility px-2.5 py-1.5 ${isHidden ? 'bg-sky-950/50 hover:bg-sky-900/60 text-sky-300 border border-sky-800' : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700'} font-bold text-[11px] rounded-lg transition-colors flex items-center justify-center gap-1" title="${isHidden ? 'Mostrar en catálogo' : 'Ocultar de catálogo'}">
+                      ${isHidden ? '👁️ Mostrar' : '🕶️ Ocultar'}
+                    </button>
+
+                    <button type="button" data-course-id="${course.id}" data-course-title="${course.title}" class="btn-delete-course px-2.5 py-1.5 bg-rose-950/40 hover:bg-rose-900/60 text-rose-300 border border-rose-900/50 font-bold text-[11px] rounded-lg transition-colors flex items-center justify-center gap-1" title="Eliminar curso">
+                      <svg class="w-3.5 h-3.5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                      Borrar
+                    </button>
+                  </div>
+                </div>
+
               </div>
-            `).join('')}
+              `;
+            }).join('')}
           </div>
         </div>
 
       </div>
 
     </div>
+
+    <!-- MODAL ABM CURSO (CREAR / EDITAR) -->
+    <div id="modal-course-form" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden animate-fadeIn">
+      <div class="bg-[#1B1F23] border border-slate-700 w-full max-w-2xl rounded-3xl p-6 sm:p-8 shadow-2xl relative text-slate-100 max-h-[90vh] overflow-y-auto">
+        <button type="button" id="btn-close-course-modal" class="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800" title="Cerrar">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-3 h-3 rounded-full bg-[#74ACDF]"></span>
+          <h3 id="course-modal-title" class="text-lg font-bold text-white">Nuevo Curso de Formación</h3>
+        </div>
+        <form id="form-course-save" class="space-y-4">
+          <input type="hidden" id="course-form-id" value="">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Código Oficial</label>
+              <input type="text" id="course-form-code" required placeholder="Ej: VM-WT-02" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs font-mono text-white outline-none focus:border-[#74ACDF]">
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Categoría</label>
+              <select id="course-form-category" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+                <option value="Operaciones de Campo">Operaciones de Campo</option>
+                <option value="HSE & Normativa">HSE &amp; Normativa</option>
+                <option value="Software & Simulación Upstream">Software &amp; Simulación Upstream</option>
+                <option value="Perforación & Terminación">Perforación &amp; Terminación</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-300 mb-1">Título del Curso</label>
+            <input type="text" id="course-form-title" required placeholder="Título técnico del programa" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Arancel Base (ARS)</label>
+              <input type="number" id="course-form-price" required step="5000" min="50000" placeholder="350000" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs font-mono text-white outline-none focus:border-[#74ACDF]">
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Duración</label>
+              <input type="text" id="course-form-duration" required placeholder="40 Horas (4 Semanas)" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Estado</label>
+              <select id="course-form-status" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+                <option value="active">🟢 Activo en Catálogo</option>
+                <option value="paused">⏸️ Pausar Inscripciones</option>
+                <option value="hidden">👁️ Oculto (Borrador)</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Modalidad</label>
+              <input type="text" id="course-form-modality" value="Virtual + Tutoría Sincrónica" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Insignia / Badge Promocional</label>
+              <input type="text" id="course-form-badge" placeholder="Programa Oficial 2026" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-300 mb-1">URL de Imagen de Portada</label>
+            <input type="url" id="course-form-image" required placeholder="https://..." class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs font-mono text-white outline-none focus:border-[#74ACDF]">
+            <div class="mt-2 flex flex-wrap gap-1.5 items-center">
+              <span class="text-[10px] text-slate-400 font-mono">Fotos oficiales victorparedes.ar:</span>
+              <button type="button" class="btn-preset-img px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] rounded border border-slate-700" data-url="https://victorparedes.ar/th_tendido.jpg">Layflat 12"</button>
+              <button type="button" class="btn-preset-img px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] rounded border border-slate-700" data-url="https://victorparedes.ar/bg1.jpg">Yacimiento</button>
+              <button type="button" class="btn-preset-img px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] rounded border border-slate-700" data-url="https://victorparedes.ar/bg4.jpg">Pits</button>
+              <button type="button" class="btn-preset-img px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] rounded border border-slate-700" data-url="https://victorparedes.ar/th_traza.jpg">Software</button>
+              <button type="button" class="btn-preset-img px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] rounded border border-slate-700" data-url="https://victorparedes.ar/th_montaje.jpg">Montaje</button>
+              <button type="button" class="btn-preset-img px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] rounded border border-slate-700" data-url="https://victorparedes.ar/th_sim3d.jpg">Simulación 3D</button>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-300 mb-1">Descripción del Programa Formativo</label>
+            <textarea id="course-form-desc" rows="3" required placeholder="Detalles técnicos, requerimientos y perfil..." class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]"></textarea>
+          </div>
+          <div class="pt-3 border-t border-slate-800 flex justify-end gap-2">
+            <button type="button" id="btn-cancel-course-modal" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition-colors">Cancelar</button>
+            <button type="submit" class="px-5 py-2 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-xl transition-colors shadow-lg shadow-sky-950/40">Guardar Curso</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL NUEVO COORDINADOR -->
+    <div id="modal-coord-form" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden animate-fadeIn">
+      <div class="bg-[#1B1F23] border border-slate-700 w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl relative text-slate-100">
+        <button type="button" id="btn-close-coord-modal" class="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800" title="Cerrar">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-3 h-3 rounded-full bg-[#FFB000]"></span>
+          <h3 class="text-lg font-bold text-white">Nuevo Promotor / Coordinador Provincial</h3>
+        </div>
+        <form id="form-coord-save" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Nombre Completo</label>
+              <input type="text" id="coord-form-name" required placeholder="Ej: Ing. Martín Gómez" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Provincia / Región</label>
+              <input type="text" id="coord-form-province" required placeholder="Ej: Mendoza / Salta" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Usuario de Acceso</label>
+              <input type="text" id="coord-form-username" required placeholder="coord.mza" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs font-mono text-white outline-none focus:border-[#74ACDF]">
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Código Promocional</label>
+              <input type="text" id="coord-form-promocode" required placeholder="MZA30" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs font-mono text-[#FFB000] font-bold outline-none focus:border-[#74ACDF]">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Email</label>
+              <input type="email" id="coord-form-email" required placeholder="promotor@gmail.com" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Teléfono / WhatsApp</label>
+              <input type="text" id="coord-form-phone" placeholder="+54 9 261..." class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+          </div>
+          <div class="pt-3 border-t border-slate-800 flex justify-end gap-2">
+            <button type="button" id="btn-cancel-coord-modal" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition-colors">Cancelar</button>
+            <button type="submit" class="px-5 py-2 bg-[#FFB000] hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-xl transition-colors">Registrar Coordinador</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL NUEVA COHORTE -->
+    <div id="modal-cohort-form" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden animate-fadeIn">
+      <div class="bg-[#1B1F23] border border-slate-700 w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl relative text-slate-100">
+        <button type="button" id="btn-close-cohort-modal" class="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800" title="Cerrar">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-3 h-3 rounded-full bg-[#FFB000]"></span>
+          <h3 class="text-lg font-bold text-white">Nueva Cohorte de Capacitación</h3>
+        </div>
+        <form id="form-cohort-save" class="space-y-4">
+          <div>
+            <label class="block text-xs font-mono text-slate-300 mb-1">Nombre de la Cohorte</label>
+            <input type="text" id="cohort-form-name" required placeholder="Ej: Cohorte Febrero C - Water Transfer" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-300 mb-1">Curso Asignado</label>
+            <select id="cohort-form-course" required class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+              ${courses.map(c => `<option value="${c.id}">${c.title} (${c.code})</option>`).join('')}
+            </select>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Fecha de Inicio</label>
+              <input type="date" id="cohort-form-start" required class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Capacidad Máxima</label>
+              <input type="number" id="cohort-form-capacity" value="30" min="5" max="100" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs font-mono text-white outline-none focus:border-[#74ACDF]">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Tutor Asignado</label>
+              <input type="text" id="cohort-form-tutor" value="Lic. Víctor Javier Paredes" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Horario de Clases</label>
+              <input type="text" id="cohort-form-schedule" value="Martes y Jueves 19:30 hs" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+          </div>
+          <div class="pt-3 border-t border-slate-800 flex justify-end gap-2">
+            <button type="button" id="btn-cancel-cohort-modal" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition-colors">Cancelar</button>
+            <button type="submit" class="px-5 py-2 bg-[#FFB000] hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-xl transition-colors">Crear Cohorte</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL NUEVO ALUMNO -->
+    <div id="modal-student-form" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden animate-fadeIn">
+      <div class="bg-[#1B1F23] border border-slate-700 w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl relative text-slate-100">
+        <button type="button" id="btn-close-student-modal" class="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800" title="Cerrar">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-3 h-3 rounded-full bg-[#74ACDF]"></span>
+          <h3 class="text-lg font-bold text-white">Alta Manual de Alumno</h3>
+        </div>
+        <form id="form-student-save" class="space-y-4">
+          <div>
+            <label class="block text-xs font-mono text-slate-300 mb-1">Nombre Completo</label>
+            <input type="text" id="student-form-name" required placeholder="Ej: Juan Pérez" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">DNI</label>
+              <input type="text" id="student-form-dni" required placeholder="35123456" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs font-mono text-white outline-none focus:border-[#74ACDF]">
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Teléfono / WhatsApp</label>
+              <input type="text" id="student-form-phone" placeholder="+54 9 299..." class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Provincia</label>
+              <input type="text" id="student-form-province" value="Neuquén" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Ciudad / Base</label>
+              <input type="text" id="student-form-city" value="Añelo" class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Curso a Inscribir</label>
+              <select id="student-form-course" required class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+                ${courses.map(c => `<option value="${c.id}">${c.title}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Cohorte Asignada</label>
+              <select id="student-form-cohort" required class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+                ${cohorts.map(co => `<option value="${co.id}">${co.name}</option>`).join('')}
+              </select>
+            </div>
+          </div>
+          <div class="pt-3 border-t border-slate-800 flex justify-end gap-2">
+            <button type="button" id="btn-cancel-student-modal" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition-colors">Cancelar</button>
+            <button type="submit" class="px-5 py-2 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-xl transition-colors">Registrar Alumno</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL REASIGNAR COHORTE -->
+    <div id="modal-reassign-cohort" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden animate-fadeIn">
+      <div class="bg-[#1B1F23] border border-slate-700 w-full max-w-md rounded-3xl p-6 shadow-2xl relative text-slate-100">
+        <button type="button" id="btn-close-reassign-modal" class="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800" title="Cerrar">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <h3 class="text-base font-bold text-white mb-1">Reasignar Cohorte</h3>
+        <p id="reassign-student-name" class="text-xs text-[#74ACDF] mb-4 font-mono"></p>
+        <form id="form-reassign-cohort" class="space-y-4">
+          <input type="hidden" id="reassign-student-id" value="">
+          <div>
+            <label class="block text-xs font-mono text-slate-300 mb-1">Nueva Cohorte</label>
+            <select id="reassign-cohort-select" required class="w-full px-3 py-2 bg-[#24282C] border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-[#74ACDF]">
+              ${cohorts.map(co => `<option value="${co.id}">${co.name} (${co.courseTitle})</option>`).join('')}
+            </select>
+          </div>
+          <div class="pt-3 border-t border-slate-800 flex justify-end gap-2">
+            <button type="button" id="btn-cancel-reassign-modal" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition-colors">Cancelar</button>
+            <button type="submit" class="px-5 py-2 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-xl transition-colors">Confirmar Cambio</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
   `;
 }
 
@@ -499,7 +850,129 @@ export function initAdminEvents() {
     });
   });
 
-  // Update prices
+  // ==========================================
+  // ABM DE CURSOS
+  // ==========================================
+  const modalCourse = document.getElementById('modal-course-form');
+  const formCourse = document.getElementById('form-course-save');
+  const courseModalTitle = document.getElementById('course-modal-title');
+
+  // Abrir modal Nuevo Curso
+  document.getElementById('btn-modal-add-course')?.addEventListener('click', () => {
+    formCourse.reset();
+    document.getElementById('course-form-id').value = '';
+    document.getElementById('course-form-code').disabled = false;
+    document.getElementById('course-form-image').value = 'https://victorparedes.ar/th_tendido.jpg';
+    courseModalTitle.textContent = 'Nuevo Curso de Formación Upstream';
+    modalCourse.classList.remove('hidden');
+  });
+
+  // Cerrar modal curso
+  const closeCourseModal = () => modalCourse?.classList.add('hidden');
+  document.getElementById('btn-close-course-modal')?.addEventListener('click', closeCourseModal);
+  document.getElementById('btn-cancel-course-modal')?.addEventListener('click', closeCourseModal);
+
+  // Chips para fotos oficiales
+  document.querySelectorAll('.btn-preset-img').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const inputImg = document.getElementById('course-form-image');
+      if (inputImg) inputImg.value = chip.getAttribute('data-url');
+    });
+  });
+
+  // Abrir modal Editar Curso
+  document.querySelectorAll('.btn-edit-course').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const courseId = btn.getAttribute('data-course-id');
+      const course = courseService.getById(courseId);
+      if (!course) return;
+
+      document.getElementById('course-form-id').value = course.id;
+      document.getElementById('course-form-code').value = course.code;
+      document.getElementById('course-form-code').disabled = true;
+      document.getElementById('course-form-category').value = course.category;
+      document.getElementById('course-form-title').value = course.title;
+      document.getElementById('course-form-price').value = course.basePrice;
+      document.getElementById('course-form-duration').value = course.duration;
+      document.getElementById('course-form-status').value = course.status || 'active';
+      document.getElementById('course-form-modality').value = course.modality || 'Virtual + Tutoría Sincrónica';
+      document.getElementById('course-form-badge').value = course.badge || '';
+      document.getElementById('course-form-image').value = course.image || 'https://victorparedes.ar/bg1.jpg';
+      document.getElementById('course-form-desc').value = course.description || '';
+
+      courseModalTitle.textContent = `Editar Capacitación: ${course.title}`;
+      modalCourse.classList.remove('hidden');
+    });
+  });
+
+  // Guardar Curso (Crear o Actualizar)
+  formCourse?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const courseId = document.getElementById('course-form-id').value;
+    const courseData = {
+      code: document.getElementById('course-form-code').value.trim(),
+      category: document.getElementById('course-form-category').value,
+      title: document.getElementById('course-form-title').value.trim(),
+      basePrice: Number(document.getElementById('course-form-price').value),
+      duration: document.getElementById('course-form-duration').value.trim(),
+      status: document.getElementById('course-form-status').value,
+      modality: document.getElementById('course-form-modality').value.trim(),
+      badge: document.getElementById('course-form-badge').value.trim(),
+      image: document.getElementById('course-form-image').value.trim(),
+      description: document.getElementById('course-form-desc').value.trim()
+    };
+
+    try {
+      if (courseId) {
+        courseService.update(courseId, courseData);
+        showToast('Curso actualizado exitosamente.', 'success');
+      } else {
+        courseService.create(courseData);
+        showToast('Curso creado y publicado exitosamente.', 'success');
+      }
+      closeCourseModal();
+      setTimeout(() => window.location.reload(), 400);
+    } catch (err) {
+      showToast(err.message, 'error');
+    }
+  });
+
+  // Pausar / Reactivar inscripciones
+  document.querySelectorAll('.btn-toggle-pause').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const courseId = btn.getAttribute('data-course-id');
+      const updated = courseService.togglePause(courseId);
+      const isPaused = updated.status === 'paused';
+      showToast(isPaused ? `Inscripciones pausadas para ${updated.code}` : `Inscripciones reactivadas para ${updated.code}`, isPaused ? 'warning' : 'success');
+      setTimeout(() => window.location.reload(), 400);
+    });
+  });
+
+  // Ocultar / Mostrar curso del catálogo
+  document.querySelectorAll('.btn-toggle-visibility').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const courseId = btn.getAttribute('data-course-id');
+      const updated = courseService.toggleVisibility(courseId);
+      const isHidden = updated.status === 'hidden';
+      showToast(isHidden ? `Curso ${updated.code} ocultado del catálogo público.` : `Curso ${updated.code} visible en catálogo público.`, isHidden ? 'info' : 'success');
+      setTimeout(() => window.location.reload(), 400);
+    });
+  });
+
+  // Eliminar curso
+  document.querySelectorAll('.btn-delete-course').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const courseId = btn.getAttribute('data-course-id');
+      const title = btn.getAttribute('data-course-title') || courseId;
+      if (confirm(`¿Confirma que desea eliminar el curso "${title}" del catálogo oficial?`)) {
+        courseService.delete(courseId);
+        showToast(`Curso ${title} eliminado del catálogo.`, 'info');
+        setTimeout(() => window.location.reload(), 400);
+      }
+    });
+  });
+
+  // Actualización rápida de precios
   document.querySelectorAll('.form-update-price').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -518,26 +991,191 @@ export function initAdminEvents() {
     });
   });
 
-  // Reset database button
-  document.getElementById('btn-reset-db')?.addEventListener('click', () => {
-    if (confirm('¿Desea restablecer todos los datos a la configuración inicial? Se restaurarán los 4 cursos, cohortes y alumnos de prueba.')) {
-      storageService.resetToDefaults();
-      showToast('Base de datos restablecida correctamente.', 'success');
-      setTimeout(() => window.location.reload(), 500);
+  // ==========================================
+  // ABM DE ALUMNOS
+  // ==========================================
+  const modalStudent = document.getElementById('modal-student-form');
+  const formStudent = document.getElementById('form-student-save');
+  const closeStudentModal = () => modalStudent?.classList.add('hidden');
+
+  document.getElementById('btn-modal-add-student')?.addEventListener('click', () => {
+    formStudent.reset();
+    modalStudent.classList.remove('hidden');
+  });
+  document.getElementById('btn-close-student-modal')?.addEventListener('click', closeStudentModal);
+  document.getElementById('btn-cancel-student-modal')?.addEventListener('click', closeStudentModal);
+
+  formStudent?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const users = storageService.get('users') || [];
+    const name = document.getElementById('student-form-name').value.trim();
+    const dni = document.getElementById('student-form-dni').value.trim();
+    const phone = document.getElementById('student-form-phone').value.trim();
+    const province = document.getElementById('student-form-province').value.trim();
+    const city = document.getElementById('student-form-city').value.trim();
+    const courseId = document.getElementById('student-form-course').value;
+    const cohortId = document.getElementById('student-form-cohort').value;
+
+    const baseUser = name.toLowerCase().split(' ')[0].replace(/[^a-z0-9]/g, '');
+    const username = `${baseUser}${dni.slice(-4)}`;
+
+    const newStudent = {
+      id: `usr-${Date.now()}`,
+      username: username,
+      password: 'alumno2026',
+      name: name,
+      role: 'student',
+      dni: dni,
+      email: `${username}@gmail.com`,
+      phone: phone,
+      province: province,
+      city: city,
+      cohorteId: cohortId,
+      enrolledCourses: [courseId],
+      isGraduate: false,
+      referralCode: `VM${dni.slice(-4)}`,
+      referredBy: null,
+      referrals: []
+    };
+
+    users.push(newStudent);
+    storageService.set('users', users);
+    showToast(`Alumno ${name} registrado con éxito. Usuario: ${username}`, 'success');
+    closeStudentModal();
+    setTimeout(() => window.location.reload(), 400);
+  });
+
+  // Eliminar alumno
+  document.querySelectorAll('.btn-delete-student').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const studentId = btn.getAttribute('data-student-id');
+      const studentName = btn.getAttribute('data-student-name') || 'el alumno';
+      if (confirm(`¿Confirma que desea eliminar a "${studentName}" del padrón de alumnos?`)) {
+        const users = storageService.get('users') || [];
+        const updated = users.filter(u => u.id !== studentId);
+        storageService.set('users', updated);
+        showToast(`Alumno ${studentName} eliminado.`, 'info');
+        setTimeout(() => window.location.reload(), 400);
+      }
+    });
+  });
+
+  // Reasignar cohorte a alumno
+  const modalReassign = document.getElementById('modal-reassign-cohort');
+  const formReassign = document.getElementById('form-reassign-cohort');
+  const closeReassignModal = () => modalReassign?.classList.add('hidden');
+
+  document.querySelectorAll('.btn-change-cohort').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const studentId = btn.getAttribute('data-student-id');
+      const studentName = btn.getAttribute('data-student-name') || 'Alumno';
+      document.getElementById('reassign-student-id').value = studentId;
+      document.getElementById('reassign-student-name').textContent = `Alumno: ${studentName}`;
+      modalReassign.classList.remove('hidden');
+    });
+  });
+
+  document.getElementById('btn-close-reassign-modal')?.addEventListener('click', closeReassignModal);
+  document.getElementById('btn-cancel-reassign-modal')?.addEventListener('click', closeReassignModal);
+
+  formReassign?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const studentId = document.getElementById('reassign-student-id').value;
+    const newCohortId = document.getElementById('reassign-cohort-select').value;
+    const users = storageService.get('users') || [];
+    const index = users.findIndex(u => u.id === studentId);
+
+    if (index !== -1) {
+      users[index].cohorteId = newCohortId;
+      storageService.set('users', users);
+      showToast('Cohorte reasignada exitosamente.', 'success');
+      closeReassignModal();
+      setTimeout(() => window.location.reload(), 400);
     }
   });
 
-  // Export JSON backup
-  document.getElementById('btn-backup-export')?.addEventListener('click', () => {
-    const data = storageService.exportData();
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `backup_vaca_muerta_consulting_${new Date().toISOString().split('T')[0]}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-    showToast('Backup exportado exitosamente.', 'success');
+  // ==========================================
+  // GESTIÓN DE COHORTES
+  // ==========================================
+  const modalCohort = document.getElementById('modal-cohort-form');
+  const formCohort = document.getElementById('form-cohort-save');
+  const closeCohortModal = () => modalCohort?.classList.add('hidden');
+
+  document.getElementById('btn-modal-add-cohort')?.addEventListener('click', () => {
+    formCohort.reset();
+    modalCohort.classList.remove('hidden');
+  });
+  document.getElementById('btn-close-cohort-modal')?.addEventListener('click', closeCohortModal);
+  document.getElementById('btn-cancel-cohort-modal')?.addEventListener('click', closeCohortModal);
+
+  formCohort?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const courseId = document.getElementById('cohort-form-course').value;
+    const course = courseService.getById(courseId);
+    const cohortData = {
+      name: document.getElementById('cohort-form-name').value.trim(),
+      courseId: courseId,
+      courseTitle: course ? course.title : 'Capacitación Oficial',
+      startDate: document.getElementById('cohort-form-start').value,
+      capacity: Number(document.getElementById('cohort-form-capacity').value),
+      tutor: document.getElementById('cohort-form-tutor').value.trim(),
+      schedule: document.getElementById('cohort-form-schedule').value.trim()
+    };
+
+    cohortService.create(cohortData);
+    showToast(`Cohorte "${cohortData.name}" creada con éxito.`, 'success');
+    closeCohortModal();
+    setTimeout(() => window.location.reload(), 400);
+  });
+
+  // Eliminar cohorte
+  document.querySelectorAll('.btn-delete-cohort').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cohortId = btn.getAttribute('data-cohort-id');
+      const cohortName = btn.getAttribute('data-cohort-name') || cohortId;
+      if (confirm(`¿Confirma que desea eliminar la cohorte "${cohortName}"?`)) {
+        const cohorts = storageService.get('cohorts') || [];
+        const updated = cohorts.filter(c => c.id !== cohortId);
+        storageService.set('cohorts', updated);
+        showToast(`Cohorte ${cohortName} eliminada.`, 'info');
+        setTimeout(() => window.location.reload(), 400);
+      }
+    });
+  });
+
+  // ==========================================
+  // PROMOTORES / COORDINADORES PROVINCIALES
+  // ==========================================
+  const modalCoord = document.getElementById('modal-coord-form');
+  const formCoord = document.getElementById('form-coord-save');
+  const closeCoordModal = () => modalCoord?.classList.add('hidden');
+
+  document.getElementById('btn-modal-add-coordinator')?.addEventListener('click', () => {
+    formCoord.reset();
+    modalCoord.classList.remove('hidden');
+  });
+  document.getElementById('btn-close-coord-modal')?.addEventListener('click', closeCoordModal);
+  document.getElementById('btn-cancel-coord-modal')?.addEventListener('click', closeCoordModal);
+
+  formCoord?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const coordData = {
+      name: document.getElementById('coord-form-name').value.trim(),
+      province: document.getElementById('coord-form-province').value.trim(),
+      username: document.getElementById('coord-form-username').value.trim(),
+      promoCode: document.getElementById('coord-form-promocode').value.trim().toUpperCase(),
+      email: document.getElementById('coord-form-email').value.trim(),
+      phone: document.getElementById('coord-form-phone').value.trim()
+    };
+
+    try {
+      coordinatorService.create(coordData);
+      showToast(`Coordinador ${coordData.name} registrado con código ${coordData.promoCode}.`, 'success');
+      closeCoordModal();
+      setTimeout(() => window.location.reload(), 400);
+    } catch (err) {
+      showToast(err.message, 'error');
+    }
   });
 
   // Liquidate coordinator commission
@@ -570,4 +1208,28 @@ export function initAdminEvents() {
       }
     });
   });
+
+  // ==========================================
+  // UTILIDADES GLOBALES (RESET & BACKUP)
+  // ==========================================
+  document.getElementById('btn-reset-db')?.addEventListener('click', () => {
+    if (confirm('¿Desea restablecer todos los datos a la configuración inicial? Se restaurarán los 4 cursos, cohortes y alumnos de prueba.')) {
+      storageService.resetToDefaults();
+      showToast('Base de datos restablecida correctamente.', 'success');
+      setTimeout(() => window.location.reload(), 500);
+    }
+  });
+
+  document.getElementById('btn-backup-export')?.addEventListener('click', () => {
+    const data = storageService.exportData();
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `backup_vaca_muerta_consulting_${new Date().toISOString().split('T')[0]}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('Backup exportado exitosamente.', 'success');
+  });
 }
+
