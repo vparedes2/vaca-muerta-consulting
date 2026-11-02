@@ -1,7 +1,9 @@
 /**
  * Vaca Muerta Consulting - Checkout Modal (Mercado Pago Dinámico)
- * Pasarela de pago oficial con recálculo dinámico de arancel según referidos (20% c/u / 100% con 5),
- * simulación de cobro seguro y emisión de comprobante de matrícula.
+ * Pasarela de pago oficial con política de reintegro post-capacitación:
+ * - El arancel oficial del curso se abona al 100% al inicio.
+ * - Todos los reintegros acumulados por referidos (20% c/u, 100% con 5, y +20% por cada colega extra)
+ *   se devuelven a la cuenta del alumno una vez concluido el cursado.
  */
 
 import { authService } from '../services/authService.js';
@@ -41,23 +43,29 @@ export function renderCheckoutModal() {
 
             <div class="pt-3 border-t border-slate-700 space-y-2 text-xs font-mono">
               <div class="flex justify-between">
-                <span class="text-slate-400">Arancel Oficial del Curso:</span>
-                <span class="text-white font-bold" id="checkout-base-price">$400.000 ARS</span>
+                <span class="text-slate-400">Modalidad Arancelaria:</span>
+                <span class="text-white">Pago del 100% de Matrícula</span>
               </div>
               
-              <div class="flex justify-between text-emerald-400" id="checkout-discount-row">
-                <span>Bonificación por Referidos (<span id="checkout-discount-rate">40%</span>):</span>
-                <span class="font-bold" id="checkout-discount-value">-$160.000 ARS</span>
+              <div class="flex justify-between text-[#FFB000]" id="checkout-discount-row">
+                <span>Reintegro Acumulado a Devolver:</span>
+                <span class="font-bold" id="checkout-refund-value">$160.000 ARS</span>
               </div>
 
               <div class="flex justify-between text-base font-bold text-white pt-2 border-t border-slate-700/80">
-                <span>Total Final a Abonar:</span>
-                <span class="text-2xl font-black text-[#74ACDF] font-mono" id="checkout-total-price">$240.000 ARS</span>
+                <span>Total a Abonar Ahora en Pasarela:</span>
+                <span class="text-2xl font-black text-[#74ACDF] font-mono" id="checkout-total-price">$400.000 ARS</span>
               </div>
             </div>
 
-            <div id="checkout-bonified-alert" class="hidden p-3 bg-amber-500/10 border border-amber-500/40 rounded-xl text-xs text-amber-300">
-              ★ <strong>100% Bonificado:</strong> ¡Felicitaciones! Has alcanzado 5 colegas inscriptos. Tu curso no tiene costo arancelario y se activará la orden de reintegro garantizado.
+            <div class="p-3 bg-slate-900/90 border border-slate-700/70 rounded-xl text-xs text-slate-300 space-y-1">
+              <span class="text-white font-bold block flex items-center gap-1.5 text-[11px]">
+                <svg class="w-4 h-4 text-[#74ACDF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                Política Oficial de Reintegro Post-Capacitación:
+              </span>
+              <p class="text-[11px] text-slate-400 leading-relaxed font-sans">
+                El arancel oficial se abona al ingresar. Todos los reintegros acumulados por tus colegas referidos (20% por colega, 100% con 5, y +20% extra por cada uno por sobre los 5) se transfieren a tu cuenta bancaria una vez finalizada la capacitación.
+              </p>
             </div>
           </div>
 
@@ -79,7 +87,7 @@ export function renderCheckoutModal() {
           <!-- Botón de Confirmación -->
           <button type="button" id="btn-process-payment" class="w-full py-3.5 bg-[#009EE3] hover:bg-sky-400 text-slate-950 font-black text-sm rounded-xl shadow-xl shadow-sky-950/40 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span id="btn-process-text">Confirmar y Abonar con Mercado Pago</span>
+            <span id="btn-process-text">Abonar Arancel Oficial con Mercado Pago</span>
           </button>
 
           <p class="text-[11px] text-slate-500 text-center mt-3 font-mono">
@@ -92,9 +100,9 @@ export function renderCheckoutModal() {
           <div class="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto text-2xl font-black">
             ✓
           </div>
-          <h3 class="text-xl font-black text-white">¡Inscripción Confirmada!</h3>
+          <h3 class="text-xl font-black text-white">¡Matrícula Oficial Abonada!</h3>
           <p class="text-xs text-slate-300 max-w-sm mx-auto">
-            El pago fue procesado exitosamente por Mercado Pago. Se emitió el comprobante digital y tienes acceso habilitado al campus virtual.
+            El pago del 100% del arancel fue procesado exitosamente por Mercado Pago. Tu vacante está reservada y tu cuenta habilitada para acumular reintegros por referidos.
           </p>
 
           <div class="bg-[#24282C] border border-slate-800 rounded-2xl p-4 text-left text-xs font-mono space-y-2 max-w-sm mx-auto">
@@ -103,18 +111,18 @@ export function renderCheckoutModal() {
               <span class="text-white font-bold" id="receipt-id">PAY-981249</span>
             </div>
             <div class="flex justify-between">
-              <span class="text-slate-400">Total Facturado:</span>
-              <span class="text-emerald-400 font-bold" id="receipt-amount">$240.000 ARS</span>
+              <span class="text-slate-400">Total Abonado:</span>
+              <span class="text-emerald-400 font-bold" id="receipt-amount">$400.000 ARS</span>
             </div>
             <div class="flex justify-between">
               <span class="text-slate-400">Estado:</span>
-              <span class="text-emerald-400 font-bold">Acreditación Inmediata</span>
+              <span class="text-emerald-400 font-bold">Matrícula Confirmada</span>
             </div>
           </div>
 
           <div class="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
             <button type="button" id="btn-go-to-lms" class="px-6 py-3 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-xl shadow-lg transition-all">
-              Ingresar Directo al Reproductor LMS
+              Ingresar al Reproductor LMS
             </button>
             <button type="button" id="btn-close-success" class="px-4 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl transition-all">
               Cerrar
@@ -140,21 +148,11 @@ export function openCheckoutModal(course) {
   // Llenar campos
   document.getElementById('checkout-course-code').textContent = course.code;
   document.getElementById('checkout-modal-course-title').textContent = course.title;
-  document.getElementById('checkout-base-price').textContent = formatARS(details.basePrice);
-  document.getElementById('checkout-discount-rate').textContent = `${details.discountPercent}%`;
-  document.getElementById('checkout-discount-value').textContent = `-${formatARS(details.discountAmount)}`;
-  document.getElementById('checkout-total-price').textContent = formatARS(details.finalAmount);
+  document.getElementById('checkout-total-price').textContent = formatARS(details.basePrice);
+  document.getElementById('checkout-refund-value').textContent = `${formatARS(details.totalRefundPayout)} a devolver`;
 
-  const bonifiedAlert = document.getElementById('checkout-bonified-alert');
   const btnProcessText = document.getElementById('btn-process-text');
-
-  if (details.isFullyBonified) {
-    bonifiedAlert.classList.remove('hidden');
-    btnProcessText.textContent = 'Confirmar Inscripción 100% Bonificada ($0)';
-  } else {
-    bonifiedAlert.classList.add('hidden');
-    btnProcessText.textContent = `Abonar ${formatARS(details.finalAmount)} con Mercado Pago`;
-  }
+  btnProcessText.textContent = `Abonar ${formatARS(details.basePrice)} con Mercado Pago`;
 
   // Reset vistas
   document.getElementById('checkout-view-form').classList.remove('hidden');
@@ -193,7 +191,7 @@ export function initCheckoutModalEvents(onPaymentComplete) {
     `;
 
     setTimeout(() => {
-      const paymentRecord = paymentService.recordPayment(user.id, activeCourseInModal.id, details.finalAmount, 'Mercado Pago');
+      const paymentRecord = paymentService.recordPayment(user.id, activeCourseInModal.id, details.basePrice, 'Mercado Pago');
       courseService.enrollStudent(user.id, activeCourseInModal.id);
 
       // Mostrar comprobante
@@ -203,7 +201,7 @@ export function initCheckoutModalEvents(onPaymentComplete) {
       document.getElementById('receipt-amount').textContent = formatARS(paymentRecord.amount);
 
       btnProcess.disabled = false;
-      showToast('¡Pago aprobado por Mercado Pago!', 'success');
+      showToast('¡Matrícula abonada con éxito en Mercado Pago!', 'success');
 
       if (onPaymentComplete) {
         onPaymentComplete(activeCourseInModal);

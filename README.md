@@ -109,11 +109,21 @@ Los valores arancelarios oficiales establecidos por la Dirección Técnica son:
 
 ### Fórmulas Financieras del Ecosistema:
 
-$$\text{Descuento Alumno} = \min(1.0, \text{Colegas Referidos} \times 0.20)$$
+* **Pago al Ingresar:**
+  $$\text{Matrícula a Abonar en Pasarela} = \text{Arancel Oficial (100\%)}$$
 
-$$\text{Total a Abonar} = \text{Precio Oficial} \times (1 - \text{Descuento Alumno})$$
+* **Reintegro del Valor del Curso al Finalizar:**
+  $$\text{Reintegro del Curso} = \text{Arancel Oficial} \times \min(1.0, \text{Colegas Referidos} \times 0.20)$$
 
-$$\text{Comisión Promotor Provincial} = \text{Facturación Cobrada en Zona} \times 0.30$$
+* **Ganancia Neta Extra en Efectivo (a partir del 6to Colega):**
+  $$\text{Ganancia Neta Extra} = \max(0, \text{Colegas Referidos} - 5) \times (\text{Arancel Oficial} \times 0.20)$$
+
+* **Total Cobrado por el Alumno Post-Capacitación:**
+  $$\text{Total Liquidado por Transferencia} = \text{Reintegro del Curso} + \text{Ganancia Neta Extra}$$
+
+* **Comisión Promotores Provinciales:**
+  $$\text{Comisión Promotor (30\%)} = \text{Facturación Cobrada en Zona} \times 0.30$$
+
 
 ---
 

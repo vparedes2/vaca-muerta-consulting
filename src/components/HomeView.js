@@ -167,13 +167,13 @@ export function renderHomeView() {
                 Programa Exclusivo para Estudiantes
               </span>
               <h2 class="text-2xl sm:text-3xl font-black text-white">
-                Simula tu Ahorro con el <br class="hidden sm:inline">
+                Simula tus Reintegros con el <br class="hidden sm:inline">
                 <span class="text-[#FFB000]">Plan de Referidos Inteligente</span>
               </h2>
               <p class="text-sm text-slate-300 leading-relaxed">
-                Por cada colega o compañero de cuadrilla que se inscriba con tu enlace personal, obtendrás un 
-                <strong>20% de descuento directo acumulable</strong>. Si recomiendas a <strong>5 colegas</strong>, 
-                tu curso queda <strong>100% bonificado con reintegro total</strong> post-capacitación.
+                El arancel oficial se abona al ingresar. <strong>Una vez concluida la capacitación</strong>, se te devuelve 
+                el <strong>20% por cada colega inscripto</strong>. Con <strong>5 colegas recuperas el 100%</strong> de lo que pagaste por el curso, 
+                y si refieres <strong>más de 5 colegas</strong>, recibes el 100% de reintegro <strong>MÁS un 20% de ganancia neta en efectivo por cada colega adicional</strong>.
               </p>
 
               <!-- Selector Interactivo de Colegas Referidos -->
@@ -182,12 +182,14 @@ export function renderHomeView() {
                   Selecciona la cantidad de colegas referidos:
                 </label>
                 <div class="flex flex-wrap gap-2" id="referral-buttons">
-                  <button type="button" data-ref-count="0" class="btn-ref-select px-4 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700">0 (0%)</button>
-                  <button type="button" data-ref-count="1" class="btn-ref-select px-4 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700">1 (20%)</button>
-                  <button type="button" data-ref-count="2" class="btn-ref-select px-4 py-2 bg-[#74ACDF] text-slate-950 border border-sky-400 rounded-xl text-xs font-bold ring-2 ring-sky-500/50">2 (40% Base)</button>
-                  <button type="button" data-ref-count="3" class="btn-ref-select px-4 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700">3 (60%)</button>
-                  <button type="button" data-ref-count="4" class="btn-ref-select px-4 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700">4 (80%)</button>
-                  <button type="button" data-ref-count="5" class="btn-ref-select px-4 py-2 bg-[#FFB000] text-slate-950 border border-amber-400 rounded-xl text-xs font-bold">5 (100% ¡GRATIS!)</button>
+                  <button type="button" data-ref-count="0" class="btn-ref-select px-3.5 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700">0 (0%)</button>
+                  <button type="button" data-ref-count="1" class="btn-ref-select px-3.5 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700">1 (20%)</button>
+                  <button type="button" data-ref-count="2" class="btn-ref-select px-3.5 py-2 bg-[#74ACDF] text-slate-950 border border-sky-400 rounded-xl text-xs font-bold ring-2 ring-sky-500/50">2 (40% Base)</button>
+                  <button type="button" data-ref-count="3" class="btn-ref-select px-3.5 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700">3 (60%)</button>
+                  <button type="button" data-ref-count="4" class="btn-ref-select px-3.5 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700">4 (80%)</button>
+                  <button type="button" data-ref-count="5" class="btn-ref-select px-3.5 py-2 bg-[#FFB000] text-slate-950 border border-amber-400 rounded-xl text-xs font-bold">5 (100% ¡TOTAL!)</button>
+                  <button type="button" data-ref-count="6" class="btn-ref-select px-3.5 py-2 bg-emerald-600 text-white border border-emerald-400 rounded-xl text-xs font-bold">6 (+20% Extra)</button>
+                  <button type="button" data-ref-count="7" class="btn-ref-select px-3.5 py-2 bg-emerald-600 text-white border border-emerald-400 rounded-xl text-xs font-bold">7 (+40% Extra)</button>
                 </div>
               </div>
 
@@ -199,45 +201,48 @@ export function renderHomeView() {
                 
                 <div class="flex items-center justify-between pb-4 border-b border-slate-800">
                   <div>
-                    <span class="text-xs text-slate-400 block font-mono">Curso de Ejemplo:</span>
-                    <span class="text-sm font-bold text-white" id="calc-course-name">Operador de Water Transfer (Base: $400.000)</span>
+                    <span class="text-xs text-slate-400 block font-mono">Arancel Oficial Abonado:</span>
+                    <span class="text-sm font-bold text-white" id="calc-course-name">$400.000 ARS (Water Transfer)</span>
                   </div>
                   <div class="text-right">
-                    <span class="text-xs text-slate-400 block font-mono">Descuento:</span>
-                    <span class="text-xl font-black text-[#FFB000]" id="calc-discount-badge">40% OFF</span>
+                    <span class="text-xs text-slate-400 block font-mono">Reintegro Post-Cursado:</span>
+                    <span class="text-xl font-black text-[#FFB000]" id="calc-discount-badge">40% Reintegro</span>
                   </div>
                 </div>
 
                 <!-- Barra de Progreso a 5 Referidos -->
                 <div>
                   <div class="flex justify-between text-xs text-slate-400 mb-1.5 font-mono">
-                    <span>Progreso de bonificación</span>
+                    <span>Recupero del valor del curso</span>
                     <span id="calc-progress-label">2 de 5 colegas (40%)</span>
                   </div>
                   <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden p-0.5 border border-slate-700">
-                    <div id="calc-progress-bar" class="bg-gradient-to-r from-[#74ACDF] to-[#FFB000] h-full rounded-full transition-all duration-500" style="width: 40%"></div>
+                    <div id="calc-progress-bar" class="bg-gradient-to-r from-[#74ACDF] via-[#FFB000] to-emerald-400 h-full rounded-full transition-all duration-500" style="width: 40%"></div>
                   </div>
                 </div>
 
                 <!-- Resultados Finales -->
-                <div class="grid grid-cols-2 gap-4 bg-[#24282C] p-4 rounded-xl border border-slate-800">
+                <div class="grid grid-cols-2 gap-4 bg-[#24282C] p-4 rounded-xl border border-slate-800 font-mono">
                   <div>
-                    <span class="text-[11px] text-slate-400 block font-mono">Ahorro Bonificado:</span>
-                    <span class="text-lg font-black text-emerald-400 font-mono" id="calc-saved-amount">-$160.000 ARS</span>
+                    <span class="text-[11px] text-slate-400 block">Devolución Curso:</span>
+                    <span class="text-lg font-black text-[#FFB000]" id="calc-saved-amount">$160.000 ARS</span>
+                    <span class="text-[10px] text-slate-500 block">Hasta 100% ($400k)</span>
                   </div>
                   <div>
-                    <span class="text-[11px] text-slate-400 block font-mono">Arancel Neto a Pagar:</span>
-                    <span class="text-2xl font-black text-white font-mono" id="calc-final-amount">$240.000 ARS</span>
+                    <span class="text-[11px] text-slate-400 block">Total a Cobrar al Concluir:</span>
+                    <span class="text-2xl font-black text-emerald-400" id="calc-final-amount">$160.000 ARS</span>
+                    <span class="text-[10px] text-emerald-400/80 block" id="calc-extra-label">Curso + Ganancias</span>
                   </div>
                 </div>
 
-                <div id="calc-notice-100" class="hidden p-3 bg-amber-500/10 border border-amber-500/40 rounded-xl text-xs text-amber-300 flex items-center gap-2">
-                  <svg class="w-5 h-5 shrink-0 text-[#FFB000]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  <span><strong>¡Felicitaciones!</strong> Con 5 colegas tu curso está 100% bonificado con reintegro total post-capacitación.</span>
+                <div id="calc-notice-100" class="hidden p-3 bg-amber-500/10 border border-amber-500/40 rounded-xl text-xs text-amber-300">
+                  <span id="calc-notice-text">
+                    ★ <strong>¡100% Bonificado!</strong> Con 5 colegas recuperas la totalidad de lo abonado por tu capacitación una vez finalizado el cursado.
+                  </span>
                 </div>
 
                 <a href="#/campus" class="w-full py-3 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-sm rounded-xl transition-all block text-center shadow-lg shadow-sky-950/40">
-                  Ingresar y Compartir mi Enlace de Referido
+                  Ingresar a Mi Campus y Compartir Enlace
                 </a>
 
               </div>
@@ -316,24 +321,50 @@ export function initHomeEvents() {
       
       // Update button styles
       buttons.forEach(b => {
-        b.className = 'btn-ref-select px-4 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700';
+        const c = parseInt(b.getAttribute('data-ref-count'), 10);
+        if (c > 5) {
+          b.className = 'btn-ref-select px-3.5 py-2 bg-emerald-950/80 border border-emerald-700/80 rounded-xl text-xs font-bold text-emerald-300 hover:bg-emerald-900';
+        } else {
+          b.className = 'btn-ref-select px-3.5 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700';
+        }
       });
-      btn.className = 'btn-ref-select px-4 py-2 bg-[#74ACDF] text-slate-950 border border-sky-400 rounded-xl text-xs font-bold ring-2 ring-sky-500/50';
+      btn.className = 'btn-ref-select px-3.5 py-2 bg-[#74ACDF] text-slate-950 border border-sky-400 rounded-xl text-xs font-bold ring-2 ring-sky-500/50';
 
-      const discountPercent = Math.min(1.0, count * 0.20);
-      const discountDisplay = Math.round(discountPercent * 100);
-      const saved = Math.round(basePrice * discountPercent);
-      const net = Math.max(0, basePrice - saved);
+      const refundPercent = Math.min(1.0, count * 0.20);
+      const refundDisplay = Math.round(refundPercent * 100);
+      const courseRefund = Math.round(basePrice * refundPercent);
+      const extraReferrals = Math.max(0, count - 5);
+      const extraBonus = extraReferrals * Math.round(basePrice * 0.20);
+      const totalPayout = courseRefund + extraBonus;
 
-      if (discountBadge) discountBadge.textContent = `${discountDisplay}% OFF`;
-      if (progressLabel) progressLabel.textContent = `${count} de 5 colegas (${discountDisplay}%)`;
-      if (progressBar) progressBar.style.width = `${Math.min(100, (count / 5) * 100)}%`;
-      if (savedAmount) savedAmount.textContent = `-${formatARS(saved)}`;
-      if (finalAmount) finalAmount.textContent = formatARS(net);
+      if (discountBadge) {
+        if (count > 5) {
+          discountBadge.textContent = `100% + ${extraReferrals * 20}% Extra`;
+        } else {
+          discountBadge.textContent = `${refundDisplay}% Reintegro`;
+        }
+      }
 
-      if (notice100) {
+      if (progressLabel) {
         if (count >= 5) {
+          progressLabel.textContent = `${count} colegas (★ 100% Recuperado)`;
+        } else {
+          progressLabel.textContent = `${count} de 5 colegas (${refundDisplay}%)`;
+        }
+      }
+
+      if (progressBar) progressBar.style.width = `${Math.min(100, (count / 5) * 100)}%`;
+      if (savedAmount) savedAmount.textContent = formatARS(courseRefund);
+      if (finalAmount) finalAmount.textContent = formatARS(totalPayout);
+
+      const noticeText = document.getElementById('calc-notice-text');
+      if (notice100) {
+        if (count > 5) {
           notice100.classList.remove('hidden');
+          if (noticeText) noticeText.innerHTML = `★ <strong>¡Nivel Superior!</strong> Recuperas el 100% de tu curso (${formatARS(basePrice)}) <strong>MÁS ${formatARS(extraBonus)} de ganancia neta en dinero</strong> (+20% por cada colega por sobre los 5).`;
+        } else if (count === 5) {
+          notice100.classList.remove('hidden');
+          if (noticeText) noticeText.innerHTML = `★ <strong>¡100% Bonificado!</strong> Con 5 colegas recuperas la totalidad de lo abonado (${formatARS(basePrice)}) una vez finalizado el cursado.`;
         } else {
           notice100.classList.add('hidden');
         }
@@ -341,3 +372,4 @@ export function initHomeEvents() {
     });
   });
 }
+

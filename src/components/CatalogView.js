@@ -33,8 +33,8 @@ export function renderCatalogView() {
               ✓
             </div>
             <div class="text-xs">
-              <span class="text-emerald-400 font-bold block">Plan de Referidos Activo</span>
-              <span class="text-slate-300">Tus descuentos se aplican automáticamente</span>
+              <span class="text-emerald-400 font-bold block">Plan de Reintegros por Referidos Activo</span>
+              <span class="text-slate-300">20% por colega (100% con 5 / premios &gt;5) liquidables al concluir</span>
             </div>
           </div>
         ` : ''}

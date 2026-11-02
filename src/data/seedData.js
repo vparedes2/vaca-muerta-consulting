@@ -611,9 +611,10 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
         { id: "ref-201", name: "Gonzalo Paz", dni: "37.512.001", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Pagado", registeredAt: "2026-01-25", discountGenerated: 0.20 },
         { id: "ref-202", name: "Federico Luján", dni: "38.109.432", courseTitle: "HSE Vaca Muerta", status: "Inscripto y Pagado", registeredAt: "2026-01-26", discountGenerated: 0.20 },
         { id: "ref-203", name: "Claudio Vera", dni: "32.908.771", courseTitle: "Higiene y Seguridad", status: "Inscripto y Pagado", registeredAt: "2026-01-27", discountGenerated: 0.20 },
-        { id: "ref-204", name: "Sergio Mansilla", dni: "35.402.112", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Pagado", registeredAt: "2026-01-29", discountGenerated: 0.20 },
-        { id: "ref-205", name: "Darío Figueroa", dni: "34.110.887", courseTitle: "HSE Vaca Muerta", status: "Inscripto y Pagado", registeredAt: "2026-01-31", discountGenerated: 0.20 }
-      ] // ¡5 referidos = 100% bonificado con reintegro!
+        { id: "ref-204", name: "Sergio Mansilla", dni: "35.402.112", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Confirmado", registeredAt: "2026-01-29", discountGenerated: 0.20 },
+        { id: "ref-205", name: "Darío Figueroa", dni: "34.110.887", courseTitle: "HSE Vaca Muerta", status: "Inscripto y Confirmado", registeredAt: "2026-01-31", discountGenerated: 0.20 },
+        { id: "ref-206", name: "Esteban Quiroga", dni: "36.220.910", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Confirmado", registeredAt: "2026-02-01", discountGenerated: 0.20 }
+      ] // ¡6 referidos = 100% bonificado ($400k) + $80k ganancia neta en dinero por el 6to!
     },
     {
       id: "user-alumno03",

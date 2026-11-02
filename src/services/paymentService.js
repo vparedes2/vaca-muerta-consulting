@@ -1,9 +1,9 @@
 /**
  * Vaca Muerta Consulting - Payment Service
  * Pasarela de pagos integrada con Mercado Pago:
- * - Recálculo dinámico de aranceles según descuentos de referidos (20% por colega)
- * - Bonificación total (100%) y aviso de reintegro
- * - Generación de checkout links y modal de confirmación
+ * - El arancel oficial del curso se abona al 100% al momento de la inscripción.
+ * - Los reintegros acumulados por referidos (20% por colega, 100% con 5, y +20% por colega extra)
+ *   se devuelven al alumno una vez concluida la capacitación.
  */
 
 import { storageService } from './storageService.js';
@@ -11,7 +11,7 @@ import { referralService } from './referralService.js';
 
 export const paymentService = {
   /**
-   * Calcula el arancel exacto a cobrar aplicando el descuento acumulado del alumno
+   * Calcula el arancel oficial a cobrar y el reintegro proyectado post-capacitación
    */
   calculateCheckoutAmount(studentId, course) {
     const basePrice = course.basePrice || 320000;
@@ -20,13 +20,16 @@ export const paymentService = {
     return {
       courseId: course.id,
       courseTitle: course.title,
-      basePrice,
-      discountPercent: summary.discountPercent,
-      discountAmount: summary.discountAmount,
-      finalAmount: summary.finalPrice,
+      basePrice, // Se abona el 100%
+      finalAmount: basePrice, // Monto a pagar en pasarela = 100% arancel oficial
+      refundPercent: summary.refundPercent,
+      courseRefundAmount: summary.courseRefundAmount,
+      extraBonusTotal: summary.extraBonusTotal,
+      totalRefundPayout: summary.totalPayout, // Lo que se le devuelve al concluir
       isFullyBonified: summary.isFullyBonified,
-      requiresRefund: summary.requiresRefund,
-      referralsCount: summary.referralsCount
+      hasExtraBonus: summary.hasExtraBonus,
+      referralsCount: summary.referralsCount,
+      refundPolicyNote: 'El arancel se abona completo. Todos los reintegros acumulados se devuelven por transferencia bancaria una vez finalizado el cursado.'
     };
   },
 
@@ -42,8 +45,8 @@ export const paymentService = {
         {
           id: course.id,
           title: course.title,
-          description: `Inscripción oficial - Vaca Muerta Consulting (Lic. Víctor Paredes PA 446)`,
-          unit_price: checkoutDetails.finalAmount,
+          description: `Matrícula Oficial 100% - Vaca Muerta Consulting (Lic. Víctor Paredes PA 446)`,
+          unit_price: checkoutDetails.basePrice,
           quantity: 1,
           currency_id: 'ARS'
         }
@@ -57,8 +60,7 @@ export const paymentService = {
         studentId: student.id,
         courseId: course.id,
         referralsCount: checkoutDetails.referralsCount,
-        discountApplied: `${checkoutDetails.discountPercent}%`,
-        isFullyBonified: checkoutDetails.isFullyBonified
+        refundProjected: checkoutDetails.totalRefundPayout
       },
       back_urls: {
         success: `${window.location.origin}/#/campus?status=success`,

@@ -279,19 +279,19 @@ export function renderAdminDashboard() {
         <!-- CONTENIDO PESTAÑA 3: AUDITORÍA RED DE REFERIDOS -->
         <div id="tab-referidos" class="admin-tab-content pt-6 space-y-6 hidden">
           <div>
-            <h3 class="text-base font-bold text-white">Auditoría Integral de la Red de Referidos</h3>
+            <h3 class="text-base font-bold text-white">Auditoría Integral de Reintegros &amp; Red de Referidos Post-Capacitación</h3>
             <p class="text-xs text-slate-400">
-              Regla de negocio: 20% de descuento directo por referido. A los 5 referidos se alcanza el 100% de bonificación con derecho a reintegro total post-capacitación.
+              Política: El alumno abona el 100% al inicio. Al finalizar la capacitación se devuelve el 20% por colega. Con 5 colegas se reintegra el 100% de su curso, y con más de 5 se abona el 100% del curso más un 20% de ganancia neta por cada colega por sobre los 5.
             </p>
           </div>
 
-          <!-- Alerta de Reintegros 100% -->
+          <!-- Alerta de Reintegros 100% y Ganancias Extras -->
           <div class="p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-start gap-3">
             <svg class="w-5 h-5 text-[#FFB000] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
             <div class="text-xs text-slate-300 space-y-1">
-              <span class="font-bold text-white block">Estudiantes con 100% Bonificado (5 Referidos):</span>
+              <span class="font-bold text-white block">Compromisos de Liquidación Bancaria Post-Cursado:</span>
               <p class="text-slate-400">
-                Verifique los pagos efectivos de los colegas referidos antes de emitir la orden de reintegro por tesorería.
+                Se registran <strong>${referralAudit.studentsWithFullRefund} alumnos con 100% de devolución</strong> de matrícula y <strong>${referralAudit.studentsWithExtraBonus} alumnos con ganancias netas adicionales</strong> (&gt;5 referidos). Verifique la finalización del cursado antes de emitir las transferencias.
               </p>
             </div>
           </div>
@@ -302,9 +302,10 @@ export function renderAdminDashboard() {
                 <tr class="bg-[#24282C] border-b border-slate-700 font-mono text-[11px] text-slate-400 uppercase">
                   <th class="p-3">Estudiante Titular</th>
                   <th class="p-3">DNI / Contacto</th>
-                  <th class="p-3">Referidos Confirmados</th>
-                  <th class="p-3">Descuento Aplicado</th>
-                  <th class="p-3">Estado de Bonificación</th>
+                  <th class="p-3">Colegas Inscriptos</th>
+                  <th class="p-3">Devolución Curso</th>
+                  <th class="p-3">Ganancia Extra (&gt;5)</th>
+                  <th class="p-3">Total a Liquidar</th>
                   <th class="p-3">Detalle de Colegas</th>
                 </tr>
               </thead>
@@ -319,19 +320,15 @@ export function renderAdminDashboard() {
                     <td class="p-3 font-mono font-bold text-center text-sm text-[#74ACDF]">
                       ${item.referralsCount}
                     </td>
-                    <td class="p-3 font-mono font-bold text-white">
-                      ${item.discountPercent}% OFF
+                    <td class="p-3 font-mono font-bold text-[#FFB000]">
+                      ${formatARS(item.courseRefundAmount)}
+                      ${item.isFullyBonified ? '<span class="text-[10px] block text-emerald-400">★ 100% Recuperado</span>' : ''}
                     </td>
-                    <td class="p-3">
-                      ${item.is100PercentBonified ? `
-                        <span class="px-2.5 py-1 rounded bg-[#FFB000]/20 text-[#FFB000] border border-[#FFB000]/40 font-bold font-mono text-[11px]">
-                          ★ 100% Bonificado (Reintegro)
-                        </span>
-                      ` : `
-                        <span class="text-slate-400 font-mono text-[11px]">
-                          Faltan ${5 - item.referralsCount} para 100%
-                        </span>
-                      `}
+                    <td class="p-3 font-mono font-bold ${item.hasExtraBonus ? 'text-emerald-400' : 'text-slate-500'}">
+                      ${item.hasExtraBonus ? `+${formatARS(item.extraBonusTotal)}` : '$0'}
+                    </td>
+                    <td class="p-3 font-mono font-black text-sm text-white">
+                      ${formatARS(item.totalPayout)}
                     </td>
                     <td class="p-3 text-[11px] text-slate-400">
                       ${item.referralsList.length > 0 ? `

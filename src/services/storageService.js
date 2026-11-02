@@ -30,7 +30,8 @@ export const storageService = {
    */
   init() {
     const initialized = this.get('initialized');
-    if (!initialized) {
+    const version = this.get('version');
+    if (!initialized || version !== '2.1.0') {
       this.resetToDefaults();
     }
   },
@@ -45,8 +46,8 @@ export const storageService = {
     this.set('coordinators', INITIAL_DATA.coordinators);
     this.set('users', INITIAL_DATA.users);
     this.set('initialized', true);
-    this.set('version', '2.0.0');
-    console.log('[StorageService] Base de datos reinicializada con datos de Vaca Muerta Consulting.');
+    this.set('version', '2.1.0');
+    console.log('[StorageService] Base de datos reinicializada con versión 2.1.0 de Vaca Muerta Consulting.');
   },
 
   /**
