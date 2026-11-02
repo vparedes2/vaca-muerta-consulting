@@ -203,7 +203,10 @@ class App {
   }
 }
 
-// Inicializar la aplicación cuando el DOM esté cargado
-document.addEventListener('DOMContentLoaded', () => {
+// Inicializar la aplicación inmediatamente
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => new App());
+} else {
   new App();
-});
+}
+
