@@ -27,7 +27,7 @@ export const INITIAL_DATA = {
       basePrice: 0,
       badge: "Recomendado antes de viajar",
       featured: true,
-      image: "https://victorparedes.ar/bg1.jpg",
+      image: "./assets/pasaporte-vaca-muerta.jpg",
       description: "Para quienes planean venir a Neuquén a trabajar en la industria. En 8 semanas conocés cómo funciona un yacimiento, las operaciones de petróleo y gas, los montajes industriales, la construcción de ductos y las obras civiles; hacés 10 capacitaciones esenciales de seguridad y llegás con un plan concreto: qué puesto buscar, cómo es la vida en campo y cómo organizarte lejos de casa.",
       targetAudience: "Jóvenes de 18 a 30 años con secundario completo que planean mudarse a Neuquén; estudiantes y egresados de carreras técnicas; oficios (soldadores, electricistas, mecánicos, choferes) que quieren entrar al sector.",
       prerequisites: "Secundario completo. No requiere experiencia en petróleo.",
