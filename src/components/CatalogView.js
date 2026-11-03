@@ -1,13 +1,12 @@
 /**
  * Vaca Muerta Consulting - Catalog View
- * Catálogo detallado con los 4 cursos oficiales, cohortes asociadas y checkout dinámico.
+ * Catálogo detallado de cursos, cohortes asociadas e inscripción por WhatsApp.
  */
 
 import { courseService } from '../services/courseService.js';
 import { cohortService } from '../services/cohortService.js';
 import { authService } from '../services/authService.js';
-import { paymentService } from '../services/paymentService.js';
-import { formatARS, formatDate, showToast } from '../utils/formatters.js';
+import { formatPrice, formatDate } from '../utils/formatters.js';
 
 export function renderCatalogView() {
   const courses = courseService.getPublicCourses();
@@ -20,24 +19,13 @@ export function renderCatalogView() {
       <!-- Encabezado de Sección -->
       <div class="border-b border-slate-800 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#74ACDF]">Cuenca Neuquina · Ciclo 2026</span>
-          <h1 class="text-3xl sm:text-4xl font-black text-white mt-1">Catálogo Oficial de Capacitaciones</h1>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#74ACDF]">Cuenca Neuquina · Ciclo 2027</span>
+          <h1 class="text-3xl sm:text-4xl font-black text-white mt-1">Cursos y programas</h1>
           <p class="text-sm text-slate-400 mt-2 max-w-2xl">
-            Programas técnicos de alta exigencia para supervisores y operarios. Todos los cursos incluyen certificación oficial avalada por la Dirección Técnica (Lic. Víctor Javier Paredes, Mat. PA 446).
+            Capacitaciones online para quienes quieren entrar a la industria y para quienes ya trabajan en ella. Todos los cursos entregan certificado con verificación QR, con aval de la Cámara Argentina para la Formación Profesional y la Capacitación Laboral y de la OIEP.
           </p>
         </div>
 
-        ${user && user.role === 'student' ? `
-          <div class="bg-[#1B1F23] border border-emerald-500/30 p-3 rounded-xl flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
-              ✓
-            </div>
-            <div class="text-xs">
-              <span class="text-emerald-400 font-bold block">Plan de Reintegros por Referidos Activo</span>
-              <span class="text-slate-300">20% por colega (100% con 5 / premios &gt;5) liquidables al concluir</span>
-            </div>
-          </div>
-        ` : ''}
       </div>
 
       <!-- Listado de Cursos en Fichas Completas -->
@@ -76,8 +64,8 @@ export function renderCatalogView() {
 
                   <div class="relative z-10 pt-6 mt-6 border-t border-slate-700/60 space-y-3">
                     <div class="flex items-baseline justify-between">
-                      <span class="text-xs font-mono text-slate-400">Arancel Oficial:</span>
-                      <span class="text-2xl font-black text-white font-mono">${formatARS(course.basePrice)}</span>
+                      <span class="text-xs font-mono text-slate-400">Arancel:</span>
+                      <span class="text-2xl font-black text-white font-mono">${formatPrice(course.basePrice)}</span>
                     </div>
 
                     <div class="grid grid-cols-2 gap-2 text-center text-xs">
@@ -87,7 +75,7 @@ export function renderCatalogView() {
                       </div>
                       <div class="bg-[#24282C]/90 p-2 rounded-lg border border-slate-800">
                         <span class="text-slate-400 block text-[10px] font-mono">MODALIDAD</span>
-                        <span class="font-bold text-[#74ACDF]">Virtual + Tutor</span>
+                        <span class="font-bold text-[#74ACDF]">Online + Tutor</span>
                       </div>
                     </div>
                   </div>
@@ -100,6 +88,9 @@ export function renderCatalogView() {
                     <p class="text-sm text-slate-300 leading-relaxed">
                       ${course.description}
                     </p>
+                    ${course.targetAudience ? `
+                      <p class="text-xs text-slate-400 leading-relaxed"><span class="font-mono font-bold uppercase text-slate-500">Para quién:</span> ${course.targetAudience}</p>
+                    ` : ''}
 
                     <!-- Módulos y Lecciones Destacadas -->
                     <div>
@@ -121,16 +112,16 @@ export function renderCatalogView() {
                     <!-- Cohortes Disponibles -->
                     <div>
                       <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-2">
-                        Grupos Escalonados de Inicio (Tutorías Reducidas):
+                        Próximas cohortes:
                       </h4>
                       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         ${courseCohorts.length > 0 ? courseCohorts.map(cohort => `
                           <div class="bg-[#24282C] border border-slate-800 p-3 rounded-xl text-xs space-y-1">
                             <div class="flex items-center justify-between font-bold text-white">
                               <span>${cohort.name}</span>
-                              <span class="text-[#FFB000] font-mono">${cohort.capacity - cohort.enrolled} cupos</span>
+                              <span class="text-[#FFB000] font-mono text-[11px]">${cohort.status || ''}</span>
                             </div>
-                            <div class="text-slate-400 text-[11px]">Inicio: ${formatDate(cohort.startDate)}</div>
+                            <div class="text-slate-400 text-[11px]">Inicio: ${cohort.startDate ? formatDate(cohort.startDate) : 'Fecha a confirmar'} · Cupo: ${cohort.capacity} alumnos</div>
                             <div class="text-slate-400 text-[11px]">Tutor: <span class="text-slate-200">${cohort.tutor}</span></div>
                           </div>
                         `).join('') : `
@@ -143,7 +134,7 @@ export function renderCatalogView() {
                   <!-- Botón de Inscripción / Checkout -->
                   <div class="pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4">
                     <div class="text-xs text-slate-400 font-mono">
-                      <span>✓ Facturación Oficial A y B</span> · <span>Mercado Pago en hasta 6 cuotas</span>
+                      <span>✓ Inscripción, arancel y medios de pago por WhatsApp</span>
                     </div>
 
                     ${course.status === 'paused' ? `
@@ -152,9 +143,9 @@ export function renderCatalogView() {
                         Inscripciones Pausadas
                       </button>
                     ` : `
-                      <button type="button" data-course-id="${course.id}" class="btn-enroll-course px-6 py-3 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-xl shadow-lg shadow-sky-950/40 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
-                        Inscribirme / Abonar con Mercado Pago
+                      <button type="button" data-course-id="${course.id}" class="btn-enroll-course px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs rounded-xl shadow-lg shadow-sky-950/40 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                        Quiero inscribirme
                       </button>
                     `}
                   </div>

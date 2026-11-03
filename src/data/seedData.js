@@ -8,9 +8,7 @@ export const INITIAL_DATA = {
     institution: "Vaca Muerta Consulting",
     director: "Lic. Víctor Javier Paredes",
     license: "Mat. Profesional PA 446",
-    tagline: "Formación Profesional Upstream & Supervisión Operativa en Vaca Muerta",
-    mpPublicKey: "APP_USR-782194829-0129-VMCONSULTING-PROD",
-    mpAccessToken: "APP_USR-TEST-TOKEN-VM-2026",
+    tagline: "Capacitación previa al ingreso a la industria del petróleo y gas en Vaca Muerta",
     referralDiscountPerPerson: 0.20, // 20%
     referralFullDiscountCount: 5,    // 5 referidos = 100% bonificado con reintegro
     graduateCommissionRate: 0.15,   // 15% de comisión permanente para egresados por cada referido abonado
@@ -19,6 +17,442 @@ export const INITIAL_DATA = {
 
   // 1. Catálogo Oficial de Cursos
   courses: [
+    {
+      id: "pasaporte-vaca-muerta",
+      title: "Pasaporte a Vaca Muerta: Inducción a la Industria del Petróleo y Gas",
+      category: "Formación previa al ingreso",
+      code: "VM-PAS-100",
+      duration: "80 Horas · 8 semanas",
+      modality: "100% online · campus + 1 encuentro en vivo semanal por Meet",
+      basePrice: 0,
+      badge: "Recomendado antes de viajar",
+      featured: true,
+      image: "https://victorparedes.ar/bg1.jpg",
+      description: "Para quienes planean venir a Neuquén a trabajar en la industria. En 8 semanas conocés cómo funciona un yacimiento, las operaciones de petróleo y gas, los montajes industriales, la construcción de ductos y las obras civiles; hacés 10 capacitaciones esenciales de seguridad y llegás con un plan concreto: qué puesto buscar, cómo es la vida en campo y cómo organizarte lejos de casa.",
+      targetAudience: "Jóvenes de 18 a 30 años con secundario completo que planean mudarse a Neuquén; estudiantes y egresados de carreras técnicas; oficios (soldadores, electricistas, mecánicos, choferes) que quieren entrar al sector.",
+      prerequisites: "Secundario completo. No requiere experiencia en petróleo.",
+      modules: [
+        {
+          id: "pas-m1",
+          title: "Semana 1: La cuenca, la industria y los yacimientos principales",
+          lessons: [
+            {
+              id: "pas-l1",
+              title: "Qué es Vaca Muerta y cómo se organiza la industria",
+              duration: "60 min",
+              type: "theory",
+              summary: "Geología básica, cadena de valor, operadoras, empresas de servicio, principales áreas y localidades base.",
+              content: `
+### Vaca Muerta en el mapa
+
+- Por qué es un yacimiento **no convencional** y por qué necesita fractura hidráulica.
+- Cadena de valor: upstream, midstream y downstream.
+- Quién es quién: operadoras, empresas de servicio y contratistas.
+- Principales áreas y su operadora, y las localidades base: Neuquén, Añelo, Rincón de los Sauces, Cutral Có y Plaza Huincul.
+
+**Actividad:** armá tu propio mapa de la cuenca con 10 áreas, su operadora y la localidad base más cercana.
+              `,
+              checklist: [
+                "Identifico upstream, midstream y downstream",
+                "Ubico 10 áreas y su operadora en el mapa",
+                "Sé qué localidad base corresponde a cada zona"
+              ]
+            }
+          ]
+        },
+        {
+          id: "pas-m2",
+          title: "Semana 2: Operaciones de petróleo y gas",
+          lessons: [
+            {
+              id: "pas-l2",
+              title: "El ciclo de un pozo y los servicios asociados",
+              duration: "60 min",
+              type: "theory",
+              summary: "Locación, perforación, terminación y fractura, flowback, producción, workover, plantas y qué hace cada puesto.",
+              content: `
+### Del pozo a la planta
+
+1. Locación y perforación.
+2. Terminación y fractura hidráulica.
+3. Flowback y puesta en producción.
+4. Workover y pulling.
+5. Baterías, plantas de tratamiento y compresión.
+
+Servicios asociados: cementación, wireline, coiled tubing, water transfer, logística de arena y fluidos.
+
+**Actividad:** ficha de un servicio a elección (qué hace, equipos, puestos y riesgos principales).
+              `,
+              checklist: [
+                "Ordeno las etapas del ciclo de un pozo",
+                "Describo un servicio: equipos, puestos y riesgos"
+              ]
+            }
+          ]
+        },
+        {
+          id: "pas-m3",
+          title: "Semana 3: Ingeniería de procesos y fundamentos técnicos",
+          lessons: [
+            {
+              id: "pas-l3",
+              title: "Diagramas de proceso, balance de masa e hidráulica básica",
+              duration: "75 min",
+              type: "engineering",
+              summary: "Lectura de PFD e isométricos, balance de agua de un pad, caudal, presión, bombas, compresores y separadores.",
+              content: `
+### Leer el proceso
+
+- Diagramas de proceso (PFD) e isométricos: símbolos y lectura.
+- Balance de masa simple: agua, arena y fluido de retorno en un pad.
+- Fluidos, caudal, presión y pérdidas de carga.
+- Bombas, compresores y separadores: para qué sirve cada uno.
+- Unidades de campo y conversiones.
+
+**Actividad:** balance de agua de un pad simplificado + ejercicios de unidades.
+              `,
+              checklist: [
+                "Leo un PFD sencillo",
+                "Resuelvo un balance de agua simplificado",
+                "Convierto unidades de caudal y presión"
+              ]
+            }
+          ]
+        },
+        {
+          id: "pas-m4",
+          title: "Semana 4: Montajes industriales",
+          lessons: [
+            {
+              id: "pas-l4",
+              title: "Montaje electromecánico en yacimiento",
+              duration: "60 min",
+              type: "construction",
+              summary: "Piping, soldadura y ensayos no destructivos, izaje, andamios, tanques, instrumentación y documentación de obra.",
+              content: `
+### Cómo se monta una instalación
+
+- Cañerías (piping): materiales, uniones, bridas y válvulas.
+- Soldadura y ensayos no destructivos.
+- Izaje y rigging; andamios y trabajo en altura.
+- Montaje de tanques, equipos rotantes e instrumentación.
+- Documentación de obra: planos, plan de inspección y protocolos.
+
+**Actividad:** leer un isométrico y armar la secuencia de montaje de un skid.
+              `,
+              checklist: [
+                "Interpreto un isométrico",
+                "Ordeno la secuencia de montaje de un skid"
+              ]
+            }
+          ]
+        },
+        {
+          id: "pas-m5",
+          title: "Semana 5: Ductos y obras civiles",
+          lessons: [
+            {
+              id: "pas-l5",
+              title: "Construcción de ductos y obras de yacimiento",
+              duration: "60 min",
+              type: "construction",
+              summary: "Traza, apertura de pista, zanjeo, soldadura, bajada, tapada y prueba hidráulica; locaciones, caminos y campamentos.",
+              content: `
+### Ductos paso a paso
+
+Traza → apertura de pista → zanjeo → desfile → soldadura → revestimiento → bajada → tapada → prueba hidráulica.
+
+### Obras civiles de yacimiento
+
+Locaciones, caminos, plateas y campamentos; movimiento de suelos y maquinaria vial. Roles: capataz, inspector, topógrafo, operador de equipo.
+
+**Actividad:** cronograma simple de un tramo de ducto con sus frentes de trabajo.
+              `,
+              checklist: [
+                "Ordeno las etapas de construcción de un ducto",
+                "Identifico los roles de una obra"
+              ]
+            }
+          ]
+        },
+        {
+          id: "pas-m6",
+          title: "Semana 6: Seguridad, salud y ambiente en yacimiento",
+          lessons: [
+            {
+              id: "pas-l6",
+              title: "Marco legal, permisos de trabajo y emergencias",
+              duration: "60 min",
+              type: "safety",
+              summary: "Ley 19.587 y Ley 24.557, permisos y análisis de riesgo, manejo defensivo, emergencias, residuos y ambiente.",
+              content: `
+### Trabajar seguro desde el primer día
+
+- Marco legal: Ley 19.587 y Ley 24.557.
+- Permisos de trabajo y análisis de riesgo.
+- Manejo defensivo en caminos de yacimiento.
+- Gases peligrosos (conceptos) y respuesta a emergencias.
+- Derrames, residuos y legislación ambiental provincial.
+- El rol del área HSE en operaciones y en obras.
+
+**Actividad:** resolución de 3 casos reales anonimizados (operación, montaje y obra).
+              `,
+              checklist: [
+                "Sé qué es un permiso de trabajo y cuándo se pide",
+                "Sé qué hacer ante una emergencia en locación"
+              ]
+            }
+          ]
+        },
+        {
+          id: "pas-m7",
+          title: "Semana 7: Vida en desarraigo, vida en campo y llegada a Neuquén",
+          lessons: [
+            {
+              id: "pas-l7",
+              title: "Irse lejos de casa y trabajar en campo",
+              duration: "75 min",
+              type: "theory",
+              summary: "Vínculos a distancia, organización de la plata, salud mental, turnos, campamentos, clima y búsqueda laboral.",
+              content: `
+### Desarraigo
+
+Qué cambia al irse lejos de la familia; sostener los vínculos a distancia; organizar la plata (ahorro, envíos y gastos de dos casas); salud mental y a quién pedir ayuda; política de alcohol y drogas cero.
+
+### Vida en campo
+
+Diagramas de turno y francos, traslados en combi, campamentos y trailers (convivencia, orden, higiene y descanso), comedor, clima de la meseta (viento, polvo, calor y frío), conectividad.
+
+### Llegar a Neuquén
+
+Mercado laboral por perfil, consultoras y empresas, CV y LinkedIn, exámenes preocupacionales, costo de vida y alojamiento en Neuquén y Añelo, cómo detectar ofertas de trabajo falsas.
+
+**Actividad:** CV adaptado + plan de llegada (presupuesto, alojamiento, red de contactos y rutina de comunicación con la familia).
+              `,
+              checklist: [
+                "Tengo mi CV adaptado al sector",
+                "Armé mi plan de llegada con presupuesto",
+                "Sé cómo detectar una oferta de trabajo falsa"
+              ]
+            }
+          ]
+        },
+        {
+          id: "pas-m8",
+          title: "Capacitaciones esenciales (semanas 1 a 7)",
+          lessons: [
+            { id: "pas-e1", title: "Normas vitales de seguridad", duration: "90 min", type: "safety", summary: "Reglas de cumplimiento obligatorio que previenen fatalidades.", content: "Permiso de trabajo, aislamiento de energías, izaje, altura, espacios confinados, conducción y bypass de controles.", checklist: ["Conozco las normas vitales y por qué existen"] },
+            { id: "pas-e2", title: "Clima extremo: calor y frío", duration: "60 min", type: "safety", summary: "Golpe de calor, hidratación, hipotermia, viento y ropa adecuada.", content: "Cómo trabajar seguro en verano e invierno en la meseta neuquina.", checklist: ["Reconozco los síntomas de golpe de calor e hipotermia"] },
+            { id: "pas-e3", title: "Disciplina en la ejecución", duration: "60 min", type: "procedure", summary: "Seguir los procedimientos paso a paso y detenerse ante un cambio.", content: "Por qué se siguen los procedimientos, cómo detener una tarea ante un cambio y cómo reportar desvíos.", checklist: ["Sé cuándo y cómo detener una tarea"] },
+            { id: "pas-e4", title: "Fundamentos de seguridad de procesos", duration: "60 min", type: "safety", summary: "Contención, barreras, gestión del cambio y lecciones de accidentes mayores.", content: "Cómo se evita que un fluido o una energía salga de control.", checklist: ["Explico qué es una barrera de seguridad"] },
+            { id: "pas-e5", title: "Posicionamiento seguro y línea de fuego", duration: "60 min", type: "safety", summary: "Zonas de energía liberada y cómo ubicarse fuera de ellas.", content: "Presión, cargas suspendidas, vehículos y objetos que caen.", checklist: ["Identifico la línea de fuego en una tarea"] },
+            { id: "pas-e6", title: "Resguardos y partes móviles", duration: "45 min", type: "safety", summary: "Distancias de seguridad, atrapamientos y bloqueo de máquinas.", content: "Por qué nunca se retira un resguardo con la máquina en marcha.", checklist: ["Sé qué es un resguardo y para qué sirve"] },
+            { id: "pas-e7", title: "Cuidado de las manos", duration: "45 min", type: "safety", summary: "Lesiones típicas, selección de guantes y herramientas de manos libres.", content: "Las manos son la parte del cuerpo que más se lesiona en yacimiento.", checklist: ["Elijo el guante correcto para cada tarea"] },
+            { id: "pas-e8", title: "Riesgo eléctrico", duration: "60 min", type: "safety", summary: "Contactos directos e indirectos, líneas aéreas, bloqueo y etiquetado.", content: "Distancias a líneas aéreas en movimiento de grúas y equipos.", checklist: ["Respeto las distancias a líneas aéreas"] },
+            { id: "pas-e9", title: "Productos químicos y etiquetado SGA", duration: "45 min", type: "safety", summary: "Pictogramas, hojas de seguridad, almacenamiento y EPP.", content: "Cómo leer una etiqueta y una hoja de seguridad.", checklist: ["Interpreto los pictogramas SGA"] },
+            { id: "pas-e10", title: "Estiba y movimiento de cargas", duration: "45 min", type: "safety", summary: "Estiba segura de tuberías y materiales, sujeción en transporte.", content: "Cómo se estiba y se sujeta una carga para que no se mueva.", checklist: ["Conozco los controles de una estiba segura"] }
+          ]
+        }
+      ]
+    },
+
+    {
+      id: "water-transfer-n1",
+      title: "Water Transfer Nivel 1 — Fundamentos",
+      category: "Operaciones de Campo",
+      code: "VM-WT-101",
+      duration: "24 Horas · 4 semanas",
+      modality: "Campus asincrónico + 4 encuentros en vivo por Meet",
+      basePrice: 0,
+      badge: "Base del servicio",
+      image: "https://victorparedes.ar/th_tendido.jpg",
+      description: "Entendé para qué sirve el water transfer en una fractura, reconocé cada equipo de la traza, interpretá los parámetros básicos de bombeo y aprendé a trabajar de forma segura dentro de la cuadrilla. Con el libro Water Transfer en Vaca Muerta y los simuladores 3D como material de apoyo.",
+      targetAudience: "Ingresantes al servicio, ayudantes, técnicos, estudiantes de carreras técnicas, personal HSE y supervisores que vienen de otros servicios.",
+      prerequisites: "Secundario completo. No requiere experiencia en petróleo.",
+      modules: [
+        {
+          id: "wt-m1",
+          title: "Módulo 1 y 2: El servicio en contexto y fuentes de agua",
+          lessons: [
+            {
+              id: "wt-l0",
+              title: "Por qué una fractura necesita tanta agua y de dónde sale",
+              duration: "45 min",
+              type: "theory",
+              summary: "Etapas de un pad, rol del water transfer, captación, piletas, tanques y permisos de uso de agua.",
+              content: `
+### El servicio en contexto
+
+- Qué es una fractura hidráulica y por qué consume tanta agua.
+- Rol del water transfer frente a frac, flowback y logística.
+- Fuentes: captación superficial y subterránea, piletas, cisternas y tanques australianos.
+- Permisos de uso de agua en Neuquén y reúso del agua de retorno (introducción).
+              `,
+              checklist: [
+                "Explico el rol del water transfer en la fractura",
+                "Identifico las fuentes de agua posibles"
+              ]
+            }
+          ]
+        },
+        {
+          id: "wt-m3",
+          title: "Módulo 3 y 4: Equipos de la traza e hidráulica básica",
+          lessons: [
+            {
+              id: "wt-l1",
+              title: "Caudales de fractura, bombas e hidráulica de la línea",
+              duration: "45 min",
+              type: "engineering",
+              summary: "Caudal en BPM y m³/h, presión, pérdida de carga por longitud y diámetro, efecto de la cota y ubicación de rebombeos.",
+              content: `
+### Hidráulica básica para operadores
+
+- **Caudal:** se expresa en barriles por minuto (BPM) o m³/h. 1 BPM ≈ 9,5 m³/h; por ejemplo, 50 a 75 BPM equivalen a unos 480 a 720 m³/h.
+- **Presión:** cómo se lee y qué indica en cada punto de la traza.
+- **Pérdida de carga:** crece con la longitud de la línea y con el caudal, y baja con el diámetro.
+- **Cota:** las subidas suman presión necesaria; las bajadas la devuelven.
+- **Rebombeos:** se ubican según el perfil del terreno y la presión disponible, no a una distancia fija.
+              `,
+              checklist: [
+                "Convierto BPM a m³/h",
+                "Explico por qué se ubica un rebombeo en un punto de la traza",
+                "Leo un perfil de traza en el diseñador"
+              ]
+            }
+          ]
+        },
+        {
+          id: "wt-m5",
+          title: "Módulo 5: Montaje, operación y desmontaje",
+          lessons: [
+            {
+              id: "wt-l2",
+              title: "Tendido seguro de línea layflat",
+              duration: "40 min",
+              type: "field-work",
+              summary: "Maniobras con carreteles y manipuladores telescópicos, cruces de camino y reparación de pinchazos.",
+              content: `
+### Tendido de línea
+
+- Secuencia de tendido con manipulador telescópico y carretel.
+- Cruces de caminos con protección de la línea.
+- Venteos de aire en los puntos altos de la traza.
+- Presurización escalonada antes de llegar al régimen de trabajo.
+- Reparación de pinchazos con parches y abrazaderas.
+
+Material de apoyo: animaciones 3D de tendido y reparación de línea.
+              `,
+              checklist: [
+                "Picada revisada y libre de piedras filosas",
+                "Venteos colocados en los puntos altos",
+                "Presurización escalonada"
+              ]
+            },
+            {
+              id: "wt-l3",
+              title: "Montaje de tanque australiano y sistema de bombeo",
+              duration: "45 min",
+              type: "construction",
+              summary: "Nivelación, armado de anillo, colocación de lona, succión y montaje del sistema de bombeo y backup.",
+              content: `
+### Montaje de tanque y bombeo
+
+- Nivelación del terreno y armado del anillo.
+- Colocación de lona y control de embolsamientos por viento antes del llenado.
+- Succión, manifold de descarga y válvulas.
+- Montaje del sistema de bombeo y backup.
+- Arranque, régimen y parada de bombas; comunicación por radio con frac.
+
+Material de apoyo: animaciones 3D de montaje de tanque y de bombeo.
+              `,
+              checklist: [
+                "Terreno nivelado antes del armado",
+                "Lona sin arrugas ni embolsamientos antes del llenado",
+                "Comunicación por radio con frac confirmada"
+              ]
+            }
+          ]
+        },
+        {
+          id: "wt-m6",
+          title: "Módulo 6: Seguridad, salud y ambiente",
+          lessons: [
+            {
+              id: "wt-l4",
+              title: "Riesgos del servicio y respuesta a contingencias",
+              duration: "45 min",
+              type: "safety",
+              summary: "Presión, rotura de línea, atrapamiento, izaje, ruido, fatiga, manejo en caminos, derrames y parada de emergencia.",
+              content: `
+### Trabajar seguro en water transfer
+
+- Riesgos: presión, rotura de línea, atrapamiento, izaje, ruido, fatiga y turnos nocturnos, manejo en caminos de yacimiento.
+- Permisos de trabajo y análisis de riesgo; EPP.
+- Parada de emergencia.
+- Derrames y cuidado del suelo.
+
+**Actividad:** análisis de riesgo de una tarea + caso de rotura de línea.
+              `,
+              checklist: [
+                "Sé ejecutar la parada de emergencia",
+                "Completé el análisis de riesgo de una tarea"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      id: "tech-field",
+      title: "Tech & Field: Desarrollo, Apps y Automatización",
+      category: "Tecnología & Digitalización",
+      code: "VM-DEV-101",
+      duration: "2 meses · 8 encuentros",
+      modality: "8 encuentros en vivo por Google Meet + práctica semanal",
+      basePrice: 0,
+      badge: "No requiere saber programar",
+      image: "https://victorparedes.ar/th_traza.jpg",
+      description: "Pasá de una idea de tu trabajo a una aplicación web publicada. Vibe coding con Claude, ChatGPT y Gemini, programación agéntica (AI Studio, Antigravity, MiniMax, Claude Code), organización de proyectos en GitHub, hosting gratuito en Vercel, Netlify y GitHub Pages, conectores y dominio propio, con casos reales de sistemas en producción.",
+      targetAudience: "Profesionales HSE, supervisores, técnicos, docentes y emprendedores sin formación en programación.",
+      prerequisites: "Computadora, cuenta de Google y conexión estable.",
+      modules: [
+        {
+          id: "tf-m1",
+          title: "Encuentros 1 y 2: Pensar como desarrollador y construir con IA",
+          lessons: [
+            { id: "tf-l1", title: "Análisis de software y vibe coding", duration: "120 min", type: "tech", summary: "Problema, usuarios, requerimientos, MVP y límites del vibe coding.", content: "Ficha del proyecto propio: problema, usuarios, 5 requerimientos y boceto de pantallas.", checklist: ["Ficha del proyecto completa"] },
+            { id: "tf-l2", title: "Claude, ChatGPT y Gemini para crear una app", duration: "120 min", type: "tech", summary: "Cómo pedir, iterar y corregir; una app de un solo archivo HTML.", content: "Primera versión del proyecto funcionando en el navegador.", checklist: ["Primera versión funcionando"] }
+          ]
+        },
+        {
+          id: "tf-m2",
+          title: "Encuentros 3 y 4: GitHub y publicación gratuita",
+          lessons: [
+            { id: "tf-l3", title: "Organizar el proyecto en GitHub", duration: "120 min", type: "devops", summary: "Repositorios, commits, README, issues y volver a una versión anterior.", content: "Proyecto en GitHub con README y 3 issues abiertos.", checklist: ["Repositorio con README"] },
+            { id: "tf-l4", title: "Publicar en Vercel, Netlify o GitHub Pages", duration: "120 min", type: "devops", summary: "Deploy automático desde el repositorio y errores frecuentes.", content: "Proyecto publicado en una URL pública.", checklist: ["Proyecto publicado"] }
+          ]
+        },
+        {
+          id: "tf-m3",
+          title: "Encuentros 5 y 6: Programación agéntica y conectores",
+          lessons: [
+            { id: "tf-l5", title: "Agentes: AI Studio, Antigravity, MiniMax y Claude Code", duration: "120 min", type: "tech", summary: "Delegar a un agente sin perder el control del proyecto.", content: "Proyecto ampliado a varias pantallas con un agente, con registro de cambios.", checklist: ["Cambios del agente revisados"] },
+            { id: "tf-l6", title: "Datos y conectores: Google Sheets, APIs y MCP", duration: "120 min", type: "tech", summary: "Guardar y leer datos, claves y variables de entorno.", content: "El proyecto guarda y lee datos de una planilla.", checklist: ["Integración de datos funcionando", "Ninguna clave subida a GitHub"] }
+          ]
+        },
+        {
+          id: "tf-m4",
+          title: "Encuentros 7 y 8: Dominio propio y casos reales",
+          lessons: [
+            { id: "tf-l7", title: "Dominio propio y puesta en producción", duration: "120 min", type: "devops", summary: "Registro .ar en NIC Argentina, DNS, HTTPS y protección de datos personales.", content: "Dominio o subdominio configurado, o plan de dominio documentado.", checklist: ["DNS configurado"] },
+            { id: "tf-l8", title: "Casos reales y presentación final", duration: "120 min", type: "tech", summary: "Certificados con QR, checklist de campamentos, simuladores 3D; demo final.", content: "Demo de 5 minutos del proyecto final.", checklist: ["Demo presentada"] }
+          ]
+        }
+      ]
+    },
+
     {
       id: "hse-vaca-muerta",
       title: "Inducción HSE Vaca Muerta",
@@ -156,7 +590,7 @@ La distancia geográfica de los bloques petroleros (ej. Loma Campana, Bajada del
       rating: 4.85,
       studentsCount: 78,
       image: "https://victorparedes.ar/bg4.jpg",
-      description: "Profundización en gestión de higiene industrial, monitoreo de sulfhídrico (H2S), control de atmósferas explosivas (ATEX), gestión integral de residuos especiales (Res. 2263/15) y mitigación de factores de riesgo psicosocial en régimen 14x14.",
+      description: "Profundización en gestión de higiene industrial, monitoreo de sulfhídrico (H2S), control de atmósferas explosivas (ATEX), gestión integral de residuos especiales (Decreto 2263/15) y mitigación de factores de riesgo psicosocial en régimen 14x14.",
       targetAudience: "Supervisores de producción, coordinadores de maniobra, inspectores técnicos y profesionales de seguridad e higiene.",
       prerequisites: "Inducción básica HSE o experiencia previa en yacimiento comprobable.",
       modules: [
@@ -185,14 +619,14 @@ El H2S es un gas incoloro, inflamable, extremadamente tóxico y más denso que e
             },
             {
               id: "hys-l2",
-              title: "Gestión Ambiental y Manifiestos de Residuos Especiales MERE (Res. 2263/15)",
+              title: "Gestión Ambiental y Manifiestos de Residuos Especiales MERE (Decreto 2263/15)",
               duration: "35 min",
               type: "procedure",
               summary: "Clasificación de corrientes Y08, Y18, Y48, almacenamiento transitorio en bateas y transporte habilitado.",
               content: `
 ### Régimen MERE de Residuos Especiales en Neuquén
 
-Bajo la Resolución 2263/15, todo residuo contaminado con hidrocarburos o fluidos de perforación debe ser gestionado documentalmente:
+Bajo el Decreto provincial 2263/15, todo residuo contaminado con hidrocarburos o fluidos de perforación debe ser gestionado documentalmente:
 - **Y48:** Materiales absorbentes, trapos, fajas y EPP impregnados con crudo o gasoil.
 - **Y08:** Aceites lubricantes usados de motobombas y compresores.
 - **Y18:** Residuos resultantes de las operaciones de eliminación de desechos industriales.
@@ -207,225 +641,68 @@ Bajo la Resolución 2263/15, todo residuo contaminado con hidrocarburos o fluido
         }
       ]
     },
-
-    {
-      id: "water-transfer-1-2",
-      title: "Operador de Water Transfer Nivel 1 y 2",
-      category: "Operaciones de Campo",
-      code: "VM-WT-301",
-      duration: "60 Horas",
-      modality: "Virtual Intensivo + Prácticas de Simulación Hidráulica",
-      basePrice: 400000,
-      badge: "Alta Demanda Laboral",
-      rating: 4.95,
-      studentsCount: 112,
-      image: "https://victorparedes.ar/th_tendido.jpg",
-      description: "Programa maestro para supervisores y operadores de abastecimiento de agua en fractura hidráulica. Cubre captación en río/lago, cálculo de pérdidas de carga, tendido de mangueras layflat de 12\", estaciones de rebombeo booster, montaje de tanques australianos de 2.500 m³ y telemetría SCADA.",
-      targetAudience: "Operadores de bomba, maquinistas de manipulador telescópico, supervisores de traza y personal de logística de agua.",
-      prerequisites: "Conocimientos mecánicos básicos e interés en operaciones de alta exigencia.",
-      modules: [
-        {
-          id: "wt-m1",
-          title: "Módulo 1: Captación, Hidráulica de Mangueras Layflat y Estaciones Booster",
-          lessons: [
-            {
-              id: "wt-l1",
-              title: "Caudales de Fractura, Curvas de Bomba e Hidráulica de 12 Pulgadas",
-              duration: "45 min",
-              type: "engineering",
-              summary: "Demandas de 800 a 1.200 m³/h por etapa de fractura, cálculo de fricción, velocidad de flujo y selección de bombas centrífugas.",
-              content: `
-### Abastecimiento Hidráulico de Frac en Vaca Muerta
-
-Un pad moderno de 4 a 6 pozos en Vaca Muerta demanda hasta 40.000 m³ de agua por etapa intensiva de fractura hidráulica:
-- **Caudal continuo requerido:** 800 a 1.200 m³/h (50 a 75 barriles por minuto - BPM).
-- **Mangueras flexibles Layflat de Poliuretano/Nitrilo:** Diámetros de 10" y 12" de alta presión (Working Pressure 200 a 250 PSI, Burst Pressure > 600 PSI).
-- **Estaciones de Rebombeo (Booster):** Instaladas cada 4 a 6 km según la topografía y desniveles geográficos de la estepa neuquina.
-              `,
-              checklist: [
-                "Cálculo de NPSH disponible en punto de succión de bombas de río",
-                "Verificación de torque en abrazaderas de punteras de 12\"",
-                "Control de nivel de combustible diésel y refrigerante en motobombas principales"
-              ]
-            },
-            {
-              id: "wt-l2",
-              title: "Tendido Seguro con Manipuladores Telescópicos y Cruces Soterrados",
-              duration: "40 min",
-              type: "field-work",
-              summary: "Maniobras con carreteles hidráulicos, radios de curvatura, cruces de caminos petroleros con camisas metálicas y parches de emergencia.",
-              content: `
-### Despliegue de Líneas Layflat en Terrenos Agrestes
-
-El tendido de 18 a 30 km de manguera exige una coordinación milimétrica entre el operador del manipulador telescópico y el cuadrillero:
-- Velocidad máxima de desenrollado: 5 km/h para evitar torsiones axiales.
-- Cruces de cañadones y picadas: Instalación obligatoria de caños camisa (casing) de 16" soterrados a 1.20 metros de profundidad.
-- Kits de reparación rápida de pinchazos: Colocación de abrazaderas partidas articuladas bajo presión sin detener el bombeo crítico.
-              `,
-              checklist: [
-                "Inspección previa de picada libre de piedras filosas y matas punzantes",
-                "Colocación de venteos automáticos de aire (air release valves) en crestas topográficas",
-                "Presurización escalonada: 50 PSI, 100 PSI hasta régimen de trabajo"
-              ]
-            }
-          ]
-        },
-        {
-          id: "wt-m2",
-          title: "Módulo 2: Montaje y Operación de Tanques Australianos de 2.500 m³ en Pad",
-          lessons: [
-            {
-              id: "wt-l3",
-              title: "Nivelación de Terreno, Armado de Chapas Curvas y Colocación de Geomembrana",
-              duration: "50 min",
-              type: "construction",
-              summary: "Geometría del tanque australiano, torqueo de bulonería de alta resistencia, colocación de lona PVC y pruebas de estanqueidad.",
-              content: `
-### Montaje Seguro de Tanques Australianos en Pad de Fractura
-
-Para amortiguar las demandas pico de los camiones fracturadores, se instalan baterías de 2 a 4 tanques australianos modulares:
-- Diámetro típico: 36 a 42 metros; altura de 2.40 metros (capacidad 2.500 m³ / 15.700 barriles por tanque).
-- Bulonería Grado 8 con tuerca autofrenante y par de apriete verificado con torquímetro calibrado.
-- Geomembrana de polietileno de alta densidad (HDPE) de 1.000 a 1.500 micrones protegida con geotextil antipunzonamiento.
-              `,
-              checklist: [
-                "Nivelación óptica del lecho con tolerancia menor a 3 cm entre extremos",
-                "Revisión de no formación de arrugas ni embolsamientos por viento antes del llenado",
-                "Instalación de succión flotante y manifolds de descarga de 12\" con válvulas mariposa"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-
-    {
-      id: "dev-deploy-cloud",
-      title: "Dev & Deploy: Apps en la Nube",
-      category: "Tecnología & Digitalización",
-      code: "VM-DEV-401",
-      duration: "30 Horas",
-      modality: "100% Online con Laboratorios GitHub y Vercel",
-      basePrice: 150000,
-      badge: "Innovación & Industria 4.0",
-      rating: 4.9,
-      studentsCount: 42,
-      image: "https://victorparedes.ar/th_traza.jpg",
-      description: "Curso de modernización tecnológica enfocado en supervisores, analistas de datos y desarrolladores que necesitan construir y desplegar herramientas digitales para operaciones de yacimiento: tableros SCADA en web, SPAs con arquitectura limpia, control de versiones en GitHub y CI/CD en Vercel.",
-      targetAudience: "Técnicos, supervisores con interés digital, analistas de datos y programadores que desarrollan soluciones para Oil & Gas.",
-      prerequisites: "Manejo básico de computación e interés en desarrollo web moderno.",
-      modules: [
-        {
-          id: "dev-m1",
-          title: "Módulo 1: Arquitectura Web Moderna, Git y Despliegue en la Nube",
-          lessons: [
-            {
-              id: "dev-l1",
-              title: "Fundamentos de Single Page Applications (SPA) y Clean Architecture",
-              duration: "30 min",
-              type: "tech",
-              summary: "Estructuración de vistas desacopladas, capa de servicios, persistencia y patrones modulares inspirados en Frappe.",
-              content: `
-### Clean Architecture en Soluciones Industriales Web
-
-La digitalización del yacimiento demanda interfaces ultrarrápidas, tolerantes a baja conectividad y fácilmente mantenibles:
-- **Separación de Capas:** Componentes de interfaz (UI), Capa de Negocio / Servicios, y Capa de Persistencia / Almacenamiento.
-- **Sin compiladores pesados para el operador:** Uso de JavaScript ES6+ nativo con módulos estandarizados que corren directamente en cualquier navegador o tableta de campo.
-- **Diseño Responsivo con Tailwind CSS:** Consistencia de diseño técnico industrial tanto en computadoras de cabina de control como en celulares en terreno.
-              `,
-              checklist: [
-                "Modularización de vistas en componentes independientes",
-                "Mapeo de estado centralizado sin dependencias externas innecesarias",
-                "Garantizar compatibilidad offline mediante localStorage y service workers"
-              ]
-            },
-            {
-              id: "dev-l2",
-              title: "Control de Versiones en GitHub y Automatización de Despliegue en Vercel",
-              duration: "35 min",
-              type: "devops",
-              summary: "Repositorio limpio en GitHub, ramas de producción y despliegue continuo (CI/CD) con enlace público instantáneo.",
-              content: `
-### Despliegue Continuo (CI/CD) en Vercel para Plataformas Web
-
-Conectar un repositorio de GitHub con Vercel permite que cada actualización confirmada (commit) se compile y publique en la nube en cuestión de segundos:
-1. **Versionado Semántico:** Uso de etiquetas de versión (v1.0.0, v2.0.0) para control de cambios auditables.
-2. **Configuración de Vercel (vercel.json):** Reglas de reescritura de rutas para Single Page Applications asegurando que todas las URLs naveguen sin error 404.
-3. **Certificados SSL Automáticos y CDN Global:** Disponibilidad 99.99% para acceso desde bases operativas en Añelo o Neuquén.
-              `,
-              checklist: [
-                "Crear repositorio en GitHub con README técnico exhaustivo",
-                "Configurar vercel.json con rewrite a index.html",
-                "Verificar despliegue exitoso en dominio vercel.app"
-              ]
-            }
-          ]
-        }
-      ]
-    }
   ],
-
-  // 2. Gestión de Cohortes y Fechas de Inicio (190+ alumnos en grupos escalonados)
+  // 2. Cohortes 2027 (fechas a confirmar por Dirección Técnica)
   cohorts: [
     {
-      id: "cohorte-feb-a",
-      name: "Cohorte Febrero A (Intensivo)",
-      courseId: "water-transfer-1-2",
-      courseTitle: "Operador de Water Transfer Nivel 1 y 2",
-      startDate: "2026-02-09",
-      endDate: "2026-03-20",
-      capacity: 30,
-      enrolled: 28,
-      tutor: "Ing. Marcelo Ríos",
-      schedule: "Lunes, Miércoles y Viernes · 19:00 a 21:00 hs",
-      status: "Cierre Próximo (Últimos 2 Cupos)",
-      roomLink: "https://meet.google.com/vmc-feb-a",
-      notes: "Grupo principal de supervisores en rotación 14x14 para inicio temprano."
+      id: "cohorte-pas-1",
+      name: "Pasaporte · Cohorte 1 · 2027",
+      courseId: "pasaporte-vaca-muerta",
+      courseTitle: "Pasaporte a Vaca Muerta",
+      startDate: null,
+      endDate: null,
+      capacity: 35,
+      enrolled: 0,
+      tutor: "Lic. Víctor Javier Paredes",
+      schedule: "A confirmar",
+      status: "Preinscripción abierta",
+      roomLink: "",
+      notes: "Fecha de inicio a confirmar."
     },
     {
-      id: "cohorte-feb-b",
-      name: "Cohorte Febrero B (Vespertino)",
+      id: "cohorte-wt-1",
+      name: "Water Transfer N1 · Cohorte 1 · 2027",
+      courseId: "water-transfer-n1",
+      courseTitle: "Water Transfer Nivel 1 — Fundamentos",
+      startDate: null,
+      endDate: null,
+      capacity: 35,
+      enrolled: 0,
+      tutor: "Lic. Víctor Javier Paredes",
+      schedule: "A confirmar",
+      status: "Preinscripción abierta",
+      roomLink: "",
+      notes: "Fecha de inicio a confirmar."
+    },
+    {
+      id: "cohorte-tf-1",
+      name: "Tech & Field · Cohorte 1 · 2027",
+      courseId: "tech-field",
+      courseTitle: "Tech & Field: Desarrollo, Apps y Automatización",
+      startDate: null,
+      endDate: null,
+      capacity: 30,
+      enrolled: 0,
+      tutor: "Lic. Víctor Javier Paredes",
+      schedule: "A confirmar",
+      status: "Preinscripción abierta",
+      roomLink: "",
+      notes: "Fecha de inicio a confirmar."
+    },
+    {
+      id: "cohorte-hse-1",
+      name: "Inducción HSE · Cohorte 1 · 2027",
       courseId: "hse-vaca-muerta",
       courseTitle: "Inducción HSE Vaca Muerta",
-      startDate: "2026-02-16",
-      endDate: "2026-03-27",
-      capacity: 30,
-      enrolled: 26,
-      tutor: "Lic. Víctor Javier Paredes (PA 446)",
-      schedule: "Martes, Jueves y Sábados · 19:00 a 21:00 hs",
-      status: "Activa (4 Cupos Disponibles)",
-      roomLink: "https://meet.google.com/vmc-feb-b",
-      notes: "Cohorte con tutoría directa del Director Técnico."
-    },
-    {
-      id: "cohorte-mar-a",
-      name: "Cohorte Marzo A (Especializada)",
-      courseId: "higiene-seguridad-hidrocarburos",
-      courseTitle: "Higiene y Seguridad en Hidrocarburos",
-      startDate: "2026-03-02",
-      endDate: "2026-04-10",
+      startDate: null,
+      endDate: null,
       capacity: 35,
-      enrolled: 18,
-      tutor: "Ing. Sofía Gómez",
-      schedule: "Lunes a Jueves · 20:00 a 21:30 hs",
-      status: "Inscripciones Abiertas",
-      roomLink: "https://meet.google.com/vmc-mar-a",
-      notes: "Enfoque en protocolos H2S y residuos especiales MERE."
-    },
-    {
-      id: "cohorte-mar-b",
-      name: "Cohorte Marzo B (Tech & Cloud)",
-      courseId: "dev-deploy-cloud",
-      courseTitle: "Dev & Deploy: Apps en la Nube",
-      startDate: "2026-03-16",
-      endDate: "2026-04-24",
-      capacity: 35,
-      enrolled: 14,
+      enrolled: 0,
       tutor: "Lic. Víctor Javier Paredes",
-      schedule: "Martes y Jueves · 18:30 a 20:30 hs",
-      status: "Inscripciones Abiertas",
-      roomLink: "https://meet.google.com/vmc-mar-b",
-      notes: "Laboratorios prácticos de código y despliegue Vercel."
+      schedule: "A confirmar",
+      status: "Preinscripción abierta",
+      roomLink: "",
+      notes: "Fecha de inicio a confirmar."
     }
   ],
 
@@ -497,10 +774,10 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
       role: "admin",
       name: "Lic. Víctor Javier Paredes",
       license: "Mat. Profesional PA 446",
-      title: "Director Técnico & Consultor Senior Upstream",
-      email: "direccion@vacamuertaconsulting.com.ar",
-      phone: "+54 9 299 412-3456",
-      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80"
+      title: "Director Técnico",
+      email: "vparedes2@gmail.com",
+      phone: "+54 9 299 460-3071",
+      avatar: "https://victorparedes.ar/foto.jpg"
     },
 
     // Rol B: Coordinadores (mapeados también en tabla de usuarios para login directo)
@@ -548,10 +825,10 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
       phone: "+54 9 299 555-0142",
       province: "Neuquén",
       city: "Añelo",
-      cohorteId: "cohorte-feb-a",
-      enrolledCourses: ["water-transfer-1-2", "hse-vaca-muerta"],
+      cohorteId: "cohorte-wt-1",
+      enrolledCourses: ["water-transfer-n1", "hse-vaca-muerta"],
       progress: {
-        "water-transfer-1-2": {
+        "water-transfer-n1": {
           completedLessons: ["wt-l1"],
           percent: 33,
           lastAccess: "2026-02-01T14:30:00"
@@ -571,8 +848,8 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
           name: "Joaquín Ceballos",
           dni: "36.112.443",
           email: "jceballos@campo-frac.com",
-          courseId: "water-transfer-1-2",
-          courseTitle: "Operador de Water Transfer Nivel 1 y 2",
+          courseId: "water-transfer-n1",
+          courseTitle: "Water Transfer Nivel 1 — Fundamentos",
           status: "Inscripto y Pagado",
           paymentStatus: "paid",
           isPaid: true,
@@ -610,17 +887,17 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
       phone: "+54 9 299 441-8930",
       province: "Río Negro",
       city: "Cipolletti",
-      cohorteId: "cohorte-feb-a",
-      enrolledCourses: ["water-transfer-1-2"],
-      progress: { "water-transfer-1-2": { completedLessons: ["wt-l1", "wt-l2"], percent: 66, lastAccess: "2026-02-02T10:00:00" } },
+      cohorteId: "cohorte-wt-1",
+      enrolledCourses: ["water-transfer-n1"],
+      progress: { "water-transfer-n1": { completedLessons: ["wt-l1", "wt-l2"], percent: 66, lastAccess: "2026-02-02T10:00:00" } },
       referralCode: "mrodriguez",
       referrals: [
-        { id: "ref-201", name: "Gonzalo Paz", dni: "37.512.001", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 400000, registeredAt: "2026-01-25", discountGenerated: 0.20 },
+        { id: "ref-201", name: "Gonzalo Paz", dni: "37.512.001", courseTitle: "Water Transfer Nivel 1", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 400000, registeredAt: "2026-01-25", discountGenerated: 0.20 },
         { id: "ref-202", name: "Federico Luján", dni: "38.109.432", courseTitle: "HSE Vaca Muerta", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 320000, registeredAt: "2026-01-26", discountGenerated: 0.20 },
         { id: "ref-203", name: "Claudio Vera", dni: "32.908.771", courseTitle: "Higiene y Seguridad", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 320000, registeredAt: "2026-01-27", discountGenerated: 0.20 },
-        { id: "ref-204", name: "Sergio Mansilla", dni: "35.402.112", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 400000, registeredAt: "2026-01-29", discountGenerated: 0.20 },
+        { id: "ref-204", name: "Sergio Mansilla", dni: "35.402.112", courseTitle: "Water Transfer Nivel 1", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 400000, registeredAt: "2026-01-29", discountGenerated: 0.20 },
         { id: "ref-205", name: "Darío Figueroa", dni: "34.110.887", courseTitle: "HSE Vaca Muerta", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 320000, registeredAt: "2026-01-31", discountGenerated: 0.20 },
-        { id: "ref-206", name: "Esteban Quiroga", dni: "36.220.910", courseTitle: "Water Transfer 1 y 2", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 400000, registeredAt: "2026-02-01", discountGenerated: 0.20 }
+        { id: "ref-206", name: "Esteban Quiroga", dni: "36.220.910", courseTitle: "Water Transfer Nivel 1", status: "Inscripto y Pagado", paymentStatus: "paid", isPaid: true, paidAmount: 400000, registeredAt: "2026-02-01", discountGenerated: 0.20 }
       ] // ¡6 referidos pagados = 100% bonificado ($400k) + $80k ganancia neta en dinero por el 6to!
     },
     {
@@ -635,7 +912,7 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
       phone: "+54 9 261 511-0988",
       province: "Mendoza",
       city: "Malargüe",
-      cohorteId: "cohorte-feb-b",
+      cohorteId: "cohorte-hse-1",
       enrolledCourses: ["hse-vaca-muerta"],
       progress: { "hse-vaca-muerta": { completedLessons: [], percent: 0, lastAccess: "2026-02-01T09:00:00" } },
       referralCode: "cvalenzuela",
@@ -657,9 +934,9 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
       phone: "+54 9 299 412-3344",
       province: "Neuquén",
       city: "Añelo",
-      cohorteId: "cohorte-feb-a",
-      enrolledCourses: ["water-transfer-1-2"],
-      progress: { "water-transfer-1-2": { completedLessons: ["wt-l1", "wt-l2", "wt-l3"], percent: 100, lastAccess: "2026-02-01T18:00:00" } },
+      cohorteId: "cohorte-wt-1",
+      enrolledCourses: ["water-transfer-n1"],
+      progress: { "water-transfer-n1": { completedLessons: ["wt-l1", "wt-l2", "wt-l3"], percent: 100, lastAccess: "2026-02-01T18:00:00" } },
       referralCode: "egresado01",
       // Referidos del egresado: 2 pagados (comisión 15% c/u = $120.000) y 1 pendiente (sin pago, $0 comisión)
       referrals: [
@@ -668,7 +945,7 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
           name: "Marcos Del Río",
           dni: "36.441.902",
           email: "mdelrio@frac-services.com",
-          courseTitle: "Operador de Water Transfer Nivel 1 y 2",
+          courseTitle: "Water Transfer Nivel 1 — Fundamentos",
           paidAmount: 400000,
           paymentStatus: "paid",
           isPaid: true,
@@ -680,7 +957,7 @@ Conectar un repositorio de GitHub con Vercel permite que cada actualización con
           name: "Sebastián Morán",
           dni: "34.881.002",
           email: "smoran@cuenca-ops.com",
-          courseTitle: "Operador de Water Transfer Nivel 1 y 2",
+          courseTitle: "Water Transfer Nivel 1 — Fundamentos",
           paidAmount: 400000,
           paymentStatus: "paid",
           isPaid: true,

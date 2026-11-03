@@ -88,3 +88,26 @@ export function copyToClipboard(text, successMessage = 'Copiado al portapapeles'
     showToast(successMessage, 'success');
   });
 }
+
+/**
+ * Contacto institucional (inscripciones y pagos se gestionan por WhatsApp)
+ */
+export const CONTACT = {
+  whatsappNumber: '5492994603071',
+  whatsappDisplay: '+54 9 299 460-3071',
+  email: 'vparedes2@gmail.com',
+  certVerifyUrl: 'https://victorparedes.ar'
+};
+
+export function whatsappLink(message = '') {
+  const text = message ? `?text=${encodeURIComponent(message)}` : '';
+  return `https://wa.me/${CONTACT.whatsappNumber}${text}`;
+}
+
+/**
+ * Muestra el arancel o "Consultar" si todavía no está publicado
+ */
+export function formatPrice(amount) {
+  if (!amount || isNaN(amount) || Number(amount) <= 0) return 'Consultar';
+  return formatARS(amount);
+}

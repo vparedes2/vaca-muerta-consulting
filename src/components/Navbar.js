@@ -31,7 +31,7 @@ export function renderNavbar() {
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
         Alumno Activo
       </span>`;
-      roleMenu = `<a href="#/campus" class="nav-link ${currentHash === '#/campus' ? 'active' : ''}">Mi Campus & Referidos</a>`;
+      roleMenu = `<a href="#/campus" class="nav-link ${currentHash === '#/campus' ? 'active' : ''}">Mi Campus</a>`;
     }
   }
 
@@ -51,7 +51,7 @@ export function renderNavbar() {
           <!-- Navegación Principal -->
           <nav class="hidden md:flex items-center gap-1 lg:gap-2">
             <a href="#/home" class="nav-link ${currentHash === '#/home' ? 'active' : ''}">Inicio</a>
-            <a href="#/catalogo" class="nav-link ${currentHash === '#/catalogo' ? 'active' : ''}">Catálogo Oficial</a>
+            <a href="#/catalogo" class="nav-link ${currentHash === '#/catalogo' ? 'active' : ''}">Cursos</a>
             ${roleMenu}
           </nav>
 

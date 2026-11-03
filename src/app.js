@@ -16,7 +16,7 @@ import { renderCoordinatorView, initCoordinatorEvents } from './components/Coord
 import { renderStudentPortal, initStudentPortalEvents } from './components/StudentPortal.js';
 import { renderLMSPlayer, initLMSEvents } from './components/LMSPlayer.js';
 import { renderCheckoutModal, openCheckoutModal, initCheckoutModalEvents } from './components/CheckoutModal.js';
-import { showToast } from './utils/formatters.js';
+import { showToast, whatsappLink, CONTACT } from './utils/formatters.js';
 
 class App {
   constructor() {
@@ -46,22 +46,36 @@ class App {
       <div id="navbar-container"></div>
       <main id="app-content" class="min-h-[calc(100vh-160px)]"></main>
       <footer id="footer-container" class="bg-[#1B1F23] border-t border-slate-800 py-10 text-xs text-slate-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#74ACDF] to-sky-700 flex items-center justify-center font-bold text-slate-950 text-sm">
-              VM
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#74ACDF] to-sky-700 flex items-center justify-center font-bold text-slate-950 text-sm">VM</div>
+              <div>
+                <span class="font-bold text-white block">Vaca Muerta Consulting</span>
+                <span class="font-mono text-[11px] text-slate-500">Dirección Técnica: Lic. Víctor Javier Paredes · Mat. PA 446</span>
+              </div>
             </div>
-            <div>
-              <span class="font-bold text-white block">Vaca Muerta Consulting</span>
-              <span class="font-mono text-[11px] text-slate-500">Dirección Técnica: Lic. Víctor Javier Paredes · Mat. Profesional PA 446</span>
+            <div class="flex flex-col gap-1.5 font-mono text-[11px]">
+              <span class="text-slate-500 uppercase tracking-wider">Contacto</span>
+              <a href="${whatsappLink('Hola, quiero información sobre los cursos de Vaca Muerta Consulting.')}" target="_blank" rel="noopener" class="hover:text-white transition-colors">WhatsApp ${CONTACT.whatsappDisplay}</a>
+              <a href="mailto:${CONTACT.email}" class="hover:text-white transition-colors">${CONTACT.email}</a>
+              <a href="${CONTACT.certVerifyUrl}" target="_blank" rel="noopener" class="hover:text-white transition-colors">Verificar un certificado</a>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="font-mono text-[11px] text-slate-500 uppercase tracking-wider">Con aval de</span>
+              <div class="flex gap-2">
+                <div class="bg-white rounded-lg px-2 py-1 h-10 flex items-center"><img src="./assets/avales/camara-argentina-fp.png" alt="Cámara Argentina para la Formación Profesional y la Capacitación Laboral" class="max-h-full w-auto"></div>
+                <div class="bg-white rounded-lg px-2 py-1 h-10 flex items-center"><img src="./assets/avales/oiep.png" alt="Organización Internacional para la Educación Permanente" class="max-h-full w-auto"></div>
+              </div>
             </div>
           </div>
-          <div class="flex flex-wrap items-center gap-6 font-mono text-[11px]">
-            <a href="#/home" class="hover:text-white transition-colors">Inicio</a>
-            <a href="#/catalogo" class="hover:text-white transition-colors">Catálogo Oficial</a>
-            <a href="#/campus" class="hover:text-white transition-colors">Campus Virtual</a>
-            <span class="text-slate-600">|</span>
-            <span class="text-[#FFB000]">Cuenca Neuquina · Argentina</span>
+          <div class="pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px]">
+            <div class="flex flex-wrap gap-6">
+              <a href="#/home" class="hover:text-white transition-colors">Inicio</a>
+              <a href="#/catalogo" class="hover:text-white transition-colors">Cursos</a>
+              <a href="#/campus" class="hover:text-white transition-colors">Campus Virtual</a>
+            </div>
+            <span class="text-[#FFB000]">Neuquén · Cuenca Neuquina · Argentina</span>
           </div>
         </div>
       </footer>
@@ -180,7 +194,7 @@ class App {
     // RUTA 6: Reproductor LMS (/lms/:courseId o /lms/:courseId/:lessonId)
     if (hash.startsWith('#/lms/')) {
       const parts = hash.replace('#/lms/', '').split('/');
-      const courseId = parts[0] || 'water-transfer-1-2';
+      const courseId = parts[0] || 'water-transfer-n1';
       const lessonId = parts[1] || null;
 
       content.innerHTML = renderLMSPlayer(courseId, lessonId);

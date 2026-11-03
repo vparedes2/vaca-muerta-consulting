@@ -1,113 +1,146 @@
 /**
  * Vaca Muerta Consulting - Home View (Landing Page Institucional)
- * Estética de "Grafito Técnico" industrial con dirección técnica oficial, calculadora de referidos y catálogo.
+ * Orientada a quienes planean venir a trabajar a Vaca Muerta: capacitarse antes de viajar,
+ * con certificado verificable por QR y avales institucionales.
  */
 
 import { courseService } from '../services/courseService.js';
-import { formatARS } from '../utils/formatters.js';
+import { formatPrice, whatsappLink, CONTACT } from '../utils/formatters.js';
+
+const AVALES = [
+  {
+    name: 'Cámara Argentina para la Formación Profesional y la Capacitación Laboral',
+    logo: './assets/avales/camara-argentina-fp.png'
+  },
+  {
+    name: 'Organización Internacional para la Educación Permanente (OIEP)',
+    logo: './assets/avales/oiep.png'
+  }
+];
+
+const PERFILES = [
+  {
+    icon: 'M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z',
+    title: 'Sin experiencia en la industria',
+    text: 'Terminaste el secundario o una carrera y querés probar suerte en Neuquén.',
+    course: 'Pasaporte a Vaca Muerta'
+  },
+  {
+    icon: 'M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z',
+    title: 'Tenés un oficio',
+    text: 'Soldador, electricista, mecánico o chofer y querés trabajar en montajes, ductos u obras.',
+    course: 'Pasaporte a Vaca Muerta'
+  },
+  {
+    icon: 'M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2',
+    title: 'Técnicos y profesionales',
+    text: 'Ya estás en el sector o venís de otro y querés especializarte en un servicio.',
+    course: 'Water Transfer Nivel 1 · Inducción HSE · Tech & Field'
+  }
+];
+
+const PASOS = [
+  { n: '01', title: 'Consultá por WhatsApp', text: 'Te asesoramos sobre qué curso te conviene según tu perfil.' },
+  { n: '02', title: 'Inscribite', text: 'Reservás tu lugar en la próxima cohorte. Los cupos son de 30 a 35 alumnos.' },
+  { n: '03', title: 'Cursá desde tu provincia', text: 'Campus online y un encuentro en vivo por semana, sin moverte de tu casa.' },
+  { n: '04', title: 'Llegá preparado', text: 'Certificado con QR verificable y un plan concreto para buscar trabajo.' }
+];
+
+function avalesStrip(compact = false) {
+  return AVALES.map(a => `
+    <div class="bg-white rounded-xl ${compact ? 'px-3 py-2 h-14' : 'px-5 py-3 h-20'} flex items-center justify-center shadow-md">
+      <img src="${a.logo}" alt="${a.name}" title="${a.name}" class="max-h-full w-auto object-contain" loading="lazy">
+    </div>
+  `).join('');
+}
 
 export function renderHomeView() {
-  const courses = courseService.getAll();
+  const courses = courseService.getPublicCourses();
+  const featured = courses.find(c => c.featured) || courses[0];
+  const others = courses.filter(c => featured && c.id !== featured.id);
+  const waGeneral = whatsappLink('Hola, quiero información sobre los cursos de Vaca Muerta Consulting.');
+  const waPasaporte = whatsappLink('Hola, quiero información sobre el curso Pasaporte a Vaca Muerta.');
 
   return `
-    <div class="space-y-16 pb-20">
-      
-      <!-- HERO INDUSTRIAL -->
-      <section class="relative overflow-hidden pt-12 pb-20 border-b border-slate-800 bg-gradient-to-b from-[#1B1F23] to-[#24282C]">
+    <div class="space-y-20 pb-20">
+
+      <!-- HERO -->
+      <section class="relative overflow-hidden pt-12 pb-16 border-b border-slate-800 bg-gradient-to-b from-[#1B1F23] to-[#24282C]">
         <div class="absolute inset-0 bg-[radial-gradient(#74ACDF_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             <div class="lg:col-span-7 space-y-6">
-              
-              <!-- Badge Institucional -->
               <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-mono text-[#74ACDF]">
-                <span class="w-2 h-2 rounded-full bg-[#FFB000] animate-ping"></span>
-                <span>Cuenca Neuquina · Formación Profesional Upstream</span>
+                <span class="w-2 h-2 rounded-full bg-[#FFB000]"></span>
+                <span>Cuenca Neuquina · Formación previa al ingreso</span>
               </div>
 
-              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-none">
-                Supervisión Operativa &amp; Excelencia en <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#74ACDF] via-sky-300 to-amber-300">Vaca Muerta</span>
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
+                Antes de venir a <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#74ACDF] via-sky-300 to-amber-300">Vaca Muerta</span>, preparate acá.
               </h1>
 
-              <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
-                Plataforma pedagógica de alto estándar para la industria de hidrocarburos. Formación intensiva en 
-                <strong>HSE, Water Transfer Nivel 1 y 2, y Modernización Digital</strong>, diseñada para liderar cuadrillas 
-                en régimen 14x14 y operaciones simultáneas de fractura hidráulica.
+              <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+                Capacitación online para entrar a la industria del petróleo y gas: operaciones, montajes, ductos, obras y seguridad.
+                Cursás desde tu provincia y llegás a Neuquén sabiendo cómo funciona un yacimiento, qué puesto buscar y cómo es la vida en campo.
               </p>
 
-              <!-- Botones de Acción -->
               <div class="flex flex-wrap items-center gap-4 pt-2">
                 <a href="#/catalogo" class="px-6 py-3.5 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-extrabold text-sm rounded-xl shadow-lg shadow-sky-950/50 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                  Ver Catálogo de Cursos
+                  Ver Pasaporte a Vaca Muerta
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </a>
-                <a href="#calculadora-referidos" class="px-6 py-3.5 bg-[#1B1F23] hover:bg-slate-800 text-white font-bold text-sm border border-slate-700 hover:border-[#FFB000]/50 rounded-xl transition-all flex items-center gap-2">
-                  <svg class="w-4 h-4 text-[#FFB000]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                  Calculadora Plan Referidos
+                <a href="${waGeneral}" target="_blank" rel="noopener" class="px-6 py-3.5 bg-[#1B1F23] hover:bg-slate-800 text-white font-bold text-sm border border-slate-700 hover:border-emerald-500/60 rounded-xl transition-all flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.1c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.24.58.82 2.01.89 2.15.07.15.12.32.02.51-.1.19-.14.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.3-.13.59.17.29.74 1.22 1.58 1.97 1.09.97 2.01 1.27 2.3 1.41.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+                  Consultar por WhatsApp
                 </a>
               </div>
 
-              <!-- Ficha de Aval Técnico & Autor -->
-              <div class="pt-4 flex items-center gap-4 text-xs text-slate-400 border-t border-slate-800">
+              <div class="pt-5 flex items-center gap-4 text-xs text-slate-400 border-t border-slate-800">
                 <a href="https://victorparedes.ar" target="_blank" rel="noopener" class="group flex items-center gap-3">
                   <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-[#74ACDF]/70 shadow-lg group-hover:scale-105 transition-transform bg-[#1B1F23] shrink-0">
                     <img src="https://victorparedes.ar/foto.jpg" alt="Lic. Víctor Javier Paredes" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://victorparedes.ar/bg1.jpg'">
                   </div>
                   <div>
-                    <div class="text-white font-bold group-hover:text-[#74ACDF] transition-colors flex items-center gap-1.5">
-                      Dirección Técnica: Lic. Víctor Javier Paredes
-                      <svg class="w-3.5 h-3.5 text-[#74ACDF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                    </div>
+                    <div class="text-white font-bold group-hover:text-[#74ACDF] transition-colors">Dirección Técnica: Lic. Víctor Javier Paredes</div>
                     <div class="font-mono text-slate-400 text-[11px]">
-                      Matrícula Profesional PA 446 · Autor de <em class="text-slate-300">Water Transfer en Vaca Muerta</em> · <span class="text-[#74ACDF]">victorparedes.ar</span>
+                      Mat. PA 446 · Más de 15 años en Vaca Muerta · Autor de <em class="text-slate-300">Water Transfer en Vaca Muerta</em>
                     </div>
                   </div>
                 </a>
               </div>
-
             </div>
 
-            <!-- Panel Lateral de Resumen Operativo -->
+            <!-- Tarjeta de certificado -->
             <div class="lg:col-span-5">
-              <div class="bg-[#1B1F23] border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-[#74ACDF]/5 rounded-bl-full pointer-events-none"></div>
-
+              <div class="bg-[#1B1F23] border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-2xl space-y-5">
                 <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-                  <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FFB000]">Métricas del Ecosistema</span>
-                  <span class="px-2 py-0.5 text-[10px] rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">En Operación</span>
+                  <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FFB000]">Tu certificado</span>
+                  <span class="px-2 py-0.5 text-[10px] rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Verificable por QR</span>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 my-5">
-                  <div class="bg-[#24282C] p-4 rounded-xl border border-slate-800">
-                    <span class="block text-2xl font-black text-white">190+</span>
-                    <span class="text-xs text-slate-400">Alumnos Proyectados</span>
+                <div class="flex items-start gap-4">
+                  <div class="w-20 h-20 shrink-0 rounded-lg bg-white p-1.5 grid grid-cols-5 grid-rows-5 gap-0.5" aria-hidden="true">
+                    ${[1,1,1,0,1, 1,0,1,1,0, 1,1,0,1,1, 0,1,1,0,1, 1,0,1,1,1].map(v => `<span class="${v ? 'bg-slate-900' : 'bg-white'} rounded-[1px]"></span>`).join('')}
                   </div>
-                  <div class="bg-[#24282C] p-4 rounded-xl border border-slate-800">
-                    <span class="block text-2xl font-black text-[#74ACDF]">4 Cohortes</span>
-                    <span class="text-xs text-slate-400">Escalonadas (Feb-Mar)</span>
-                  </div>
-                  <div class="bg-[#24282C] p-4 rounded-xl border border-slate-800">
-                    <span class="block text-2xl font-black text-[#FFB000]">30%</span>
-                    <span class="text-xs text-slate-400">Comisión Promotores</span>
-                  </div>
-                  <div class="bg-[#24282C] p-4 rounded-xl border border-slate-800">
-                    <span class="block text-2xl font-black text-emerald-400">100%</span>
-                    <span class="text-xs text-slate-400">Bonificación con 5 Refs</span>
+                  <div class="text-sm text-slate-300 leading-relaxed">
+                    Cualquier empresa puede escanear el código y comprobar en segundos que hiciste el curso, cuándo y con qué carga horaria.
                   </div>
                 </div>
 
-                <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 text-xs text-slate-300 space-y-1.5">
-                  <div class="flex items-center gap-2 font-semibold text-white">
-                    <svg class="w-4 h-4 text-[#74ACDF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    Distribución Pedagógica Anticohesión:
+                <div class="space-y-2">
+                  <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 block">Con aval de</span>
+                  <div class="grid grid-cols-2 gap-3">
+                    ${avalesStrip(true)}
                   </div>
-                  <p class="text-slate-400 text-[11px] leading-relaxed">
-                    Cupos máximos de 30 a 35 estudiantes por cohorte para garantizar tutorías sincrónicas sin saturación operativa.
-                  </p>
                 </div>
 
+                <ul class="text-xs text-slate-300 space-y-2 pt-1">
+                  <li class="flex gap-2"><span class="text-[#74ACDF]">✓</span> 100% online, con encuentros en vivo por Meet</li>
+                  <li class="flex gap-2"><span class="text-[#74ACDF]">✓</span> Grupos de 30 a 35 alumnos con tutor</li>
+                  <li class="flex gap-2"><span class="text-[#74ACDF]">✓</span> Preparación para tu credencial PASE</li>
+                </ul>
               </div>
             </div>
 
@@ -115,206 +148,148 @@ export function renderHomeView() {
         </div>
       </section>
 
-      <!-- CATÁLOGO OFICIAL RESUMIDO -->
+      <!-- AVALES -->
       <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
-          <div>
-            <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#74ACDF]">Oferta Curricular 2026</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Cursos Arancelados Oficiales</h2>
+        <div class="text-center space-y-5">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">Certificados con verificación QR y aval de</span>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+            ${avalesStrip(false)}
           </div>
-          <a href="#/catalogo" class="text-xs font-bold text-[#74ACDF] hover:text-sky-300 flex items-center gap-1 group">
-            Ver todas las fichas técnicas
-            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-          </a>
         </div>
+      </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          ${courses.map(course => `
-            <div class="bg-[#1B1F23] border border-slate-800 hover:border-slate-700 rounded-2xl p-5 flex flex-col justify-between transition-all group hover:-translate-y-1 shadow-lg">
-              <div>
-                <div class="relative h-40 rounded-xl overflow-hidden mb-4 bg-slate-800">
-                  <img src="${course.image}" alt="${course.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                  <span class="absolute top-2 left-2 px-2 py-1 bg-black/75 backdrop-blur-sm text-[10px] font-mono font-semibold rounded text-white border border-white/10">
-                    ${course.code}
-                  </span>
-                </div>
-                <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
-                  <span class="text-[#74ACDF] font-semibold">${course.category}</span>
-                  <span>${course.duration}</span>
-                </div>
-                <h3 class="text-base font-bold text-white mb-2 leading-snug group-hover:text-[#74ACDF] transition-colors">
-                  ${course.title}
-                </h3>
-                <p class="text-xs text-slate-400 line-clamp-3 mb-4 leading-relaxed">
-                  ${course.description}
-                </p>
+      <!-- ¿PARA QUIÉN ES? -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#74ACDF]">¿Para quién es?</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Elegí según tu punto de partida</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          ${PERFILES.map(p => `
+            <div class="bg-[#1B1F23] border border-slate-800 rounded-2xl p-6 space-y-3">
+              <div class="w-11 h-11 rounded-xl bg-[#74ACDF]/10 border border-[#74ACDF]/30 text-[#74ACDF] flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${p.icon}"/></svg>
               </div>
-
-              <div class="pt-4 border-t border-slate-800">
-                <div class="flex items-baseline justify-between mb-3">
-                  <span class="text-[11px] text-slate-400 uppercase font-mono">Arancel Oficial:</span>
-                  <span class="text-lg font-black text-white font-mono">${formatARS(course.basePrice)}</span>
-                </div>
-                <a href="#/catalogo" class="w-full py-2 bg-slate-800 hover:bg-[#74ACDF] hover:text-slate-950 text-white font-bold text-xs rounded-lg transition-colors text-center block">
-                  Ver Programa &amp; Cohortes
-                </a>
+              <h3 class="text-base font-bold text-white">${p.title}</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">${p.text}</p>
+              <div class="pt-3 border-t border-slate-800 text-xs">
+                <span class="text-slate-500 font-mono">Te recomendamos:</span>
+                <span class="text-[#FFB000] font-semibold block mt-0.5">${p.course}</span>
               </div>
             </div>
           `).join('')}
         </div>
       </section>
 
-      <!-- CALCULADORA INTERACTIVA DE REFERIDOS -->
-      <section id="calculadora-referidos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-gradient-to-br from-[#1B1F23] via-[#24282C] to-[#1B1F23] border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div class="lg:col-span-6 space-y-4">
-              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#FFB000]/20 text-[#FFB000] border border-[#FFB000]/30 inline-block">
-                Programa Exclusivo para Estudiantes
-              </span>
-              <h2 class="text-2xl sm:text-3xl font-black text-white">
-                Simula tus Reintegros con el <br class="hidden sm:inline">
-                <span class="text-[#FFB000]">Plan de Referidos Inteligente</span>
-              </h2>
-              <p class="text-sm text-slate-300 leading-relaxed">
-                El arancel oficial se abona al ingresar. <strong>Una vez concluida la capacitación</strong>, se te devuelve 
-                el <strong>20% por cada colega inscripto</strong>. Con <strong>5 colegas recuperas el 100%</strong> de lo que pagaste por el curso, 
-                y si refieres <strong>más de 5 colegas</strong>, recibes el 100% de reintegro <strong>MÁS un 20% de ganancia neta en efectivo por cada colega adicional</strong>.
-              </p>
+      <!-- CURSOS -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#74ACDF]">Cursos 2027</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Capacitaciones disponibles</h2>
+          </div>
+          <a href="#/catalogo" class="text-xs font-bold text-[#74ACDF] hover:text-sky-300 flex items-center gap-1 group">
+            Ver programas completos
+            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
 
-              <!-- Selector Interactivo de Colegas Referidos -->
-              <div class="pt-4 space-y-3">
-                <label class="block text-xs font-mono font-bold uppercase text-slate-400">
-                  Selecciona la cantidad de colegas referidos:
-                </label>
-                <div class="flex flex-wrap gap-2" id="referral-buttons">
-                  <button type="button" data-ref-count="0" class="btn-ref-select px-3.5 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700">0 (0%)</button>
-                  <button type="button" data-ref-count="1" class="btn-ref-select px-3.5 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700">1 (20%)</button>
-                  <button type="button" data-ref-count="2" class="btn-ref-select px-3.5 py-2 bg-[#74ACDF] text-slate-950 border border-sky-400 rounded-xl text-xs font-bold ring-2 ring-sky-500/50">2 (40% Base)</button>
-                  <button type="button" data-ref-count="3" class="btn-ref-select px-3.5 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700">3 (60%)</button>
-                  <button type="button" data-ref-count="4" class="btn-ref-select px-3.5 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700">4 (80%)</button>
-                  <button type="button" data-ref-count="5" class="btn-ref-select px-3.5 py-2 bg-[#FFB000] text-slate-950 border border-amber-400 rounded-xl text-xs font-bold">5 (100% ¡TOTAL!)</button>
-                  <button type="button" data-ref-count="6" class="btn-ref-select px-3.5 py-2 bg-emerald-600 text-white border border-emerald-400 rounded-xl text-xs font-bold">6 (+20% Extra)</button>
-                  <button type="button" data-ref-count="7" class="btn-ref-select px-3.5 py-2 bg-emerald-600 text-white border border-emerald-400 rounded-xl text-xs font-bold">7 (+40% Extra)</button>
-                </div>
-              </div>
-
+        ${featured ? `
+          <div class="bg-gradient-to-br from-[#1B1F23] to-[#24282C] border border-[#FFB000]/40 rounded-3xl overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-span-5 relative min-h-[220px] bg-slate-800">
+              <img src="${featured.image}" alt="${featured.title}" class="absolute inset-0 w-full h-full object-cover opacity-70">
+              <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#FFB000] text-slate-950 text-xs font-bold">${featured.badge || 'Destacado'}</span>
             </div>
-
-            <!-- Caja de Resultados Financieros en Tiempo Real -->
-            <div class="lg:col-span-6">
-              <div class="bg-[#1B1F23] border border-slate-700 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
-                
-                <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-                  <div>
-                    <span class="text-xs text-slate-400 block font-mono">Arancel Oficial Abonado:</span>
-                    <span class="text-sm font-bold text-white" id="calc-course-name">$400.000 ARS (Water Transfer)</span>
-                  </div>
-                  <div class="text-right">
-                    <span class="text-xs text-slate-400 block font-mono">Reintegro Post-Cursado:</span>
-                    <span class="text-xl font-black text-[#FFB000]" id="calc-discount-badge">40% Reintegro</span>
-                  </div>
-                </div>
-
-                <!-- Barra de Progreso a 5 Referidos -->
-                <div>
-                  <div class="flex justify-between text-xs text-slate-400 mb-1.5 font-mono">
-                    <span>Recupero del valor del curso</span>
-                    <span id="calc-progress-label">2 de 5 colegas (40%)</span>
-                  </div>
-                  <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden p-0.5 border border-slate-700">
-                    <div id="calc-progress-bar" class="bg-gradient-to-r from-[#74ACDF] via-[#FFB000] to-emerald-400 h-full rounded-full transition-all duration-500" style="width: 40%"></div>
-                  </div>
-                </div>
-
-                <!-- Resultados Finales -->
-                <div class="grid grid-cols-2 gap-4 bg-[#24282C] p-4 rounded-xl border border-slate-800 font-mono">
-                  <div>
-                    <span class="text-[11px] text-slate-400 block">Devolución Curso:</span>
-                    <span class="text-lg font-black text-[#FFB000]" id="calc-saved-amount">$160.000 ARS</span>
-                    <span class="text-[10px] text-slate-500 block">Hasta 100% ($400k)</span>
-                  </div>
-                  <div>
-                    <span class="text-[11px] text-slate-400 block">Total a Cobrar al Concluir:</span>
-                    <span class="text-2xl font-black text-emerald-400" id="calc-final-amount">$160.000 ARS</span>
-                    <span class="text-[10px] text-emerald-400/80 block" id="calc-extra-label">Curso + Ganancias</span>
-                  </div>
-                </div>
-
-                <div id="calc-notice-100" class="hidden p-3 bg-amber-500/10 border border-amber-500/40 rounded-xl text-xs text-amber-300">
-                  <span id="calc-notice-text">
-                    ★ <strong>¡100% Bonificado!</strong> Con 5 colegas recuperas la totalidad de lo abonado por tu capacitación una vez finalizado el cursado.
-                  </span>
-                </div>
-
-                <!-- Callout de Beneficio Permanente para Egresados (15%) -->
-                <div class="p-3.5 bg-[#24282C] border border-amber-500/30 rounded-xl flex items-start gap-3 text-xs">
-                  <span class="text-base">🎓</span>
-                  <div class="space-y-0.5">
-                    <strong class="text-[#FFB000] block font-mono">Luego de Egresado: 15% de Comisión Permanente</strong>
-                    <p class="text-slate-300 text-[11px] leading-relaxed">
-                      Al graduarte, pasas a ser Embajador: cobras el <strong>15% de comisión en efectivo</strong> por cada nuevo colega inscripto con tu código que abone su arancel oficial.
-                    </p>
-                  </div>
-                </div>
-
-                <a href="#/campus" class="w-full py-3 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-sm rounded-xl transition-all block text-center shadow-lg shadow-sky-950/40">
-                  Ingresar a Mi Campus y Compartir Enlace
-                </a>
-
+            <div class="lg:col-span-7 p-6 sm:p-8 space-y-4">
+              <div class="flex flex-wrap items-center gap-3 text-xs text-slate-400 font-mono">
+                <span class="text-[#74ACDF] font-semibold">${featured.category}</span>
+                <span>·</span>
+                <span>${featured.duration}</span>
+              </div>
+              <h3 class="text-2xl font-black text-white leading-tight">${featured.title}</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">${featured.description}</p>
+              <div class="flex flex-wrap items-center gap-3 pt-2">
+                <a href="#/catalogo" class="px-5 py-3 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-sm rounded-xl transition-all">Ver programa</a>
+                <a href="${waPasaporte}" target="_blank" rel="noopener" class="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm rounded-xl border border-slate-700 transition-all">Consultar arancel y fechas</a>
               </div>
             </div>
+          </div>
+        ` : ''}
 
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          ${others.map(course => `
+            <div class="bg-[#1B1F23] border border-slate-800 hover:border-slate-700 rounded-2xl p-5 flex flex-col justify-between transition-all group hover:-translate-y-1 shadow-lg">
+              <div>
+                <div class="relative h-36 rounded-xl overflow-hidden mb-4 bg-slate-800">
+                  <img src="${course.image}" alt="${course.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                </div>
+                <div class="flex items-center justify-between gap-2 text-xs text-slate-400 mb-2">
+                  <span class="text-[#74ACDF] font-semibold">${course.category}</span>
+                  <span class="text-right">${course.duration}</span>
+                </div>
+                <h3 class="text-base font-bold text-white mb-2 leading-snug group-hover:text-[#74ACDF] transition-colors">${course.title}</h3>
+                <p class="text-xs text-slate-400 line-clamp-3 mb-4 leading-relaxed">${course.description}</p>
+              </div>
+              <div class="pt-4 border-t border-slate-800">
+                <div class="flex items-baseline justify-between mb-3">
+                  <span class="text-[11px] text-slate-400 uppercase font-mono">Arancel</span>
+                  <span class="text-base font-black text-white font-mono">${formatPrice(course.basePrice)}</span>
+                </div>
+                <a href="#/catalogo" class="w-full py-2 bg-slate-800 hover:bg-[#74ACDF] hover:text-slate-950 text-white font-bold text-xs rounded-lg transition-colors text-center block">Ver programa</a>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+
+      <!-- PASE -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-[#1B1F23] border border-slate-800 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 space-y-3">
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FFB000]">Credencial PASE AOG</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Te preparamos para tu credencial PASE y para tu primera entrevista</h2>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Para entrar a los yacimientos de la Cuenca Neuquina necesitás la credencial PASE (Pasaporte Seguro Argentina Oil &amp; Gas). Es gratuita y se tramita en su plataforma oficial.
+              Nuestros cursos no la reemplazan: trabajan los mismos ejes de seguridad con más profundidad, y en el Pasaporte a Vaca Muerta la tramitás antes de egresar.
+            </p>
+          </div>
+          <div class="lg:col-span-4">
+            <a href="https://paseaog.com" target="_blank" rel="noopener" class="w-full px-5 py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm rounded-xl border border-slate-700 transition-all flex items-center justify-center gap-2">
+              Ir a la plataforma PASE
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
           </div>
         </div>
       </section>
 
-      <!-- EXPANSIÓN PROVINCIAL & COORDINADORES -->
+      <!-- CÓMO FUNCIONA -->
       <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-10 space-y-2">
-          <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FFB000]">Red Comercial Nacional</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Coordinadores Promotores Provinciales</h2>
-          <p class="text-sm text-slate-400">
-            Asesores directos en las principales cuencas y centros industriales del país, coordinando la captación con una comisión oficial del 30%.
-          </p>
+        <div class="mb-8">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#74ACDF]">Cómo funciona</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">De tu casa a Vaca Muerta en cuatro pasos</h2>
         </div>
+        <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          ${PASOS.map(p => `
+            <li class="bg-[#1B1F23] border border-slate-800 rounded-2xl p-5 space-y-2">
+              <span class="text-2xl font-black font-mono text-[#FFB000]">${p.n}</span>
+              <h3 class="text-sm font-bold text-white">${p.title}</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">${p.text}</p>
+            </li>
+          `).join('')}
+        </ol>
+      </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-[#1B1F23] border border-slate-800 rounded-2xl p-6 text-center space-y-3">
-            <div class="w-12 h-12 rounded-xl bg-[#74ACDF]/10 border border-[#74ACDF]/30 text-[#74ACDF] flex items-center justify-center font-bold mx-auto text-lg">
-              CY
-            </div>
-            <h3 class="text-base font-bold text-white">Nodo Cuyo</h3>
-            <p class="text-xs text-slate-400">Mendoza &amp; San Juan (Malargüe, Luján de Cuyo)</p>
-            <div class="pt-3 border-t border-slate-800 text-xs font-mono text-slate-300">
-              Coordinador: Lic. Gastón Albarracín<br>
-              <span class="text-[#74ACDF]">Código: CUYO30</span>
-            </div>
+      <!-- CONTACTO -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-r from-[#74ACDF]/15 via-[#1B1F23] to-[#FFB000]/10 border border-slate-800 rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <h2 class="text-2xl font-extrabold text-white">¿Tenés dudas antes de inscribirte?</h2>
+            <p class="text-sm text-slate-300">Escribinos y te responde directamente la Dirección Técnica.</p>
+            <p class="text-xs font-mono text-slate-400">${CONTACT.whatsappDisplay} · ${CONTACT.email}</p>
           </div>
-
-          <div class="bg-[#1B1F23] border border-slate-800 rounded-2xl p-6 text-center space-y-3">
-            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-[#FFB000] flex items-center justify-center font-bold mx-auto text-lg">
-              CB
-            </div>
-            <h3 class="text-base font-bold text-white">Nodo Córdoba</h3>
-            <p class="text-xs text-slate-400">Centros Universitarios &amp; Parques Industriales</p>
-            <div class="pt-3 border-t border-slate-800 text-xs font-mono text-slate-300">
-              Coordinadora: Ing. Mariana Benítez<br>
-              <span class="text-[#FFB000]">Código: CBA30</span>
-            </div>
-          </div>
-
-          <div class="bg-[#1B1F23] border border-slate-800 rounded-2xl p-6 text-center space-y-3">
-            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold mx-auto text-lg">
-              BA
-            </div>
-            <h3 class="text-base font-bold text-white">Nodo Buenos Aires</h3>
-            <p class="text-xs text-slate-400">Bahía Blanca, Dock Sud y Área Metropolitana</p>
-            <div class="pt-3 border-t border-slate-800 text-xs font-mono text-slate-300">
-              Coordinador: Téc. Lucas Ferreyra<br>
-              <span class="text-emerald-400">Código: BBA30</span>
-            </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="${waGeneral}" target="_blank" rel="noopener" class="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm rounded-xl transition-all">Escribir por WhatsApp</a>
+            <a href="${CONTACT.certVerifyUrl}" target="_blank" rel="noopener" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm rounded-xl border border-slate-700 transition-all">Verificar un certificado</a>
           </div>
         </div>
       </section>
@@ -324,70 +299,5 @@ export function renderHomeView() {
 }
 
 export function initHomeEvents() {
-  const basePrice = 400000; // Water transfer
-  const buttons = document.querySelectorAll('.btn-ref-select');
-  const discountBadge = document.getElementById('calc-discount-badge');
-  const progressBar = document.getElementById('calc-progress-bar');
-  const progressLabel = document.getElementById('calc-progress-label');
-  const savedAmount = document.getElementById('calc-saved-amount');
-  const finalAmount = document.getElementById('calc-final-amount');
-  const notice100 = document.getElementById('calc-notice-100');
-
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const count = parseInt(btn.getAttribute('data-ref-count'), 10);
-      
-      // Update button styles
-      buttons.forEach(b => {
-        const c = parseInt(b.getAttribute('data-ref-count'), 10);
-        if (c > 5) {
-          b.className = 'btn-ref-select px-3.5 py-2 bg-emerald-950/80 border border-emerald-700/80 rounded-xl text-xs font-bold text-emerald-300 hover:bg-emerald-900';
-        } else {
-          b.className = 'btn-ref-select px-3.5 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs font-bold text-white hover:bg-slate-700';
-        }
-      });
-      btn.className = 'btn-ref-select px-3.5 py-2 bg-[#74ACDF] text-slate-950 border border-sky-400 rounded-xl text-xs font-bold ring-2 ring-sky-500/50';
-
-      const refundPercent = Math.min(1.0, count * 0.20);
-      const refundDisplay = Math.round(refundPercent * 100);
-      const courseRefund = Math.round(basePrice * refundPercent);
-      const extraReferrals = Math.max(0, count - 5);
-      const extraBonus = extraReferrals * Math.round(basePrice * 0.20);
-      const totalPayout = courseRefund + extraBonus;
-
-      if (discountBadge) {
-        if (count > 5) {
-          discountBadge.textContent = `100% + ${extraReferrals * 20}% Extra`;
-        } else {
-          discountBadge.textContent = `${refundDisplay}% Reintegro`;
-        }
-      }
-
-      if (progressLabel) {
-        if (count >= 5) {
-          progressLabel.textContent = `${count} colegas (★ 100% Recuperado)`;
-        } else {
-          progressLabel.textContent = `${count} de 5 colegas (${refundDisplay}%)`;
-        }
-      }
-
-      if (progressBar) progressBar.style.width = `${Math.min(100, (count / 5) * 100)}%`;
-      if (savedAmount) savedAmount.textContent = formatARS(courseRefund);
-      if (finalAmount) finalAmount.textContent = formatARS(totalPayout);
-
-      const noticeText = document.getElementById('calc-notice-text');
-      if (notice100) {
-        if (count > 5) {
-          notice100.classList.remove('hidden');
-          if (noticeText) noticeText.innerHTML = `★ <strong>¡Nivel Superior!</strong> Recuperas el 100% de tu curso (${formatARS(basePrice)}) <strong>MÁS ${formatARS(extraBonus)} de ganancia neta en dinero</strong> (+20% por cada colega por sobre los 5).`;
-        } else if (count === 5) {
-          notice100.classList.remove('hidden');
-          if (noticeText) noticeText.innerHTML = `★ <strong>¡100% Bonificado!</strong> Con 5 colegas recuperas la totalidad de lo abonado (${formatARS(basePrice)}) una vez finalizado el cursado.`;
-        } else {
-          notice100.classList.add('hidden');
-        }
-      }
-    });
-  });
+  // La home no tiene interacciones propias por ahora.
 }
-
