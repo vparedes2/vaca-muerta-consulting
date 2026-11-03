@@ -49,7 +49,7 @@ class App {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
             <div class="flex items-center gap-3">
-              <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#74ACDF] to-sky-700 flex items-center justify-center font-bold text-slate-950 text-sm">VM</div>
+              <img src="./assets/vmc-isotipo-180.png" alt="Isotipo Vaca Muerta Consulting" class="w-11 h-11 rounded-xl object-cover border border-slate-700 shadow-md">
               <div>
                 <span class="font-bold text-white block">Vaca Muerta Consulting</span>
                 <span class="font-mono text-[11px] text-slate-500">Dirección Técnica: Lic. Víctor Javier Paredes · Mat. PA 446</span>

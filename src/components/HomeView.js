@@ -153,6 +153,17 @@ export function renderHomeView() {
         </div>
       </section>
 
+      <!-- FRANJA DE MARCA -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative h-44 sm:h-56 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+          <img src="./assets/cartel-vmc.jpg" alt="Cartel iluminado de Vaca Muerta Consulting" class="absolute inset-0 w-full h-full object-cover" style="object-position: 30% 40%">
+          <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(27,31,35,0) 30%, rgba(27,31,35,.75) 60%, rgba(27,31,35,.95) 100%)"></div>
+          <div class="absolute inset-y-0 right-0 flex items-center justify-end pr-5 sm:pr-10 w-3/5 sm:w-auto sm:max-w-md text-right">
+            <p class="text-base sm:text-2xl font-extrabold text-white leading-snug">Formación con respaldo profesional desde Neuquén</p>
+          </div>
+        </div>
+      </section>
+
       <!-- AVALES -->
       <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center space-y-5">
