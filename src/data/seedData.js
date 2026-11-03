@@ -413,7 +413,7 @@ Material de apoyo: animaciones 3D de montaje de tanque y de bombeo.
       modality: "8 encuentros en vivo por Google Meet + práctica semanal",
       basePrice: 0,
       badge: "No requiere saber programar",
-      image: "https://victorparedes.ar/th_traza.jpg",
+      image: "https://victorparedes.ar/th_simtraza.jpg",
       description: "Pasá de una idea de tu trabajo a una aplicación web publicada. Vibe coding con Claude, ChatGPT y Gemini, programación agéntica (AI Studio, Antigravity, MiniMax, Claude Code), organización de proyectos en GitHub, hosting gratuito en Vercel, Netlify y GitHub Pages, conectores y dominio propio, con casos reales de sistemas en producción.",
       targetAudience: "Profesionales HSE, supervisores, técnicos, docentes y emprendedores sin formación en programación.",
       prerequisites: "Computadora, cuenta de Google y conexión estable.",
