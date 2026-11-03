@@ -5,6 +5,7 @@
  */
 
 import { INITIAL_DATA } from '../data/seedData.js';
+import { remoteStore } from './supabaseClient.js';
 
 const STORAGE_KEY_PREFIX = 'vmc_lms_';
 
@@ -24,6 +25,13 @@ function isLocalStorageAvailable() {
 
 const hasLocal = isLocalStorageAvailable();
 
+// Escritura en la base compartida habilitada solo con sesión de administrador verificada
+let remoteWritable = false;
+
+function emit(name, detail) {
+  try { window.dispatchEvent(new CustomEvent(name, { detail })); } catch (e) { /* sin DOM */ }
+}
+
 export const storageService = {
   /**
    * Inicializa las colecciones en el almacenamiento si no existen
@@ -31,7 +39,7 @@ export const storageService = {
   init() {
     const initialized = this.get('initialized');
     const version = this.get('version');
-    if (!initialized || version !== '2.3.3') {
+    if (!initialized || version !== '2.4.0') {
       this.resetToDefaults();
     }
   },
@@ -41,13 +49,37 @@ export const storageService = {
    */
   resetToDefaults() {
     this.set('settings', INITIAL_DATA.settings);
-    this.set('courses', INITIAL_DATA.courses);
-    this.set('cohorts', INITIAL_DATA.cohorts);
+    this.set('courses', INITIAL_DATA.courses, { remote: false });
+    this.set('cohorts', INITIAL_DATA.cohorts, { remote: false });
     this.set('coordinators', INITIAL_DATA.coordinators);
     this.set('users', INITIAL_DATA.users);
     this.set('initialized', true);
-    this.set('version', '2.3.3');
-    console.log('[StorageService] Base de datos reinicializada con versión 2.3.3 de Vaca Muerta Consulting.');
+    this.set('version', '2.4.0');
+    console.log('[StorageService] Base de datos reinicializada con versión 2.4.0 de Vaca Muerta Consulting.');
+  },
+
+  /**
+   * Habilita o deshabilita la publicación de cambios en la base compartida
+   */
+  setRemoteWritable(value) {
+    remoteWritable = !!value;
+  },
+
+  /**
+   * Trae cursos y cohortes de la base compartida. Si la base está vacía y hay
+   * sesión de administrador, publica el catálogo inicial.
+   */
+  async syncFromRemote() {
+    for (const key of ['courses', 'cohorts']) {
+      const items = await remoteStore.fetchCollection(key);
+      if (items === null) continue;
+      if (items.length > 0) {
+        this.set(key, items, { remote: false });
+      } else if (remoteWritable) {
+        const local = this.get(key) || INITIAL_DATA[key] || [];
+        await remoteStore.saveCollection(key, local);
+      }
+    }
   },
 
   /**
@@ -71,8 +103,13 @@ export const storageService = {
   /**
    * Guarda un valor serializado en JSON
    */
-  set(key, value) {
+  set(key, value, { remote = true } = {}) {
     const fullKey = STORAGE_KEY_PREFIX + key;
+    if (remote && remoteWritable && remoteStore.isShared(key)) {
+      remoteStore.saveCollection(key, value)
+        .then(() => emit('vmc:remote-saved', { key }))
+        .catch(err => emit('vmc:remote-error', { key, message: err.message }));
+    }
     try {
       if (hasLocal) {
         window.localStorage.setItem(fullKey, JSON.stringify(value));

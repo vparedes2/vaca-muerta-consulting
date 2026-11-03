@@ -462,8 +462,6 @@ Material de apoyo: animaciones 3D de montaje de tanque y de bombeo.
       modality: "Virtual Asincrónico + Clases Magistrales en Vivo",
       basePrice: 280000,
       badge: "Mandatorio para Yacimiento",
-      rating: 4.9,
-      studentsCount: 94,
       image: "https://victorparedes.ar/bg1.jpg",
       description: "Formación regulatoria y de seguridad crítica para supervisores y operarios en yacimientos no convencionales de la Cuenca Neuquina. Incluye marco legal neuquino, permisos de trabajo en frío/caliente, aislamiento de energías peligrosas y protocolos de evacuación médica remota.",
       targetAudience: "Supervisores de servicios petroleros, jefes de campo, técnicos HSE, operadores y contratistas en Vaca Muerta.",
@@ -478,7 +476,6 @@ Material de apoyo: animaciones 3D de montaje de tanque y de bombeo.
               title: "Leyes Nacionales 26.197, 17.319 y Ley Provincial 1875 de Neuquén",
               duration: "25 min",
               type: "theory",
-              videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Video ilustrativo
               summary: "Análisis del marco regulatorio de hidrocarburos en Argentina, federalización de recursos y normativa ambiental de la Secretaría de Ambiente de Neuquén.",
               content: `
 ### Marco Legal y Autoridades de Aplicación en la Cuenca Neuquina
@@ -587,8 +584,6 @@ La distancia geográfica de los bloques petroleros (ej. Loma Campana, Bajada del
       modality: "Virtual con Simuladores de Campo",
       basePrice: 280000,
       badge: "Formación de Supervisores",
-      rating: 4.85,
-      studentsCount: 78,
       image: "https://victorparedes.ar/bg4.jpg",
       description: "Profundización en gestión de higiene industrial, monitoreo de sulfhídrico (H2S), control de atmósferas explosivas (ATEX), gestión integral de residuos especiales (Decreto 2263/15) y mitigación de factores de riesgo psicosocial en régimen 14x14.",
       targetAudience: "Supervisores de producción, coordinadores de maniobra, inspectores técnicos y profesionales de seguridad e higiene.",
@@ -710,8 +705,6 @@ Bajo el Decreto provincial 2263/15, todo residuo contaminado con hidrocarburos o
   coordinators: [
     {
       id: "coord-cuyo",
-      username: "coord.cuyo",
-      password: "cuyo2026",
       name: "Lic. Gastón Albarracín",
       province: "Cuyo (Mendoza y San Juan)",
       email: "cuyo@vacamuertaconsulting.com.ar",
@@ -728,8 +721,6 @@ Bajo el Decreto provincial 2263/15, todo residuo contaminado con hidrocarburos o
     },
     {
       id: "coord-cba",
-      username: "coord.cba",
-      password: "cordoba2026",
       name: "Ing. Mariana Benítez",
       province: "Córdoba",
       email: "cordoba@vacamuertaconsulting.com.ar",
@@ -746,8 +737,6 @@ Bajo el Decreto provincial 2263/15, todo residuo contaminado con hidrocarburos o
     },
     {
       id: "coord-bba",
-      username: "coord.bba",
-      password: "bba2026",
       name: "Téc. Lucas Ferreyra",
       province: "Buenos Aires y La Pampa",
       email: "bsas@vacamuertaconsulting.com.ar",
@@ -766,52 +755,6 @@ Bajo el Decreto provincial 2263/15, todo residuo contaminado con hidrocarburos o
 
   // 4. Base de Usuarios y Alumnos (RBAC y Red de Referidos)
   users: [
-    // Rol A: Administrador / Dirección Técnica
-    {
-      id: "user-admin",
-      username: "vparedes",
-      password: "admin2026",
-      role: "admin",
-      name: "Lic. Víctor Javier Paredes",
-      license: "Mat. Profesional PA 446",
-      title: "Director Técnico",
-      email: "vparedes2@gmail.com",
-      phone: "+54 9 299 460-3071",
-      avatar: "https://victorparedes.ar/foto.jpg"
-    },
-
-    // Rol B: Coordinadores (mapeados también en tabla de usuarios para login directo)
-    {
-      id: "user-coord-cuyo",
-      username: "coord.cuyo",
-      password: "cuyo2026",
-      role: "coordinator",
-      coordinatorId: "coord-cuyo",
-      name: "Lic. Gastón Albarracín",
-      email: "cuyo@vacamuertaconsulting.com.ar",
-      zone: "Cuyo"
-    },
-    {
-      id: "user-coord-cba",
-      username: "coord.cba",
-      password: "cordoba2026",
-      role: "coordinator",
-      coordinatorId: "coord-cba",
-      name: "Ing. Mariana Benítez",
-      email: "cordoba@vacamuertaconsulting.com.ar",
-      zone: "Córdoba"
-    },
-    {
-      id: "user-coord-bba",
-      username: "coord.bba",
-      password: "bba2026",
-      role: "coordinator",
-      coordinatorId: "coord-bba",
-      name: "Téc. Lucas Ferreyra",
-      email: "bsas@vacamuertaconsulting.com.ar",
-      zone: "Buenos Aires"
-    },
-
     // Rol C: Alumno de Prueba Oficial
     {
       id: "user-alumno01",

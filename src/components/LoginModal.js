@@ -22,7 +22,7 @@ export function renderLoginModal() {
           ${renderBrandLogo({ layout: 'vertical', size: 'md', withDirector: true })}
           <div class="mt-4 border-t border-slate-800 pt-3 w-full">
             <h2 class="text-base font-bold text-white font-display">Ingreso al Sistema</h2>
-            <p class="text-xs text-slate-400 mt-0.5">Acceso para Dirección, Coordinadores y Alumnos</p>
+            <p class="text-xs text-slate-400 mt-0.5">Acceso para Dirección Técnica y alumnos</p>
           </div>
         </div>
 
@@ -48,7 +48,7 @@ export function renderLoginModal() {
 
         <div class="mt-6 text-center pt-4 border-t border-slate-800/80">
           <p class="text-[11px] text-slate-500 font-mono">
-            Vaca Muerta Consulting · Plataforma Upstream &amp; Supervisión Operativa
+            Vaca Muerta Consulting · Campus virtual
           </p>
         </div>
 
@@ -74,12 +74,18 @@ export function initLoginModalEvents(onLoginSuccess) {
   });
 
   // Submit login
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = usernameInput.value.trim();
     const password = passwordInput.value;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
 
-    const res = authService.login(username, password);
+    const res = username.includes('@')
+      ? await authService.loginWithEmail(username, password)
+      : authService.login(username, password);
+
+    if (submitBtn) submitBtn.disabled = false;
     if (res.success) {
       showToast(`¡Bienvenido, ${res.user.name}!`, 'success');
       modal.classList.add('hidden');

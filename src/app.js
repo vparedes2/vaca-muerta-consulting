@@ -7,6 +7,7 @@
  */
 
 import { authService } from './services/authService.js';
+import { storageService } from './services/storageService.js';
 import { renderNavbar } from './components/Navbar.js';
 import { renderHomeView, initHomeEvents } from './components/HomeView.js';
 import { renderCatalogView, initCatalogEvents } from './components/CatalogView.js';
@@ -37,8 +38,22 @@ class App {
     // Renderizar estructura base
     this.renderBaseLayout();
 
-    // Enrutar por primera vez
-    this.handleRoute();
+    // Avisos de publicación en la base compartida
+    window.addEventListener('vmc:remote-saved', () => showToast('Cambios publicados en el sitio.', 'success'));
+    window.addEventListener('vmc:remote-error', (e) => showToast(`No se pudo publicar el cambio: ${e.detail && e.detail.message ? e.detail.message : 'error de conexión'}`, 'error'));
+
+    // Validar sesión y traer el catálogo compartido antes del primer render
+    const content = document.getElementById('app-content');
+    if (content) content.innerHTML = '<div class="py-24 text-center text-slate-400 text-sm font-mono">Cargando campus...</div>';
+    const ready = (async () => {
+      try { await authService.restoreSession(); } catch (e) { console.error(e); }
+      try { await storageService.syncFromRemote(); } catch (e) { console.error(e); }
+    })();
+    const timeout = new Promise(resolve => setTimeout(resolve, 5000));
+    Promise.race([ready, timeout]).then(() => {
+      this.renderHeader();
+      this.handleRoute();
+    });
   }
 
   renderBaseLayout() {

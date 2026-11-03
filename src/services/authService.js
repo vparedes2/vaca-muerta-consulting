@@ -4,6 +4,7 @@
  */
 
 import { storageService } from './storageService.js';
+import { supabase, remoteStore } from './supabaseClient.js';
 
 const SESSION_KEY = 'current_session';
 const listeners = new Set();
@@ -51,31 +52,12 @@ export const authService = {
     const cleanPass = String(password).trim();
 
     const users = storageService.get('users') || [];
-    const matched = users.find(u => u.username.toLowerCase() === cleanUser && u.password === cleanPass);
+    const matched = users.find(u => u.role === 'student' && u.username && u.username.toLowerCase() === cleanUser && u.password === cleanPass);
 
     if (!matched) {
-      // También permitir búsqueda si coincide con coordinadores
-      const coordinators = storageService.get('coordinators') || [];
-      const coordMatch = coordinators.find(c => c.username.toLowerCase() === cleanUser && c.password === cleanPass);
-      
-      if (coordMatch) {
-        const sessionPayload = {
-          id: coordMatch.id,
-          username: coordMatch.username,
-          role: 'coordinator',
-          coordinatorId: coordMatch.id,
-          name: coordMatch.name,
-          email: coordMatch.email,
-          zone: coordMatch.province,
-          promoCode: coordMatch.promoCode
-        };
-        storageService.set(SESSION_KEY, sessionPayload);
-        this._notify();
-        return { success: true, user: sessionPayload };
-      }
-
       return { success: false, message: 'Usuario o contraseña incorrectos. Verifique sus credenciales.' };
     }
+
 
     // Si es coordinador, enlazar datos de la provincia
     let extraData = {};
@@ -112,10 +94,66 @@ export const authService = {
   },
 
   /**
+   * Ingreso de Dirección Técnica con email y contraseña (Supabase Auth)
+   */
+  async loginWithEmail(email, password) {
+    const { data, error } = await supabase.auth.signInWithPassword({ email: String(email).trim(), password });
+    if (error) {
+      return { success: false, message: 'Email o contraseña incorrectos.' };
+    }
+    const isAdmin = await remoteStore.isAdmin();
+    if (!isAdmin) {
+      await supabase.auth.signOut();
+      return { success: false, message: 'Esta cuenta no tiene permisos de administración.' };
+    }
+    const sessionPayload = this._adminPayload(data.user);
+    storageService.set(SESSION_KEY, sessionPayload);
+    storageService.setRemoteWritable(true);
+    try { await storageService.syncFromRemote(); } catch (e) { console.error(e); }
+    this._notify();
+    return { success: true, user: sessionPayload };
+  },
+
+  /**
+   * Al cargar la página: valida la sesión de administrador contra Supabase
+   * y descarta sesiones de administrador que no estén respaldadas por la base.
+   */
+  async restoreSession() {
+    const current = this.getCurrentUser();
+    const { data } = await supabase.auth.getSession();
+    const supaUser = data && data.session ? data.session.user : null;
+
+    if (supaUser && await remoteStore.isAdmin()) {
+      storageService.set(SESSION_KEY, this._adminPayload(supaUser));
+      storageService.setRemoteWritable(true);
+      return;
+    }
+    storageService.setRemoteWritable(false);
+    if (current && current.role !== 'student') {
+      storageService.remove(SESSION_KEY);
+    }
+  },
+
+  _adminPayload(supaUser) {
+    return {
+      id: supaUser.id,
+      username: supaUser.email,
+      role: 'admin',
+      name: 'Lic. Víctor Javier Paredes',
+      email: supaUser.email,
+      license: 'Mat. Profesional PA 446',
+      title: 'Director Técnico'
+    };
+  },
+
+  /**
    * Cierra la sesión activa
    */
   logout() {
+    const wasAdmin = this.isAdmin();
     storageService.remove(SESSION_KEY);
+    storageService.setRemoteWritable(false);
+    if (wasAdmin) supabase.auth.signOut().catch(() => {});
     this._notify();
     return true;
   },
