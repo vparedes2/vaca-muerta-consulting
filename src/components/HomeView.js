@@ -21,21 +21,27 @@ const AVALES = [
 const PERFILES = [
   {
     icon: 'M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z',
-    title: 'Sin experiencia en la industria',
-    text: 'Terminaste el secundario o una carrera y querés probar suerte en Neuquén.',
+    title: 'Querés entrar a la industria',
+    text: 'Sin experiencia, con un oficio o con una carrera terminada: conocé cómo funciona un yacimiento y qué puesto podés buscar.',
     course: 'Pasaporte a Vaca Muerta'
   },
   {
-    icon: 'M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z',
-    title: 'Tenés un oficio',
-    text: 'Soldador, electricista, mecánico o chofer y querés trabajar en montajes, ductos u obras.',
-    course: 'Pasaporte a Vaca Muerta'
+    icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z',
+    title: 'Querés trabajar en water transfer',
+    text: 'Aprendé el servicio que abastece de agua a cada fractura: equipos, traza, bombeo y seguridad.',
+    course: 'Water Transfer Nivel 1'
   },
   {
-    icon: 'M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2',
-    title: 'Técnicos y profesionales',
-    text: 'Ya estás en el sector o venís de otro y querés especializarte en un servicio.',
-    course: 'Water Transfer Nivel 1 · Inducción HSE · Tech & Field'
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    title: 'Te interesa la seguridad',
+    text: 'Trabajás en el sector o querés especializarte en higiene y seguridad en hidrocarburos.',
+    course: 'Inducción HSE · Higiene y Seguridad en Hidrocarburos'
+  },
+  {
+    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+    title: 'Querés crear tus propias apps',
+    text: 'Armá herramientas digitales para tu trabajo con inteligencia artificial, sin saber programar.',
+    course: 'Tech & Field'
   }
 ];
 
@@ -60,6 +66,7 @@ export function renderHomeView() {
   const others = courses.filter(c => featured && c.id !== featured.id);
   const waGeneral = whatsappLink('Hola, quiero información sobre los cursos de Vaca Muerta Consulting.');
   const waPasaporte = whatsappLink('Hola, quiero información sobre el curso Pasaporte a Vaca Muerta.');
+  const waAyudas = whatsappLink('Hola, quiero consultar por las ayudas con descuento para los cursos.');
 
   return `
     <div class="space-y-20 pb-20">
@@ -120,14 +127,12 @@ export function renderHomeView() {
                   <span class="px-2 py-0.5 text-[10px] rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Verificable por QR</span>
                 </div>
 
-                <div class="flex items-start gap-4">
-                  <div class="w-20 h-20 shrink-0 rounded-lg bg-white p-1.5 grid grid-cols-5 grid-rows-5 gap-0.5" aria-hidden="true">
-                    ${[1,1,1,0,1, 1,0,1,1,0, 1,1,0,1,1, 0,1,1,0,1, 1,0,1,1,1].map(v => `<span class="${v ? 'bg-slate-900' : 'bg-white'} rounded-[1px]"></span>`).join('')}
-                  </div>
-                  <div class="text-sm text-slate-300 leading-relaxed">
-                    Cualquier empresa puede escanear el código y comprobar en segundos que hiciste el curso, cuándo y con qué carga horaria.
-                  </div>
-                </div>
+                <figure class="space-y-2">
+                  <img src="./assets/certificado-ejemplo.jpg" alt="Ejemplo de certificado de Vaca Muerta Consulting con los datos personales difuminados" class="w-full rounded-lg border border-slate-700 shadow-lg" loading="lazy">
+                  <figcaption class="text-xs text-slate-400 leading-relaxed">
+                    Ejemplo real con los datos personales ocultos. Cualquier empresa escanea el QR y comprueba en segundos que hiciste el curso.
+                  </figcaption>
+                </figure>
 
                 <div class="space-y-2">
                   <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 block">Con aval de</span>
@@ -139,7 +144,7 @@ export function renderHomeView() {
                 <ul class="text-xs text-slate-300 space-y-2 pt-1">
                   <li class="flex gap-2"><span class="text-[#74ACDF]">✓</span> 100% online, con encuentros en vivo por Meet</li>
                   <li class="flex gap-2"><span class="text-[#74ACDF]">✓</span> Grupos de 30 a 35 alumnos con tutor</li>
-                  <li class="flex gap-2"><span class="text-[#74ACDF]">✓</span> Preparación para tu credencial PASE</li>
+                  <li class="flex gap-2"><span class="text-[#74ACDF]">✓</span> Ayudas con descuento disponibles</li>
                 </ul>
               </div>
             </div>
@@ -162,9 +167,10 @@ export function renderHomeView() {
       <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-8">
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#74ACDF]">¿Para quién es?</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Elegí según tu punto de partida</h2>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Hay un curso para cada punto de partida</h2>
+          <p class="text-sm text-slate-400 mt-2 max-w-2xl">No importa tu edad, tu formación ni de qué provincia seas: si querés trabajar en Vaca Muerta o crecer dentro de la industria, empezá por el que más se ajuste a vos.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           ${PERFILES.map(p => `
             <div class="bg-[#1B1F23] border border-slate-800 rounded-2xl p-6 space-y-3">
               <div class="w-11 h-11 rounded-xl bg-[#74ACDF]/10 border border-[#74ACDF]/30 text-[#74ACDF] flex items-center justify-center">
@@ -178,6 +184,13 @@ export function renderHomeView() {
               </div>
             </div>
           `).join('')}
+        </div>
+        <div class="mt-6 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h3 class="text-base font-bold text-white">Obtené ayudas con descuento</h3>
+            <p class="text-sm text-slate-300">Tenemos opciones para que el arancel no sea un impedimento. Consultanos y te contamos cómo acceder.</p>
+          </div>
+          <a href="${waAyudas}" target="_blank" rel="noopener" class="px-5 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm rounded-xl transition-all text-center shrink-0">Consultar ayudas</a>
         </div>
       </section>
 
@@ -239,26 +252,6 @@ export function renderHomeView() {
               </div>
             </div>
           `).join('')}
-        </div>
-      </section>
-
-      <!-- PASE -->
-      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-[#1B1F23] border border-slate-800 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-8 space-y-3">
-            <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#FFB000]">Credencial PASE AOG</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Te preparamos para tu credencial PASE y para tu primera entrevista</h2>
-            <p class="text-sm text-slate-300 leading-relaxed">
-              Para entrar a los yacimientos de la Cuenca Neuquina necesitás la credencial PASE (Pasaporte Seguro Argentina Oil &amp; Gas). Es gratuita y se tramita en su plataforma oficial.
-              Nuestros cursos no la reemplazan: trabajan los mismos ejes de seguridad con más profundidad, y en el Pasaporte a Vaca Muerta la tramitás antes de egresar.
-            </p>
-          </div>
-          <div class="lg:col-span-4">
-            <a href="https://paseaog.com" target="_blank" rel="noopener" class="w-full px-5 py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm rounded-xl border border-slate-700 transition-all flex items-center justify-center gap-2">
-              Ir a la plataforma PASE
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            </a>
-          </div>
         </div>
       </section>
 

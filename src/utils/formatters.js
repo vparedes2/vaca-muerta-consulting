@@ -96,7 +96,7 @@ export const CONTACT = {
   whatsappNumber: '5492994603071',
   whatsappDisplay: '+54 9 299 460-3071',
   email: 'vparedes2@gmail.com',
-  certVerifyUrl: 'https://victorparedes.ar'
+  certVerifyUrl: 'https://victorparedes.ar/qr-verified'
 };
 
 export function whatsappLink(message = '') {
