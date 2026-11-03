@@ -17,39 +17,20 @@
  * @param {string} options.variant - 'dark' (para fondos oscuros), 'light' (para fondos claros), 'monochrome'
  */
 export function renderIsologoV({ size = 40, variant = 'dark', className = '' } = {}) {
-  const bodyColor = variant === 'light' ? '#24282C' : '#FFFFFF';
-  const bandCeleste = '#74ACDF';
-  const bandWhite = '#FFFFFF';
+  // Geometría tomada del isotipo oficial (cartel y certificado): dos pernos, brazos de la V,
+  // franja celeste partida y vértice inferior trunco.
+  const bodyColor = variant === 'light' ? '#1F3347' : '#FFFFFF';
+  const band = '#74ACDF';
 
   return `
-    <svg width="${size}" height="${size}" viewBox="0 0 100 95" fill="none" xmlns="http://www.w3.org/2000/svg" class="${className} shrink-0">
-      <!-- Orejeta / Perno Izquierdo Superior -->
-      <ellipse cx="23" cy="22" rx="6" ry="4" transform="rotate(-30 23 22)" fill="${bodyColor}" />
-      
-      <!-- Orejeta / Perno Derecho Superior -->
-      <ellipse cx="85" cy="18" rx="6" ry="4" transform="rotate(30 85 18)" fill="${bodyColor}" />
-
-      <!-- Cuerpo Superior de la V (Brazo Izquierdo) -->
-      <polygon points="23,20 41,20 49,43 32,43" fill="${bodyColor}" />
-      
-      <!-- Cuerpo Superior de la V (Brazo Derecho) -->
-      <polygon points="85,16 67,16 57,43 74,43" fill="${bodyColor}" />
-
-      <!-- Franja Patria Intermedia (Celeste / Blanco / Celeste) a través de la V -->
-      <!-- Franja Celeste Superior -->
-      <polygon points="32,43 49,43 51,48 30,48" fill="${bandCeleste}" />
-      <polygon points="74,43 57,43 55,48 76,48" fill="${bandCeleste}" />
-
-      <!-- Franja Blanca Central -->
-      <polygon points="30,48 51,48 53,53 28,53" fill="${bandWhite}" />
-      <polygon points="76,48 55,48 53,53 78,53" fill="${bandWhite}" />
-
-      <!-- Franja Celeste Inferior -->
-      <polygon points="28,53 53,53 55,58 26,58" fill="${bandCeleste}" />
-      <polygon points="78,53 53,53 51,58 80,58" fill="${bandCeleste}" />
-
-      <!-- Vértice Inferior Sólido de la V -->
-      <polygon points="26,58 80,58 53,88" fill="${bodyColor}" />
+    <svg width="${size}" height="${size}" viewBox="0 0 610 530" fill="none" xmlns="http://www.w3.org/2000/svg" class="${className} shrink-0" role="img" aria-label="Isotipo Vaca Muerta Consulting">
+      <ellipse cx="55" cy="125" rx="46" ry="22" transform="rotate(-8 55 125)" fill="${bodyColor}" />
+      <polygon points="90,148 212,148 253,243 128,243" fill="${bodyColor}" />
+      <polygon points="422,47 540,47 455,243 335,243" fill="${bodyColor}" />
+      <ellipse cx="550" cy="32" rx="46" ry="22" transform="rotate(14 550 32)" fill="${bodyColor}" />
+      <polygon points="137,262 258,262 286,325 160,325" fill="${band}" />
+      <polygon points="308,262 440,262 415,325 295,325" fill="${band}" />
+      <polygon points="170,343 408,343 352,513 240,513" fill="${bodyColor}" />
     </svg>
   `;
 }
