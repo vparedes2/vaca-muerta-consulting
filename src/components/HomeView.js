@@ -128,7 +128,7 @@ export function renderHomeView() {
                 </div>
 
                 <figure class="space-y-2">
-                  <img src="./assets/certificado-ejemplo.jpg" alt="Ejemplo de certificado de Vaca Muerta Consulting con los datos personales difuminados" class="w-full rounded-lg border border-slate-700 shadow-lg" loading="lazy">
+                  <img src="./assets/certificado-ejemplo.jpg" alt="Ejemplo de certificado de Vaca Muerta Consulting con los datos personales difuminados" class="w-full rounded-lg border border-slate-700 shadow-lg">
                   <figcaption class="text-xs text-slate-400 leading-relaxed">
                     Ejemplo real con los datos personales ocultos. Cualquier empresa escanea el QR y comprueba en segundos que hiciste el curso.
                   </figcaption>
