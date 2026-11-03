@@ -232,9 +232,13 @@ export function renderHomeView() {
               </div>
               <h3 class="text-2xl font-black text-white leading-tight">${featured.title}</h3>
               <p class="text-sm text-slate-300 leading-relaxed">${featured.description}</p>
+              <div class="flex items-baseline gap-3 pt-1">
+                <span class="text-[11px] text-slate-400 uppercase font-mono">Arancel</span>
+                <span class="text-xl font-black text-white font-mono">${formatPrice(featured.basePrice)}</span>
+              </div>
               <div class="flex flex-wrap items-center gap-3 pt-2">
                 <a href="#/catalogo" class="px-5 py-3 bg-[#74ACDF] hover:bg-sky-400 text-slate-950 font-bold text-sm rounded-xl transition-all">Ver programa</a>
-                <a href="${waPasaporte}" target="_blank" rel="noopener" class="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm rounded-xl border border-slate-700 transition-all">Consultar arancel y fechas</a>
+                <a href="${waPasaporte}" target="_blank" rel="noopener" class="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm rounded-xl border border-slate-700 transition-all">Consultar fechas y ayudas</a>
               </div>
             </div>
           </div>
