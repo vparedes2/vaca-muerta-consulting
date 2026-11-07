@@ -4,7 +4,28 @@
  */
 
 import { storageService } from './storageService.js';
-import { getSupabase, remoteStore } from './supabaseClient.js';
+import { getSupabase, remoteStore, isGoogleEnabled } from './supabaseClient.js';
+
+function siteRoot() {
+  return `${window.location.origin}${window.location.pathname}`;
+}
+
+/** Lee y limpia de la URL los parámetros que deja el regreso de Google o del mail */
+function takeAuthParams() {
+  const params = new URLSearchParams(window.location.search);
+  const info = {
+    fromRedirect: params.has('code') || params.has('error') || params.has('recovery'),
+    recovery: params.get('recovery') === '1',
+    error: params.get('error_description') || params.get('error') || ''
+  };
+  if (window.location.search) {
+    window.history.replaceState(null, '', `${window.location.pathname}${window.location.hash || '#/home'}`);
+  }
+  return info;
+}
+
+let pendingRecovery = false;
+let pendingMessage = null;
 
 const SESSION_KEY = 'current_session';
 const listeners = new Set();
@@ -130,16 +151,97 @@ export const authService = {
       const { data } = await supabase.auth.getSession();
       supaUser = data && data.session ? data.session.user : null;
     }
+    const urlInfo = takeAuthParams();
+
+    if (urlInfo.error) {
+      pendingMessage = { text: `No se pudo completar el ingreso: ${urlInfo.error}`, type: 'error' };
+    }
+
+    if (supaUser && urlInfo.recovery) {
+      pendingRecovery = true;
+    }
 
     if (supaUser && await remoteStore.isAdmin()) {
       storageService.set(SESSION_KEY, this._adminPayload(supaUser));
       storageService.setRemoteWritable(true);
+      if (urlInfo.fromRedirect && !urlInfo.recovery) {
+        pendingMessage = { text: 'Ingresaste como Dirección Técnica.', type: 'success' };
+        window.location.hash = '#/admin';
+      }
       return;
     }
+
+    if (supaUser && supabase) {
+      pendingMessage = { text: `La cuenta ${supaUser.email} no tiene permisos de administración.`, type: 'error' };
+      pendingRecovery = false;
+      await supabase.auth.signOut();
+    }
+
     storageService.setRemoteWritable(false);
     if (current && current.role !== 'student') {
       storageService.remove(SESSION_KEY);
     }
+  },
+
+  /** Mensaje pendiente tras volver de Google o del mail (se muestra una sola vez) */
+  takePendingMessage() {
+    const msg = pendingMessage;
+    pendingMessage = null;
+    return msg;
+  },
+
+  /** true si se volvió desde el enlace de recuperación y hay que pedir la contraseña nueva */
+  takePendingRecovery() {
+    const value = pendingRecovery;
+    pendingRecovery = false;
+    return value;
+  },
+
+  /** Ingreso con Google (Supabase OAuth) */
+  async loginWithGoogle() {
+    if (!(await isGoogleEnabled())) {
+      return { success: false, message: 'El ingreso con Google todavía no está activado. Por ahora usá tu email y contraseña.' };
+    }
+    const supabase = await getSupabase();
+    if (!supabase) {
+      return { success: false, message: 'No hay conexión con el servidor. Probá de nuevo en unos minutos.' };
+    }
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: siteRoot() }
+    });
+    if (error) return { success: false, message: error.message };
+    return { success: true, redirecting: true };
+  },
+
+  /** Envía el mail para crear una contraseña nueva */
+  async sendPasswordReset(email) {
+    const supabase = await getSupabase();
+    if (!supabase) {
+      return { success: false, message: 'No hay conexión con el servidor. Probá de nuevo en unos minutos.' };
+    }
+    const { error } = await supabase.auth.resetPasswordForEmail(String(email).trim(), {
+      redirectTo: `${siteRoot()}?recovery=1`
+    });
+    if (error) {
+      const tooMany = /rate|seconds|limit/i.test(error.message);
+      return { success: false, message: tooMany ? 'Ya se envió un mail hace poco. Esperá unos minutos y probá de nuevo.' : error.message };
+    }
+    return { success: true };
+  },
+
+  /** Guarda la contraseña nueva (después de abrir el enlace del mail) */
+  async updatePassword(newPassword) {
+    const supabase = await getSupabase();
+    if (!supabase) {
+      return { success: false, message: 'No hay conexión con el servidor.' };
+    }
+    const { error } = await supabase.auth.updateUser({ password: newPassword });
+    if (error) {
+      const weak = /password|weak|characters/i.test(error.message);
+      return { success: false, message: weak ? 'La contraseña es muy débil: usá al menos 8 caracteres combinando letras y números.' : error.message };
+    }
+    return { success: true };
   },
 
   _adminPayload(supaUser) {

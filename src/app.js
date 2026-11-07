@@ -11,7 +11,7 @@ import { storageService } from './services/storageService.js';
 import { renderNavbar } from './components/Navbar.js';
 import { renderHomeView, initHomeEvents } from './components/HomeView.js';
 import { renderCatalogView, initCatalogEvents } from './components/CatalogView.js';
-import { renderLoginModal, initLoginModalEvents } from './components/LoginModal.js';
+import { renderLoginModal, initLoginModalEvents, openPasswordModal } from './components/LoginModal.js';
 import { renderAdminDashboard, initAdminEvents } from './components/AdminDashboard.js';
 import { renderCoordinatorView, initCoordinatorEvents } from './components/CoordinatorView.js';
 import { renderStudentPortal, initStudentPortalEvents } from './components/StudentPortal.js';
@@ -53,6 +53,9 @@ class App {
     Promise.race([ready, timeout]).then(() => {
       this.renderHeader();
       this.handleRoute();
+      const msg = authService.takePendingMessage();
+      if (msg) showToast(msg.text, msg.type);
+      if (authService.takePendingRecovery()) openPasswordModal();
     });
   }
 
@@ -168,7 +171,7 @@ class App {
     if (hash === '#/admin') {
       const user = authService.getCurrentUser();
       if (!user || user.role !== 'admin') {
-        showToast('Acceso restringido a Dirección Técnica (vparedes)', 'warning');
+        showToast('Acceso restringido a Dirección Técnica. Ingresá con tu cuenta.', 'warning');
         document.getElementById('login-modal')?.classList.remove('hidden');
         window.location.hash = '#/home';
         return;

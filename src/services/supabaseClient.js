@@ -17,7 +17,7 @@ export function getSupabase() {
   if (!clientPromise) {
     clientPromise = import(SUPABASE_JS_URL)
       .then(({ createClient }) => createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-        auth: { persistSession: true, autoRefreshToken: true }
+        auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: 'pkce' }
       }))
       .catch(err => {
         console.error('[Supabase] No se pudo cargar la librería:', err);
@@ -26,6 +26,18 @@ export function getSupabase() {
       });
   }
   return clientPromise;
+}
+
+/** Indica si el proveedor de Google está activado en Supabase */
+export async function isGoogleEnabled() {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/auth/v1/settings`, { headers: { apikey: SUPABASE_PUBLISHABLE_KEY } });
+    if (!res.ok) return false;
+    const json = await res.json();
+    return !!(json && json.external && json.external.google);
+  } catch (e) {
+    return false;
+  }
 }
 
 const SHARED_TABLES = { courses: 'courses', cohorts: 'cohorts' };
