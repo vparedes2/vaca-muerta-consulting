@@ -4,7 +4,7 @@
  */
 
 import { storageService } from './storageService.js';
-import { supabase, remoteStore } from './supabaseClient.js';
+import { getSupabase, remoteStore } from './supabaseClient.js';
 
 const SESSION_KEY = 'current_session';
 const listeners = new Set();
@@ -97,6 +97,10 @@ export const authService = {
    * Ingreso de Dirección Técnica con email y contraseña (Supabase Auth)
    */
   async loginWithEmail(email, password) {
+    const supabase = await getSupabase();
+    if (!supabase) {
+      return { success: false, message: 'No hay conexión con el servidor. Probá de nuevo en unos minutos.' };
+    }
     const { data, error } = await supabase.auth.signInWithPassword({ email: String(email).trim(), password });
     if (error) {
       return { success: false, message: 'Email o contraseña incorrectos.' };
@@ -120,8 +124,12 @@ export const authService = {
    */
   async restoreSession() {
     const current = this.getCurrentUser();
-    const { data } = await supabase.auth.getSession();
-    const supaUser = data && data.session ? data.session.user : null;
+    const supabase = await getSupabase();
+    let supaUser = null;
+    if (supabase) {
+      const { data } = await supabase.auth.getSession();
+      supaUser = data && data.session ? data.session.user : null;
+    }
 
     if (supaUser && await remoteStore.isAdmin()) {
       storageService.set(SESSION_KEY, this._adminPayload(supaUser));
@@ -153,7 +161,7 @@ export const authService = {
     const wasAdmin = this.isAdmin();
     storageService.remove(SESSION_KEY);
     storageService.setRemoteWritable(false);
-    if (wasAdmin) supabase.auth.signOut().catch(() => {});
+    if (wasAdmin) getSupabase().then(sb => sb && sb.auth.signOut()).catch(() => {});
     this._notify();
     return true;
   },

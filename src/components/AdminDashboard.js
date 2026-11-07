@@ -931,7 +931,7 @@ export function initAdminEvents() {
         showToast('Curso creado y publicado exitosamente.', 'success');
       }
       closeCourseModal();
-      setTimeout(() => window.location.reload(), 400);
+      storageService.reloadWhenSaved();
     } catch (err) {
       showToast(err.message, 'error');
     }
@@ -944,7 +944,7 @@ export function initAdminEvents() {
       const updated = courseService.togglePause(courseId);
       const isPaused = updated.status === 'paused';
       showToast(isPaused ? `Inscripciones pausadas para ${updated.code}` : `Inscripciones reactivadas para ${updated.code}`, isPaused ? 'warning' : 'success');
-      setTimeout(() => window.location.reload(), 400);
+      storageService.reloadWhenSaved();
     });
   });
 
@@ -955,7 +955,7 @@ export function initAdminEvents() {
       const updated = courseService.toggleVisibility(courseId);
       const isHidden = updated.status === 'hidden';
       showToast(isHidden ? `Curso ${updated.code} ocultado del catálogo público.` : `Curso ${updated.code} visible en catálogo público.`, isHidden ? 'info' : 'success');
-      setTimeout(() => window.location.reload(), 400);
+      storageService.reloadWhenSaved();
     });
   });
 
@@ -967,7 +967,7 @@ export function initAdminEvents() {
       if (confirm(`¿Confirma que desea eliminar el curso "${title}" del catálogo oficial?`)) {
         courseService.delete(courseId);
         showToast(`Curso ${title} eliminado del catálogo.`, 'info');
-        setTimeout(() => window.location.reload(), 400);
+        storageService.reloadWhenSaved();
       }
     });
   });
@@ -1042,7 +1042,7 @@ export function initAdminEvents() {
     storageService.set('users', users);
     showToast(`Alumno ${name} registrado con éxito. Usuario: ${username}`, 'success');
     closeStudentModal();
-    setTimeout(() => window.location.reload(), 400);
+    storageService.reloadWhenSaved();
   });
 
   // Eliminar alumno
@@ -1055,7 +1055,7 @@ export function initAdminEvents() {
         const updated = users.filter(u => u.id !== studentId);
         storageService.set('users', updated);
         showToast(`Alumno ${studentName} eliminado.`, 'info');
-        setTimeout(() => window.location.reload(), 400);
+        storageService.reloadWhenSaved();
       }
     });
   });
@@ -1090,7 +1090,7 @@ export function initAdminEvents() {
       storageService.set('users', users);
       showToast('Cohorte reasignada exitosamente.', 'success');
       closeReassignModal();
-      setTimeout(() => window.location.reload(), 400);
+      storageService.reloadWhenSaved();
     }
   });
 
@@ -1125,7 +1125,7 @@ export function initAdminEvents() {
     cohortService.create(cohortData);
     showToast(`Cohorte "${cohortData.name}" creada con éxito.`, 'success');
     closeCohortModal();
-    setTimeout(() => window.location.reload(), 400);
+    storageService.reloadWhenSaved();
   });
 
   // Eliminar cohorte
@@ -1138,7 +1138,7 @@ export function initAdminEvents() {
         const updated = cohorts.filter(c => c.id !== cohortId);
         storageService.set('cohorts', updated);
         showToast(`Cohorte ${cohortName} eliminada.`, 'info');
-        setTimeout(() => window.location.reload(), 400);
+        storageService.reloadWhenSaved();
       }
     });
   });
@@ -1172,7 +1172,7 @@ export function initAdminEvents() {
       coordinatorService.create(coordData);
       showToast(`Coordinador ${coordData.name} registrado con código ${coordData.promoCode}.`, 'success');
       closeCoordModal();
-      setTimeout(() => window.location.reload(), 400);
+      storageService.reloadWhenSaved();
     } catch (err) {
       showToast(err.message, 'error');
     }
@@ -1191,7 +1191,7 @@ export function initAdminEvents() {
       if (toPay && Number(toPay) > 0) {
         coordinatorService.liquidateCommission(coordId, Number(toPay));
         showToast(`Se liquidaron ${formatARS(Number(toPay))} a ${stats.coordinator.name}`, 'success');
-        setTimeout(() => window.location.reload(), 500);
+        storageService.reloadWhenSaved();
       }
     });
   });
@@ -1204,7 +1204,7 @@ export function initAdminEvents() {
       if (confirm(`¿Confirma que desea eliminar al colaborador/coordinador "${coordName}"? Esta acción revocará sus accesos y su código comercial.`)) {
         coordinatorService.delete(coordId);
         showToast(`Colaborador ${coordName} eliminado correctamente.`, 'info');
-        setTimeout(() => window.location.reload(), 500);
+        storageService.reloadWhenSaved();
       }
     });
   });
@@ -1216,7 +1216,7 @@ export function initAdminEvents() {
     if (confirm('¿Desea restablecer todos los datos a la configuración inicial? Se restaurarán los 4 cursos, cohortes y alumnos de prueba.')) {
       storageService.resetToDefaults();
       showToast('Base de datos restablecida correctamente.', 'success');
-      setTimeout(() => window.location.reload(), 500);
+      storageService.reloadWhenSaved();
     }
   });
 

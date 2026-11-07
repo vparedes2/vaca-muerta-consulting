@@ -2,16 +2,31 @@
  * Vaca Muerta Consulting - Cliente Supabase
  * La clave publicable es pública por diseño: los permisos reales los controlan
  * las políticas RLS de la base (lectura pública del catálogo, escritura solo admin).
+ *
+ * La librería se carga bajo demanda: si no se puede descargar, el sitio sigue
+ * funcionando con el catálogo incluido en la web (solo lectura).
  */
-
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
 export const SUPABASE_URL = 'https://iczcnnmajpmyjuukniwj.supabase.co';
 export const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_QgTsJUkFq00g0HoLhZKziQ_SJwcHEbP';
+const SUPABASE_JS_URL = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm';
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-  auth: { persistSession: true, autoRefreshToken: true }
-});
+let clientPromise = null;
+
+export function getSupabase() {
+  if (!clientPromise) {
+    clientPromise = import(SUPABASE_JS_URL)
+      .then(({ createClient }) => createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+        auth: { persistSession: true, autoRefreshToken: true }
+      }))
+      .catch(err => {
+        console.error('[Supabase] No se pudo cargar la librería:', err);
+        clientPromise = null;
+        return null;
+      });
+  }
+  return clientPromise;
+}
 
 const SHARED_TABLES = { courses: 'courses', cohorts: 'cohorts' };
 
@@ -22,6 +37,8 @@ export const remoteStore = {
 
   /** Lee una colección compartida ordenada. Devuelve null si falla. */
   async fetchCollection(key) {
+    const supabase = await getSupabase();
+    if (!supabase) return null;
     const table = SHARED_TABLES[key];
     const { data, error } = await supabase.from(table).select('id, data, sort_order').order('sort_order');
     if (error) {
@@ -36,6 +53,8 @@ export const remoteStore = {
    * Solo funciona con sesión de administrador (RLS).
    */
   async saveCollection(key, items) {
+    const supabase = await getSupabase();
+    if (!supabase) throw new Error('Sin conexión con la base de datos');
     const table = SHARED_TABLES[key];
     const rows = (items || []).map((item, i) => ({ id: item.id, data: item, sort_order: i }));
     if (rows.length) {
@@ -50,6 +69,8 @@ export const remoteStore = {
   },
 
   async isAdmin() {
+    const supabase = await getSupabase();
+    if (!supabase) return false;
     const { data, error } = await supabase.rpc('is_admin');
     if (error) return false;
     return data === true;

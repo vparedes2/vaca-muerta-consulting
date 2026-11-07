@@ -27,6 +27,13 @@ const hasLocal = isLocalStorageAvailable();
 
 // Escritura en la base compartida habilitada solo con sesión de administrador verificada
 let remoteWritable = false;
+const pendingSaves = new Set();
+
+try {
+  window.addEventListener('beforeunload', (e) => {
+    if (pendingSaves.size > 0) { e.preventDefault(); e.returnValue = ''; }
+  });
+} catch (e) { /* sin DOM */ }
 
 function emit(name, detail) {
   try { window.dispatchEvent(new CustomEvent(name, { detail })); } catch (e) { /* sin DOM */ }
@@ -56,6 +63,16 @@ export const storageService = {
     this.set('initialized', true);
     this.set('version', '2.4.0');
     console.log('[StorageService] Base de datos reinicializada con versión 2.4.0 de Vaca Muerta Consulting.');
+  },
+
+  /**
+   * Espera a que terminen las publicaciones en curso y recarga la página
+   */
+  async reloadWhenSaved() {
+    while (pendingSaves.size > 0) {
+      await Promise.allSettled([...pendingSaves]);
+    }
+    window.location.reload();
   },
 
   /**
@@ -106,9 +123,11 @@ export const storageService = {
   set(key, value, { remote = true } = {}) {
     const fullKey = STORAGE_KEY_PREFIX + key;
     if (remote && remoteWritable && remoteStore.isShared(key)) {
-      remoteStore.saveCollection(key, value)
+      const job = remoteStore.saveCollection(key, value)
         .then(() => emit('vmc:remote-saved', { key }))
-        .catch(err => emit('vmc:remote-error', { key, message: err.message }));
+        .catch(err => emit('vmc:remote-error', { key, message: err.message }))
+        .finally(() => pendingSaves.delete(job));
+      pendingSaves.add(job);
     }
     try {
       if (hasLocal) {
